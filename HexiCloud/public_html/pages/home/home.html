@@ -1,0 +1,14 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<h1>home</h1><br/>
+<!-- ko if: !isLoggedInUser() -->
+<div id="enterJourney" data-bind="click: isLoggedinTrue">enter journey</div><br/>
+<!-- /ko -->
+<!-- ko if: isLoggedInUser() === true -->
+<button id="startProcess" data-bind="click: startProcess">start</button><br/>
+<button id="skipProcess" data-bind="click: skipProcess">skip process</button>
+<!-- /ko -->
