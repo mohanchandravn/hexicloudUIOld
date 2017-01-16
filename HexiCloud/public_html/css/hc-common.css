@@ -8,3 +8,14 @@ and open the template in the editor.
     Author     : nyasarap
 */
 
+html, body, #routingContainer, .responsive-height {
+    height: 100%;
+}
+
+navigationbarright {
+    max-width: 100px;
+}
+
+navigationbarleft, .center-content, navigationbarright {
+    border: 2px dashed blue;
+}

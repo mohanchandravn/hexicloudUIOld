@@ -67,6 +67,9 @@ function(oj, ko, $)
     // dealing with rewrited URL when the router uses the path URL adapter.
     oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
     
+    // Register custom components for reusing the code
+    ko.components.register('navigationbarleft', {require: 'components/navigationbarleft/navigationbarleft'});
+    ko.components.register('navigationbarright', {require: 'components/navigationbarright/navigationbarright'});
     function getPath(path) {
         var url = "pages/" + path + "/" + path;
         return url;
