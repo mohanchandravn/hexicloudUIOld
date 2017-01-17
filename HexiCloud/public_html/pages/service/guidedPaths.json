@@ -1,0 +1,18 @@
+{
+   "guidedPaths": [{
+           "stepCount": "3",
+           "totalSteps": "10",
+           "percentage": "50",
+           "path": "CONTINUE PATH"
+        }, {
+           "stepCount": "3",
+           "totalSteps": "10",
+           "percentage": "50",
+           "path": "CONTINUE PATH"
+        }, {
+           "stepCount": "3",
+           "totalSteps": "10",
+           "percentage": "0",
+           "path": "START PATH"
+        }]
+}

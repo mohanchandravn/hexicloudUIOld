@@ -10,6 +10,7 @@ and open the template in the editor.
 
 .dashboard {
     background-color: white;
+    max-width: 1300px;
     padding: 40px 30px 50px 100px;
 }
 
@@ -27,8 +28,12 @@ and open the template in the editor.
     margin-left: 10px;
 }
 
-.dashboard-content {
+.dashboard-services-content {
     padding-top: 20px
+}
+
+.service-menu {
+    margin-top: 10px;
 }
 
 .labelled-button-title {
@@ -42,4 +47,81 @@ and open the template in the editor.
     text-align: center;
     margin-left: 30px;
     cursor: pointer;
+}
+
+.dashboard .service-usage-details {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.dashboard .service-learn-more {
+    width: 120px;
+    font-size: 11px;
+    border: 1px solid #848E94;
+    text-align: center;
+    margin: 10px 20px;
+    cursor: pointer;
+}
+
+.service-item {
+    width: 120px;
+    min-height: 100px;
+    box-sizing: border-box;
+    border: 1px solid #405058;
+    margin-right: 30px;
+}
+
+.service-heading {
+    border-bottom: 1px solid #405058;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.service-item img {
+    width: 44px;
+    height: 44px;
+}
+
+.service-details {
+    height: 60px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.service-instance-count {
+    font-size: 28px;
+    font-weight: normal;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.paths-menu {
+    margin: 10px 0px;
+    height: 70px;
+    border: 1px solid #405058;
+}
+
+
+.paths-menu img {
+    width: 44px;
+    height: 44px;
+    margin: 0px 10px;
+}
+
+.paths-menu .steps-count {
+    margin: 0px 30px;
+}
+
+.padding4px {
+    padding: 4px;
+}
+
+.dashboard .oj-progressbar-value {
+    background-color: #253741;
 }
