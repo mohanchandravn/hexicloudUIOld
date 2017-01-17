@@ -12,10 +12,16 @@ html, body, #routingContainer, .responsive-height {
     height: 100%;
 }
 
-navigationbarright {
-    max-width: 100px;
+#routingContainer {
+    background-color: #385155;
 }
 
-navigationbarleft, .center-content, navigationbarright {
-    border: 2px dashed blue;
+navigationbarright {
+    width: 70px;
+    max-width: 70px;
+}
+
+.nav-left-pane {
+    width: 200px;
+    max-width: 200px;
 }

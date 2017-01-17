@@ -7,7 +7,7 @@
 /**
  * dashboard module
  */
-define(['ojs/ojcore', 'knockout'
+define(['ojs/ojcore', 'knockout', 'ojs/ojlistview'
 ], function (oj, ko) {
     /**
      * The view model for the main content view template
@@ -16,6 +16,10 @@ define(['ojs/ojcore', 'knockout'
         var self = this;
         
         console.log('dashboard page');
+        self.routeTo = function(data, event) {
+            var id = event.currentTarget.id.toLowerCase();
+            router.go(id);
+        };
     }
     
     return dashboardContentViewModel;

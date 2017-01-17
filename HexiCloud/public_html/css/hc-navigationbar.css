@@ -8,15 +8,19 @@ and open the template in the editor.
     Author     : nyasarap
 */
 
+* {
+    color: white;
+}
+
 .nav-profile {
     height: 200px;
 }
 
-.nav-list ul {
-    list-style-type: none;
-    margin: 0px 10px;
+.nav-list {
+    margin: 0px 20px;
 }
 
-.nav-list ul li {
-    margin: 10px 0px;
+.nav-list li {
+    border-top: none;
+    border-bottom: 1px solid white;
 }
