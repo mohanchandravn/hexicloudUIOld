@@ -16,6 +16,11 @@ define(['ojs/ojcore', 'knockout'
         var self = this;
         
         console.log('dashboard page');
+        
+        self.runningCPUCount = ko.observable(1);
+        self.totalCPUCount = ko.observable(5);
+        self.currentUsedMemory = ko.observable(30);
+        
         self.routeTo = function(data, event) {
             var id = event.currentTarget.id.toLowerCase();
             router.go(id);

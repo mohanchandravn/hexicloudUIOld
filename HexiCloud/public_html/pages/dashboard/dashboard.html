@@ -7,7 +7,24 @@ and open the template in the editor.
 <div class="oj-flex responsive-height">
     <navigationbarleft class="nav-left-pane oj-flex-item"></navigationbarleft>
     <div class="dashboard oj-flex-item">
-        <h1>dashboard</h1>
+        <div class="dashboard-heading oj-sm-align-items-center oj-flex">
+            <div class="oj-sm-6 oj-flex-item">
+                <div class="oj-sm-justify-content-flex-end oj-flex">
+                    <span data-bind="text: runningCPUCount() + ' out of ' + totalCPUCount() + ' OCPUs '"></span>
+                    <img src="img/itr-ico.png" alt="icon thumbnail"/>
+                </div>
+            </div>
+            <div class="oj-sm-6 oj-flex-item">
+                <div class="oj-sm-justify-content-center oj-flex">
+                    <span data-bind="text: currentUsedMemory() + '% Memory '"></span>
+                    <img src="img/pvm-ico.png" alt="icon thumbnail"/>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-content oj-flex">
+            <span class="labelled-button-title" data-bind="text: 'My Services Preview'"></span>
+            <span class="labelled-button" data-bind="text: 'SEE ALL'"></span>
+        </div>
     </div>
     <navigationbarright class="oj-flex-item"></navigationbarright>
 </div>

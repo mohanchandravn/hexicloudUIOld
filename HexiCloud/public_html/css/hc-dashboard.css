@@ -10,4 +10,36 @@ and open the template in the editor.
 
 .dashboard {
     background-color: white;
+    padding: 40px 30px 50px 100px;
+}
+
+.dashboard-heading {
+    height: 100px;
+    font-size: 32px;
+    color: #E5DDCD;
+    background-color: #253741;
+}
+
+.dashboard-heading img {
+    width: 44px;
+    height: 44px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.dashboard-content {
+    padding-top: 20px
+}
+
+.labelled-button-title {
+    font-weight: 500;
+}
+
+.dashboard .labelled-button {
+    width: 120px;
+    font-size: 11px;
+    border: 1px solid #848E94;
+    text-align: center;
+    margin-left: 30px;
+    cursor: pointer;
 }
