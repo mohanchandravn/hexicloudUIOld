@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : nyasarap
 */
 
-* {
+.navigation-left {
     color: white;
 }
 
@@ -20,7 +20,30 @@ and open the template in the editor.
     margin: 0px 20px;
 }
 
+.nav-list ul {
+    padding: 0px;
+}
+
 .nav-list li {
-    border-top: none;
+    list-style-type: none;
+    padding: 0.925rem;
+    cursor: pointer;
+}
+
+.nav-list li:not(:last-child) {
     border-bottom: 1px solid white;
+}
+
+.navigation-left .logout span {
+    margin-top: 15px;
+}
+
+.navigation-left .logout {
+    width: 100px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid white;
+    margin-top: 250px;
+    cursor: pointer;
 }

@@ -16,6 +16,14 @@ define(['ojs/ojcore', 'knockout'
         var self = this;
         
         console.log('learning page');
+        self.routeTo = function(data, event) {
+            var id = event.currentTarget.id.toLowerCase();
+            router.go(id);
+        };
+        
+        self.logout = function(data, event) {
+            router.go('home/');
+        };
     }
     
     return learningContentViewModel;

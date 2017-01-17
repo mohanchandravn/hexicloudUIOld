@@ -7,7 +7,7 @@
 /**
  * dashboard module
  */
-define(['ojs/ojcore', 'knockout', 'ojs/ojlistview'
+define(['ojs/ojcore', 'knockout'
 ], function (oj, ko) {
     /**
      * The view model for the main content view template
@@ -19,6 +19,10 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojlistview'
         self.routeTo = function(data, event) {
             var id = event.currentTarget.id.toLowerCase();
             router.go(id);
+        };
+        
+        self.logout = function(data, event) {
+            router.go('home/');
         };
     }
     

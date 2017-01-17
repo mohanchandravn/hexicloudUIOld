@@ -14,6 +14,16 @@ define(['ojs/ojcore', 'knockout'
      */
     function serviceContentViewModel() {
         var self = this;
+        
+        console.log('service page');
+        self.routeTo = function(data, event) {
+            var id = event.currentTarget.id.toLowerCase();
+            router.go(id);
+        };
+        
+        self.logout = function(data, event) {
+            router.go('home/');
+        };
     }
     
     return serviceContentViewModel;

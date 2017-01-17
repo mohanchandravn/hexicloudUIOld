@@ -4,49 +4,37 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<div class="oj-flex">
+<div class="navigation-left oj-flex">
     <div class="nav-profile oj-sm-12 oj-flex-item">
         <div class="oj-sm-justify-content-center oj-flex">Profile related content</div> 
     </div>
     <div class="nav-list oj-sm-12 oj-flex-item">
-        <ul id="listview" aria-label="list with static data" 
-                data-bind="ojComponent: {component: 'ojListView', selectionMode: 'none'}">
+        <ul>
             <li id="dashboard" data-bind="click: $parent.routeTo">
-                <!--<div class="oj-flex-bar oj-hybrid-padding">-->
-                    <div class="oj-hybrid-padding">
-                        <div class="item-title">
-                            <span data-bind="text: 'DASHBOARD'"></span>
-                        </div>
-                    </div>
-                <!--</div>-->
+                <div class="item-list-title">
+                    <span data-bind="text: 'DASHBOARD'"></span>
+                </div>
             </li>
             <li id="service" data-bind="click: $parent.routeTo">
-                <!--<div class="oj-flex-bar oj-hybrid-padding">-->
-                    <div class="oj-hybrid-padding">
-                        <div class="item-title">
-                            <span data-bind="text: 'SERVICE'"></span>
-                        </div>
-                    </div>
-                <!--</div>-->
+                <div class="item-list-title">
+                    <span data-bind="text: 'SERVICE'"></span>
+                </div>
             </li>
             <li id="learning" data-bind="click: $parent.routeTo">
-                <!--<div class="oj-flex-bar oj-hybrid-padding">-->
-                    <div class="oj-hybrid-padding">
-                        <div class="item-title">
-                            <span data-bind="text: 'LEARNING'"></span>
-                        </div>
-                    </div>
-                <!--</div>-->
+                <div class="item-list-title">
+                    <span data-bind="text: 'LEARNING'"></span>
+                </div>
             </li>
             <li id="settings" data-bind="click: $parent.routeTo">
-                <!--<div class="oj-flex-bar oj-hybrid-padding">-->
-                    <div class="oj-hybrid-padding">
-                        <div class="item-title">
-                            <span data-bind="text: 'SETTINGS'"></span>
-                        </div>
-                    </div>
-                <!--</div>-->
+                <div class="item-list-title">
+                    <span data-bind="text: 'SETTINGS'"></span>
+                </div>
             </li>
         </ul>
+    </div>
+    <div class="oj-sm-12 oj-flex-item">
+        <div class="logout oj-sm-justify-content-center oj-flex">
+            <span data-bind="click: $parent.logout, text: 'LOGOUT'">LOGOUT</span>
+        </div>
     </div>
 </div>
