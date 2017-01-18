@@ -4,5 +4,38 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<h1>login</h1>
-<button data-bind="click: login">Login</button>
+<div class="oj-flex responsive-height">
+    <div class="oj-flex-item">
+        <div class="oj-sm-align-items-center oj-sm-flex-direction-column oj-flex">
+            <div class="oj-flex-item" style="padding:100px 0px 0px;">
+                <div class="oj-panel oj-margin" style="width: 550px;height: 600px; background: rgba(255, 255, 255, .3);">
+                    <div class="oj-flex oj-sm-flex-direction-column oj-sm-align-items-center">
+                        <div class="oj-flex-item " style="padding-top: 70px">
+                            <img src="img/login_man_face.png" alt="icon thumbnail"/>
+                        </div>
+                        <div class="oj-flex-item" style="padding-top: 40px">
+                            <span style="color: #E2F2E9; font-size:25px;"> Login here:</span>
+                        </div>
+                        <div class="oj-flex-item" style="padding-top: 30px; ">
+                            <input id="text-input" type="text" style="background: white;"
+                                   data-bind="ojComponent: {component: 'ojInputText', placeholder: 'Username'}"/>
+                        </div>
+                        <div class="oj-flex-item " style="padding-top: 20px; ">
+
+                            <input type="password" id="password"  style="background: white;"
+                                   data-bind="ojComponent: {component: 'ojInputPassword', placeholder: 'password'}"/>
+
+                        </div>
+                        <div class="oj-flex-item" style="padding-top: 30px; ">
+                            <button id= "button" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
+                                    data-bind="click: login, ojComponent: { component: 'ojButton', label: 'LOGIN', chroming: 'outlined'}"/>
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<button data-bind="click: login">Login</button>-->
