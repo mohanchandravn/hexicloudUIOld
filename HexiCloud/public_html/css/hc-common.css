@@ -12,9 +12,9 @@ html, body, #routingContainer, .responsive-height {
     height: 100%;
 }
 
-#routingContainer {
+/*#routingContainer {
     background-color: #385155;
-}
+}*/
 
 navigationbarright {
     width: 70px;
@@ -25,3 +25,17 @@ navigationbarright {
     width: 240px;
     max-width: 240px;
 }
+
+.mainBackGroundImage {
+    background-image:url('../img/Main_background.jpg');
+/*    background-repeat:no-repeat;
+    background-size: 100%, 100%;
+    background-size:contain;
+    overflow: hidden;*/
+    /*min-height:  100%;*/ 
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;         
+}
+
+	
