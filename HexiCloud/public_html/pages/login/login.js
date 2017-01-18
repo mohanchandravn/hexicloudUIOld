@@ -7,7 +7,7 @@
 /**
  * login module
  */
-define(['ojs/ojcore', 'knockout', 'jquery'
+define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinputtext'
 ], function (oj, ko, $) {
     /**
      * The view model for the main content view template
@@ -18,7 +18,7 @@ define(['ojs/ojcore', 'knockout', 'jquery'
         console.log('login page');
         self.login = function() {
             isLoggedInUser(true);
-            router.go('home/');
+            router.go('hello/');
         };
     }
     
