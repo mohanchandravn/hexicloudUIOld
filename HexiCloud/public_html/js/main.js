@@ -79,6 +79,11 @@ function(oj, ko, $)
     {
       'home':  { label: 'Home',   value: getPath('home'), isDefault: true },
       'login': { label: 'Login', value: getPath('login') },
+      'hello': { label: 'Hello', value: getPath('hello') },
+      'roleIdentified': { label: 'Role Identified', value: getPath('roleIdentified') },
+      'chooseRole': { label: 'Choose Role', value: getPath('chooseRole') },
+      'createUsers' :  { label: 'Create Users', value: getPath('createUsers') },
+      'addAdditionalUsers' : { label: 'Add Additional Users', value: getPath('addAdditionalUsers') },
       'learning': { label: 'Learning', value: getPath('learning') },
       'dashboard': { label: 'Dashboard', value: getPath('dashboard') },
       'service': { label: 'Service', value: getPath('service') },
