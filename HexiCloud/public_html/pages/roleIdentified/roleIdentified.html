@@ -1,0 +1,55 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<div class="oj-flex responsive-height">
+    <div class="oj-panel" style="background-color: rgba(54, 25, 25, .2); min-height: 100%; min-width: 100%">
+        <div style="padding-left: 25%; padding-right: 25%;">
+
+            <div class="oj-panel oj-margin" style="background-color: rgba(52, 72, 79, .8); min-height: 100%; min-width: 100%">
+                <div style="padding-left: 15%; padding-top: 15%">
+                    <p style="color: white; font-size: xx-large">Based on your login credentials set we</p>
+                    <p style="color: white; font-size: xx-large">have identified your role as</p>
+                </div>
+                <div class="oj-flex-pad">
+                    <div class="oj-flex oj-sm-align-items-center oj-sm-flex-direction-column">
+                        <div class="oj-flex-item">
+                            <img src="img/Role_Identified_Admin.png" alt="Role Identified Admin"/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <span style="color: white; font-size: x-large">Account Admin</span><br>
+                            <span style="color: white; font-size: large">Administrator, Buyer, Manager</span>
+                        </div>
+                        <div class="oj-flex-item">
+                            <span style="color: white; font-size: x-large">Is that correct?</span>
+                        </div>   
+                    </div>
+
+                </div>
+                
+                <div class="oj-flex-pad">
+                    <div class="oj-flex oj-sm-align-items-center">
+                        <div class="oj-flex-item">
+                            <div class="oj-sm-justify-content-center oj-flex">
+                                <button id= "acceptRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
+                                        data-bind="click: acceptRole, ojComponent: { component: 'ojButton', label: 'YES', chroming: 'outlined'}"></button>
+                            </div>
+                        </div>
+
+                        <div class="oj-flex-item">
+                            <div class="oj-sm-justify-content-center oj-flex">
+                                <button id= "rejectRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
+                                        data-bind="click: rejectRole, ojComponent: { component: 'ojButton', label: 'NO', chroming: 'outlined'}"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+

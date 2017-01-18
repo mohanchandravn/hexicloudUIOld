@@ -1,0 +1,114 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<div class="oj-flex responsive-height">
+    <div class="oj-panel" style="background-color: rgba(54, 25, 25, .2); min-height: 100%; min-width: 100%">
+        <div style="padding-left: 25%; padding-right: 25%;">
+
+            <div class="oj-panel oj-margin" style="background-color: rgba(52, 72, 79, .8); min-height: 100%; min-width: 100%">
+                <div class="oj-flex-pad">
+                    <div class="oj-flex oj-sm-align-items-center">
+                        <div class="oj-flex-item">
+                            <div class="oj-sm-justify-content-center oj-flex">
+                                <p style="color: white; font-size: x-large; ali">Choose your role</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oj-flex-pad">
+                    <div class="oj-flex oj-sm-align-items-center">
+                        <div class="oj-flex-item">
+                            <div class="oj-flex oj-sm-align-items-center oj-sm-flex-direction-column">
+                                <div class="oj-flex-item">
+                                    <img src="img/IT_Administrator.png" alt="IT Amdiminstrator"/>
+                                </div>
+                                <div class="oj-flex-item">
+                                    <div class="oj-sm-justify-content-center oj-flex">
+                                        <span style="color: white; font-size: x-large">IT Amdiminstrator</span>
+                                    </div>
+                                </div>
+                                <div class="oj-flex-item">
+                                    <div class="oj-sm-justify-content-center oj-flex">
+                                        <span style="color: white; font-size: large">IT, DBA, DEV</span>
+                                    </div>
+                                </div>
+                                <div class="oj-flex-item">
+                                    <div class="oj-sm-justify-content-center oj-flex">
+                                        <div id="itAdminSet" data-bind="ojComponent: {component: 'ojRadioset', value: currentRole}" >
+                                            <span class="oj-choice-row-inline">
+                                                <input id="itAdmin" type="radio" name="rbb" value="itAdmin">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="oj-flex-item">
+                            <div class="oj-flex oj-sm-align-items-center oj-sm-flex-direction-column">
+                                <div class="oj-flex-item">
+                                    <img src="img/Role_Identified_Admin.png" alt="Account Admin"/>
+                                </div>
+                                <div class="oj-flex-item">
+                                    <div class="oj-sm-justify-content-center oj-flex">
+                                        <span style="color: white; font-size: x-large">Account Admin</span>
+
+                                    </div>
+                                </div>
+                                <div class="oj-flex-item">
+                                    <div class="oj-sm-justify-content-center oj-flex">
+                                        <span style="color: white; font-size: large">Administrator, Buyer, Manager</span>
+                                    </div>
+                                </div>
+                                <div class="oj-flex-item">
+                                    <div class="oj-sm-justify-content-center oj-flex">
+                                        <div id="accountAdminSet" data-bind="ojComponent: {component: 'ojRadioset', value: currentRole}" >
+                                            <span class="oj-choice-row-inline">
+                                                <input id="accountAdmin" type="radio" name="rbb" value="accountAdmin">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!--                                <div class="oj-flex-pad">
+                                    <div class="oj-sm-justify-content-center oj-flex">
+                                        <div id="radiosetBasicDemoId"
+                                             data-bind="ojComponent: {component: 'ojRadioset', value: currentRole}" >
+                                            <div class="oj-flex-item">
+                                                <div class="oj-sm-justify-content-center oj-flex">
+                                                     <span class="oj-choice-row-inline">
+                                                         <input id="itAdmin" type="radio" name="rbb" value="itAdmin">
+                                                     </span>
+
+                                                </div>
+                                            </div>
+                                            <div class="oj-flex-item">
+                                                <div class="oj-sm-justify-content-center oj-flex">
+                                                       <span class="oj-choice-row-inline">
+                                                        <input id="accountAdmin" type="radio" name="rbb" value="accountAdmin">
+                                                     </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>-->
+                <div class="oj-flex-items-pad">
+                    <div class="oj-flex oj-sm-align-items-center">
+                        <div class="oj-flex-item">
+                            <div class="oj-sm-justify-content-center oj-flex">
+                                <button id= "acceptRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
+                                        data-bind="click: selectedRole, ojComponent: { component: 'ojButton', label: 'NEXT', chroming: 'outlined'}"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
