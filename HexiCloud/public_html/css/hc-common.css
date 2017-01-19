@@ -15,9 +15,6 @@ html, body, #routingContainer, .responsive-height {
 /*#routingContainer {
     background-color: #385155;
 }*/
-#routingContainer {
-   background-color: #385155;
-}
 
 navigationbarright {
     width: 70px;
@@ -41,9 +38,6 @@ navigationbarright {
     background-position: center center;         
 }
 
-	
-    max-width: 240px;    
-}
 .nav-right-pane {
     width: 100px;
     max-width: 100px;
