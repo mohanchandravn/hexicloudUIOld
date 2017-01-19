@@ -80,21 +80,21 @@ navigationbarright {
 }
 
 input::-webkit-input-placeholder {
-    color: #616365 !important;
+    /*color: #405058 !important;*/
     font-style: normal !important;
 }
 
 input:-moz-placeholder { /* Firefox 18- */
-    color: #616365 !important;  
+    /*color: #405058 !important;*/  
     font-style: normal !important;
 }
 
 input::-moz-placeholder {  /* Firefox 19+ */
-    color: #616365 !important;  
+    /*color: #405058 !important;*/  
     font-style: normal !important;
 }
 
 input:-ms-input-placeholder {  
-    color: #616365 !important;
+    /*color: #405058 !important;*/
     font-style: normal !important;
 }
