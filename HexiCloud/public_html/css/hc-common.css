@@ -28,10 +28,10 @@ navigationbarright {
 
 .mainBackGroundImage {
     background-image:url('../img/Main_background.jpg');
-/*    background-repeat:no-repeat;
-    background-size: 100%, 100%;
-    background-size:contain;
-    overflow: hidden;*/
+    /*    background-repeat:no-repeat;
+        background-size: 100%, 100%;
+        background-size:contain;
+        overflow: hidden;*/
     /*min-height:  100%;*/ 
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
@@ -42,4 +42,25 @@ navigationbarright {
     width: 100px;
     max-width: 100px;
 
+}
+
+.olive-background-panel {
+    background-color: rgba(52, 72, 79, .8); 
+    height: 500px; 
+    min-height: 100%; 
+    min-width: 100%
+}
+
+.olive-sorround-div {
+    padding-left: 25%; 
+    padding-right: 25%;  
+    position: relative; 
+    top: 48.5%; 
+    transform: translateY(-50%);
+}
+
+.main-backgroud-opaque-layer {
+    background-color: rgba(54, 25, 25, .2); 
+    min-height: 100%; 
+    min-width: 100%
 }
