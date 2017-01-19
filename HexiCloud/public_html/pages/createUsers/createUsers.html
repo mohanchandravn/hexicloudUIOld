@@ -8,65 +8,81 @@ and open the template in the editor.
     <div class="oj-panel main-backgroud-opaque-layer" >
         <div class="olive-sorround-div">
             <div class="oj-panel oj-margin olive-background-panel">
-                <div class="oj-flex-pad">
-                    <div class="oj-flex">
-                        <div class="oj-flex-item">
-                            <p style="color: white; font-size: x-large; ali">Add new users</p>
-                        </div>
-                    </div>
-                    <div class="oj-form-layout">
-                        <div class="oj-form">
-
-                            <div class="oj-flex">  
-                                <div class="oj-flex-item">
-                                    <div class="oj-sm-justify-content-center oj-flex">
-                                        <input id="nameU" style="background: transparent" data-bind="ojComponent: {component: 'ojInputText', required: true, placeholder: 'Name', rootAttributes: {style:'max-width:50%'}}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="oj-flex">  
-                                <div class="oj-flex-item">
-                                    <div class="oj-sm-justify-content-center oj-flex">
-                                        <input id="userName" style=" background: transparent" data-bind="ojComponent: {component: 'ojInputText', required: true, placeholder: 'Username', rootAttributes: {style:'max-width:50%'}}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="oj-flex">  
-                                <div class="oj-flex-item">
-                                    <div class="oj-sm-justify-content-center oj-flex">
-                                        <input id="password" style="background: transparent" data-bind="ojComponent: {component: 'ojInputText', required: true, placeholder: 'Password', rootAttributes: {style:'max-width:50%'}}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="oj-flex">  
-                                <div class="oj-flex-item">
-                                    <div class="oj-sm-justify-content-center oj-flex">
-                                        <input id="passwordC" style="background: transparent" data-bind="ojComponent: {component: 'ojInputText', required: true, placeholder: 'Confirm Password', rootAttributes: {style:'max-width:50%'}}">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="oj-flex">
-                        <div class="oj-flex-item">
-                            <p style="color: white; font-size: x-large; ali">Would you like to add more?</p>
-                        </div>
-                    </div>
+                <div style="padding-left: 10%; padding-right: 10%">
+                    <div class="oj-hybrid-padding"> </div>
+                    <div class="oj-hybrid-padding"> </div>
+                    <div class="oj-hybrid-padding"> </div>
                     <div class="oj-flex-pad">
-                        <div class="oj-flex oj-sm-align-items-center">
+                        <div class="oj-flex">
                             <div class="oj-flex-item">
-                                <div class="standard-button oj-sm-justify-content-center oj-flex">
-<!--                                    <button id= "acceptRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
-                                            data-bind="click: addMoreUsers, ojComponent: { component: 'ojButton', label: 'YES', chroming: 'outlined'}"></button>-->
-                                    <span data-bind="click: addMoreUsers, text: 'YES'">YES</span>
+                                <p style="color: white; font-size: x-large; ali">Add new users</p>
+                            </div>
+                        </div>
+                        <div class="oj-hybrid-padding"> </div>
+                        <div class="oj-hybrid-padding"> </div>
+                        <div class="oj-form-layout">
+                            <div class="oj-form">
+
+                                <div class="oj-flex">  
+                                    <div class="oj-flex-item">
+                                        <div class="oj-sm-justify-content-center oj-flex">
+                                            <input id="nameU"  style="background: transparent" class="moreHeight whitePlaceHolder input-color-white" data-bind="ojComponent: {component: 'ojInputText', placeholder: 'Name', rootAttributes: {style:'max-width:50%'}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="oj-flex">  
+                                    <div class="oj-flex-item">
+                                        <div class="oj-sm-justify-content-center oj-flex">
+                                            <input id="userName" style=" background: transparent" class="moreHeight whitePlaceHolder input-color-white" data-bind="ojComponent: {component: 'ojInputText', placeholder: 'Username', rootAttributes: {style:'max-width:50%'}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="oj-flex">  
+                                    <div class="oj-flex-item">
+                                        <div class="oj-sm-justify-content-center oj-flex">
+                                            <input id="password" style="background: transparent" class="moreHeight whitePlaceHolder input-color-white" data-bind="ojComponent: {component: 'ojInputPassword', placeholder: 'Password', rootAttributes: {style:'max-width:50%'}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="oj-flex">  
+                                    <div class="oj-flex-item">
+                                        <div class="oj-sm-justify-content-center oj-flex">
+                                            <input id="passwordC" style="background: transparent" class="moreHeight whitePlaceHolder input-color-white" data-bind="ojComponent: {component: 'ojInputPassword', placeholder: 'Confirm Password', rootAttributes: {style:'max-width:50%'}}">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="oj-hybrid-padding"> </div>
+                        <div class="oj-hybrid-padding"> </div>
+                        <div class="oj-flex">
                             <div class="oj-flex-item">
-                                <div class="standard-button oj-sm-justify-content-center oj-flex">
-<!--                                    <button id= "rejectRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
-                                            data-bind="click: doNotAddUsers, ojComponent: { component: 'ojButton', label: 'NO', chroming: 'outlined'}"></button>-->
+                                <p style="color: white; font-size: x-large; ali">Would you like to add more?</p>
+                            </div>
+                        </div>
+                        <div class="oj-hybrid-padding"> </div>
+                        <div class="oj-hybrid-padding"> </div>
+                        <div class="oj-flex-items-pad">
+                            <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">
+                                <div class="oj-flex-item">
+                                    <div class="standard-button oj-sm-justify-content-center oj-flex">
+                                        <!--                                    <button id= "acceptRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
+                                                                                    data-bind="click: addMoreUsers, ojComponent: { component: 'ojButton', label: 'YES', chroming: 'outlined'}"></button>-->
+                                        <span data-bind="click: addMoreUsers, text: 'YES'">YES</span>
+                                    </div>
+                                </div>
+                                <div class="oj-hybrid-padding"> </div>
+                                <div class="oj-hybrid-padding"> </div>
+                                <div class="oj-flex-item">
+                                    <div class="standard-button oj-sm-justify-content-center oj-flex">
+                                        <!--                                    <button id= "rejectRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
+                                                                                    data-bind="click: doNotAddUsers, ojComponent: { component: 'ojButton', label: 'NO', chroming: 'outlined'}"></button>-->
                                         <span data-bind="click: doNotAddUsers, text: 'NO'">NO</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -75,5 +91,5 @@ and open the template in the editor.
             </div>
         </div>
     </div>
-</div>
 
+</div>

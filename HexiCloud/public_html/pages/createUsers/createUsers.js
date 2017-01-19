@@ -17,12 +17,13 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinputtext'
         
         console.log('Create Users page');
         self.addMoreUsers = function() {
+            console.log('Clicked add more user');
             isLoggedInUser(true);
             router.go('createUsers/');
         };
         self.doNotAddUsers = function() {
             isLoggedInUser(true);
-            router.go('dashboard/');
+            router.go('servicesMini/');
         };
     }
     
