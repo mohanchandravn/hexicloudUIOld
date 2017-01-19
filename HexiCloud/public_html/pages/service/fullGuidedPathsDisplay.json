@@ -1,0 +1,34 @@
+{
+   "guidedPaths": [{
+           "stepCount": "3",
+           "totalSteps": "10",
+           "percentage": "30",
+           "path": "CONTINUE PATH"
+        }, {
+           "stepCount": "1",
+           "totalSteps": "10",
+           "percentage": "10",
+           "path": "CONTINUE PATH"
+        }, {
+           "stepCount": "0",
+           "totalSteps": "10",
+           "percentage": "0",
+           "path": "START PATH"
+        }, {
+           "stepCount": "5",
+           "totalSteps": "10",
+           "percentage": "50",
+           "path": "CONTINUE PATH"
+        }, {
+           "stepCount": "7",
+           "totalSteps": "10",
+           "percentage": "70",
+           "path": "CONTINUE PATH"
+        }, {
+           "stepCount": "3",
+           "totalSteps": "10",
+           "percentage": "30",
+           "path": "CONTINUE PATH"
+        }
+    ]
+}

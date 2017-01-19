@@ -2,7 +2,7 @@
    "services": [{
            "serviceType": "COMPUTE",
            "runningInstances": "1",
-           "cpuUsage": "54",
+           "cpuUsage": "34",
            "learningCompleteness": "2",
            "usageMetric": "%",
            "status": "SUSPENDED"
@@ -16,21 +16,21 @@
         }, {
            "serviceType": "COMPUTE",
            "runningInstances": "1",
-           "cpuUsage": "54",
+           "cpuUsage": "44",
            "learningCompleteness": "2",
            "usageMetric": "%",
            "status": "SUSPENDED"
         }, {
            "serviceType": "COMPUTE",
            "runningInstances": "1",
-           "cpuUsage": "54",
+           "cpuUsage": "14",
            "learningCompleteness": "2",
            "usageMetric": "%",
            "status": "READY"
         }, {
            "serviceType": "COMPUTE",
            "runningInstances": "1",
-           "cpuUsage": "54",
+           "cpuUsage": "52",
            "learningCompleteness": "2",
            "usageMetric": "%",
            "status": "RUNNING"

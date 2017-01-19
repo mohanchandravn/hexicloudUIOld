@@ -9,33 +9,29 @@ and open the template in the editor.
     <div class="oj-flex-item">
         <div class="oj-sm-align-items-center oj-sm-flex-direction-column oj-flex">
             <div class="oj-flex-item">
-                <div class="oj-sm-justify-content-center oj-flex" style="padding: 350px 0px 0px 0px; font-family: Arial, Helvetica, sans-serif;">
-                    <h1>HEXI</h1> 
-                    
+                <div style="padding-top: 80%">
+                    <!--<div class="oj-sm-justify-content-center oj-flex" style="padding: 350px 0px 0px 0px; font-family: Arial, Helvetica, sans-serif;">-->
+                    <!--<h1>HEXI</h1>--> 
+                    <img src="img/Landing_Page_logo.png" alt="Landing Page Logo"/>
                 </div>
+                <!--</div>-->
             </div>
-             <div class="oj-flex-item">
-                 <div class="oj-sm-justify-content-center oj-flex">
-                     <h1>CLOUD</h1>
-                 </div>
-             </div>
+            <!--             <div class="oj-flex-item">
+                             <div class="oj-sm-justify-content-center oj-flex">
+                                 <h1>CLOUD</h1>
+                             </div>
+                         </div>-->
             <div class="oj-flex-item">
-                <div class="oj-sm-justify-content-center oj-flex" style="padding: 30px 0px 0px 0px;">
-                   <!--<div id="enterJourney" data-bind="click: isLoggedinTrue">ENTER JOURNEY</div><br/>-->
+                <!--<div class="oj-sm-justify-content-center oj-flex" style="padding: 30px 0px 0px 0px;">-->
+                <!--<div id="enterJourney" data-bind="click: isLoggedinTrue">ENTER JOURNEY</div><br/>-->
+                <div style="padding-top: 10%">
                     <button id= "button"
-                                data-bind="click: isLoggedinTrue, 
+                            data-bind="click: isLoggedinTrue, 
                                  ojComponent: { component: 'ojButton', label: 'ENTER JOURNEY', chroming: 'outlined'}">
                     </button>
                 </div>
+                <!--</div>-->
             </div>
         </div>
     </div>
 </div>
-    
-<!-- ko if: !isLoggedInUser() -->
-
-<!-- /ko -->
-<!-- ko if: isLoggedInUser() === true -->
-<!--<button id="startProcess" data-bind="click: startProcess">start</button><br/>
-<button id="skipProcess" data-bind="click: skipProcess">skip process</button>-->
-<!-- /ko -->

@@ -38,4 +38,8 @@ navigationbarright {
     background-position: center center;         
 }
 
-	
+.nav-right-pane {
+    width: 100px;
+    max-width: 100px;
+
+}
