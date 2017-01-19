@@ -3,12 +3,60 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
 <div class="oj-flex responsive-height">
     <div class="oj-panel main-backgroud-opaque-layer" >
         <div class="olive-sorround-div">
             <div class="oj-panel oj-margin olive-background-panel">
-
+                <span class="services-mini-top-heading oj-flex-item" data-bind="text: 'Are your services displayed as expected?'"></span>
+         <div class="services-mini-menu oj-sm-12 oj-flex-item">             
+                <div class="oj-flex" data-bind="foreach: sservicesArray">
+                    <div class="services-mini-item oj-flex-item">
+                        <span class="services-mini-heading oj-sm-justify-content-center oj-flex" data-bind="text: serviceType"></span>
+                        <div class="services-details oj-flex">
+                            <img src="img/itr-ico.png" alt="icon thumbnail"/>
+                            <span class="service-instance-count oj-sm-2 oj-flex-item" data-bind="text: runningInstances"></span>
+                            <div class="oj-sm-2 oj-flex-item">
+                                <span data-bind="text: 'instance'"></span>
+                                <span data-bind="text: 'running'"></span>
+                            </div>
+                        </div>
+                        <div class="services-mini-usage-details oj-flex">
+                            <div class="oj-sm-flex-direction-column oj-sm-10 oj-flex-item">
+                                <span class="oj-sm-10 oj-flex-item" data-bind="text: 'CPU'"></span>                              
+                                <div id="progressPercentage" data-bind="ojComponent:{
+                                          component: 'ojProgressbar', 
+                                          value: cpuUsage}">
+                                </div>                            
+                            </div>
+                            <div class="oj-sm-flex-direction-column oj-sm-10 oj-flex-item">
+                                <span data-bind="text: 'MEM'"></span>
+                                    <div id="progressPercentage" data-bind="ojComponent:{
+                                          component: 'ojProgressbar', 
+                                          value: memUsage}">
+                                </div>           
+                            </div>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+                
+                     <div class="oj-flex-pad">
+                    <div class="oj-flex oj-sm-12 oj-sm-align-items-center">
+                        <div class="oj-flex-item">
+                            <div class="oj-sm-justify-content-center oj-flex">
+                                <button id= "acceptRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;width: 200px"
+                                        data-bind="click: acceptRole, ojComponent: { component: 'ojButton', label: 'YES', chroming: 'outlined'}"></button>
+                            </div>
+                        </div>
+                        <div class="oj-flex-item">
+                            <div class="oj-sm-justify-content-center oj-flex">
+                                <button id= "rejectRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;width: 200px"
+                                        data-bind="click: rejectRole, ojComponent: { component: 'ojButton', label: 'NO', chroming: 'outlined'}"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 

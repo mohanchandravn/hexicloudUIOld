@@ -125,3 +125,15 @@ and open the template in the editor.
 .dashboard .oj-progressbar-value {
     background-color: #253741;
 }
+
+.paths-mini-menu {
+    margin: 10px 0px;
+    height: 70px;
+    border: 1px solid #ffffff;
+    color:#ffffff;
+}
+.paths-mini-menu img {
+    width: 44px;
+    height: 44px;
+    margin: 0px 10px;
+}
