@@ -46,7 +46,7 @@ navigationbarright {
 
 .olive-background-panel {
     background-color: rgba(52, 72, 79, .8); 
-    height: 500px; 
+    height: 580px; 
     min-height: 100%; 
     min-width: 100%
 }
@@ -55,8 +55,8 @@ navigationbarright {
     padding-left: 25%; 
     padding-right: 25%;  
     position: relative; 
-    top: 48.5%; 
-    transform: translateY(-50%);
+    top: 35%; 
+    transform: translateY(-35%);
 }
 
 .main-backgroud-opaque-layer {
