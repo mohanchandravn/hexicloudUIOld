@@ -1,0 +1,89 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="oj-flex responsive-height">
+<navigationbarleft class="nav-left-pane oj-flex-item"></navigationbarleft>
+<div id="train-container"  style="background-color: white" class="responsive-height oj-flex-item" >
+    <br><br>	
+    <div id="train" class="oj-train-stretch" style="min-height:auto;margin-left:auto;margin-right:auto; color: white"
+             data-bind="click:currentStepVal, ojComponent:{
+		component: 'ojTrain', 
+		selected: currentStepValue, 
+		steps: stepArray}"></div>
+	
+        <div id="step1" data-bind="visible:true">
+            <h2 style="text-align:  center">Guided Path Title</h2>
+            <h4 style="text-align:  right; margin-right: 50px">Step 1 of 10</h4>          
+            <center>
+            <div class="video" >
+            <video controls width="400" height="400"  muted  >
+                <source src="img/GSE_HR_NewHire_Video.mp4"  type="video/mp4">
+                <p>Your browser doesn't support HTML5 video</p>
+            </video>
+            </div>
+            </center>
+            <br>
+              <p style="color: black; text-align: left; margin-left: 60px;margin-right: 60px">            
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,when an unknown printer took a gallery of type and scrambled it to make a type of specimen book.
+            </p>
+         </div>
+         <div id="step2" data-bind="visible:false">
+            <h4 style="text-align:  right; margin-right: 50px">Step 2 of 10</h4>
+            <p style="color: black">            
+                Step 2 content 
+            </p>            
+         </div>
+         <div id="step3" data-bind="visible:false">
+            <h4 style="text-align:  right; margin-right: 50px">Step 3 of 10</h4>
+            <p style="color: black">            
+                Step 3 content 
+            </p>            
+         </div>
+         <div id="step4" data-bind="visible:false">
+            <h4 style="text-align:  right; margin-right: 50px">Step 4 of 10</h4>
+            <p style="color: black">            
+                Step 4 content 
+            </p>            
+         </div>
+         <div id="step5" data-bind="visible:false">
+            <h4 style="text-align:  right; margin-right: 50px">Step 5 of 10</h4>
+            <p style="color: black">            
+                Step 5 content 
+            </p>            
+         </div>
+         <div id="step6" data-bind="visible:false">
+            <h4 style="text-align:  right; margin-right: 50px">Step 6 of 10</h4>
+            <p style="color: black">            
+                Step 6 content 
+            </p>            
+         </div>
+         <div id="step7" data-bind="visible:false">
+            <h4 style="text-align:  right; margin-right: 50px">Step 7 of 10</h4>
+            <p style="color: black">            
+                Step 7 content 
+            </p>            
+         </div>
+         <div id="step8" data-bind="visible:false">
+            <h4 style="text-align:  right; margin-right: 50px">Step 8 of 10</h4>
+            <p style="color: black">            
+                Step 8 content 
+            </p>            
+         </div>
+         <div id="step9" data-bind="visible:false">
+            <h4 style="text-align:  right; margin-right: 50px">Step 9 of 10</h4>
+            <p style="color: black">            
+                Step 9 content 
+            </p>            
+         </div>
+         <div id="step10" data-bind="visible:false">
+            <h4 style="text-align:  right; margin-right: 50px">Step 10 of 10</h4>
+            <p style="color: black">            
+                Step 10 content 
+            </p>            
+         </div>
+    
+</div>
+<navigationbarright class="nav-right-pane oj-flex-item"></navigationbarright>
+</div>
