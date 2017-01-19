@@ -71,7 +71,11 @@ function(oj, ko, $)
     ko.components.register('navigationbarleft', {require: 'components/navigationbarleft/navigationbarleft'});
     ko.components.register('navigationbarright', {require: 'components/navigationbarright/navigationbarright'});
     function getPath(path) {
-        var url = "pages/" + path + "/" + path;
+       
+        if(path == 'learningFlow')
+           var url = "pages/learning/"+ path;
+          else
+           var url = "pages/" + path + "/" + path;    
         return url;
     };
     
@@ -87,7 +91,8 @@ function(oj, ko, $)
       'learning': { label: 'Learning', value: getPath('learning') },
       'dashboard': { label: 'Dashboard', value: getPath('dashboard') },
       'service': { label: 'Service', value: getPath('service') },
-      'settings': { label: 'Settings', value: getPath('settings') }
+      'settings': { label: 'Settings', value: getPath('settings') },
+      'learningFlow': { label: 'learningFlow', value: getPath('learningFlow') }
     });
 
     function viewModel() {
