@@ -7,7 +7,7 @@
 /**
  * service module
  */
-define(['ojs/ojcore', 'knockout'
+define(['jquery','knockout','ojs/ojcore', 'ojs/ojprogressbar'
 ], function (oj, ko) {
     /**
      * The view model for the main content view template
@@ -15,7 +15,29 @@ define(['ojs/ojcore', 'knockout'
     function serviceContentViewModel() {
         var self = this;
         
-        console.log('service page');
+        console.log('guided path page');
+        
+        self.srunningCPUCount = ko.observable(1);
+        self.stotalCPUCount = ko.observable(5);
+        self.scurrentUsedMemory = ko.observable(30);
+        self.sservicesArray = ko.observableArray([]);
+        self.sguidedPathsArray = ko.observableArray([]);
+        
+        self.getServiceDetails = function() {
+            $.getJSON("pages/service/fullServicesDisplay.json", function(result) {
+                self.sservicesArray([]);
+                self.sservicesArray(result.services);
+            });
+//            $.getJSON("pages/service/fullGuidedPathsDisplay.json", function(result) {
+//                self.sguidedPathsArray([]);
+//                self.sguidedPathsArray(result.guidedPaths);
+//            });
+        };
+        
+        self.handleAttached = function() {
+            self.getServiceDetails();
+        };
+        
         self.routeTo = function(data, event) {
             var id = event.currentTarget.id.toLowerCase();
             router.go(id);
@@ -25,6 +47,7 @@ define(['ojs/ojcore', 'knockout'
             router.go('home/');
         };
     }
+    
     
     return serviceContentViewModel;
 });

@@ -7,7 +7,50 @@ and open the template in the editor.
 <div class="oj-flex responsive-height">
     <navigationbarleft class="nav-left-pane oj-flex-item"></navigationbarleft>
     <div class="dashboard oj-flex-item">
-        <h1>service</h1>
+        <div class="dashboard-heading oj-sm-align-items-center oj-flex">
+            <div class="oj-sm-6 oj-flex-item">
+                <div class="oj-sm-justify-content-flex-end oj-flex">
+                    <span data-bind="text: srunningCPUCount() + ' out of ' + stotalCPUCount() + ' OCPUs '"></span>
+                    <img src="img/itr-ico.png" alt="icon thumbnail"/>
+                </div>
+            </div>
+            <div class="oj-sm-6 oj-flex-item">
+                <div class="oj-sm-justify-content-center oj-flex">
+                    <span data-bind="text: scurrentUsedMemory() + '% Memory '"></span>
+                    <img src="img/pvm-ico.png" alt="icon thumbnail"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="services-content oj-flex">
+   
+            <div class="services-menu oj-sm-12 oj-flex-item">
+                <div class="oj-flex" data-bind="foreach: sservicesArray">
+                    <div class="services-item oj-flex-item">
+                        <span class="service-heading oj-sm-justify-content-center oj-flex" data-bind="text: serviceType"></span>
+                        <div class="services-details oj-flex">
+                            <img src="img/itr-ico.png" alt="icon thumbnail"/>
+                            <span class="service-instance-count oj-sm-2 oj-flex-item" data-bind="text: runningInstances"></span>
+                            <div class="oj-sm-10 oj-flex-item">
+                                <span data-bind="text: 'instance'"></span>
+                                <span data-bind="text: 'running'"></span>
+                            </div>
+                        </div>
+                        <div class="service-usage-details oj-flex">
+                            <div class="oj-sm-12 oj-flex-item">
+                                <span class="bold" data-bind="text: cpuUsage + usageMetric"></span><span data-bind="text: ' Usage'"></span>
+                            </div>
+                            <div class="oj-sm-12 oj-flex-item">
+                                <span class="bold" data-bind="text: learningCompleteness + usageMetric"></span><span data-bind="text: ' Learning Completeness'"></span>
+                            </div>
+                        </div>
+                        <div class="oj-sm-justify-content-center oj-flex">
+                            <span class="service-learn-more" data-bind="text: 'LEARN MORE'"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <navigationbarright class="oj-flex-item"></navigationbarright>
+    <navigationbarright class="nav-right-pane oj-flex-item"></navigationbarright>
 </div>

@@ -23,7 +23,7 @@ and open the template in the editor.
         </div>
         <div class="dashboard-services-content oj-flex">
             <span class="labelled-button-title" data-bind="text: 'My Services Preview'"></span>
-            <span class="labelled-button" data-bind="text: 'SEE ALL'"></span>
+            <span class="labelled-button" data-bind="click: function(data){ router.go('service')},text: 'SEE ALL'"></span>
             <div class="service-menu oj-sm-12 oj-flex-item">
                 <div class="oj-flex" data-bind="foreach: servicesArray">
                     <div class="service-item oj-flex-item">
@@ -53,7 +53,7 @@ and open the template in the editor.
         </div>
         <div class="dashboard-services-content oj-flex">
             <span class="labelled-button-title" data-bind="text: 'My Guided Paths Preview'"></span>
-            <span class="labelled-button" data-bind="text: 'SEE ALL'"></span>
+            <span class="labelled-button" data-bind="click: function(data){ router.go('learning')},text: 'SEE ALL'"></span>
             <div class="service-menu oj-sm-12 oj-flex-item">
                 <div class="oj-flex" data-bind="foreach: guidedPathsArray">
                     <div class="oj-sm-12 oj-flex-item">
@@ -69,12 +69,12 @@ and open the template in the editor.
                                           value: percentage}">
                                 </div>
                             </div>
-                            <span class="padding4px labelled-button" data-bind="text: path"></span>
+                            <span class="padding4px labelled-button" data-bind="click: function(data){ router.go('learningFlow')}, text: path"></span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <navigationbarright class="oj-flex-item"></navigationbarright>
+    <navigationbarright class="nav-right-pane oj-flex-item"></navigationbarright>
 </div>

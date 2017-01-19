@@ -2,15 +2,15 @@
    "guidedPaths": [{
            "stepCount": "3",
            "totalSteps": "10",
-           "percentage": "50",
+           "percentage": "30",
            "path": "CONTINUE PATH"
         }, {
-           "stepCount": "3",
+           "stepCount": "5",
            "totalSteps": "10",
            "percentage": "50",
            "path": "CONTINUE PATH"
         }, {
-           "stepCount": "3",
+           "stepCount": "0",
            "totalSteps": "10",
            "percentage": "0",
            "path": "START PATH"

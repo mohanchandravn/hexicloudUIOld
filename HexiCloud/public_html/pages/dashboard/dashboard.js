@@ -16,7 +16,7 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar'
         var self = this;
         
         console.log('dashboard page');
-        
+        var router = oj.Router.rootInstance;  
         self.runningCPUCount = ko.observable(1);
         self.totalCPUCount = ko.observable(5);
         self.currentUsedMemory = ko.observable(30);
