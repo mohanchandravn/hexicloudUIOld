@@ -99,9 +99,10 @@ and open the template in the editor.
                 <div class="oj-flex-items-pad">
                     <div class="oj-flex oj-sm-align-items-center">
                         <div class="oj-flex-item">
-                            <div class="oj-sm-justify-content-center oj-flex">
-                                <button id= "acceptRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
-                                        data-bind="click: selectedRole, ojComponent: { component: 'ojButton', label: 'NEXT', chroming: 'outlined'}"></button>
+                            <div class="standard-button oj-sm-justify-content-center oj-flex">
+<!--                                <button id= "acceptRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
+                                        data-bind="click: selectedRole, ojComponent: { component: 'ojButton', label: 'NEXT', chroming: 'outlined'}"></button>-->
+                                    <span data-bind="click: selectedRole, text: 'NEXT'">NEXT</span>
                             </div>
                         </div>
                     </div>

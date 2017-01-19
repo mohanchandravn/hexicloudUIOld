@@ -7,4 +7,17 @@ and open the template in the editor.
     Created on : Jan 16, 2017, 1:32:55 PM
     Author     : nyasarap
 */
+.login-panel-position-div {
+    padding-left: 32%;
+    padding-right: 25%;
+    position: relative;
+    top: 45%;
+    transform: translateY(-35%);
+}
 
+.login-background-panel {
+    background: rgba(255, 255, 255, .3);
+    width: 550px;
+    height: 600px; 
+    border: none !important;
+}

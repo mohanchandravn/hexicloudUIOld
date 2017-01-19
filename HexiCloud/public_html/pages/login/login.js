@@ -17,6 +17,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinputtext'
         
         console.log('login page');
         self.login = function() {
+            console.log('login clicked');
             isLoggedInUser(true);
             router.go('hello/');
         };

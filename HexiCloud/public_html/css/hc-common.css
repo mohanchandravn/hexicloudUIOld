@@ -48,7 +48,8 @@ navigationbarright {
     background-color: rgba(52, 72, 79, .8); 
     height: 580px; 
     min-height: 100%; 
-    min-width: 100%
+    min-width: 100%;
+    border: none !important;
 }
 
 .olive-sorround-div {
@@ -63,4 +64,37 @@ navigationbarright {
     background-color: rgba(54, 25, 25, .2); 
     min-height: 100%; 
     min-width: 100%
+}
+.standard-button {
+    width: 200px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid white;
+    cursor: pointer;
+    color: white;
+}
+
+.standard-button span{
+    margin-top: 15px;
+}
+
+input::-webkit-input-placeholder {
+    color: #616365 !important;
+    font-style: normal !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+    color: #616365 !important;  
+    font-style: normal !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+    color: #616365 !important;  
+    font-style: normal !important;
+}
+
+input:-ms-input-placeholder {  
+    color: #616365 !important;
+    font-style: normal !important;
 }

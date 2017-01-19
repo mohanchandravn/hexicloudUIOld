@@ -16,18 +16,24 @@ and open the template in the editor.
                     <div class="oj-flex-items-pad">
                         <div class="oj-flex oj-sm-align-items-center">
                             <div class="oj-flex-item">
-                                <button id= "startJourney" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
-                                        data-bind="click: startProcess, ojComponent: { component: 'ojButton', label: 'START', chroming: 'outlined'}"></button>
+                                <!--                                <button id= "startJourney" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
+                                                                        data-bind="click: startProcess, ojComponent: { component: 'ojButton', label: 'START', chroming: 'outlined'}"></button>-->
+                                <div class="standard-button oj-sm-justify-content-center oj-flex">
+                                    <span data-bind="click: startProcess, text: 'START'">START</span>
+                                </div>
                             </div>
 
                             <div class="oj-flex-item">
-                                <button id= "skipProcess" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
-                                        data-bind="click: skipProcess, ojComponent: { component: 'ojButton', label: 'SKIP PROCESS', chroming: 'outlined'}"></button>
+                                <!--                                <button id= "skipProcess" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
+                                                                        data-bind="click: skipProcess, ojComponent: { component: 'ojButton', label: 'SKIP PROCESS', chroming: 'outlined'}"></button>-->
+                                <div class="standard-button oj-sm-justify-content-center oj-flex">
+                                    <span data-bind="click: skipProcess, text: 'SKIP PROCESS'">SKIP PROCESS</span>
+                                </div>
                             </div>
                             <div class="oj-flex-item">
-                                
-                                    <img src="img/Hello Screen Man.png" alt="Hello Screen Man"/>
-                                
+
+                                <img src="img/Hello Screen Man.png" alt="Hello Screen Man"/>
+
                             </div>
                         </div>
                     </div>
