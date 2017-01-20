@@ -16,14 +16,15 @@ html, body, #routingContainer, .responsive-height {
     background-color: #385155;
 }*/
 
-navigationbarright {
+/*navigationbarright {
     width: 70px;
     max-width: 70px;
-}
+}*/
 
 .nav-left-pane {
-    width: 240px;
-    max-width: 240px;
+/*    width: 240px;
+    max-width: 240px;*/
+    max-width: 15%;
 }
 
 .mainBackGroundImage {
@@ -39,8 +40,8 @@ navigationbarright {
 }
 
 .nav-right-pane {
-    width: 100px;
-    max-width: 100px;
+    /*width: 100px;*/
+    max-width: 6%;
 
 }
 

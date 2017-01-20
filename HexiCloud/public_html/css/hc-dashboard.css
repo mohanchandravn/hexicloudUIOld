@@ -10,7 +10,8 @@ and open the template in the editor.
 
 .dashboard {
     background-color: white;
-    max-width: 1240px;
+    /*max-width: 1240px;*/
+        max-width: 77%;
     padding: 40px 30px 50px 100px;
 }
 
