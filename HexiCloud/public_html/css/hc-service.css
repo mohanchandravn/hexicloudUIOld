@@ -95,3 +95,7 @@ and open the template in the editor.
     padding-left: 125px;
   
 }
+
+.services-mini-menu .oj-progressbar-value {
+    background-color: #253741;
+}
