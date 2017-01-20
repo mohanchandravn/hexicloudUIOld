@@ -10,7 +10,13 @@ and open the template in the editor.
 
 .navigation-left {
     color: white;
-    
+
+}
+
+.navigation-left .loginFace {
+    width: 120px;
+    height: 120px;
+    margin-top: 5px;
 }
 
 .nav-profile {
