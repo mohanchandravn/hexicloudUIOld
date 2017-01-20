@@ -46,6 +46,10 @@ define(['jquery','knockout','ojs/ojcore', 'ojs/ojprogressbar'
         self.logout = function(data, event) {
             router.go('home/');
         };
+        
+         self.goToDashboard = function(data, event) {
+            router.go('dashboard/');
+        };
     }
     
     

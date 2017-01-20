@@ -12,24 +12,24 @@
 /**
  * service module
  */
-define(['jquery','knockout','ojs/ojcore', 'ojs/ojprogressbar'
+define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar'
 ], function (oj, ko) {
     /**
      * The view model for the main content view template
      */
     function serviceContentViewModel() {
         var self = this;
-        
+
         console.log('guided path page');
-        
+
         self.srunningCPUCount = ko.observable(1);
         self.stotalCPUCount = ko.observable(5);
         self.scurrentUsedMemory = ko.observable(30);
         self.sservicesArray = ko.observableArray([]);
         self.sguidedPathsArray = ko.observableArray([]);
-        
-        self.getServiceDetails = function() {
-            $.getJSON("pages/servicesMini/servicesMini.json", function(result) {
+
+        self.getServiceDetails = function () {
+            $.getJSON("pages/servicesMini/servicesMini.json", function (result) {
                 self.sservicesArray([]);
                 self.sservicesArray(result.services);
             });
@@ -38,22 +38,27 @@ define(['jquery','knockout','ojs/ojcore', 'ojs/ojprogressbar'
 //                self.sguidedPathsArray(result.guidedPaths);
 //            });
         };
-        
-        self.handleAttached = function() {
+
+        self.handleAttached = function () {
             self.getServiceDetails();
         };
-        
-        self.routeTo = function(data, event) {
+
+        self.routeTo = function (data, event) {
             var id = event.currentTarget.id.toLowerCase();
             router.go(id);
         };
         
-        self.logout = function(data, event) {
-            router.go('home/');
+        self.gotoGuidedPaths = function () {
+            isLoggedInUser(true);
+            router.go('guidedPathsMini/');
+        };
+        self.raiseSR = function () {
+            isLoggedInUser(true);
+            router.go('raiseSR/');
         };
     }
-    
-    
+
+
     return serviceContentViewModel;
 });
 
