@@ -11,12 +11,31 @@ and open the template in the editor.
 .dashboard {
     background-color: white;
     /*max-width: 1240px;*/
-        max-width: 77%;
-    padding: 40px 30px 50px 100px;
+        /*max-width: 77%;*/
+    /*padding: 40px 30px 50px 100px;*/
+}
+
+@media screen and (max-width: 1280px) {
+    .dashboard {
+        padding: 40px 10px 10px 10px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1281px) {
+    .dashboard {
+        max-width: calc(100% - 100px);
+    }
+}
+
+@media screen and (min-width: 1281px) {
+    .dashboard {
+        max-width: calc(100% - 350px);
+        padding: 40px 30px 50px 100px;
+    }
 }
 
 .dashboard-heading {
-    height: 100px;
+    min-height: 100px;
     font-size: 32px;
     color: #E5DDCD;
     background-color: #253741;
@@ -51,7 +70,7 @@ and open the template in the editor.
 }
 
 .dashboard .service-usage-details {
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     margin-left: 10px;
 }
 
@@ -65,11 +84,9 @@ and open the template in the editor.
 }
 
 .service-item {
-    width: 120px;
-    min-height: 100px;
+    max-width: 180px;
     box-sizing: border-box;
     border: 1px solid #405058;
-    margin-right: 30px;
 }
 
 .service-heading {
@@ -104,7 +121,7 @@ and open the template in the editor.
 
 .paths-menu {
     margin: 10px 0px;
-    height: 70px;
+    min-height: 70px;
     border: 1px solid #405058;
 }
 

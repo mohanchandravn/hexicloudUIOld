@@ -12,6 +12,29 @@ html, body, #routingContainer, .responsive-height {
     height: 100%;
 }
 
+.scrollable-wrapper {
+    overflow-y: scroll;
+}
+
+navigationbarleft, navigationbarright {
+    max-width: 250px;
+}
+navigationbarright {
+    max-width: 100px;
+}
+
+.service-status-ready {
+    border-bottom: 4px solid #FDAF64 !important;
+}
+
+.service-status-running {
+    border-bottom: 4px solid #8AF16E !important;
+}
+
+.service-status-suspended {
+    border-bottom: 4px solid #FF645F !important;
+}
+
 /*#routingContainer {
     background-color: #385155;
 }*/
@@ -24,7 +47,7 @@ html, body, #routingContainer, .responsive-height {
 .nav-left-pane {
 /*    width: 240px;
     max-width: 240px;*/
-    max-width: 15%;
+    /*max-width: 15%;*/
 }
 
 .mainBackGroundImage {
@@ -41,7 +64,7 @@ html, body, #routingContainer, .responsive-height {
 
 .nav-right-pane {
     /*width: 100px;*/
-    max-width: 6%;
+    /*max-width: 6%;*/
 
 }
 

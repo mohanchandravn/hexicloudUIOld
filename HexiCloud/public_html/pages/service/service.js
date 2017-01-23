@@ -37,7 +37,7 @@ define(['jquery','knockout','ojs/ojcore', 'ojs/ojprogressbar'
         self.handleAttached = function() {
             self.getServiceDetails();
         };
-        
+           
         self.routeTo = function(data, event) {
             var id = event.currentTarget.id.toLowerCase();
             router.go(id);
