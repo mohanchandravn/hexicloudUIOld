@@ -13,8 +13,28 @@ define(['text!./navigationbarright.html', 'ojs/ojcore', 'knockout'
      * The view model for the main content view template
      */
     function navigationbarrightContentViewModel() {
-        var self = this;
+        var self = this;        
+       //$('body').on('click','chat',function(){alert('it works');
+       
+       $(document).ready(function(){
+        $('#chat').click(function(){
+            
+        RightNow.Client.Controller.addComponent(
+        {
+            chat_login_page: "/app/chat/chat_landing/Contact.Name.First/Sasi/Contact.Name.Last/Rao/Contact.Email.0.Address/abc@test.com",
+            chat_login_page_height: "600",
+            chat_login_page_width: "350",
+            container_element_id: "myChatLinkContainer",
+            info_element_id: "myChatLinkInfo",
+            link_element_id: "myChatLink",
+            instance_id: "sccl_0",
+            module: "ConditionalChatLink",
+            type: 7
+        },
+        "//sc-ramesh.widget.rightnowdemo.com/ci/ws/get"
+    ); })
+
+    });
     }
-    
     return {viewModel: {createViewModel: navigationbarrightContentViewModel }, template: template};
 });
