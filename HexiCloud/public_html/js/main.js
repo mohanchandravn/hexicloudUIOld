@@ -77,8 +77,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
                 else
                     var url = "pages/" + path + "/" + path;
                 return url;
-            }
-            ;
+            };
 
             router.configure(
                     {
@@ -96,7 +95,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
                         'learningFlow': {label: 'learningFlow', value: getPath('learningFlow')},
                         'raiseSR': {label: 'Raise an SR', value: getPath('raiseSR')},
                         'servicesMini': {label: 'Mini Services', value: getPath('servicesMini')},
-                        'guidedPathsMini': {label: 'Mini Learning', value: getPath('guidedPathsMini')}
+                        'guidedPathsMini': {label: 'Mini Learning', value: getPath('guidedPathsMini')},
+                        'sampleCSV': {label: 'Sample CSV', value: getPath('sampleCSV')}
                     });
 
             function viewModel() {

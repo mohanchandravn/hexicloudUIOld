@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<div class="oj-flex oj-padding" style='background-color: white;'>
+    <div class="oj-sm-12 oj-flex-item">
+        <input type="button" data-bind="click: getJSONData, ojComponent: {
+                                                component: 'ojButton',
+                                                label: 'Get Data'
+                                            }" />
+    </div>
+    <div class="oj-sm-12 oj-flex-item oj-padding-bottom" data-bind="text: resultData"></div>
+</div>
