@@ -22,6 +22,8 @@ define(['text!./navigationbarright.html', 'ojs/ojcore', 'knockout'
         RightNow.Client.Controller.addComponent(
         {
             chat_login_page: "/app/chat/chat_landing/Contact.Name.First/Sasi/Contact.Name.Last/Rao/Contact.Email.0.Address/abc@test.com",
+            chat_login_page_height: "600",
+            chat_login_page_width: "350",
             container_element_id: "myChatLinkContainer",
             info_element_id: "myChatLinkInfo",
             link_element_id: "myChatLink",
