@@ -108,6 +108,9 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
                 //screenrange observable for responsive alignment
                 self.screenRange = oj.ResponsiveKnockoutUtils.createScreenRangeObservable();
                 self.isLoggedInUser = ko.observable(false);
+                self.restEndPoint = ko.observable("https://api-z12.compute.em2.oraclecloud.com/");
+                self.containerName = ko.observable();
+                self.loggedInUser = ko.observable();
                 self.isChatInitialized = ko.observable(false);
                 
                 $(window).resize(function () {
