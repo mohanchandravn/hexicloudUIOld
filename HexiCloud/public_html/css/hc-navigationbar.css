@@ -8,6 +8,59 @@ and open the template in the editor.
     Author     : nyasarap
 */
 
+    
+.chat-window {
+    position: fixed;
+    width: 250px;
+    color: #F5EBDC;
+    background-color: #4C5B5E;
+    box-sizing: border-box;
+    right: 0px;
+}
+
+.csm-ico {
+    background: url('../img/rigthtNav_csmHead.png');
+}
+
+.call-ico {
+    background: url('../img/rigthtNav_call.png');
+}
+
+.chat-ico {
+    background: url('../img/rigthtNav_chat.png');
+}
+
+.csm-ico, .call-ico {
+    height: 60px;
+    padding-top: 40px;
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    /* 4px is the 10th part of backgrond-size (40px) */
+    background-position-x: calc(50% - 4px);
+}
+
+.chat-ico {
+    height: 80px;
+    padding-top: 60px;
+    background-size: 60px 60px;
+    background-repeat: no-repeat;
+    /* 6px is the 10th part of backgrond-size (60px) */
+    background-position-x: calc(50% - 6px);
+}
+
+.chat-container {
+    min-height: 400px;
+    /*border: 1px solid #F5EBDC;*/
+}
+
+.chat-send {
+    height: 30px;
+    color: #8D908A;
+    padding-top: 6px;
+    background-color: #F6ECDD;
+    cursor: pointer;
+}
+
 .navigation-left {
     color: white;
 

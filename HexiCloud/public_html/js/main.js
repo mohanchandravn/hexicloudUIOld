@@ -104,7 +104,54 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
                 var moduleConfig = $.extend(true, {}, router.moduleConfig, {params: {
                         'rootData': {}}});
                 self.moduleConfig = moduleConfig;
+                
+                //screenrange observable for responsive alignment
+                self.screenRange = oj.ResponsiveKnockoutUtils.createScreenRangeObservable();
                 self.isLoggedInUser = ko.observable(false);
+                self.isChatInitialized = ko.observable(false);
+                
+                $(window).resize(function () {
+                    if (oj.ResponsiveUtils.compare(self.screenRange(), oj.ResponsiveUtils.SCREEN_RANGE.LG) < 0) {
+                        self.isChatInitialized(false);
+                    }
+//                    self.autoAlignContent();
+                });
+                
+//                self.autoAlignContent = function () {
+//                    if (oj.ResponsiveUtils.compare(self.screenRange(), oj.ResponsiveUtils.SCREEN_RANGE.LG) > 0) {
+//                        if (self.isChatInitialized()) {
+//                            $('navigationbarright').css("width", "250px");
+//                            $('.dashboard').css("max-width", "calc(100% - 250px)");
+//                        } else {
+//                            $('navigationbarright').css("width", "250px");
+//                            $('.dashboard').css("max-width", "calc(100% - 500px)");
+//                        }
+//                    } else if (oj.ResponsiveUtils.compare(self.screenRange(), oj.ResponsiveUtils.SCREEN_RANGE.MD) > 0) {
+//                        if (self.isChatInitialized()) {
+//                            $('navigationbarright').css("width", "250px");
+//                            $('.dashboard').css("max-width", "calc(100% - 500px)");
+//                        } else {
+//                            $('navigationbarright').css("width", "250px");
+//                            $('.dashboard').css("max-width", "calc(100% - 500px)");
+//                        }
+//                    } else if (oj.ResponsiveUtils.compare(self.screenRange(), oj.ResponsiveUtils.SCREEN_RANGE.SM) > 0) {
+//                        if (self.isChatInitialized()) {
+//                            $('navigationbarright').css("width", "250px");
+//                            $('.dashboard').css("max-width", "calc(100% - 500px)");
+//                        } else {
+//                            $('navigationbarright').css("width", "250px");
+//                            $('.dashboard').css("max-width", "calc(100% - 500px)");
+//                        }
+//                    } else {
+//                        if (self.isChatInitialized()) {
+//                            $('navigationbarright').css("width", "250px");
+//                            $('.dashboard').css("max-width", "calc(100% - 500px)");
+//                        } else {
+//                            $('navigationbarright').css("width", "250px");
+//                            $('.dashboard').css("max-width", "calc(100% - 500px)");
+//                        }
+//                    }
+//                };
             }
             ;
 

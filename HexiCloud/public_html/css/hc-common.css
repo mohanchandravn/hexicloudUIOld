@@ -20,7 +20,12 @@ navigationbarleft, navigationbarright {
     max-width: 250px;
 }
 navigationbarright {
-    max-width: 100px;
+    position: fixed;
+    height: 100%;
+    opacity: 0.95;
+    right: 0px;
+    width: 100px;
+    background-color: #4C5B5E;
 }
 
 .service-status-ready {
@@ -59,7 +64,8 @@ navigationbarright {
     /*min-height:  100%;*/ 
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
-    background-position: center center;         
+    background-position: center center;
+    background-color: #335C62 !important;
 }
 
 .nav-right-pane {
