@@ -12,14 +12,15 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojbutton'],
         
         self.resultData = ko.observable('Sample Text before calling the JSON..');
         
-        self.getJSONData = function() {
+        self.getCSVData = function() {
             $.ajax({
                 type: "GET",
                 contentType: "application/json",
+//                url: 'pages/sampleCSV/sample.json',
                 url: 'https://api.github.com/users/mralexgray/repos',
                 success: function (result) {
                     self.resultData(ko.toJSON(result));
-                    JSONToCSVConvertor(result, 'Sample File', true);
+                    JSONToCSVConvertor(result, 'Sample CSV File', true);
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log('Error retrieving details..');
@@ -30,7 +31,105 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojbutton'],
             });
         };
         
-        function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
+        self.getXLSData = function() {
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",
+//                url: 'pages/sampleCSV/sample.json',
+                url: 'https://api.github.com/users/mralexgray/repos',
+                success: function (result) {
+                    self.resultData(ko.toJSON(result));
+                    JSONToXLSConverter(result, 'Sample XLS File', true);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log('Error retrieving details..');
+                    console.log(xhr);
+                    console.log(ajaxOptions);
+                    console.log(thrownError);
+                }
+            });
+        };
+
+        // Simple type mapping; dates can be hard
+        // and I would prefer to simply use `datevalue`
+        // ... you could even add the formula in here.
+        testTypes = {};
+
+        emitXmlHeader = function (headerObj) {
+            var headerRow =  '<ss:Row>\n';
+            for (var colName in headerObj) {
+                testTypes[colName] = typeof colName;
+            }
+            for (var colName in headerObj) {
+                headerRow += '  <ss:Cell>\n';
+                headerRow += '    <ss:Data ss:Type="String">';
+                headerRow += colName + '</ss:Data>\n';
+                headerRow += '  </ss:Cell>\n';        
+            }
+            headerRow += '</ss:Row>\n';
+            return '<?xml version="1.0"?>\n' +
+                   '<ss:Workbook xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">\n' +
+                   '<ss:Worksheet ss:Name="Sheet1">\n' +
+                   '<ss:Table>\n\n' + headerRow;
+        };
+
+        emitXmlFooter = function() {
+            return '\n</ss:Table>\n' +
+                   '</ss:Worksheet>\n' +
+                   '</ss:Workbook>\n';
+        };
+
+        download = function (content, fileName, contentType) {
+            if (contentType === undefined) {
+                contentType = 'application/octet-stream';
+            }
+            console.log(contentType);
+            // we have to generate a temp <a /> tag and remove it
+            var link = document.createElement("a"); 
+            var blob = new Blob([content], {
+                'type': contentType
+            });  
+            link.href = window.URL.createObjectURL(blob);
+
+            //set the visibility hidden so it will not effect on your web-layout
+            link.style = "visibility:hidden";
+            link.download = fileName;
+
+            //this part will append the anchor tag and remove it after automatic click
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+      
+        function JSONToXLSConverter(JSONData, FileTitle) {
+            var row;
+            var col;
+            var xml;
+            var data = typeof JSONData != "object" ? JSON.parse(JSONData) : JSONData;
+            console.log(JSONData);
+            console.log(JSONData[0]);
+            xml = emitXmlHeader(JSONData[0]);
+
+            for (row = 0; row < data.length; row++) {
+                xml += '<ss:Row>\n';
+
+                for (col in data[row]) {
+                    xml += '  <ss:Cell>\n';
+//                    xml += '    <ss:Data ss:Type="' + testTypes[col]  + '">';
+                    xml += '    <ss:Data ss:Type="String">';
+                    xml += data[row][col] + '</ss:Data>\n';
+                    xml += '  </ss:Cell>\n';
+                }
+
+                xml += '</ss:Row>\n';
+            }
+
+            xml += emitXmlFooter();
+            FileTitle = FileTitle.replace(/ /g,"_");
+            download(xml, FileTitle + ".xls", 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        }
+        
+        function JSONToCSVConvertor(JSONData, FileTitle, ShowLabel) {
             var CSVData = '';
             
             // This condition will generate the Header columns
@@ -62,27 +161,10 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojbutton'],
                 alert("Invalid json data");
                 return;
             } else {
-                // Generate a file name
-                var fileName;
                 // this will remove the blank-spaces from the title and replace it with an underscore
-                fileName = ReportTitle.replace(/ /g,"_");   
+                FileTitle = FileTitle.replace(/ /g,"_");
+                download(CSVData, FileTitle + ".csv", 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
             }
-
-            // Initialize file format you want csv or xls
-            var uri = 'data:text/csv;charset=utf-8,' + escape(CSVData);
-
-            // we have to generate a temp <a /> tag and remove it
-            var link = document.createElement("a");    
-            link.href = uri;
-
-            //set the visibility hidden so it will not effect on your web-layout
-            link.style = "visibility:hidden";
-            link.download = fileName + ".csv";
-
-            //this part will append the anchor tag and remove it after automatic click
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
         }
     };
     
