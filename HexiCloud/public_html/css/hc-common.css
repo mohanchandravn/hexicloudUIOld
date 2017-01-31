@@ -9,10 +9,11 @@ and open the template in the editor.
 */
 
 html, body, #routingContainer, .responsive-height {
-    height: 100%;
+    height: 100vh;
 }
 
-.scrollable-wrapper {
+.page-content {
+    height: 100vh;
     overflow-y: scroll;
 }
 

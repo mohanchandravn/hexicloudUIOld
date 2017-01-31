@@ -52,13 +52,37 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
         }, self);
         
         self.getServiceDetails = function() {
-            $.getJSON("pages/service/services.json", function(result) {
-                self.servicesArray([]);
-                self.servicesArray(result.services);
+            // service to get services list
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",  
+                url: "pages/service/services.json",
+                success: function (result) {
+                    self.servicesArray([]);
+                    self.servicesArray(result.services);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log('Error retrieving details..');
+                    console.log(xhr);
+                    console.log(ajaxOptions);
+                    console.log(thrownError);
+                }
             });
-            $.getJSON("pages/service/guidedPaths.json", function(result) {
-                self.guidedPathsArray([]);
-                self.guidedPathsArray(result.guidedPaths);
+            // service to get guidedpaths list
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",  
+                url: "pages/service/guidedPaths.json",
+                success: function (result) {
+                    self.guidedPathsArray([]);
+                    self.guidedPathsArray(result.guidedPaths);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log('Error retrieving details..');
+                    console.log(xhr);
+                    console.log(ajaxOptions);
+                    console.log(thrownError);
+                }
             });
         };
         
