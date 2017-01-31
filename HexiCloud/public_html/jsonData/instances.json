@@ -1,0 +1,189 @@
+{
+  "result": [
+    {
+      "domain": "compute-gse00000514.oraclecloud.internal.",
+      "placement_requirements": [
+        "/system/compute/placement/default",
+        "/system/compute/allow_instances"
+      ],
+      "ip": "10.196.42.6",
+      "fingerprint": "",
+      "site": "",
+      "shape": "oc3",
+      "imagelist": null,
+      "image_format": "raw",
+      "relationships": [],
+      "availability_domain": "/ad1",
+      "networking": {
+        "eth0": {
+          "model": "",
+          "seclists": [
+            "/Compute-gse00000514/cloud.admin/bitnami-nodejs-da10"
+          ],
+          "dns": [
+            "bitnami-nodejs-da10.compute-gse00000514.oraclecloud.internal."
+          ],
+          "vethernet": "/oracle/public/default",
+          "nat": "ippool:/oracle/public/ippool"
+        }
+      },
+      "storage_attachments": [
+        {
+          "index": 1,
+          "storage_volume_name": "Compute-gse00000514/cloud.admin/bitnami-nodejs-da10",
+          "name": "/Compute-gse00000514/cloud.admin/e344b9d0-9fa7-44bb-8635-58581b6636be/0a8c2aa7-6520-4783-b76d-19480719d726"
+        }
+      ],
+      "hostname": "bitnami-nodejs-da10.compute-gse00000514.oraclecloud.internal.",
+      "quota_reservation": null,
+      "disk_attach": "",
+      "label": "bitnami-nodejs-da10",
+      "priority": "/oracle/public/default",
+      "platform": "linux",
+      "state": "running",
+      "virtio": null,
+      "vnc": "10.196.42.5:5900",
+      "desired_state": "running",
+      "tags": [],
+      "start_time": "2016-08-29T13:37:26Z",
+      "quota": "/Compute-gse00000514",
+      "entry": null,
+      "error_reason": "",
+      "sshkeys": [
+        "/Compute-gse00000514/cloud.admin/bitnami-launchpad-axql4c0"
+      ],
+      "resolvers": null,
+      "account": "/Compute-gse00000514/default",
+      "name": "/Compute-gse00000514/cloud.admin/e344b9d0-9fa7-44bb-8635-58581b6636be",
+      "vcable_id": "/Compute-gse00000514/cloud.admin/0dd41773-f178-450c-a1dc-70391d79152c",
+      "hypervisor": {
+        "mode": "hvm"
+      },
+      "uri": "https://api-z12.compute.em2.oraclecloud.com/instance/Compute-gse00000514/cloud.admin/e344b9d0-9fa7-44bb-8635-58581b6636be",
+      "reverse_dns": true,
+      "attributes": {
+        "userdata": {
+          "application_password": "553dNqfP",
+          "user_data": "# bitnami_agent_extra=launchpad uid vm_uuid\n# launchpad=true\n# uid=1084684\n# vm_uuid=fbBwpHQ"
+        },
+        "sshkeys": [
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCvnsvUHZSCGKd4WmOArTEOxnJYOd6VZD88AiR0zdYAsRC54jq2rsXjOu7UAsrDdLrD8AKXAlzjADJxcG+T2VhKvRinxQwOU4CY2UWAsoh830gKAKN65jkTE8bwO945nGkheBLhSPZ2+zNUAXtkYhoA36SxWPvt39Cs9MG938lT1CXH/IaOzPAUY71fr1wTk0GY/EFya+AWKKrufoBgh/2UuS7PVkDowKf6iOWe7PUjWQ5Fe6SqJ37v8xPKI293Q1sUkltO5pxdxjHCDU26jehme2ZzKOY0jZjXuGy92jJeRugIwVxJHcqcCrsAylJPqlsCDix4+6ZrTE06sLEvqxR"
+        ],
+        "dns": {
+          "domain": "compute-gse00000514.oraclecloud.internal.",
+          "hostname": "bitnami-nodejs-da10.compute-gse00000514.oraclecloud.internal.",
+          "nimbula_vcable-eth0": "bitnami-nodejs-da10.compute-gse00000514.oraclecloud.internal."
+        },
+        "network": {
+          "nimbula_vcable-eth0": {
+            "vethernet_id": "0",
+            "vethernet": "/oracle/public/default",
+            "address": [
+              "c6:b0:88:6d:0e:8d",
+              "0.0.0.0"
+            ],
+            "model": "",
+            "vethernet_type": "vlan",
+            "id": "/Compute-gse00000514/cloud.admin/0dd41773-f178-450c-a1dc-70391d79152c",
+            "dhcp_options": []
+          }
+        }
+      },
+      "boot_order": [
+        1
+      ]
+    }, {
+      "domain": "compute-gse00000514.oraclecloud.internal.",
+      "placement_requirements": [
+        "/system/compute/placement/default",
+        "/system/compute/allow_instances"
+      ],
+      "ip": "10.196.42.6",
+      "fingerprint": "",
+      "site": "",
+      "shape": "oc5",
+      "imagelist": null,
+      "image_format": "raw",
+      "relationships": [],
+      "availability_domain": "/ad1",
+      "networking": {
+        "eth0": {
+          "model": "",
+          "seclists": [
+            "/Compute-gse00000514/cloud.admin/bitnami-nodejs-da11"
+          ],
+          "dns": [
+            "bitnami-nodejs-da10.compute-gse00000514.oraclecloud.internal."
+          ],
+          "vethernet": "/oracle/public/default",
+          "nat": "ippool:/oracle/public/ippool"
+        }
+      },
+      "storage_attachments": [
+        {
+          "index": 1,
+          "storage_volume_name": "Compute-gse00000514/cloud.admin/bitnami-nodejs-da11",
+          "name": "/Compute-gse00000514/cloud.admin/e344b9d0-9fa7-44bb-8635-58581b6636be/0a8c2aa7-6520-4783-b76d-19480719d726"
+        }
+      ],
+      "hostname": "bitnami-nodejs-da10.compute-gse00000514.oraclecloud.internal.",
+      "quota_reservation": null,
+      "disk_attach": "",
+      "label": "bitnami-nodejs-da10",
+      "priority": "/oracle/public/default",
+      "platform": "linux",
+      "state": "ready",
+      "virtio": null,
+      "vnc": "10.196.42.5:5900",
+      "desired_state": "running",
+      "tags": [],
+      "start_time": "2016-08-29T13:37:26Z",
+      "quota": "/Compute-gse00000514",
+      "entry": null,
+      "error_reason": "",
+      "sshkeys": [
+        "/Compute-gse00000514/cloud.admin/bitnami-launchpad-axql4c0"
+      ],
+      "resolvers": null,
+      "account": "/Compute-gse00000514/default",
+      "name": "/Compute-gse00000514/cloud.admin/e344b9d0-9fa7-44bb-8635-58581b6636be",
+      "vcable_id": "/Compute-gse00000514/cloud.admin/0dd41773-f178-450c-a1dc-70391d79152c",
+      "hypervisor": {
+        "mode": "hvm"
+      },
+      "uri": "https://api-z12.compute.em2.oraclecloud.com/instance/Compute-gse00000514/cloud.admin/e344b9d0-9fa7-44bb-8635-58581b6636be",
+      "reverse_dns": true,
+      "attributes": {
+        "userdata": {
+          "application_password": "553dNqfP",
+          "user_data": "# bitnami_agent_extra=launchpad uid vm_uuid\n# launchpad=true\n# uid=1084684\n# vm_uuid=fbBwpHQ"
+        },
+        "sshkeys": [
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCvnsvUHZSCGKd4WmOArTEOxnJYOd6VZD88AiR0zdYAsRC54jq2rsXjOu7UAsrDdLrD8AKXAlzjADJxcG+T2VhKvRinxQwOU4CY2UWAsoh830gKAKN65jkTE8bwO945nGkheBLhSPZ2+zNUAXtkYhoA36SxWPvt39Cs9MG938lT1CXH/IaOzPAUY71fr1wTk0GY/EFya+AWKKrufoBgh/2UuS7PVkDowKf6iOWe7PUjWQ5Fe6SqJ37v8xPKI293Q1sUkltO5pxdxjHCDU26jehme2ZzKOY0jZjXuGy92jJeRugIwVxJHcqcCrsAylJPqlsCDix4+6ZrTE06sLEvqxR"
+        ],
+        "dns": {
+          "domain": "compute-gse00000514.oraclecloud.internal.",
+          "hostname": "bitnami-nodejs-da10.compute-gse00000514.oraclecloud.internal.",
+          "nimbula_vcable-eth0": "bitnami-nodejs-da10.compute-gse00000514.oraclecloud.internal."
+        },
+        "network": {
+          "nimbula_vcable-eth0": {
+            "vethernet_id": "0",
+            "vethernet": "/oracle/public/default",
+            "address": [
+              "c6:b0:88:6d:0e:8d",
+              "0.0.0.0"
+            ],
+            "model": "",
+            "vethernet_type": "vlan",
+            "id": "/Compute-gse00000514/cloud.admin/0dd41773-f178-450c-a1dc-70391d79152c",
+            "dhcp_options": []
+          }
+        }
+      },
+      "boot_order": [
+        1
+      ]
+    }
+  ]
+}

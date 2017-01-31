@@ -1,0 +1,30 @@
+{
+    "result": [
+        {
+            "is_root_ssd": false,
+            "name": "oc3",
+            "placement_requirements": [],
+            "ram": 7680,
+            "cpus": 2,
+            "root_disk_size": 0,
+            "uri": "https://api-z12.compute.em2.oraclecloud.com/shape/oc3",
+            "io": 200,
+            "gpus": 0,
+            "ssd_data_size": 0,
+            "nds_iops_limit": 0
+        },
+        {
+            "is_root_ssd": false,
+            "name": "oc5",
+            "placement_requirements": [],
+            "ram": 30720,
+            "cpus": 8,
+            "root_disk_size": 0,
+            "uri": "https://api-z12.compute.em2.oraclecloud.com/shape/oc5",
+            "io": 600,
+            "gpus": 0,
+            "ssd_data_size": 0,
+            "nds_iops_limit": 0
+        }
+    ]
+}

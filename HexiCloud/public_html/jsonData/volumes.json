@@ -1,0 +1,61 @@
+{
+  "result": [
+    {
+      "managed": true,
+      "snapshot_id": null,
+      "snapshot_account": null,
+      "machineimage_name": "/Compute-gse00000514/cloud.admin/bitnami-nodejs-da10",
+      "status_timestamp": "2016-08-29T13:36:55Z",
+      "imagelist": "/Compute-gse00000514/cloud.admin/bitnami-nodejs-da10",
+      "writecache": false,
+      "size": "10737418240",
+      "platform": null,
+      "readonly": false,
+      "storage_pool": "/compute-em2-z12/nleis01nas49-v1_vnic1/storagepool/iscsi/thruput_1",
+      "shared": false,
+      "status": "Online",
+      "description": null,
+      "tags": [],
+      "quota": null,
+      "status_detail": null,
+      "properties": [
+        "/oracle/public/storage/default"
+      ],
+      "account": "/Compute-gse00000514/default",
+      "name": "/Compute-gse00000514/cloud.admin/bitnami-nodejs-da10",
+      "bootable": true,
+      "hypervisor": null,
+      "uri": "https://api-z12.compute.em2.oraclecloud.com/storage/volume/Compute-gse00000514/cloud.admin/bitnami-nodejs-da10",
+      "imagelist_entry": 1,
+      "snapshot": null
+    }, {
+      "managed": true,
+      "snapshot_id": null,
+      "snapshot_account": null,
+      "machineimage_name": "/Compute-gse00000514/cloud.admin/bitnami-nodejs-da11",
+      "status_timestamp": "2016-08-29T13:36:55Z",
+      "imagelist": "/Compute-gse00000514/cloud.admin/bitnami-nodejs-da11",
+      "writecache": false,
+      "size": "10737418240",
+      "platform": null,
+      "readonly": false,
+      "storage_pool": "/compute-em2-z12/nleis01nas49-v1_vnic1/storagepool/iscsi/thruput_1",
+      "shared": false,
+      "status": "Online",
+      "description": null,
+      "tags": [],
+      "quota": null,
+      "status_detail": null,
+      "properties": [
+        "/oracle/public/storage/default"
+      ],
+      "account": "/Compute-gse00000514/default",
+      "name": "/Compute-gse00000514/cloud.admin/bitnami-nodejs-da11",
+      "bootable": true,
+      "hypervisor": null,
+      "uri": "https://api-z12.compute.em2.oraclecloud.com/storage/volume/Compute-gse00000514/cloud.admin/bitnami-nodejs-da11",
+      "imagelist_entry": 1,
+      "snapshot": null
+    }
+  ]
+}
