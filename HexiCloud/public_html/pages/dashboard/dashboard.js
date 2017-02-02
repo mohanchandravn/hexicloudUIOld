@@ -74,6 +74,29 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
                     console.log(thrownError);
                 }
             });
+            $.ajax({
+                type: "GET",
+                url: "https://api-z12.compute.em2.oraclecloud.com/shape/",
+                contentType: "application/oracle-compute-v3+json",
+                dataType: "json",
+//                accept: "application/oracle-compute-v3+json",
+                beforeSend: function (xhr) {
+//                    xhr.setRequestHeader("Access-Control-Allow-Origin", "http://localhost:8383");
+                    xhr.setRequestHeader('Accept', 'application/oracle-compute-v3+json');
+                    xhr.withCredentials = true;
+                },
+                success: function (result) {
+                    self.servicesArray([]);
+                    self.servicesArray(result.services);
+                    console.log(result);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log('Error retrieving details..');
+                    console.log(xhr);
+                    console.log(ajaxOptions);
+                    console.log(thrownError);
+                }
+            });
             // service to get guidedpaths list
             $.ajax({
                 type: "GET",
@@ -141,7 +164,7 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
                 }
             });
         };
-        
+                
         self.init = ko.computed(function() {
             if (self.shapes() !== null && self.instances() !== null && self.volumes() !== null) {
                 var shapes = self.shapes();
@@ -151,28 +174,39 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
                 var services = [];
                 console.clear();
                 self.servicesArray([]);
-                for (var prop in shapes.result) {
-                    if (Number(prop) < 5) {
+                
+                // looping for all shapes
+                for (var shapeKey in shapes.result) {
+                    if (Number(shapeKey) < 5) {
                         console.log('----------------------------------------------------------');
-//                        console.log(shapes.result[prop]);
-//                        console.log(instances.result[prop]);
-                        if (shapes.result[prop].name === instances.result[prop].shape) {
-                            volumeName = "/" + instances.result[prop].storage_attachments[0].storage_volume_name;
-//                            console.log(volumes.result[prop]);
-                            if (volumeName === volumes.result[prop].name) {
-                                console.log('name: ' + shapes.result[prop].name);
-                                console.log('ram: ' + shapes.result[prop].ram);
-                                console.log('cpus: ' + shapes.result[prop].cpus);
-                                console.log('size: ' + volumes.result[prop].size);
-                                services.push({
-                                    "serviceType": "COMPUTE",
-                                    "runningInstances": shapes.result[prop].cpus,
-                                    "cpuUsage": Number((volumes.result[prop].size) / (1024 * 1024)),
-                                    "learningCompleteness": "2",
-                                    "usageMetric": " GB",
-                                    "status": instances.result[prop].state
-                                });
+//                        console.log(shapes.result[shape]);
+//                        console.log(instances.result[shape]);
+//                        
+                        // looping for all instances
+                        for (var instanceKey in instances.result) {
+                            if (shapes.result[shapeKey].name === instances.result[instanceKey].shape) {
+                                volumeName = "/" + instances.result[instanceKey].storage_attachments[0].storage_volume_name;
                                 
+                                // looping for all volumes
+                                for (var volumeKey in volumes.result) {
+        //                            console.log(volumes.result[shape]);
+                                    if (volumeName === volumes.result[volumeKey].name) {
+                                        console.log('name: ' + shapes.result[shapeKey].name);
+                                        console.log('ram: ' + shapes.result[shapeKey].ram);
+                                        console.log('cpus: ' + shapes.result[shapeKey].cpus);
+                                        console.log('size: ' + volumes.result[volumeKey].size);
+                                        console.log('state: ' + instances.result[instanceKey].state);
+                                        services.push({
+                                            "serviceType": "COMPUTE",
+                                            "runningInstances": shapes.result[shapeKey].cpus,
+                                            "cpuUsage": Number((volumes.result[volumeKey].size) / (1024 * 1024)),
+                                            "learningCompleteness": "2",
+                                            "usageMetric": " GB",
+                                            "status": instances.result[instanceKey].state
+                                        });
+
+                                    }
+                                }
                             }
                         }
                     } else {
