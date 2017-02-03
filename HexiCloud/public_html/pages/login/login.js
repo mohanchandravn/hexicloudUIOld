@@ -28,18 +28,18 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinputtext'
             isLoggedInUser(true);
 //            router.go('hello/');
             console.log(containerName());
-             console.log(loggedInUser());
-              console.log(self.password());
-              self.dataToSend = {"user" : containerName() + loggedInUser(), "password" : self.password()};
-              console.log( JSON.stringify(self.dataToSend));
-              console.log(restEndPoint() + 'authenticate/');
-               $.ajax({
-                type: "POST",
+            console.log(loggedInUser());
+            console.log(self.password());
+            self.dataToSend = {"user" : containerName() + loggedInUser(), "password" : self.password()};
+            console.log( JSON.stringify(self.dataToSend));
+            console.log(restEndPoint() + 'authenticate/');
+            $.ajax({
+                type: "POST",  
+                url: restEndPoint() + 'authenticate/',
                 contentType: "application/oracle-compute-v3+json",
+                dataType: "application/oracle-compute-v3+json",
                 data: JSON.stringify(self.dataToSend),
                 crossDomain: true,
-                dataType: "application/oracle-compute-v3+json",  
-                url: restEndPoint() + 'authenticate/',
                 success: function (result) {
                     console.log("Success = " + result);
                 },
