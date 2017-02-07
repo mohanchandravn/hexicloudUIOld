@@ -1,0 +1,17 @@
+{
+    "stepData": [
+        {
+            "id": "9876543_213",
+            "stepId": 20,
+            "stepCode": "createdUsers",
+            "metaData": "Meta data content goes here",
+            "createdOn": "2017-02-07T04:55:38.092Z"
+        }, {
+            "id": "9876543_214",
+            "stepId": 40,
+            "stepCode": "vmProvisionedAllOk",
+            "metaData": "Meta data content goes here",
+            "createdOn": "2017-02-07T04:55:38.092Z"
+        }
+    ]
+}

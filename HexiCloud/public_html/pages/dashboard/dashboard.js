@@ -179,8 +179,6 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
                 for (var shapeKey in shapes.result) {
 //                    if (Number(shapeKey) < 5) {
                         console.log('----------------------------------------------------------');
-//                        console.log(shapes.result[shape]);
-//                        console.log(instances.result[shape]);
 //                        
                         // looping for all instances
                         for (var instanceKey in instances.result) {
@@ -191,19 +189,13 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
                                 console.log('instance vol cleared..');
                                 for (var idx = 0; idx < storages.length; idx++) {
                                     volumeName = instances.result[instanceKey].storage_attachments[idx].storage_volume_name;
-                                    console.log(volumeName);
                                     
                                     // looping for all volumes
                                     for (var volumeKey in volumes.result) {
             //                            console.log(volumes.result[shape]);
                                         if (volumeName === volumes.result[volumeKey].name) {
                                             instanceVolume += ( Number(volumes.result[volumeKey].size) / (1024 * 1024 * 1024) );
-                                            console.log('after adding' + instanceVolume);
-//                                            console.log(Number(volumes.result[volumeKey].size)/(1024 * 1024 * 1024));
-//                                            console.log('name: ' + shapes.result[shapeKey].name);
                                             ramSize = Number(shapes.result[shapeKey].ram) / (1024);
-//                                            console.log('cpus: ' + shapes.result[shapeKey].cpus);
-//                                            console.log('state: ' + instances.result[instanceKey].state);
                                         }
                                     }
                                 }
@@ -215,7 +207,7 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
         //                            "runningInstances": shapes.result[shapeKey].cpus,
                                     "runningInstances": "1",
                                     "cpuUsage": Number(instanceVolume),
-                                    "learningCompleteness": ramSize,
+                                    "ramMemory": ramSize,
                                     "usageMetric": " GB",
                                     "status": instances.result[instanceKey].state
                                 });

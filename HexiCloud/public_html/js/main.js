@@ -72,11 +72,10 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
             ko.components.register('navigationbarright', {require: 'components/navigationbarright/navigationbarright'});
             function getPath(path) {
 
-                if (path == 'learningFlow')
-                    var url = "pages/learning/" + path;
+                if (path === 'learningFlow')
+                    return "pages/learning/" + path;
                 else
-                    var url = "pages/" + path + "/" + path;
-                return url;
+                    return "pages/" + path + "/" + path;
             };
 
             router.configure(
@@ -96,7 +95,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
                         'raiseSR': {label: 'Raise an SR', value: getPath('raiseSR')},
                         'servicesMini': {label: 'Mini Services', value: getPath('servicesMini')},
                         'guidedPathsMini': {label: 'Mini Learning', value: getPath('guidedPathsMini')},
-                        'sampleCSV': {label: 'Sample CSV', value: getPath('sampleCSV')}
+                        'csmadmin': {label: 'CSM Admin', value: getPath('csmadmin')},
+                        'samplecsv': {label: 'Sample CSV', value: getPath('samplecsv')}
                     });
 
             function viewModel() {
@@ -113,8 +113,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
                 self.containerName = ko.observable();
                 self.loggedInUser = ko.observable();
                 self.isChatInitialized = ko.observable(false);
-                document.cookie = "nimbula=eyJpZGVudGl0eSI6ICJ7XCJyZWFsbVwiOiBcImNvbXB1dGUtZW0yLXoxMlwiLCBcInZhbHVlXCI6IFwie1xcXCJjdXN0b21lclxcXCI6IFxcXCJDb21wdXRlLWdzZTAwMDAwNTE0XFxcIiwgXFxcInJlYWxtXFxcIjogXFxcImNvbXB1dGUtZW0yLXoxMlxcXCIsIFxcXCJlbnRpdHlfdHlwZVxcXCI6IFxcXCJ1c2VyXFxcIiwgXFxcInNlc3Npb25fZXhwaXJlc1xcXCI6IDE0ODYwMzQyMzAuMjM1MjA0LCBcXFwiZXhwaXJlc1xcXCI6IDE0ODYwMjU2MzUuNDA5ODIxLCBcXFwidXNlclxcXCI6IFxcXCIvQ29tcHV0ZS1nc2UwMDAwMDUxNC9jbG91ZC5hZG1pblxcXCIsIFxcXCJncm91cHNcXFwiOiBbXFxcIi9Db21wdXRlLWdzZTAwMDAwNTE0L0NvbXB1dGUuQ29tcHV0ZV9Nb25pdG9yXFxcIiwgXFxcIi9Db21wdXRlLWdzZTAwMDAwNTE0L0NvbXB1dGUuQ29tcHV0ZV9PcGVyYXRpb25zXFxcIl19XCIsIFwic2lnbmF0dXJlXCI6IFwiclRyTlNnVytrdnNZMG56MWhlOTRmS2V5Tjg3NDBQRU10NUhPVkdrSDF3Si8veFdkSnBGaytxWUFuc0tDNTBLQy9mSU1jS01kMzBaN201ZXlSL2I1ekZNUHR4VUdqaVExMkMybnFPVEFOSHQrRlQrcW9HQXNzRnFPcXlkaGhyb2hCKzFjbldubzV4K1d5Mi9wOGlibllpRSswNHBsS21HYlpEMmxhVGVCcTJKbGRSVXMwdjgrODlUeWRQd0dpQUZjWXJkUE9GSnljdjNQMm5pcjdqYStRZ1F6ZzlrSTFxRk4rNlJSdXRvQXhtK0d6RFk4MVgrTGFmN0RNL1RLN08xNXpPUERZalBEUkxjUUEyZnRrRURHYUxMVVhxMlA4Zm56N3BzU3pTYUZOWGJnK2x5WkUrUVV6Q3hDd3p1Nk5DU0laOXE0TUFoY21ub3ZMNkhqMDNmMldRPT1cIn0ifQ==";
-                document.cookie = "atgRecVisitorId=11C9P_gPbvotlemq3jnCeAbaFmWOzRjoIXTBVSyM4iM5YJc7C5B";
+//                document.cookie = "nimbula=eyJpZGVudGl0eSI6ICJ7XCJyZWFsbVwiOiBcImNvbXB1dGUtZW0yLXoxMlwiLCBcInZhbHVlXCI6IFwie1xcXCJjdXN0b21lclxcXCI6IFxcXCJDb21wdXRlLWdzZTAwMDAwNTE0XFxcIiwgXFxcInJlYWxtXFxcIjogXFxcImNvbXB1dGUtZW0yLXoxMlxcXCIsIFxcXCJlbnRpdHlfdHlwZVxcXCI6IFxcXCJ1c2VyXFxcIiwgXFxcInNlc3Npb25fZXhwaXJlc1xcXCI6IDE0ODYwMzQyMzAuMjM1MjA0LCBcXFwiZXhwaXJlc1xcXCI6IDE0ODYwMjU2MzUuNDA5ODIxLCBcXFwidXNlclxcXCI6IFxcXCIvQ29tcHV0ZS1nc2UwMDAwMDUxNC9jbG91ZC5hZG1pblxcXCIsIFxcXCJncm91cHNcXFwiOiBbXFxcIi9Db21wdXRlLWdzZTAwMDAwNTE0L0NvbXB1dGUuQ29tcHV0ZV9Nb25pdG9yXFxcIiwgXFxcIi9Db21wdXRlLWdzZTAwMDAwNTE0L0NvbXB1dGUuQ29tcHV0ZV9PcGVyYXRpb25zXFxcIl19XCIsIFwic2lnbmF0dXJlXCI6IFwiclRyTlNnVytrdnNZMG56MWhlOTRmS2V5Tjg3NDBQRU10NUhPVkdrSDF3Si8veFdkSnBGaytxWUFuc0tDNTBLQy9mSU1jS01kMzBaN201ZXlSL2I1ekZNUHR4VUdqaVExMkMybnFPVEFOSHQrRlQrcW9HQXNzRnFPcXlkaGhyb2hCKzFjbldubzV4K1d5Mi9wOGlibllpRSswNHBsS21HYlpEMmxhVGVCcTJKbGRSVXMwdjgrODlUeWRQd0dpQUZjWXJkUE9GSnljdjNQMm5pcjdqYStRZ1F6ZzlrSTFxRk4rNlJSdXRvQXhtK0d6RFk4MVgrTGFmN0RNL1RLN08xNXpPUERZalBEUkxjUUEyZnRrRURHYUxMVVhxMlA4Zm56N3BzU3pTYUZOWGJnK2x5WkUrUVV6Q3hDd3p1Nk5DU0laOXE0TUFoY21ub3ZMNkhqMDNmMldRPT1cIn0ifQ==";
+//                document.cookie = "atgRecVisitorId=11C9P_gPbvotlemq3jnCeAbaFmWOzRjoIXTBVSyM4iM5YJc7C5B";
                 $(window).resize(function () {
                     if (oj.ResponsiveUtils.compare(self.screenRange(), oj.ResponsiveUtils.SCREEN_RANGE.LG) < 0) {
                         self.isChatInitialized(false);

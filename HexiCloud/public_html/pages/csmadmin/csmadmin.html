@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<div class="oj-flex" style='background-color: white;'>
+    <div class="dashboard page-content oj-sm-12 oj-flex-item">
+        <label class="manager-selection-label" for="managerListCombobox" data-bind="text: 'Choose a step'"></label>
+        <select id="managerListCombobox" class="managerListCombobox"
+                data-bind="ojComponent: {
+                            component: 'ojSelect',
+                            options: allStepsList,
+                            value: selectedStepCode,
+                            placeholder: 'Please select a step..',
+                            optionChange: updateStepCode,                                   
+                            rootAttributes: {style:'max-width:20em'}}">
+        </select>
+        <div class="oj-hybrid-padding">
+            <div class="oj-flex" data-bind="foreach: selectedStepCodeMetaDataList">
+                <div class="oj-sm-12 oj-flex-item oj-padding">
+                    <div class="metadata-content" style="border: 1px dashed pink; width: 600px; height: 100px; box-sizing: border-box;">
+                        <div class="oj-flex-bar oj-padding">
+                            <div class="oj-flex-bar-start">
+                                <div class="oj-flex oj-sm-align-items-center">
+                                    <span data-bind="text: 'Id: ' + id"></span>
+                                </div>
+                            </div>
+                            <div class="oj-flex-bar-end">
+                                <div class="oj-sm-align-self-center">
+                                    <span data-bind="text: 'Created on: ' + createdOn"></span>  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="oj-flex-bar oj-padding">
+                            <div class="oj-flex-bar-start">
+                                <div class="oj-flex oj-sm-align-items-center">
+                                    <span data-bind="text: metaData"></span>
+                                </div>
+                            </div>
+                            <div class="oj-flex-bar-end">
+                                <div class="oj-sm-align-self-center">
+                                    <button id= "deleteBtn"
+                                            data-bind="ojComponent: { component: 'ojButton', label: 'Delete' }">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
