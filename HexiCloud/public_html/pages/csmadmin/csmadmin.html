@@ -42,7 +42,7 @@ and open the template in the editor.
                             <div class="oj-flex-bar-end">
                                 <div class="oj-sm-align-self-center">
                                     <button id= "deleteBtn"
-                                            data-bind="ojComponent: { component: 'ojButton', label: 'Delete' }">
+                                            data-bind="click: $parent.deleteMetadata, ojComponent: { component: 'ojButton', label: 'Delete' }">
                                     </button>
                                 </div>
                             </div>

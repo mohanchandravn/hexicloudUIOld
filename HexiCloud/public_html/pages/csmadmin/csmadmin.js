@@ -13,6 +13,8 @@ define(['ojs/ojcore', 'knockout', 'jquery','ojs/ojknockout', 'ojs/ojbutton', 'oj
         self.allStepsList = ko.observableArray([]);
         self.selectedStepCode = ko.observable();
         self.allStepsList.push({value: 'createdUsers', label: 'Created Users'});
+        self.allStepsList.push({value: 'vmProvisionedAllOk', label: 'VM Provisioned All Ok'});
+        
         self.selectedStepCodeMetaDataList = ko.observableArray([]);
         
         //step codes to detect user in which step he's in
@@ -26,25 +28,24 @@ define(['ojs/ojcore', 'knockout', 'jquery','ojs/ojknockout', 'ojs/ojbutton', 'oj
     
         self.updateStepCode = function (event, data) {
             if (data.value[0] !== undefined) {
-                console.log(data.value[0]);
                 self.displayMetaData(data.value[0]);
-                console.log('not undefined');
-            } else {
-                console.log('undefined');
             }
         };
         
         function populateUI(metadata, stepId, stepCode) {
-            var array = [];
+            var selectedStepMetaData = [];
             metadata = metadata.stepData;
-            console.log(metadata);
-            self.selectedStepCodeMetaDataList(metadata);
+            for (var key in metadata) {
+                if (metadata[key].stepId === stepId) {
+                    selectedStepMetaData.push(metadata[key]);
+                }
+            }
+            
+            self.selectedStepCodeMetaDataList(selectedStepMetaData);
         };
         
         self.displayMetaData = function(stepCode) {
-            var stepId = self.stepsArray()[0].stepCode;
-            console.log(stepId);
-            console.log(stepCode);
+            var stepId = self.stepsArray()[0][stepCode];
             $.ajax({
                 type: "GET",
                 contentType: "application/json",
@@ -58,6 +59,11 @@ define(['ojs/ojcore', 'knockout', 'jquery','ojs/ojknockout', 'ojs/ojbutton', 'oj
                     console.log("Error retrieving service details..");
                 }
             });
+        };
+        
+        self.deleteMetadata= function(data, event) {
+            console.log("we can delete the metadata by this id: " + data.id);
+            console.log("metadata details are: " + ko.toJS(data));
         };
     };
     

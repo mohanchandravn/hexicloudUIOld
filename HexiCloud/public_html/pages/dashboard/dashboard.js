@@ -57,23 +57,6 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
         }, self);
         
         self.getServiceDetails = function() {
-            // service to get services list
-            $.ajax({
-                type: "GET",
-                url: "pages/service/services.json",
-                contentType: "application/json",
-                dataType: "json",
-                success: function (result) {
-                    self.servicesArray([]);
-                    self.servicesArray(result.services);
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    console.log('Error retrieving details..');
-                    console.log(xhr);
-                    console.log(ajaxOptions);
-                    console.log(thrownError);
-                }
-            });
 //            $.ajax({
 //                type: "GET",
 //                url: "https://api-z12.compute.em2.oraclecloud.com/shape/",
@@ -172,7 +155,6 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
                 var volumes = self.volumes();
                 var volumeName;
                 var services = [];
-                console.clear();
                 self.servicesArray([]);
                 
                 // looping for all shapes
@@ -192,7 +174,6 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
                                     
                                     // looping for all volumes
                                     for (var volumeKey in volumes.result) {
-            //                            console.log(volumes.result[shape]);
                                         if (volumeName === volumes.result[volumeKey].name) {
                                             instanceVolume += ( Number(volumes.result[volumeKey].size) / (1024 * 1024 * 1024) );
                                             ramSize = Number(shapes.result[shapeKey].ram) / (1024);

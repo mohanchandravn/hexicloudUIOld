@@ -12,7 +12,26 @@ and open the template in the editor.
                     <div class="oj-hybrid-padding"> </div>
                     <div class="oj-hybrid-padding"> </div>
                     <div class="oj-hybrid-padding"> </div>
-                    <div class="oj-flex-pad">
+                    <div class="oj-flex-items-pad">
+                        <iframe id="pdf" width="600" height="420" data-bind="attr : { src: 'http://docs.google.com/gview?url=' + pdfSrc() + '&embedded=true' }" frameborder="0"></iframe>
+                        <div class="oj-padding">
+                            <div class="oj-flex-bar">
+                                <div class="oj-flex-bar-start">
+                                    <!-- ko if: userRole() === 'itAdmin' -->
+                                    <a style="color: white;" data-bind="text: textForAddingUsersAndAssigningRoles,attr: { href: urlForAddingUsersAndAssigningRoles, title: urlForAddingUsersAndAssigningRoles, target: '_blank' }"></a>
+                                    <!-- /ko -->
+                                    <!-- ko if: userRole() === 'accountAdmin' -->
+                                    <a style="color: white;" data-bind="text: textForAddingAdminUsersAndAssigningRoles,attr: { href: urlForAddingAdminUsersAndAssigningRoles, title: urlForAddingAdminUsersAndAssigningRoles, target: '_blank' }"></a>
+                                    <!-- /ko -->
+                                </div>
+                                <div class="oj-flex-bar-end">
+                                    <span style="min-width: 150px; height: 40px; border: 1px solid white; color: white; cursor: pointer; padding: 8px 0px 0px 24px; box-sizing: border-box;"
+                                          data-bind="click: goToServices, text: 'Go to Services'"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<!--                    <div class="oj-flex-pad">
                         <div class="oj-flex">
                             <div class="oj-flex-item">
                                 <p style="color: white; font-size: x-large; ali">Add new users</p>
@@ -70,8 +89,8 @@ and open the template in the editor.
                             <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">
                                 <div class="oj-flex-item">
                                     <div class="standard-button oj-sm-justify-content-center oj-flex">
-                                        <!--                                    <button id= "acceptRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
-                                                                                    data-bind="click: addMoreUsers, ojComponent: { component: 'ojButton', label: 'YES', chroming: 'outlined'}"></button>-->
+                                                                            <button id= "acceptRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
+                                                                                    data-bind="click: addMoreUsers, ojComponent: { component: 'ojButton', label: 'YES', chroming: 'outlined'}"></button>
                                         <span data-bind="click: addMoreUsers, text: 'YES'">YES</span>
                                     </div>
                                 </div>
@@ -79,14 +98,14 @@ and open the template in the editor.
                                 <div class="oj-hybrid-padding"> </div>
                                 <div class="oj-flex-item">
                                     <div class="standard-button oj-sm-justify-content-center oj-flex">
-                                        <!--                                    <button id= "rejectRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
-                                                                                    data-bind="click: doNotAddUsers, ojComponent: { component: 'ojButton', label: 'NO', chroming: 'outlined'}"></button>-->
+                                                                            <button id= "rejectRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
+                                                                                    data-bind="click: doNotAddUsers, ojComponent: { component: 'ojButton', label: 'NO', chroming: 'outlined'}"></button>
                                         <span data-bind="click: doNotAddUsers, text: 'NO'">NO</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

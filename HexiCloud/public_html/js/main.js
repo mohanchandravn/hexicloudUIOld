@@ -79,25 +79,25 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
             };
 
             router.configure(
-                    {
-                        'home': {label: 'Home', value: getPath('home'), isDefault: true},
-                        'login': {label: 'Login', value: getPath('login')},
-                        'hello': {label: 'Hello', value: getPath('hello')},
-                        'roleIdentified': {label: 'Role Identified', value: getPath('roleIdentified')},
-                        'chooseRole': {label: 'Choose Role', value: getPath('chooseRole')},
-                        'createUsers': {label: 'Create Users', value: getPath('createUsers')},
-                        'addAdditionalUsers': {label: 'Add Additional Users', value: getPath('addAdditionalUsers')},
-                        'learning': {label: 'Learning', value: getPath('learning')},
-                        'dashboard': {label: 'Dashboard', value: getPath('dashboard')},
-                        'service': {label: 'Service', value: getPath('service')},
-                        'settings': {label: 'Settings', value: getPath('settings')},
-                        'learningFlow': {label: 'learningFlow', value: getPath('learningFlow')},
-                        'raiseSR': {label: 'Raise an SR', value: getPath('raiseSR')},
-                        'servicesMini': {label: 'Mini Services', value: getPath('servicesMini')},
-                        'guidedPathsMini': {label: 'Mini Learning', value: getPath('guidedPathsMini')},
-                        'csmadmin': {label: 'CSM Admin', value: getPath('csmadmin')},
-                        'samplecsv': {label: 'Sample CSV', value: getPath('samplecsv')}
-                    });
+            {
+                'home': {label: 'Home', value: getPath('home'), isDefault: true},
+                'login': {label: 'Login', value: getPath('login')},
+                'hello': {label: 'Hello', value: getPath('hello')},
+                'roleIdentified': {label: 'Role Identified', value: getPath('roleIdentified')},
+                'chooseRole': {label: 'Choose Role', value: getPath('chooseRole')},
+                'createUsers': {label: 'Create Users', value: getPath('createUsers')},
+                'addAdditionalUsers': {label: 'Add Additional Users', value: getPath('addAdditionalUsers')},
+                'learning': {label: 'Learning', value: getPath('learning')},
+                'dashboard': {label: 'Dashboard', value: getPath('dashboard')},
+                'service': {label: 'Service', value: getPath('service')},
+                'settings': {label: 'Settings', value: getPath('settings')},
+                'learningFlow': {label: 'learningFlow', value: getPath('learningFlow')},
+                'raiseSR': {label: 'Raise an SR', value: getPath('raiseSR')},
+                'servicesMini': {label: 'Mini Services', value: getPath('servicesMini')},
+                'guidedPathsMini': {label: 'Mini Learning', value: getPath('guidedPathsMini')},
+                'csmadmin': {label: 'CSM Admin', value: getPath('csmadmin')},
+                'samplecsv': {label: 'Sample CSV', value: getPath('samplecsv')}
+            });
 
             function viewModel() {
                 self.router = router;
@@ -112,6 +112,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
 //                self.restEndPoint = ko.observable("https://api-z11.compute.em3.oraclecloud.com/");
                 self.containerName = ko.observable();
                 self.loggedInUser = ko.observable();
+                self.userRole = ko.observable('');
                 self.isChatInitialized = ko.observable(false);
 //                document.cookie = "nimbula=eyJpZGVudGl0eSI6ICJ7XCJyZWFsbVwiOiBcImNvbXB1dGUtZW0yLXoxMlwiLCBcInZhbHVlXCI6IFwie1xcXCJjdXN0b21lclxcXCI6IFxcXCJDb21wdXRlLWdzZTAwMDAwNTE0XFxcIiwgXFxcInJlYWxtXFxcIjogXFxcImNvbXB1dGUtZW0yLXoxMlxcXCIsIFxcXCJlbnRpdHlfdHlwZVxcXCI6IFxcXCJ1c2VyXFxcIiwgXFxcInNlc3Npb25fZXhwaXJlc1xcXCI6IDE0ODYwMzQyMzAuMjM1MjA0LCBcXFwiZXhwaXJlc1xcXCI6IDE0ODYwMjU2MzUuNDA5ODIxLCBcXFwidXNlclxcXCI6IFxcXCIvQ29tcHV0ZS1nc2UwMDAwMDUxNC9jbG91ZC5hZG1pblxcXCIsIFxcXCJncm91cHNcXFwiOiBbXFxcIi9Db21wdXRlLWdzZTAwMDAwNTE0L0NvbXB1dGUuQ29tcHV0ZV9Nb25pdG9yXFxcIiwgXFxcIi9Db21wdXRlLWdzZTAwMDAwNTE0L0NvbXB1dGUuQ29tcHV0ZV9PcGVyYXRpb25zXFxcIl19XCIsIFwic2lnbmF0dXJlXCI6IFwiclRyTlNnVytrdnNZMG56MWhlOTRmS2V5Tjg3NDBQRU10NUhPVkdrSDF3Si8veFdkSnBGaytxWUFuc0tDNTBLQy9mSU1jS01kMzBaN201ZXlSL2I1ekZNUHR4VUdqaVExMkMybnFPVEFOSHQrRlQrcW9HQXNzRnFPcXlkaGhyb2hCKzFjbldubzV4K1d5Mi9wOGlibllpRSswNHBsS21HYlpEMmxhVGVCcTJKbGRSVXMwdjgrODlUeWRQd0dpQUZjWXJkUE9GSnljdjNQMm5pcjdqYStRZ1F6ZzlrSTFxRk4rNlJSdXRvQXhtK0d6RFk4MVgrTGFmN0RNL1RLN08xNXpPUERZalBEUkxjUUEyZnRrRURHYUxMVVhxMlA4Zm56N3BzU3pTYUZOWGJnK2x5WkUrUVV6Q3hDd3p1Nk5DU0laOXE0TUFoY21ub3ZMNkhqMDNmMldRPT1cIn0ifQ==";
 //                document.cookie = "atgRecVisitorId=11C9P_gPbvotlemq3jnCeAbaFmWOzRjoIXTBVSyM4iM5YJc7C5B";
