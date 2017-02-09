@@ -7,13 +7,14 @@
 /**
  * home module
  */
-define(['ojs/ojcore', 'knockout', 'jquery'
-], function (oj, ko, $) {
+define([
+], function () {
     /**
      * The view model for the main content view template
      */
     function homeContentViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
         
         console.log('home page');
         

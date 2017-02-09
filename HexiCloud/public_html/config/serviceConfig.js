@@ -16,7 +16,7 @@ define(['knockout', 'jquery'
         
         self.updateCurrentStep = function(payload) {
             var defer = $.Deferred();
-            var serverURL = "https://141.145.40.38/hexiCloudRestApp/services/rest/createUserStep/";
+            var serverURL = "https://140.86.1.93/hexiCloudRest/services/rest/createUserStep/";
             $.ajax({
                 type: "POST",
                 url: serverURL,

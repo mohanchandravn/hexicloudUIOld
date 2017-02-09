@@ -7,13 +7,14 @@
 /**
  * login module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinputtext'
-], function (oj, ko, $) {
+define(['ojs/ojcore', 'ojs/ojinputtext'
+], function () {
     /**
      * The view model for the main content view template
      */
-    function raiseSRViewModel() {
+    function raiseSRViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
         
         console.log('Raising SR page');
         self.submitSR = function() {

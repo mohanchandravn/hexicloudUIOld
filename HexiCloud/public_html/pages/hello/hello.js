@@ -7,18 +7,32 @@
 /**
  * login module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinputtext'
-], function (oj, ko, $) {
+define(['config/serviceConfig', 'ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinputtext'
+], function (service) {
     /**
      * The view model for the main content view template
      */
-    function helloViewModel() {
+    function helloViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
         
-        console.log('hello page');
+        var successCallBackFn = function(data) {
+            console.log(data);
+            router.go('dashboard/');
+        };
+        
+        var FailCallBackFn = function(xhr) {
+            console.log(xhr);
+        };
+        
         self.skipProcess = function() {
             isLoggedInUser(true);
-            router.go('dashboard/');
+            service.updateCurrentStep(JSON.stringify({
+                    "userId" : loggedInUser(),
+                    "userRole" : "itAdmin",
+                    "curStepCode" : "dashboard",
+                    "preStepCode" : getStateId()
+            })).then(successCallBackFn, FailCallBackFn);
         };
         self.startProcess = function() {
             console.log('Navigating to role Identified page');

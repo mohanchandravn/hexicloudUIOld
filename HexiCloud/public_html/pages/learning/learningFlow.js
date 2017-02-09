@@ -7,12 +7,13 @@
 /**
  * learning module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojtrain', 'ojs/ojbutton'],
-function(oj, ko, $)
+define(['knockout', 'jquery', 'ojs/ojcore', 'ojs/ojknockout', 'ojs/ojtrain', 'ojs/ojbutton'],
+function(ko, $)
 {
     
-    function learningFlowContentViewModel() {
+    function learningFlowContentViewModel(params) {
      var self = this;
+        var router = params.ojRouter.parentRouter;
 
      this.currentStepValue = ko.observable('stp1');
 		this.stepArray = 

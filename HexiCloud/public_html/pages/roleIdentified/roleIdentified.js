@@ -7,13 +7,14 @@
 /**
  * login module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinputtext'
-], function (oj, ko, $) {
+define([
+], function () {
     /**
      * The view model for the main content view template
      */
-    function rolerIdentifiedViewModel() {
+    function rolerIdentifiedViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
         
         console.log('hello page');
         self.acceptRole = function() {

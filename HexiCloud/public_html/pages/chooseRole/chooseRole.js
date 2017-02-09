@@ -7,13 +7,14 @@
 /**
  * login module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojradioset'
-], function (oj, ko, $) {
+define(['knockout', 'ojs/ojcore', 'jquery', 'ojs/ojradioset'
+], function (ko) {
     /**
      * The view model for the main content view template
      */
-    function chooseRoleViewModel() {
+    function chooseRoleViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
         
         console.log('hello page');
         self.currentRole = ko.observable("itAdmin");

@@ -19,6 +19,7 @@ requirejs.config({
                         'promise': 'js/libs/es6-promise/es6-promise.min',
                         'hammerjs': 'js/libs/hammer/hammer-2.0.8.min',
                         'ojdnd': 'js/libs/dnd-polyfill/dnd-polyfill-1.0.0.min'
+//                        'utilities': 'utils/utilities'
                     }
             //endinjector
             ,
@@ -114,6 +115,11 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
                 self.loggedInUser = ko.observable();
                 self.userRole = ko.observable('');
                 self.isChatInitialized = ko.observable(false);
+                
+                self.getStateId = function() {
+                    return router.currentState().id;
+                };
+                
 //                document.cookie = "nimbula=eyJpZGVudGl0eSI6ICJ7XCJyZWFsbVwiOiBcImNvbXB1dGUtZW0yLXoxMlwiLCBcInZhbHVlXCI6IFwie1xcXCJjdXN0b21lclxcXCI6IFxcXCJDb21wdXRlLWdzZTAwMDAwNTE0XFxcIiwgXFxcInJlYWxtXFxcIjogXFxcImNvbXB1dGUtZW0yLXoxMlxcXCIsIFxcXCJlbnRpdHlfdHlwZVxcXCI6IFxcXCJ1c2VyXFxcIiwgXFxcInNlc3Npb25fZXhwaXJlc1xcXCI6IDE0ODYwMzQyMzAuMjM1MjA0LCBcXFwiZXhwaXJlc1xcXCI6IDE0ODYwMjU2MzUuNDA5ODIxLCBcXFwidXNlclxcXCI6IFxcXCIvQ29tcHV0ZS1nc2UwMDAwMDUxNC9jbG91ZC5hZG1pblxcXCIsIFxcXCJncm91cHNcXFwiOiBbXFxcIi9Db21wdXRlLWdzZTAwMDAwNTE0L0NvbXB1dGUuQ29tcHV0ZV9Nb25pdG9yXFxcIiwgXFxcIi9Db21wdXRlLWdzZTAwMDAwNTE0L0NvbXB1dGUuQ29tcHV0ZV9PcGVyYXRpb25zXFxcIl19XCIsIFwic2lnbmF0dXJlXCI6IFwiclRyTlNnVytrdnNZMG56MWhlOTRmS2V5Tjg3NDBQRU10NUhPVkdrSDF3Si8veFdkSnBGaytxWUFuc0tDNTBLQy9mSU1jS01kMzBaN201ZXlSL2I1ekZNUHR4VUdqaVExMkMybnFPVEFOSHQrRlQrcW9HQXNzRnFPcXlkaGhyb2hCKzFjbldubzV4K1d5Mi9wOGlibllpRSswNHBsS21HYlpEMmxhVGVCcTJKbGRSVXMwdjgrODlUeWRQd0dpQUZjWXJkUE9GSnljdjNQMm5pcjdqYStRZ1F6ZzlrSTFxRk4rNlJSdXRvQXhtK0d6RFk4MVgrTGFmN0RNL1RLN08xNXpPUERZalBEUkxjUUEyZnRrRURHYUxMVVhxMlA4Zm56N3BzU3pTYUZOWGJnK2x5WkUrUVV6Q3hDd3p1Nk5DU0laOXE0TUFoY21ub3ZMNkhqMDNmMldRPT1cIn0ifQ==";
 //                document.cookie = "atgRecVisitorId=11C9P_gPbvotlemq3jnCeAbaFmWOzRjoIXTBVSyM4iM5YJc7C5B";
                 $(window).resize(function () {
@@ -158,8 +164,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
 //                        }
 //                    }
 //                };
-            }
-            ;
+            };
 
 
             $(document).ready(function ()

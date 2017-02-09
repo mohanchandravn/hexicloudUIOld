@@ -7,13 +7,14 @@
 /**
  * login module
  */
-define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', , 'ojs/ojinputtext', 'ojs/ojaccordion', 'ojs/ojcollapsible'
-], function (ko, service) {
+define(['knockout', 'ojs/ojcore', 'jquery', 'ojs/ojaccordion', 'ojs/ojcollapsible'
+], function (ko) {
     /**
      * The view model for the main content view template
      */
-    function createUsersViewModel() {
+    function createUsersViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
         
         //for adding Users and Assigning roles
         self.urlForAddingUsersAndAssigningRoles = ko.observable('http://docs.oracle.com/en/cloud/get-started/subscriptions-cloud/csgsg/adding-users-and-assigning-roles.html');

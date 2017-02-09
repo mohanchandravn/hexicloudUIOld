@@ -7,13 +7,14 @@
 /**
  * login module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinputtext'
-], function (oj, ko, $) {
+define(['knockout', 'ojs/ojcore', 'jquery', 'ojs/ojinputtext'
+], function (ko) {
     /**
      * The view model for the main content view template
      */
-    function loginContentViewModel() {
+    function loginContentViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
 
         self.userName = ko.observable();
         self.password = ko.observable();
