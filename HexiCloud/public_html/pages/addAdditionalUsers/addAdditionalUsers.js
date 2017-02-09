@@ -22,7 +22,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinputtext'
         };
         self.addLater = function() {
             isLoggedInUser(true);
-            router.go('dashboard/');
+            router.go('servicesMini/');
         };
     }
     

@@ -4,77 +4,111 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<div class="oj-flex responsive-height">
-    <navigationbarleft class="nav-left-pane oj-flex-item"></navigationbarleft>
-    <div class="dashboard oj-flex-item">
-        <div class="dashboard-heading oj-sm-align-items-center oj-flex">
-            <div class="oj-sm-6 oj-flex-item">
-                <div class="oj-sm-justify-content-flex-end oj-flex">
-                    <span data-bind="text: runningCPUCount() + ' out of ' + totalCPUCount() + ' OCPUs '"></span>
-                    <img src="img/itr-ico.png" alt="icon thumbnail"/>
-                </div>
+<div class="dashboard-page oj-offcanvas-outer-wrapper">
+    <div class="oj-offcanvas-inner-wrapper oj-flex">
+        <navigationbarleft id="navigationDrawerLeft" class="nav-left-pane oj-flex-item"></navigationbarleft>
+        <div class="dashboard page-content oj-sm-12 oj-md-12 oj-flex-item">
+            <!-- ko if: !isScreenXL() -->
+            <div class="oj-flex-bar">
+                <button id="start" class="oj-flex-bar-start" 
+                        data-bind="click: toggleLeft,
+                                   ojComponent: {component:'ojButton', 
+                                   label: 'Toggle start offcanvas', 
+                                   chroming: 'half',
+                                   display: 'icons', 
+                                   icons: {start: 'oj-fwk-icon-hamburger oj-fwk-icon'}}">
+                </button>
+                <button id="end" class="oj-lg-hide oj-flex-bar-end"
+                        data-bind="click: toggleRight,
+                                   ojComponent: {component:'ojButton', 
+                                   label: 'Toggle end offcanvas', 
+                                   chroming: 'half',
+                                   display: 'icons', 
+                                   icons: {end: 'oj-fwk-icon-hamburger oj-fwk-icon'}}">
+                </button>
             </div>
-            <div class="oj-sm-6 oj-flex-item">
-                <div class="oj-sm-justify-content-center oj-flex">
-                    <span data-bind="text: currentUsedMemory() + '% Memory '"></span>
-                    <img src="img/pvm-ico.png" alt="icon thumbnail"/>
+            <!--/ko-->
+            <div class="dashboard-heading oj-sm-align-items-center oj-flex">
+                <div class="oj-sm-12 oj-md-12 oj-lg-6 oj-flex-item">
+                    <div class="oj-sm-justify-content-center oj-flex">
+                        <span data-bind="text: runningCPUCount() + ' out of ' + totalCPUCount() + ' OCPUs '"></span>
+                        <img src="img/mini-compute-icon.png" alt="icon thumbnail"/>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="dashboard-services-content oj-flex">
-            <span class="labelled-button-title" data-bind="text: 'My Services Preview'"></span>
-            <span class="labelled-button" data-bind="click: function(data){ router.go('service')},text: 'SEE ALL'"></span>
-            <div class="service-menu oj-sm-12 oj-flex-item">
-                <div class="oj-flex" data-bind="foreach: servicesArray">
-                    <div class="service-item oj-flex-item">
-                        <span class="service-heading oj-sm-justify-content-center oj-flex" data-bind="text: serviceType"></span>
-                        <div class="service-details oj-flex">
-                            <img src="img/itr-ico.png" alt="icon thumbnail"/>
-                            <span class="service-instance-count oj-sm-2 oj-flex-item" data-bind="text: runningInstances"></span>
-                            <div class="oj-sm-10 oj-flex-item">
-                                <span data-bind="text: 'instance'"></span>
-                                <span data-bind="text: 'running'"></span>
-                            </div>
-                        </div>
-                        <div class="service-usage-details oj-flex">
-                            <div class="oj-sm-12 oj-flex-item">
-                                <span class="bold" data-bind="text: cpuUsage + usageMetric"></span><span data-bind="text: ' Usage'"></span>
-                            </div>
-                            <div class="oj-sm-12 oj-flex-item">
-                                <span class="bold" data-bind="text: learningCompleteness + usageMetric"></span><span data-bind="text: ' Learning Completeness'"></span>
-                            </div>
-                        </div>
-                        <div class="oj-sm-justify-content-center oj-flex">
-                            <span class="service-learn-more" data-bind="text: 'LEARN MORE'"></span>
-                        </div>
+                <div class="oj-sm-12 oj-md-12 oj-lg-6 oj-flex-item">
+                    <div class="oj-sm-justify-content-center oj-flex">
+                        <span data-bind="text: currentUsedMemory() + '% Memory '"></span>
+                        <img src="img/mini-DB-Icon.png" alt="icon thumbnail"/>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="dashboard-services-content oj-flex">
-            <span class="labelled-button-title" data-bind="text: 'My Guided Paths Preview'"></span>
-            <span class="labelled-button" data-bind="click: function(data){ router.go('learning')},text: 'SEE ALL'"></span>
-            <div class="service-menu oj-sm-12 oj-flex-item">
-                <div class="oj-flex" data-bind="foreach: guidedPathsArray">
-                    <div class="oj-sm-12 oj-flex-item">
-                        <div class="paths-menu oj-sm-align-items-center oj-flex">
-                            <img src="img/pvm-ico.png" alt="icon thumbnail"/>
-                            <span class="oj-sm-3 oj-flex-item" data-bind="text: 'Step Description'"></span>
-                            <span class="bold" data-bind="text: 'Guided Path Title'"></span>
-                            <span class="steps-count" data-bind="text: 'Steps ' + stepCount + ' out of ' + totalSteps"></span>
-                            <div class="oj-sm-flex-direction-column oj-sm-2 oj-flex-item">
-                                <label for="progressPercentage">PROGRESS</label>
-                                <div id="progressPercentage" data-bind="ojComponent:{
-                                          component: 'ojProgressbar', 
-                                          value: percentage}">
+            <div class="dashboard-services-content oj-flex">
+                <span class="labelled-button-title" data-bind="text: 'My Services Preview'"></span>
+                <span class="labelled-button" data-bind="click: function(data){ router.go('service')},text: 'SEE ALL'"></span>
+                <div class="service-menu oj-sm-12 oj-flex-item">
+                    <div class="oj-flex" data-bind="foreach: servicesArray">
+                        <div class="service-item oj-margin oj-flex-item" data-bind="css: $parent.checkServiceStatus(status)">
+                            <span class="service-heading oj-sm-justify-content-center oj-flex" data-bind="text: serviceType"></span>
+                            <div class="service-details oj-flex">
+                                <img src="img/DashBoard-Comp-icon.png" alt="icon thumbnail"/>
+                                <span class="service-instance-count oj-sm-2 oj-flex-item" data-bind="text: runningInstances"></span>
+                                <div>
+                                    <span class="oj-flex" data-bind="text: 'instance'"></span>
+                                    <span class="oj-flex" data-bind="text: 'running'"></span>
                                 </div>
                             </div>
-                            <span class="padding4px labelled-button" data-bind="click: function(data){ router.go('learningFlow')}, text: path"></span>
+                            <div class="service-usage-details oj-flex">
+                                <div class="oj-sm-12 oj-flex-item">
+                                    <span class="bold" data-bind="text: cpuUsage + usageMetric"></span><span data-bind="text: ' Volume'"></span>
+                                </div>
+                                <div class="oj-sm-12 oj-flex-item">
+                                    <span class="bold" data-bind="text: ramMemory + usageMetric"></span><span data-bind="text: ' Memory'"></span>
+                                </div>
+                            </div>
+                            <div class="oj-sm-justify-content-center oj-flex">
+                                <span class="service-learn-more" data-bind="text: 'LEARN MORE'"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-services-content oj-flex">
+                <span class="labelled-button-title" data-bind="text: 'My Guided Paths Preview'"></span>
+                <span class="labelled-button" data-bind="click: function(data){ router.go('learning')},text: 'SEE ALL'"></span>
+                <div class="service-menu oj-sm-12 oj-flex-item">
+                    <div class="oj-flex" data-bind="foreach: guidedPathsArray">
+                        <div class="oj-sm-12 oj-flex-item">
+                            <div class="paths-menu oj-sm-align-items-center oj-flex">
+                                <img src="img/DashBoard-DB-icon.png" alt="icon thumbnail"/>
+                                <span class="oj-sm-3 oj-flex-item" data-bind="text: 'Step Description'"></span>
+                                <span class="bold" data-bind="text: 'Guided Path Title'"></span>
+                                <span class="steps-count" data-bind="text: 'Steps ' + stepCount + ' out of ' + totalSteps"></span>
+<!--                                <div class="oj-sm-flex-direction-column oj-sm-2 oj-flex-item">
+                                    <label for="progressPercentage">PROGRESS</label>
+                                    <div id="progressPercentage" data-bind="ojComponent:{
+                                              component: 'ojProgressbar', 
+                                              value: percentage}">
+                                    </div>
+                                </div>-->
+                                <div class="oj-flex-item oj-margin">
+                                    <div class="oj-flex-bar">
+                                        <div class="oj-sm-flex-direction-column oj-flex-bar-start">
+                                            <label for="progressPercentage">PROGRESS</label>
+                                            <div id="progressPercentage" data-bind="ojComponent:{
+                                                      component: 'ojProgressbar', 
+                                                      value: percentage,
+                                                      rootAttributes: {style: 'width: 200px;'}}">
+                                            </div>
+                                        </div>
+                                        <span class="oj-flex-bar-end oj-padding labelled-button" data-bind="click: function(data){ router.go('learningFlow')}, text: path"></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <navigationbarright id="navigationDrawerRight" class="nav-right-pane oj-flex-item"></navigationbarright>
     </div>
-    <navigationbarright class="nav-right-pane oj-flex-item"></navigationbarright>
 </div>

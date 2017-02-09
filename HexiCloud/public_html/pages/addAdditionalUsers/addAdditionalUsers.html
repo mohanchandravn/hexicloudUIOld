@@ -5,46 +5,61 @@ and open the template in the editor.
 -->
 
 <div class="oj-flex responsive-height">
-    <div class="oj-panel" style="background-color: rgba(54, 25, 25, .2); min-height: 100%; min-width: 100%">
-        <div style="padding-left: 25%; padding-right: 25%;">
-
-            <div class="oj-panel oj-margin" style="background-color: rgba(52, 72, 79, .8); min-height: 100%; min-width: 100%">
-                <div class="oj-flex-pad">
-                    <div class="oj-flex oj-sm-align-items-center oj-sm-flex-direction-column">
-                        <div class="oj-flex-item">
-                            <div class="oj-sm-justify-content-center oj-flex">
-                                <p style="color: white; font-size: x-large; ali">Would you like to add more users?</p>
-                            </div>
-                        </div>
-                        <div class="oj-flex-item">
-                            <div class="oj-sm-justify-content-center oj-flex">
-                                <img src="img/additionalUsers.png" alt="Users"/>
-                            </div>
-                        </div>
-                    </div>
-                    <!--<div class="oj-flex-item">-->
+    <div class="oj-panel main-backgroud-opaque-layer" >
+        <div class="olive-sorround-div">
+            <div class="oj-panel oj-margin olive-background-panel">
+                <div style="padding-left: 18%; padding-right: 18%">
                     <div class="oj-flex-pad">
-                        <div class="oj-flex oj-sm-align-items-center">
+                        <div class="oj-flex oj-sm-align-items-center oj-sm-flex-direction-column">
+                            <div class="oj-hybrid-padding"> </div>
+                            <div class="oj-hybrid-padding"> </div>
+                            <div class="oj-hybrid-padding"> </div>
+                            <div class="oj-hybrid-padding"> </div>
                             <div class="oj-flex-item">
-
                                 <div class="oj-sm-justify-content-center oj-flex">
-                                    <button id= "acceptRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
-                                            data-bind="click: addUsers, ojComponent: { component: 'ojButton', label: 'ADD USERS', chroming: 'outlined'}"></button>
+                                    <span style="color: white; font-size: x-large; ali">Would you like to add more users?</span>
                                 </div>
                             </div>
-
+                            <div class="oj-hybrid-padding"> </div>
+                            <div class="oj-hybrid-padding"> </div>
+                            <div class="oj-hybrid-padding"> </div>
+                            <div class="oj-hybrid-padding"> </div>
                             <div class="oj-flex-item">
                                 <div class="oj-sm-justify-content-center oj-flex">
-                                    <button id= "rejectRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
-                                            data-bind="click: addLater, ojComponent: { component: 'ojButton', label: 'ADD LATER', chroming: 'outlined'}"></button>
+                                    <img src="img/additionalUsers.png" alt="Users"/>
                                 </div>
                             </div>
                         </div>
+                        <div class="oj-hybrid-padding"> </div>
+                        <div class="oj-hybrid-padding"> </div>
+                        <div class="oj-hybrid-padding"> </div>
+
+                        <!--<div class="oj-flex-item">-->
+                        <div class="oj-flex-pad">
+                            <div class="oj-flex oj-sm-align-items-center">
+                                <div class="oj-flex-item">
+
+                                    <div class="standard-button oj-sm-justify-content-center oj-flex">
+                                        <!--                                    <button id= "acceptRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
+                                                                                    data-bind="click: addUsers, ojComponent: { component: 'ojButton', label: 'ADD USERS', chroming: 'outlined'}"></button>-->
+                                        <span data-bind="click: addUsers, text: 'ADD USERS'">ADD USERS</span>
+                                    </div>
+                                </div>
+
+                                <div class="oj-flex-item">
+                                    <div class="standard-button oj-sm-justify-content-center oj-flex">
+                                        <!--                                    <button id= "rejectRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
+                                                                                    data-bind="click: addLater, ojComponent: { component: 'ojButton', label: 'ADD LATER', chroming: 'outlined'}"></button>-->
+                                        <span data-bind="click: addLater, text: 'ADD LATER'">ADD LATER</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--</div>-->
+
                     </div>
-                    <!--</div>-->
 
                 </div>
-
             </div>
         </div>
     </div>

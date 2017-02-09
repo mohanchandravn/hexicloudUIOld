@@ -1,16 +1,73 @@
-<!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+
+<div class="oj-flex responsive-height">
+    <div class="oj-panel main-backgroud-opaque-layer" >
+        <div class="olive-sorround-div">
+            <div class="oj-panel oj-margin olive-background-panel">
+                <div style="padding-left: 15%; padding-top: 10%">
+                    <span style="color: white; font-size: x-large">Please contact your CSM</span><br>
+                    <span style="color: white; font-size: x-large; font-weight: bold">csm@oracle.com</span>
+                    <div class="oj-hybrid-padding"> </div>
+                    <div class="oj-hybrid-padding"> </div>
+                    <span style="color: white; font-size: x-large">or raise an SR</span>
+                    <div class="oj-hybrid-padding"> </div>
+                    <div class="oj-flex-items-pad">  
+                        <div class="oj-flex-item">
+                            <!--<div class="oj-sm-justify-content-center oj-flex">-->
+                            <input id="issueSubject"  style="background: transparent; padding-left: 5% !important;" class="moreHeight whitePlaceHolder input-color-white" data-bind="ojComponent: {component: 'ojInputText', placeholder: 'Type an issue you are encountering', rootAttributes: {style:'max-width:75%'}}">
+                            <!--</div>-->
+                        </div>
+                    </div>
+                    <div class="oj-hybrid-padding"> </div>
+                    <div class="oj-flex-items-pad">  
+                        <div class="oj-flex-item">
+                            <!--<div class="oj-sm-justify-content-center oj-flex">-->
+                            <textarea id="text-area3" class="whitePlaceHolder input-color-white" style="background: transparent; height: 11.286rem !important;padding-left: 5% !important"
+                                      data-bind="ojComponent: {component: 'ojTextArea', placeholder: 'Problem description', 
+                                        rootAttributes: {
+                                            style:'max-width:75%'}}"></textarea>
+                            <!--</div>-->
+                        </div>
+                    </div>
+                    <div class="oj-hybrid-padding"> </div>
+                    <div class="oj-flex-items-pad">
+                        <div class="oj-flex-item">
+                            <div class="standard-button oj-sm-justify-content-center oj-flex">
+                                <span data-bind="click: submitSR, text: 'SUBMIT'">SUBMIT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--                    <div class="oj-flex-items-pad">
+                                            <div class="oj-flex oj-sm-align-items-center ">
+                                                <div class="oj-flex-item">
+                                                    <div class="oj-flex oj-sm-align-items-center oj-sm-flex-direction-column">
+                                                        <div class="oj-flex-item">
+                                                           <textarea id="text-area3" class="whitePlaceHolder" style="background: transparent; height: 12.286rem !important;padding-left: 5% !important"
+                                                                      data-bind="ojComponent: {component: 'ojTextArea', placeholder: 'Problem description'"></textarea>
+                                                        </div>
+                                                        <div class="oj-flex-item">
+                                                            <div class="standard-button oj-sm-justify-content-center oj-flex">
+                                                                <span data-bind="click: submitSR, text: 'SUBMIT'">SUBMIT</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                    
+                    
+                                                <div class="oj-flex-item">
+                                                    <img src="img/Hello Screen Man.png" alt="Hello Screen Man" class="accountAdmin"/>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--<button data-bind="click: login">Login</button>-->

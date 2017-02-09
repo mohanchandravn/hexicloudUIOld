@@ -57,3 +57,45 @@ and open the template in the editor.
     margin: 10px 20px;
     cursor: pointer;
 }
+
+.services-mini-heading {
+    border-bottom: 1px solid #ffffff;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.services-mini-menu {
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.services-mini-content {
+    padding-top: 20px;       
+    padding-bottom: 20px;    
+}
+
+.services-mini-item {
+    width: 165px;
+    min-height: 175px;
+    box-sizing: border-box;
+    border: 1px solid #ffffff;
+    margin-right: 30px;
+    margin-bottom: 30px;    
+    color: #ffffff;
+}
+.services-mini-usage-details {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.services-mini-top-heading { 
+    font-size: 25px;
+    color: #ffffff;       
+    padding-top: 125px;
+    padding-left: 125px;
+  
+}
+
+.services-mini-menu .oj-progressbar-value {
+    background-color: #253741;
+}

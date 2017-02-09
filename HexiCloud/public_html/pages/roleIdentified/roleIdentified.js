@@ -18,10 +18,12 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinputtext'
         console.log('hello page');
         self.acceptRole = function() {
             isLoggedInUser(true);
+            userRole('accountAdmin');
             router.go('addAdditionalUsers/');
         };
         self.rejectRole = function() {
             isLoggedInUser(true);
+            userRole('');
             router.go('chooseRole/');
         };
     }

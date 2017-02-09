@@ -1,0 +1,34 @@
+{
+   "services": [{
+           "serviceType": "COMPUTE",
+           "runningInstances": "1",
+           "cpuUsage": "34",
+           "memUsage": "20"   
+        }, {
+           "serviceType": "COMPUTE",
+           "runningInstances": "1",
+           "cpuUsage": "54",
+           "memUsage": "20"       
+        }, {
+           "serviceType": "COMPUTE",
+           "runningInstances": "1",
+           "cpuUsage": "44",
+           "memUsage": "12"       
+        }, {
+           "serviceType": "COMPUTE",
+           "runningInstances": "1",
+           "cpuUsage": "14",
+           "memUsage": "22"          
+        }, {
+           "serviceType": "COMPUTE",
+           "runningInstances": "1",
+           "cpuUsage": "52",
+           "memUsage": "32"           
+    },{
+           "serviceType": "COMPUTE",
+           "runningInstances": "1",
+           "cpuUsage": "52",
+           "memUsage": "25"
+    }
+    ]
+}

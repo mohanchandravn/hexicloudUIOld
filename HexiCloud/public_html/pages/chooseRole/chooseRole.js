@@ -19,7 +19,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojradioset'
         self.currentRole = ko.observable("itAdmin");
         self.selectedRole = function() {
             isLoggedInUser(true);
-             console.log('The value : ' + self.currentRole);
+            userRole(self.currentRole());
+            console.log('The selected role is: ' + userRole());
             router.go('addAdditionalUsers/');
         };
     }

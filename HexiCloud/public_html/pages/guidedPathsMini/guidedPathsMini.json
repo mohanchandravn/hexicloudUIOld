@@ -1,0 +1,30 @@
+{
+   "guidedPaths": [{
+           "stepCount": "3",
+           "totalSteps": "10",
+           "percentage": "30",
+           "path": "CONTINUE PATH"
+        }, {
+           "stepCount": "5",
+           "totalSteps": "10",
+           "percentage": "50",
+           "path": "CONTINUE PATH"
+        }, {
+           "stepCount": "6",
+           "totalSteps": "10",
+           "percentage": "60",
+           "path": "CONTINUE PATH"
+        }, {
+           "stepCount": "4",
+           "totalSteps": "10",
+           "percentage": "40",
+           "path": "CONTINUE PATH"
+        },{
+           "stepCount": "5",
+           "totalSteps": "10",
+           "percentage": "10",
+           "path": "CONTINUE PATH"
+        }
+        
+    ]
+}

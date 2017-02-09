@@ -1,27 +1,52 @@
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 
-<div class="navigation-left oj-flex">     
-     <div class="nav-list-right oj-sm-12 oj-flex-item">
-         <ul>
-             <li id="csm" >
-                 <div class="item-list-title">
-                     <img src="img/rigthtNav_csmHead.png"/>
-                 </div>
-             </li>
-             <li id="csm" >
-                 <div class="item-list-title">
-                     <img src="img/rigthtNav_call.png"/>
-                 </div>
-             </li>
-             <li id="csm" >
-                 <div class="item-list-title">
-                     <img src="img/rigthtNav_chat.png"/>
-                 </div>
-             </li>
-         </ul>
+    <!-- ko if: !isChatInitialized() -->
+    <div class="navigation-left oj-flex">     
+        <div class="nav-list-right oj-sm-12 oj-flex-item">
+            <ul>
+                <li id="csm" >
+                    <div class="item-list-title">
+                        <img src="img/rigthtNav_csmHead.png" alt="csm_head" />
+                    </div>
+                </li>
+                <li id="call" >
+                    <div class="item-list-title">
+                        <img src="img/rigthtNav_call.png" alt="csm_call" />
+                    </div>
+                </li>
+                <li id="chat" >                               
+                    <div id="myChatLinkContainer" class="item-list-title">
+                        <div id="myChatLink">
+                            <div id="myChatLinkInfo">
+                                <img id="chat" src="img/rigthtNav_chat.png" alt="csm_chat" />
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
+    <!-- /ko -->
+
+    <!-- ko if: isChatInitialized() -->
+    <div class="chat-window oj-padding">
+        <div class="chat-ico-container oj-sm-align-items-center oj-sm-justify-content-center oj-flex">
+            <div class="oj-flex-item">
+                <div class="csm-ico oj-sm-justify-content-center oj-flex">CSM</div>
+            </div>
+            <div class="oj-flex-item">
+                <div class="call-ico oj-sm-justify-content-center oj-flex">CALL</div>
+            </div>
+        </div>
+        <div class="chat-ico-container oj-sm-align-items-center oj-sm-justify-content-center oj-flex">
+            <div class="oj-flex-item">
+                <div class="chat-ico oj-sm-justify-content-center oj-flex">CHAT</div>
+            </div>
+        </div>
+        <div class="chat-container oj-margin-top oj-flex">
+            <iframe id="chat_frame" src="" style="min-height:600px; min-width:200px; visibility: visible;"></iframe>
+        </div>
+<!--        <input type="text" class="flex" data-bind="ojComponent: {component: 'ojInputText', value: value, placeHolder: 'Type your message...'}"/>
+        <span class="chat-send justify-center flex">SEND</span>-->
+    </div>
+    <!-- /ko -->
+    <!--<iframe id="chat_frame" src="" style="min-height:600px; min-width:200;visibility: visible;"> </iframe>-->
