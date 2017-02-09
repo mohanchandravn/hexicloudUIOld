@@ -16,9 +16,9 @@ define(['config/serviceConfig', 'ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinput
         var self = this;
         var router = params.ojRouter.parentRouter;
         
-        var successCallBackFn = function(data) {
+        var successCallBackFn = function(id, data) {
             console.log(data);
-            router.go('dashboard/');
+            router.go(id);
         };
         
         var FailCallBackFn = function(xhr) {
@@ -27,17 +27,22 @@ define(['config/serviceConfig', 'ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinput
         
         self.skipProcess = function() {
             isLoggedInUser(true);
-            service.updateCurrentStep(JSON.stringify({
+            service.updateCurrentStep({
                     "userId" : loggedInUser(),
                     "userRole" : "itAdmin",
                     "curStepCode" : "dashboard",
                     "preStepCode" : getStateId()
-            })).then(successCallBackFn, FailCallBackFn);
+            }).then(successCallBackFn, FailCallBackFn);
         };
         self.startProcess = function() {
             console.log('Navigating to role Identified page');
             isLoggedInUser(true);
-            router.go('roleIdentified/');
+            service.updateCurrentStep({
+                    "userId" : loggedInUser(),
+                    "userRole" : "itAdmin",
+                    "curStepCode" : "roleIdentified",
+                    "preStepCode" : getStateId()
+            }).then(successCallBackFn, FailCallBackFn);
         };
     }
     

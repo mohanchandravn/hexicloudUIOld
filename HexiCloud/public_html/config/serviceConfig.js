@@ -21,10 +21,10 @@ define(['knockout', 'jquery'
                 type: "POST",
                 url: serverURL,
                 contentType: "application/json",
-                data: payload,
+                data: JSON.stringify(payload),
                 success: function (data) {
                     console.log('Successfully posted data at: ' + serverURL);
-                    defer.resolve({status: 200});
+                    defer.resolve(payload.curStepCode, {status: 200});
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log("Error posting data to the service" + serverURL);
