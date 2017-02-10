@@ -14,8 +14,8 @@ and open the template in the editor.
                     <p style="color: white; font-size: xx-large">Welcome to HexiCloud</p>
                     <div class="oj-hybrid-padding"> </div>
                     <div class="oj-hybrid-padding"> </div>
-                    <span style="color: white; font-size: x-large">Please continue the following guide</span><br>
-                    <span style="color: white; font-size: x-large">to setup your account</span>
+                    <span style="color: white; font-size: x-large" data-bind="text: helpText1"></span><br>
+                    <span style="color: white; font-size: x-large" data-bind="text: helpText2"></span>
                     <div class="oj-flex-items-pad">
                         <div class="oj-flex oj-sm-align-items-center">
                             <div class="oj-flex-item">
@@ -27,7 +27,7 @@ and open the template in the editor.
                                 <!--                                <button id= "startJourney" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
                                                                         data-bind="click: startProcess, ojComponent: { component: 'ojButton', label: 'START', chroming: 'outlined'}"></button>-->
                                 <div class="standard-button oj-sm-justify-content-center oj-flex">
-                                    <span data-bind="click: startProcess, text: 'START'">START</span>
+                                    <span data-bind="click: startProcess, text: workFlowButtonText">START</span>
                                 </div>
                             </div>
 
