@@ -43,6 +43,7 @@ define(['config/serviceConfig', 'knockout', 'ojs/ojcore', 'jquery', 'ojs/ojinput
                 "preStepCode": getStateId()
             });
         };
+        
         self.startProcess = function () {
             console.log('Navigating to role Identified page');
             isLoggedInUser(true);

@@ -45,7 +45,7 @@ and open the template in the editor.
                         <div class="oj-hybrid-padding"> </div>
                         <div class="oj-flex-items-pad">
                             <div class="oj-flex-item">
-                                <div class="standard-button oj-sm-justify-content-center oj-flex" data-bind="click: submitSR">
+                                <div class="standard-button oj-sm-justify-content-center oj-flex" data-bind="click: submitSR, css: isValid() ? '' : 'disable-actions'">
                                     <span data-bind="text: 'SUBMIT'">SUBMIT</span>
                                 </div>
                             </div>

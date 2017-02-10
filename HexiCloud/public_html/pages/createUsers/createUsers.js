@@ -7,8 +7,8 @@
 /**
  * login module
  */
-define(['knockout', 'ojs/ojcore', 'jquery', 'ojs/ojaccordion', 'ojs/ojcollapsible'
-], function (ko) {
+define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', 'ojs/ojaccordion', 'ojs/ojcollapsible'
+], function (ko, service) {
     /**
      * The view model for the main content view template
      */
@@ -40,7 +40,12 @@ define(['knockout', 'ojs/ojcore', 'jquery', 'ojs/ojaccordion', 'ojs/ojcollapsibl
         
         self.goToServices = function(data, event) {
             isLoggedInUser(true);
-            router.go('servicesMini/');
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": 'servicesMini',
+                "preStepCode": getStateId()
+            });
         };
         
 //        self.pdfSrc(service.serverURI() + fetchedLinkId + "/file/" + fileId);

@@ -29,6 +29,11 @@ navigationbarright {
     background-color: #4C5B5E;
 }
 
+.disable-actions {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
 .service-status-ready {
     border-bottom: 4px solid #FDAF64 !important;
 }

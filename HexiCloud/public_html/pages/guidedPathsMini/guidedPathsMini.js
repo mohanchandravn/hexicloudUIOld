@@ -7,8 +7,8 @@
 /**
  * Guided path module
  */
-define(['knockout', 'ojs/ojcore', 'ojs/ojprogressbar'
-], function (ko) {
+define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojprogressbar'
+], function (ko, service) {
     /**
      * The view model for the main content view template
      */
@@ -39,20 +39,19 @@ define(['knockout', 'ojs/ojcore', 'ojs/ojprogressbar'
             self.getServiceDetails();
         };
         
-        self.routeTo = function(data, event) {
-            var id = event.currentTarget.id.toLowerCase();
-            router.go(id);
-        };
-        
         self.logout = function(data, event) {
             router.go('home/');
         };
         
-         self.goToDashboard = function(data, event) {
-            router.go('dashboard/');
+        self.goToDashboard = function(data, event) {
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": 'dashboard',
+                "preStepCode": getStateId()
+            });
         };
     }
-    
     
     return serviceContentViewModel;
 });

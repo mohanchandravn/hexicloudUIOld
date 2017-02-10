@@ -49,6 +49,5 @@ define(['knockout', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar'
         };
     }
     
-    
     return serviceContentViewModel;
 });
