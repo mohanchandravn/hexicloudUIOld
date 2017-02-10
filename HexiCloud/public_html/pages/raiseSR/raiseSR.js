@@ -33,17 +33,6 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinputtext'
         var failCallBackFn = function(xhr) {
             console.log(xhr);
         };
-        
-//            var data = {
-//                "userId" : '21',
-//                "message" : "message 3",
-//                "subject" : "subject 2",
-//                "sentTo" : "To me 1",
-//                "sentCC" : "CC me 1",
-//                "sentBCC" : "BCC me 1",
-//                "srId": "4"
-//            };
-//            successCallBackFn(data);
             
         self.submitSR = function() {
             isLoggedInUser(true);
@@ -57,6 +46,10 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinputtext'
                 "sentCC" : "CC me 1",
                 "sentBCC" : "BCC me 1"
             }).then(successCallBackFn, failCallBackFn);
+        };
+        
+        self.gotoGuidedPaths = function() {
+            router.go('guidedPathsMini/');
         };
     }
     
