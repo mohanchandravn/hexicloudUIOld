@@ -17,11 +17,11 @@ define(['knockout', 'ojs/ojcore', 'jquery', 'ojs/ojaccordion', 'ojs/ojcollapsibl
         var router = params.ojRouter.parentRouter;
         
         //for adding Users and Assigning roles
-        self.urlForAddingUsersAndAssigningRoles = ko.observable('http://docs.oracle.com/en/cloud/get-started/subscriptions-cloud/csgsg/adding-users-and-assigning-roles.html');
+        self.urlForAddingUsersAndAssigningRoles = ko.observable('https://docs.oracle.com/en/cloud/get-started/subscriptions-cloud/csgsg/adding-users-and-assigning-roles.html');
         self.textForAddingUsersAndAssigningRoles = ko.observable('How to add users - adding Users and Assigning Roles');
         
         //for adding Admin Users and Assigning roles
-        self.urlForAddingAdminUsersAndAssigningRoles = ko.observable('http://docs.oracle.com/en/cloud/get-started/subscriptions-cloud/csgsg/adding-users-and-assigning-roles.html');
+        self.urlForAddingAdminUsersAndAssigningRoles = ko.observable('https://docs.oracle.com/en/cloud/get-started/subscriptions-cloud/csgsg/adding-users-and-assigning-roles.html');
         self.textForAddingAdminUsersAndAssigningRoles = ko.observable('How to add Account Admins - adding Users and Assigning Roles');
         
         self.documentsArray = ko.observableArray([]);
