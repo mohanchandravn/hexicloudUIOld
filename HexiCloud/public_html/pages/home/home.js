@@ -19,12 +19,7 @@ define(['config/serviceConfig'
         console.log('home page');
         
         self.isLoggedinTrue = function() {
-            service.updateCurrentStep({
-                "userId": loggedInUser(),
-                "userRole": "itAdmin",
-                "curStepCode": 'login',
-                "preStepCode": getStateId()
-            });
+            router.go('login/');
         };
     }
     
