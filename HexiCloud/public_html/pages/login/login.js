@@ -25,6 +25,7 @@ define(['knockout', 'ojs/ojcore', 'jquery', 'ojs/ojinputtext'
         self.login = function () {
             console.log('login clicked');
             loggedInUser(self.userName());
+            
             containerName("/Compute-" + self.iDomain() + "/");
             isLoggedInUser(true);
 //            router.go('hello/');

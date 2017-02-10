@@ -34,6 +34,24 @@ define(['knockout', 'jquery'
             return $.when(defer);
         };
         
+        self.getUserStep = function(userId) {
+            var defer = $.Deferred();
+            var serverURL = "https://140.86.1.93/hexiCloudRest/services/rest/findUsersCurrentStep/" + userId;
+            $.ajax({
+                type: "GET",
+                url: serverURL,
+                success: function (data) {
+                    console.log('Successfully retrieved details at: ' + serverURL);
+                    defer.resolve(data);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log("Error retrieving service details at: " + serverURL);
+                    defer.reject(xhr);
+                }
+            });
+            return $.when(defer);
+        };
+        
         self.getFileDetails = function(stepId) {
             var defer = $.Deferred();
             var serverURL = "https://141.145.40.38/hexiCloudRestApp/services/rest/findStepDocsByStepId/" + stepId;

@@ -16,35 +16,38 @@ define(['config/serviceConfig', 'ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinput
         var self = this;
         var router = params.ojRouter.parentRouter;
         
-        var successCallBackFn = function(id, data) {
+        var getUserStepSuccessCallBackFn = function (data) {
             console.log(data);
-            router.go(id);
+            if (data) {
+                loggedInUser(data.userId);
+                loggedInUserRole(data.userRole);
+            }
         };
-        
-        var FailCallBackFn = function(xhr) {
-            console.log(xhr);
-        };
-        
-        self.skipProcess = function() {
+
+        service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn, FailCallBackFn());
+
+      
+
+        self.skipProcess = function () {
             isLoggedInUser(true);
             service.updateCurrentStep({
-                    "userId" : loggedInUser(),
-                    "userRole" : "itAdmin",
-                    "curStepCode" : "dashboard",
-                    "preStepCode" : getStateId()
-            }).then(successCallBackFn, FailCallBackFn);
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": "dashboard",
+                "preStepCode": getStateId()
+            }).then(successCallBackFn(), FailCallBackFn());
         };
-        self.startProcess = function() {
+        self.startProcess = function () {
             console.log('Navigating to role Identified page');
             isLoggedInUser(true);
             service.updateCurrentStep({
-                    "userId" : loggedInUser(),
-                    "userRole" : "itAdmin",
-                    "curStepCode" : "roleIdentified",
-                    "preStepCode" : getStateId()
-            }).then(successCallBackFn, FailCallBackFn);
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": "roleIdentified",
+                "preStepCode": getStateId()
+            }).then(successCallBackFn(), FailCallBackFn());
         };
     }
-    
+
     return helloViewModel;
 });
