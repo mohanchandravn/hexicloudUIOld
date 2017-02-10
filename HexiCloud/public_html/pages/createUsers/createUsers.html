@@ -24,10 +24,10 @@ and open the template in the editor.
                         <div class="oj-padding">
                             <div class="oj-flex-bar">
                                 <div class="oj-flex-bar-start">
-                                    <!-- ko if: userRole() === 'itAdmin' -->
+                                    <!-- ko if: loggedInUserRole() === 'itAdmin' -->
                                     <a style="color: white;" data-bind="text: textForAddingUsersAndAssigningRoles,attr: { href: urlForAddingUsersAndAssigningRoles, title: urlForAddingUsersAndAssigningRoles, target: '_blank' }"></a>
                                     <!-- /ko -->
-                                    <!-- ko if: userRole() === 'accountAdmin' -->
+                                    <!-- ko if: loggedInUserRole() === 'accountAdmin' -->
                                     <a style="color: white;" data-bind="text: textForAddingAdminUsersAndAssigningRoles,attr: { href: urlForAddingAdminUsersAndAssigningRoles, title: urlForAddingAdminUsersAndAssigningRoles, target: '_blank' }"></a>
                                     <!-- /ko -->
                                 </div>

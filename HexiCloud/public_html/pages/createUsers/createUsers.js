@@ -26,16 +26,14 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', 'ojs/ojaccor
         
         self.documentsArray = ko.observableArray([]);
         
-        if (userRole() === 'itAdmin') {
+        if (loggedInUserRole() === 'itAdmin') {
             for (var idx = 0; idx < 5; idx++) {
                 self.documentsArray.push({"docName": "Document " + (idx + 1), "pdfSrc": "https://documents-gse00002841.documents.us2.oraclecloud.com/documents/link/LDFC37ABC5CD3EF8CBE505C7704A23FFF5A54B6D86DA/file/D68745A6BB6089B3199A8163704A23FFF5A54B6D86DA"});
             }
-//            self.pdfSrc = ko.observable('https://documents-gse00002841.documents.us2.oraclecloud.com/documents/link/LDFC37ABC5CD3EF8CBE505C7704A23FFF5A54B6D86DA/file/D68745A6BB6089B3199A8163704A23FFF5A54B6D86DA');
         } else {
             for (var idx = 0; idx < 5; idx++) {
                 self.documentsArray.push({"docName": "Document " + (idx + 1), "pdfSrc": "https://documents-gse00002841.documents.us2.oraclecloud.com/documents/link/LDCDFF97F6E7411D4416C588704A23FFF5A54B6D86DA/file/DD9ADEC488FEEDE3210A732A704A23FFF5A54B6D86DA"});
             }
-//            self.pdfSrc = ko.observable('https://documents-gse00002841.documents.us2.oraclecloud.com/documents/link/LDCDFF97F6E7411D4416C588704A23FFF5A54B6D86DA/file/DD9ADEC488FEEDE3210A732A704A23FFF5A54B6D86DA');
         }
         
         self.goToServices = function(data, event) {
