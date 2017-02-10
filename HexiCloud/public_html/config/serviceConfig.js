@@ -4,18 +4,19 @@
  * and open the template in the editor.
  */
 
-define(['knockout', 'jquery'
+define(['knockout', 'jquery', 'ojs/ojrouter'
 ], function (ko, $) {
     /**
      * The view model for the managing service calls
      */
     function serviceConfig() {
         var self = this;
+        self.router = router;
         
         self.serverURI = ko.observable("https://documents-gse00002841.documents.us2.oraclecloud.com/documents/link/");
         
         self.updateCurrentStep = function(payload) {
-            var defer = $.Deferred();
+//            var defer = $.Deferred();
             var serverURL = "https://140.86.1.93/hexiCloudRest/services/rest/createUserStep/";
             $.ajax({
                 type: "POST",
@@ -24,14 +25,16 @@ define(['knockout', 'jquery'
                 data: JSON.stringify(payload),
                 success: function (data) {
                     console.log('Successfully posted data at: ' + serverURL);
-                    defer.resolve(payload.curStepCode, {status: 200});
+                    router.go(payload.curStepCode);
+//                    defer.resolve(payload.curStepCode, {status: 200});
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log("Error posting data to the service" + serverURL);
-                    defer.reject(xhr);
+                    FailCallBackFn(xhr);
+//                    defer.reject(xhr);
                 }
             });
-            return $.when(defer);
+//            return $.when(defer);
         };
         
         self.getUserStep = function(userId) {

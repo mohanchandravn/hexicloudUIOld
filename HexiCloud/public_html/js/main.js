@@ -122,13 +122,6 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
                     return router.currentState().id;
                 };
 
-                self.successCallBackFn = function (id, data) {
-                    console.log(data);
-                    router.go(id);
-                };
-
-
-
                 self.FailCallBackFn = function (xhr) {
                     console.log(xhr);
                 };

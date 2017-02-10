@@ -26,8 +26,6 @@ define(['config/serviceConfig', 'ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinput
 
         service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn, FailCallBackFn());
 
-      
-
         self.skipProcess = function () {
             isLoggedInUser(true);
             service.updateCurrentStep({
@@ -35,7 +33,7 @@ define(['config/serviceConfig', 'ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinput
                 "userRole": "itAdmin",
                 "curStepCode": "dashboard",
                 "preStepCode": getStateId()
-            }).then(successCallBackFn(), FailCallBackFn());
+            });
         };
         self.startProcess = function () {
             console.log('Navigating to role Identified page');
@@ -45,7 +43,7 @@ define(['config/serviceConfig', 'ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinput
                 "userRole": "itAdmin",
                 "curStepCode": "roleIdentified",
                 "preStepCode": getStateId()
-            }).then(successCallBackFn(), FailCallBackFn());
+            });
         };
     }
 
