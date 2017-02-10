@@ -20,8 +20,12 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinputtext'
         
         self.subject = ko.observable('');
         self.message = ko.observable('');
-        self.detailsOfSR = ko.observable('');
+        self.detailsOfSR = ko.observable();
         self.statusOfSR = ko.observable(false);
+        
+        self.isValid = function() {
+            return ( self.subject() !== ' ' && self.message() !== ' ' ) && ( self.subject() !== '' && self.message() !== '' );
+        };
         
         var successCallBackFn = function(data, status) {
             console.log(data);
@@ -36,20 +40,25 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinputtext'
             
         self.submitSR = function() {
             isLoggedInUser(true);
-            console.log(self.subject());
-            console.log(self.message());
-            service.submitSR({
-                "userId" : loggedInUser(),
-                "message" : self.message(),
-                "subject" : self.subject(),
-                "sentTo" : "To me 1",
-                "sentCC" : "CC me 1",
-                "sentBCC" : "BCC me 1"
-            }).then(successCallBackFn, failCallBackFn);
+            if (self.isValid()) {
+                service.submitSR({
+                    "userId" : loggedInUser(),
+                    "message" : self.message(),
+                    "subject" : self.subject(),
+                    "sentTo" : "To me 1",
+                    "sentCC" : "CC me 1",
+                    "sentBCC" : "BCC me 1"
+                }).then(successCallBackFn, failCallBackFn);
+            }
         };
         
         self.gotoGuidedPaths = function() {
-            router.go('guidedPathsMini/');
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": "guidedPathsMini",
+                "preStepCode": getStateId()
+            });
         };
     }
     

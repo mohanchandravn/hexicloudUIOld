@@ -7,8 +7,8 @@
 /**
  * home module
  */
-define([
-], function () {
+define(['config/serviceConfig'
+], function (service) {
     /**
      * The view model for the main content view template
      */
@@ -20,16 +20,6 @@ define([
         
         self.isLoggedinTrue = function() {
             router.go('login/');
-        };
-        
-        self.startProcess = function() {
-            console.log('start process');
-            router.go('learning/');
-        };
-        
-        self.skipProcess = function() {
-            console.log('skip process');
-            router.go('dashboard/');
         };
     }
     

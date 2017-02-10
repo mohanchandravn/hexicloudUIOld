@@ -7,8 +7,8 @@
 /**
  * login module
  */
-define(['knockout', 'ojs/ojcore', 'jquery', 'ojs/ojinputtext'
-], function (ko) {
+define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', 'ojs/ojinputtext'
+], function (ko, service) {
     /**
      * The view model for the main content view template
      */
@@ -53,7 +53,12 @@ define(['knockout', 'ojs/ojcore', 'jquery', 'ojs/ojinputtext'
 //                }
 //            });
             isLoggedInUser(true);
-            router.go('hello/');
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": 'hello',
+                "preStepCode": getStateId()
+            });
         };
     }
 

@@ -7,8 +7,8 @@
 /**
  * dashboard module
  */
-define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanvas'
-], function ($, ko, oj) {
+define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'ojs/ojprogressbar', 'ojs/ojoffcanvas'
+], function ($, ko, oj, service) {
     /**
      * The view model for the main content view template
      */
@@ -237,7 +237,12 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
         
         self.routeTo = function(data, event) {
             var id = event.currentTarget.id.toLowerCase();
-            router.go(id);
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": id,
+                "preStepCode": getStateId()
+            });
         };
         
         self.logout = function(data, event) {
