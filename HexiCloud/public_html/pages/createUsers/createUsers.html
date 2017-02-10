@@ -17,17 +17,17 @@ and open the template in the editor.
                             <div data-bind="ojComponent: {component: 'ojAccordion'}">
                                 <div>
                                     <span class="demo-icon-font demo-education-icon-24" data-bind="text: docName"></span>
-                                    <iframe id="pdf" width="600" height="420" data-bind="attr : { src: 'http://docs.google.com/gview?url=' + pdfSrc + '&embedded=true' }" frameborder="0"></iframe>
+                                    <iframe id="pdf" width="600" height="420" data-bind="attr : { src: 'https://docs.google.com/gview?url=' + pdfSrc + '&embedded=true' }" frameborder="0"></iframe>
                                 </div>
                             </div>
                         </div>
                         <div class="oj-padding">
                             <div class="oj-flex-bar">
                                 <div class="oj-flex-bar-start">
-                                    <!-- ko if: userRole() === 'itAdmin' -->
+                                    <!-- ko if: loggedInUserRole() === 'itAdmin' -->
                                     <a style="color: white;" data-bind="text: textForAddingUsersAndAssigningRoles,attr: { href: urlForAddingUsersAndAssigningRoles, title: urlForAddingUsersAndAssigningRoles, target: '_blank' }"></a>
                                     <!-- /ko -->
-                                    <!-- ko if: userRole() === 'accountAdmin' -->
+                                    <!-- ko if: loggedInUserRole() === 'accountAdmin' -->
                                     <a style="color: white;" data-bind="text: textForAddingAdminUsersAndAssigningRoles,attr: { href: urlForAddingAdminUsersAndAssigningRoles, title: urlForAddingAdminUsersAndAssigningRoles, target: '_blank' }"></a>
                                     <!-- /ko -->
                                 </div>

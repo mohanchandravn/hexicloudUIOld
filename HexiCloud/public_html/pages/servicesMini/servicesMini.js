@@ -12,13 +12,14 @@
 /**
  * service module
  */
-define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar'
-], function (oj, ko) {
+define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar'
+], function (ko, service) {
     /**
      * The view model for the main content view template
      */
-    function serviceContentViewModel() {
+    function serviceContentViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
 
         console.log('guided path page');
 
@@ -42,19 +43,24 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar'
         self.handleAttached = function () {
             self.getServiceDetails();
         };
-
-        self.routeTo = function (data, event) {
-            var id = event.currentTarget.id.toLowerCase();
-            router.go(id);
-        };
         
         self.gotoGuidedPaths = function () {
             isLoggedInUser(true);
-            router.go('guidedPathsMini/');
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": 'guidedPathsMini',
+                "preStepCode": getStateId()
+            });
         };
         self.raiseSR = function () {
             isLoggedInUser(true);
-            router.go('raiseSR/');
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": 'raiseSR',
+                "preStepCode": getStateId()
+            });
         };
     }
 

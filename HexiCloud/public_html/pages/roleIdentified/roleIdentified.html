@@ -15,16 +15,16 @@ and open the template in the editor.
                 <div class="oj-flex-pad">
                     <div class="oj-flex oj-sm-align-items-center oj-sm-flex-direction-column">
                         <div class="oj-flex-item">
-                            <img src="img/Role_Identified_Admin.png" alt="Role Identified Admin" class="accountAdmin"/>
+                            <img data-bind="attr:{src:adminImage}" alt="Role Identified Admin" class="accountAdmin"/>
                         </div>
                         <div class="oj-flex-item">
                             <div class="oj-sm-justify-content-center oj-flex">
-                                <span style="color: white; font-size: x-large">Account Admin</span>
+                                <span style="color: white; font-size: x-large" data-bind="text: adminText"></span>
                             </div>
                         </div>
                         <div class="oj-flex-item">
                             <div class="oj-sm-justify-content-center oj-flex">
-                                <span style="color: white; font-size: large">Administrator, Buyer, Manager</span>
+                                <span style="color: white; font-size: large" data-bind="text: adminDesc"></span>
                             </div>
                         </div>
                         <div class="oj-flex-item">
@@ -40,19 +40,19 @@ and open the template in the editor.
                 <div class="oj-flex-items-pad">
                     <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">
                         <div class="oj-flex-item">
-                            <div class="standard-button oj-sm-justify-content-center oj-flex">
+                            <div class="standard-button oj-sm-justify-content-center oj-flex" data-bind="click: acceptRole">
                                 <!--                                <button id= "acceptRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
                                                                         data-bind="click: acceptRole, ojComponent: { component: 'ojButton', label: 'YES', chroming: 'outlined'}"></button>-->
-                                <span data-bind="click: acceptRole, text: 'YES'">YES</span>
+                                <span data-bind="text: 'YES'">YES</span>
                             </div>
                         </div>
                         <div class="oj-hybrid-padding"> </div>
                         <div class="oj-hybrid-padding"> </div>
                            <div class="oj-flex-item">
-                            <div class="standard-button oj-sm-justify-content-center oj-flex">
+                            <div class="standard-button oj-sm-justify-content-center oj-flex" data-bind="click: rejectRole">
                                 <!--                                <button id= "rejectRole" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
                                                                         data-bind="click: rejectRole, ojComponent: { component: 'ojButton', label: 'NO', chroming: 'outlined'}"></button>-->
-                                <span data-bind="click: rejectRole, text: 'NO'">NO</span>
+                                <span data-bind="text: 'NO'">NO</span>
                             </div>
                         </div>
                     </div>

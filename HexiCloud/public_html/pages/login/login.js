@@ -7,13 +7,14 @@
 /**
  * login module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinputtext'
-], function (oj, ko, $) {
+define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', 'ojs/ojinputtext'
+], function (ko, service) {
     /**
      * The view model for the main content view template
      */
-    function loginContentViewModel() {
+    function loginContentViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
 
         self.userName = ko.observable();
         self.password = ko.observable();
@@ -24,7 +25,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinputtext'
         self.login = function () {
             console.log('login clicked');
             loggedInUser(self.userName());
-            containerName(self.iDomain());
+            
+            containerName("/Compute-" + self.iDomain() + "/");
             isLoggedInUser(true);
 //            router.go('hello/');
             console.log(containerName());
@@ -66,7 +68,12 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinputtext'
             });}
 
             isLoggedInUser(true);
-            router.go('hello/');
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": 'hello',
+                "preStepCode": getStateId()
+            });
         };
     }
 

@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 
-define(['ojs/ojcore', 'knockout', 'jquery','ojs/ojknockout', 'ojs/ojbutton', 'ojs/ojselectcombobox'], 
-    function(oj, ko, $) {
+define(['knockout', 'jquery', 'ojs/ojcore','ojs/ojknockout', 'ojs/ojbutton', 'ojs/ojselectcombobox'], 
+    function(ko, $) {
     
-    function csmadminViewModel() {
+    function csmadminViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
         
         self.allStepsList = ko.observableArray([]);
         self.selectedStepCode = ko.observable();

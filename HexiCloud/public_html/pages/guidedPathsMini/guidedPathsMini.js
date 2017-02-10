@@ -7,13 +7,14 @@
 /**
  * Guided path module
  */
-define(['jquery','knockout','ojs/ojcore', 'ojs/ojprogressbar'
-], function (oj, ko) {
+define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojprogressbar'
+], function (ko, service) {
     /**
      * The view model for the main content view template
      */
-    function serviceContentViewModel() {
+    function serviceContentViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
         
         console.log('guided path page');
         
@@ -38,20 +39,19 @@ define(['jquery','knockout','ojs/ojcore', 'ojs/ojprogressbar'
             self.getServiceDetails();
         };
         
-        self.routeTo = function(data, event) {
-            var id = event.currentTarget.id.toLowerCase();
-            router.go(id);
-        };
-        
         self.logout = function(data, event) {
             router.go('home/');
         };
         
-         self.goToDashboard = function(data, event) {
-            router.go('dashboard/');
+        self.goToDashboard = function(data, event) {
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": 'dashboard',
+                "preStepCode": getStateId()
+            });
         };
     }
-    
     
     return serviceContentViewModel;
 });
