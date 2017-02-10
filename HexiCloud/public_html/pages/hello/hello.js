@@ -49,7 +49,7 @@ define(['config/serviceConfig', 'knockout', 'ojs/ojcore', 'jquery', 'ojs/ojinput
             isLoggedInUser(true);
             service.updateCurrentStep({
                 "userId": loggedInUser(),
-                "userRole": "itAdmin",
+                "userRole": loggedInUserRole(),
                 "curStepCode": self.buttonRouterConfig(),
                 "preStepCode": getStateId()
             });
