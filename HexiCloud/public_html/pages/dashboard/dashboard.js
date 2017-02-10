@@ -188,7 +188,7 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
         //                            "runningInstances": shapes.result[shapeKey].cpus,
                                     "runningInstances": "1",
                                     "cpuUsage": Number(instanceVolume),
-                                    "ramMemory": ramSize,
+                                    "ramSize": ramSize,
                                     "usageMetric": " GB",
                                     "status": instances.result[instanceKey].state
                                 });
@@ -199,7 +199,13 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
 //                        return console.log('returning bcoz count is equal to 5');;
 //                    }
                 }
-                self.servicesArray(services);
+                
+                if(isDomainDetailsGiven()){
+                    self.servicesArray(dashboardServices()); 
+                }else{
+                    self.servicesArray(services);
+                }
+            
             }
         });
         
