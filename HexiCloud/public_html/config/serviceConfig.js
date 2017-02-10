@@ -95,6 +95,26 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
+        
+        self.submitSR = function(payload) {
+            var defer = $.Deferred();
+            var serverURL = "https://140.86.1.93/hexiCloudRest/services/rest/saveAndSendEmail/";
+            $.ajax({
+                type: "POST",
+                url: serverURL,
+                contentType: "application/json",
+                data: JSON.stringify(payload),
+                success: function (data) {
+                    console.log('Successfully posted data at: ' + serverURL);
+                    defer.resolve(data, {status: 200});
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log("Error posting data to the service" + serverURL);
+                    defer.reject(xhr);
+                }
+            });
+            return $.when(defer);
+        };
     };
    
    return new serviceConfig();

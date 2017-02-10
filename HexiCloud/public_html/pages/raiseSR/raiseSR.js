@@ -7,8 +7,8 @@
 /**
  * login module
  */
-define(['ojs/ojcore', 'ojs/ojinputtext'
-], function () {
+define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinputtext'
+], function (ko, service) {
     /**
      * The view model for the main content view template
      */
@@ -17,9 +17,46 @@ define(['ojs/ojcore', 'ojs/ojinputtext'
         var router = params.ojRouter.parentRouter;
         
         console.log('Raising SR page');
+        
+        self.subject = ko.observable('');
+        self.message = ko.observable('');
+        self.detailsOfSR = ko.observable('');
+        self.statusOfSR = ko.observable(false);
+        
+        var successCallBackFn = function(data, status) {
+            console.log(data);
+            console.log(status);
+            self.detailsOfSR(data);
+            self.statusOfSR(true);
+        };
+        
+        var failCallBackFn = function(xhr) {
+            console.log(xhr);
+        };
+        
+//            var data = {
+//                "userId" : '21',
+//                "message" : "message 3",
+//                "subject" : "subject 2",
+//                "sentTo" : "To me 1",
+//                "sentCC" : "CC me 1",
+//                "sentBCC" : "BCC me 1",
+//                "srId": "4"
+//            };
+//            successCallBackFn(data);
+            
         self.submitSR = function() {
             isLoggedInUser(true);
-            router.go('guidedPathsMini/');
+            console.log(self.subject());
+            console.log(self.message());
+            service.submitSR({
+                "userId" : loggedInUser(),
+                "message" : self.message(),
+                "subject" : self.subject(),
+                "sentTo" : "To me 1",
+                "sentCC" : "CC me 1",
+                "sentBCC" : "BCC me 1"
+            }).then(successCallBackFn, failCallBackFn);
         };
     }
     
