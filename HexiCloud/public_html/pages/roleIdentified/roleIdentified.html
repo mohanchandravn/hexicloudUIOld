@@ -15,16 +15,16 @@ and open the template in the editor.
                 <div class="oj-flex-pad">
                     <div class="oj-flex oj-sm-align-items-center oj-sm-flex-direction-column">
                         <div class="oj-flex-item">
-                            <img src="img/Role_Identified_Admin.png" alt="Role Identified Admin" class="accountAdmin"/>
+                            <img data-bind="attr:{src:adminImage}" alt="Role Identified Admin" class="accountAdmin"/>
                         </div>
                         <div class="oj-flex-item">
                             <div class="oj-sm-justify-content-center oj-flex">
-                                <span style="color: white; font-size: x-large">Account Admin</span>
+                                <span style="color: white; font-size: x-large" data-bind="text: adminText"></span>
                             </div>
                         </div>
                         <div class="oj-flex-item">
                             <div class="oj-sm-justify-content-center oj-flex">
-                                <span style="color: white; font-size: large">Administrator, Buyer, Manager</span>
+                                <span style="color: white; font-size: large" data-bind="text: adminDesc"></span>
                             </div>
                         </div>
                         <div class="oj-flex-item">

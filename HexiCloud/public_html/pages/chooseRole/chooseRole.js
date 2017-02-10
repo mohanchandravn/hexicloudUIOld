@@ -7,24 +7,31 @@
 /**
  * login module
  */
-define(['knockout', 'ojs/ojcore', 'jquery', 'ojs/ojradioset'
-], function (ko) {
+define(['config/serviceConfig', 'knockout', 'ojs/ojcore', 'jquery', 'ojs/ojradioset'
+], function (service, ko) {
     /**
      * The view model for the main content view template
      */
     function chooseRoleViewModel(params) {
         var self = this;
+
         var router = params.ojRouter.parentRouter;
-        
-        console.log('hello page');
-        self.currentRole = ko.observable("itAdmin");
-        self.selectedRole = function() {
+
+        console.log('choose role page');
+        self.currentRole = ko.observable(loggedInUserRole());
+        self.selectedRole = function () {
             isLoggedInUser(true);
-            userRole(self.currentRole());
+//            userRole(self.currentRole());
             console.log('The selected role is: ' + userRole());
-            router.go('addAdditionalUsers/');
+//            router.go('addAdditionalUsers/');
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": self.currentRole(),
+                "curStepCode": "addAdditionalUsers",
+                "preStepCode": getStateId()
+            });
         };
     }
-    
+
     return chooseRoleViewModel;
 });
