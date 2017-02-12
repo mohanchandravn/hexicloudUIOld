@@ -18,11 +18,11 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', 'ojs/ojaccor
         
         //for adding Users and Assigning roles
         self.urlForMyServices = ko.observable('https://myservices.em2.oraclecloud.com/mycloud/faces/dashboard.jspx');
-        self.textForMyServices = ko.observable('Link for My Services');
+        self.textForMyServices = ko.observable('Go to MyServices to Add Users');
         
         //for adding Admin Users and Assigning roles
         self.urlForMyAccount = ko.observable('https://myaccount.cloud.oracle.com/mycloud/faces/dashboard.jspx');
-        self.textForMyAccount = ko.observable('Link for My Accounts');
+        self.textForMyAccount = ko.observable('Go to MyAccounts to Add Users');
         
         self.documentsArray = ko.observableArray([]);
         
