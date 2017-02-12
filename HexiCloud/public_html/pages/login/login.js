@@ -68,12 +68,15 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', 'ojs/ojinput
             });}
 
             isLoggedInUser(true);
-            service.updateCurrentStep({
-                "userId": loggedInUser(),
-                "userRole": "itAdmin",
-                "curStepCode": 'hello',
-                "preStepCode": getStateId()
-            });
+            //Not required to update the step in the login page.
+//            service.updateCurrentStep({
+//                "userId": loggedInUser(),
+//                "userRole": "itAdmin",
+//                "curStepCode": 'hello',
+//                "preStepCode": getStateId()
+//            });
+            router.go('hello/');
+
         };
     }
 

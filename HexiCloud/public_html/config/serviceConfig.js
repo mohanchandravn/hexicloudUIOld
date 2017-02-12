@@ -25,6 +25,7 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
                 data: JSON.stringify(payload),
                 success: function (data) {
                     console.log('Successfully posted data at: ' + serverURL);
+                    console.log('Navigating to  : ' + payload.curStepCode);
                     router.go(payload.curStepCode);
 //                    defer.resolve(payload.curStepCode, {status: 200});
                 },

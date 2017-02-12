@@ -18,7 +18,12 @@ define(['config/serviceConfig', 'knockout', 'ojs/ojcore', 'jquery', 'ojs/ojinput
         self.workFlowButtonText = ko.observable("START");
         self.helpText1 = ko.observable("Please continue the following guide");
         self.helpText2 = ko.observable("to setup your account");
-        self.buttonRouterConfig = ko.observable("roleIdentified");
+        if (loggedInUserRole()) {
+            self.buttonRouterConfig = ko.observable("roleIdentified");
+        } else {
+            self.buttonRouterConfig = ko.observable("chooseRole");
+        }
+        
 
         var getUserStepSuccessCallBackFn = function (data) {
             console.log(data);
@@ -45,7 +50,7 @@ define(['config/serviceConfig', 'knockout', 'ojs/ojcore', 'jquery', 'ojs/ojinput
         };
         
         self.startProcess = function () {
-            console.log('Navigating to role Identified page');
+            console.log('Navigating to the page : ' + self.buttonRouterConfig());
             isLoggedInUser(true);
             service.updateCurrentStep({
                 "userId": loggedInUser(),

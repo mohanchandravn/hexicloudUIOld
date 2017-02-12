@@ -7,8 +7,8 @@
 /**
  * login module
  */
-define(['config/serviceConfig', 'knockout', 'ojs/ojcore', 'jquery', 'ojs/ojradioset'
-], function (service, ko) {
+define(['config/serviceConfig', 'knockout', 'jquery', 'ojs/ojcore', 'ojs/ojradioset'
+], function (service, ko, $) {
     /**
      * The view model for the main content view template
      */
@@ -16,20 +16,28 @@ define(['config/serviceConfig', 'knockout', 'ojs/ojcore', 'jquery', 'ojs/ojradio
         var self = this;
 
         var router = params.ojRouter.parentRouter;
+        self.noRoleChoosenErrorText = ko.observable();
 
         console.log('choose role page');
+
         self.currentRole = ko.observable(loggedInUserRole());
         self.selectedRole = function () {
             isLoggedInUser(true);
-//            userRole(self.currentRole());
-            console.log('The selected role is: ' + userRole());
-//            router.go('addAdditionalUsers/');
-            service.updateCurrentStep({
-                "userId": loggedInUser(),
-                "userRole": self.currentRole(),
-                "curStepCode": "addAdditionalUsers",
-                "preStepCode": getStateId()
-            });
+            console.log('The selected role is: ' + self.currentRole() + 'end');
+            if (!self.currentRole() || self.currentRole() == null) {
+                self.noRoleChoosenErrorText("Please select a Role to proceed");
+            } else {
+                loggedInUserRole(self.currentRole());
+                self.noRoleChoosenErrorText("");
+                service.updateCurrentStep({
+                    "userId": loggedInUser(),
+                    "userRole": self.currentRole(),
+                    "curStepCode": "addAdditionalUsers",
+                    "preStepCode": getStateId()
+                });
+
+            }
+
         };
     }
 

@@ -117,7 +117,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
 //                self.restEndPoint = ko.observable("https://api-z11.compute.em3.oraclecloud.com/");
                 self.containerName = ko.observable();
                 self.loggedInUser = ko.observable();
-                self.loggedInUserRole = ko.observable("accountAdmin");
+                self.loggedInUserRole = ko.observable();
                 self.userRole = ko.observable('');
                 self.isChatInitialized = ko.observable(false);
 

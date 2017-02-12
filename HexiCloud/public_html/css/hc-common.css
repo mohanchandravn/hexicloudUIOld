@@ -186,3 +186,7 @@ textarea.whitePlaceHolder:-ms-input-placeholder {
 .input-color-white {
      color: white;
 }
+.error-message-text {
+    color: red; 
+    font-size: larger;
+}
