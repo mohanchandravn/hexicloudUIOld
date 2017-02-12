@@ -190,3 +190,11 @@ textarea.whitePlaceHolder:-ms-input-placeholder {
     color: red; 
     font-size: larger;
 }
+
+span.oj-message-content > div.oj-message-summary {
+    display: none;
+}
+
+span.oj-component-icon.oj-message-status-icon.oj-message-error-icon {
+      display: none;
+}
