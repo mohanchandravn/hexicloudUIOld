@@ -59,7 +59,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinput
 
             loggedInUser(self.userName());
 
-            containerName("/Compute-" + self.iDomain() + "/");
+            containerName(self.iDomain());
             isLoggedInUser(true);
 //            router.go('hello/');
             console.log(containerName());

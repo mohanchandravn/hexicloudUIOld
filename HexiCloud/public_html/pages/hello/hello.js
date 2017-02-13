@@ -18,7 +18,7 @@ define(['config/serviceConfig', 'knockout', 'ojs/ojcore', 'jquery', 'ojs/ojinput
         self.workFlowButtonText = ko.observable("START");
         self.helpText1 = ko.observable("Please continue the following guide");
         self.helpText2 = ko.observable("to setup your account");
-        self.showSkpProcessBtn = ko.observable(true);
+        self.showSkpProcessBtn = ko.observable();
         if (loggedInUserRole()) {
             self.buttonRouterConfig = ko.observable("roleIdentified");
         } else {
@@ -31,14 +31,16 @@ define(['config/serviceConfig', 'knockout', 'ojs/ojcore', 'jquery', 'ojs/ojinput
             if (data) {
                 loggedInUser(data.userId);
                 loggedInUserRole(data.userRole);
-                self.workFlowButtonText("CONTINUE");
+                
                 if (data.curStepCode != 'dashboard') {
-                    self.helpText1("You seem to have started the on-boarding");
+                    self.helpText1("You seem to have started the on-boarding.");
                     self.helpText2("Please Continue");
+                    self.workFlowButtonText("CONTINUE");
                 } else {
-                    self.helpText1("You might have completed/skipped the on-boarding");
+                    self.helpText1("You seem to have completed/skipped the on-boarding.");
                     self.helpText2("Please Continue to Dashboard");
-                    self.showSkpProcessBtn(true);
+                    self.showSkpProcessBtn("dashboard");
+                    self.workFlowButtonText("GO TO DASHBOARD");
                 }
 
                 self.buttonRouterConfig(data.curStepCode);
