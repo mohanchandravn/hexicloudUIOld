@@ -40,7 +40,7 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
         
         self.getUserStep = function(userId) {
             var defer = $.Deferred();
-            var serverURL = "https://140.86.1.93/hexiCloudRest/services/rest/findUsersCurrentStep/" + userId;
+            var serverURL = "https://140.86.1.93/hexiCloudRest/services/rest/findUsersCurrentStep/" + userId + "/";
             $.ajax({
                 type: "GET",
                 url: serverURL,
