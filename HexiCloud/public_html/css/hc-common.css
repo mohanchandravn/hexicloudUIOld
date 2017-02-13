@@ -175,13 +175,18 @@ textarea.whitePlaceHolder:-ms-input-placeholder {
     font-style: normal !important;
 }
 
-.oj-inputtext-input.moreHeight,
+.input-text {
+    height: 3.286rem !important;
+    width: 300px;
+}
+
+/*.oj-inputtext-input.moreHeight,
 .oj-inputpassword-input.moreHeight,
 .oj-inputtext-nocomp.moreHeight,
 .oj-inputpassword-nocomp.moreHeight {
         height: 3.286rem !important;
           padding-left: 10% !important;
-}
+}*/
 
 .input-color-white {
      color: white;

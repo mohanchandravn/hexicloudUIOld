@@ -7,8 +7,8 @@
 /**
  * login module
  */
-define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinputtext'
-], function (ko, service) {
+define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojinputtext'
+], function (ko, service, $) {
     /**
      * The view model for the main content view template
      */
@@ -22,9 +22,18 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinputtext'
         self.message = ko.observable('');
         self.detailsOfSR = ko.observable();
         self.statusOfSR = ko.observable(false);
+        self.isValid = ko.observable(false);
         
-        self.isValid = function() {
-            return ( self.subject() !== ' ' && self.message() !== ' ' ) && ( self.subject() !== '' && self.message() !== '' );
+        self.handleBindingsApplied = function() {
+            $("#issueSubject").on('keyup paste cut', function() {
+                var issueSubject = $(this).val();
+                return self.isValid( (issueSubject.length > 0) && (self.message().length > 0) );
+            });
+            
+            $("#issueDetail").on('keyup paste cut', function() {
+                var issueDetail = $(this).val();
+                return self.isValid( (issueDetail.length > 0) && (self.subject().length > 0) );
+            });
         };
         
         var successCallBackFn = function(data, status) {

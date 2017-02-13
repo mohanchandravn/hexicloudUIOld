@@ -7,8 +7,8 @@
 /**
  * login module
  */
-define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', 'ojs/ojinputtext',  'ojs/ojknockout-validation'
-], function (ko, service) {
+define(['knockout', 'jquery', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinputtext',  'ojs/ojknockout-validation'
+], function (ko, $) {
     /**
      * The view model for the main content view template
      */
@@ -21,6 +21,15 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', 'ojs/ojinput
         self.iDomain = ko.observable();
         self.restEndPoint = ko.observable();
         self.tracker = ko.observable();
+        self.isIDomainActive = ko.observable(false);
+        
+        self.handleBindingsApplied = function() {
+            $("#iDomain").on('keyup paste cut', function() {
+                var iDomain = $(this).val();
+                return self.isIDomainActive(iDomain.length > 0);
+            });
+        };
+        
         self._showComponentValidationErrors = function (trackerObj)
         {
             trackerObj.showMessages();
@@ -29,7 +38,6 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', 'ojs/ojinput
 
             return true;
         };
-
 
         console.log('login page');
         self.login = function () {
