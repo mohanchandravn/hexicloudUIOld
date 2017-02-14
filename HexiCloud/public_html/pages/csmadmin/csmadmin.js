@@ -4,15 +4,25 @@
  * and open the template in the editor.
  */
 
-define(['knockout', 'jquery', 'ojs/ojcore','ojs/ojknockout', 'ojs/ojbutton', 'ojs/ojselectcombobox'], 
+define(['knockout', 'jquery',
+    'ojs/ojcore',
+    'ojs/ojknockout',
+    'ojs/ojknockout-validation',
+    'ojs/ojradioset',
+    'ojs/ojbutton',
+    'ojs/ojselectcombobox',
+    'ojs/ojtabs'], 
     function(ko, $) {
     
     function csmadminViewModel(params) {
         var self = this;
         var router = params.ojRouter.parentRouter;
         
+        // this is the invalidComponentTracker on ojRadioset
+        self.tracker = ko.observable();
+        self.selectedRole = ko.observable(loggedInUserRole());
         self.allStepsList = ko.observableArray([]);
-        self.selectedStepCode = ko.observable();
+        self.selectedStepCode = ko.observable('');
         self.allStepsList.push({value: 'createdUsers', label: 'Created Users'});
         self.allStepsList.push({value: 'vmProvisionedAllOk', label: 'VM Provisioned All Ok'});
         
@@ -27,9 +37,17 @@ define(['knockout', 'jquery', 'ojs/ojcore','ojs/ojknockout', 'ojs/ojbutton', 'oj
             "vmProvisionedAllOk": 40
         }]);
     
+        self.updateRole = function (event, data) {
+            if (typeof data.value === "string") {
+                // code logic have to write
+            }
+        };
+        
         self.updateStepCode = function (event, data) {
-            if (data.value[0] !== undefined) {
+            if (data.value[0] !== undefined && data.option === "value") {
                 self.displayMetaData(data.value[0]);
+            } else {
+                self.selectedStepCodeMetaDataList([]);
             }
         };
         
@@ -63,8 +81,10 @@ define(['knockout', 'jquery', 'ojs/ojcore','ojs/ojknockout', 'ojs/ojbutton', 'oj
         };
         
         self.deleteMetadata= function(data, event) {
+            console.log("----------------------------------------");
             console.log("we can delete the metadata by this id: " + data.id);
-            console.log("metadata details are: " + ko.toJS(data));
+            console.log("metadata details are: " + ko.toJSON(data));
+            console.log("----------------------------------------");
         };
     };
     
