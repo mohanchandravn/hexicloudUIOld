@@ -46,38 +46,12 @@ navigationbarright {
     border-bottom: 4px solid #FF645F !important;
 }
 
-/*#routingContainer {
-    background-color: #385155;
-}*/
-
-/*navigationbarright {
-    width: 70px;
-    max-width: 70px;
-}*/
-
-.nav-left-pane {
-/*    width: 240px;
-    max-width: 240px;*/
-    /*max-width: 15%;*/
-}
-
 .mainBackGroundImage {
     background-image:url('../img/Main_background.jpg');
-    /*    background-repeat:no-repeat;
-        background-size: 100%, 100%;
-        background-size:contain;
-        overflow: hidden;*/
-    /*min-height:  100%;*/ 
-    background-size:     cover;                      /* <------ */
-    background-repeat:   no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
     background-position: center center;
     background-color: #335C62 !important;
-}
-
-.nav-right-pane {
-    /*width: 100px;*/
-    /*max-width: 6%;*/
-
 }
 
 .olive-background-panel {
@@ -180,16 +154,8 @@ textarea.whitePlaceHolder:-ms-input-placeholder {
     width: 300px;
 }
 
-/*.oj-inputtext-input.moreHeight,
-.oj-inputpassword-input.moreHeight,
-.oj-inputtext-nocomp.moreHeight,
-.oj-inputpassword-nocomp.moreHeight {
-        height: 3.286rem !important;
-          padding-left: 10% !important;
-}*/
-
 .input-color-white {
-     color: white;
+    color: white;
 }
 .error-message-text {
     color: red; 
@@ -201,5 +167,5 @@ span.oj-message-content > div.oj-message-summary {
 }
 
 span.oj-component-icon.oj-message-status-icon.oj-message-error-icon {
-      display: none;
+    display: none;
 }

@@ -19,16 +19,14 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'ojs/ojprogr
         "edge": "start",
         "displayMode": "push",
         "modality": "modal",
-        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.XL_UP)//,
-//        "autoDismiss": "none"
+        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.XL_UP)
     };
     navigationDrawerRight = {
         "selector": "#navigationDrawerRight",
         "edge": "end",
         "displayMode": "push",
         "modality": "modeless",
-        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.LG_UP)//,
-//        "autoDismiss": "none"
+        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.LG_UP)
     };
     
     function dashboardContentViewModel(params) {
@@ -181,11 +179,9 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'ojs/ojprogr
                                     }
                                 }
                                 console.log('----------------------------------------------------------');
-//                                console.log(idx);
                                 console.log('Instance size: ' + instanceVolume);
                                 services.push({
                                     "serviceType": "COMPUTE",
-        //                            "runningInstances": shapes.result[shapeKey].cpus,
                                     "runningInstances": "1",
                                     "cpuUsage": Number(instanceVolume),
                                     "ramSize": ramSize,
@@ -194,7 +190,6 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'ojs/ojprogr
                                 });
                             }
                         }
-                        
 //                    } else {
 //                        return console.log('returning bcoz count is equal to 5');;
 //                    }

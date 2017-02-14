@@ -40,8 +40,6 @@ define(['config/serviceConfig', 'knockout', 'ojs/ojcore', 'jquery', 'ojs/ojradio
         console.log('hello page');
         self.acceptRole = function () {
             isLoggedInUser(true);
-//            userRole('accountAdmin');
-//            router.go('addAdditionalUsers/');
 
             service.updateCurrentStep({
                 "userId": loggedInUser(),
@@ -52,8 +50,6 @@ define(['config/serviceConfig', 'knockout', 'ojs/ojcore', 'jquery', 'ojs/ojradio
         };
         self.rejectRole = function () {
             isLoggedInUser(true);
-//            userRole('');
-//            router.go('chooseRole/');
             service.updateCurrentStep({
                 "userId": loggedInUser(),
                 "userRole": loggedInUserRole(),

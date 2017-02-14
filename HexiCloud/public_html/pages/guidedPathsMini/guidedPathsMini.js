@@ -7,8 +7,8 @@
 /**
  * Guided path module
  */
-define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojprogressbar'
-], function (ko, service) {
+define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar'
+], function (ko, service, $) {
     /**
      * The view model for the main content view template
      */
@@ -25,10 +25,6 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojprogressbar'
         self.sguidedPathsArray = ko.observableArray([]);
         
         self.getServiceDetails = function() {
-//            $.getJSON("pages/servicesMini/servicesMini.json", function(result) {
-//                self.sservicesArray([]);
-//                self.sservicesArray(result.services);
-//            });
             $.getJSON("pages/guidedPathsMini/guidedPathsMini.json", function(result) {
                 self.sguidedPathsArray([]);
                 self.sguidedPathsArray(result.guidedPaths);

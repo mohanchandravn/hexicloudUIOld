@@ -18,8 +18,6 @@ define(['config/serviceConfig'], function (service) {
         console.log('Add additional users page');
         self.addUsers = function () {
             isLoggedInUser(true);
-//            router.go('createUsers/');
-
             service.updateCurrentStep({
                 "userId": loggedInUser(),
                 "userRole": "itAdmin",
@@ -29,7 +27,6 @@ define(['config/serviceConfig'], function (service) {
         };
         self.addLater = function () {
             isLoggedInUser(true);
-//            router.go('servicesMini/');
             service.updateCurrentStep({
                 "userId": loggedInUser(),
                 "userRole": "itAdmin",

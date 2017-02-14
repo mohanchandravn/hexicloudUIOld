@@ -13,7 +13,7 @@
  * service module
  */
 define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar'
-], function (ko, service) {
+], function (ko, service, $) {
     /**
      * The view model for the main content view template
      */
@@ -34,10 +34,6 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
                 self.sservicesArray([]);
                 self.sservicesArray(result.services);
             });
-//            $.getJSON("pages/service/fullGuidedPathsDisplay.json", function(result) {
-//                self.sguidedPathsArray([]);
-//                self.sguidedPathsArray(result.guidedPaths);
-//            });
         };
 
         self.handleAttached = function () {
@@ -63,7 +59,6 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
             });
         };
     }
-
 
     return serviceContentViewModel;
 });

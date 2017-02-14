@@ -8,7 +8,7 @@
  * service module
  */
 define(['knockout', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar'
-], function (ko) {
+], function (ko, $) {
     /**
      * The view model for the main content view template
      */
@@ -49,6 +49,5 @@ define(['knockout', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar'
         };
     }
     
-    
-    return serviceContentViewModel;
+    return serviceContentViewModel;    
 });

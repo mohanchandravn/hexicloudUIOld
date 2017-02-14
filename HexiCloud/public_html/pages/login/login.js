@@ -30,8 +30,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinput
             });
         };
         
-        self._showComponentValidationErrors = function (trackerObj)
-        {
+        self._showComponentValidationErrors = function (trackerObj) {
             trackerObj.showMessages();
             if (trackerObj.focusOnFirstInvalid())
                 return false;
@@ -39,7 +38,6 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinput
             return true;
         };
 
-        console.log('login page');
         self.login = function () {
             console.log('login clicked');
 
@@ -51,22 +49,15 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinput
                 return;
             }
 
-            // Step 2
-//            if (!this._runAppLevelValidation(trackerObj))
-//            {
-//                return;
-//            }
-
             loggedInUser(self.userName());
-
             containerName(self.iDomain());
             isLoggedInUser(true);
-//            router.go('hello/');
+
             console.log(containerName());
             console.log(loggedInUser());
             console.log(self.password());
             console.log(self.restEndPoint());
-            //self.dataToSend = {"user" : containerName() + loggedInUser(), "password" : self.password()};
+
             self.dataToSend = "?container=" + containerName() + "&password=" + self.password() + "&userName=" + self.userName() + "&restEndPoint=" + self.restEndPoint();
             console.log(self.dataToSend);
             var url = wrapperRestEndPoint() + self.dataToSend;
@@ -102,13 +93,6 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinput
             }
 
             isLoggedInUser(true);
-            //Not required to update the step in the login page.
-//            service.updateCurrentStep({
-//                "userId": loggedInUser(),
-//                "userRole": "itAdmin",
-//                "curStepCode": 'hello',
-//                "preStepCode": getStateId()
-//            });
             router.go('hello/');
 
         };

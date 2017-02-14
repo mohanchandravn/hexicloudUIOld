@@ -8,7 +8,7 @@
  * service module
  */
 define(['knockout', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar'
-], function (ko) {
+], function (ko, $) {
     /**
      * The view model for the main content view template
      */
@@ -29,10 +29,6 @@ define(['knockout', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar'
                 self.sservicesArray([]);
                 self.sservicesArray(result.services);
             });
-//            $.getJSON("pages/service/fullGuidedPathsDisplay.json", function(result) {
-//                self.sguidedPathsArray([]);
-//                self.sguidedPathsArray(result.guidedPaths);
-//            });
         };
         
         self.handleAttached = function() {
