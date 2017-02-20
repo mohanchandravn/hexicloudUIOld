@@ -118,6 +118,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
                 self.containerName = ko.observable();
                 self.loggedInUser = ko.observable();
                 self.loggedInUserRole = ko.observable();
+                self.userFirstLastName = ko.observable();
+                 self.userClmRegistryId = ko.observable();
                 self.userRole = ko.observable('');
                 self.isChatInitialized = ko.observable(false);
 

@@ -12,12 +12,16 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
     function serviceConfig() {
         var self = this;
         self.router = router;
+        //local
+        self.portalRestHost = ko.observable("http://127.0.0.1:7101/");
+        //GSE JCS
+//        self.portalRestHost = ko.observable("https://140.86.1.93/");
         
         self.serverURI = ko.observable("https://documents-gse00002841.documents.us2.oraclecloud.com/documents/link/");
         
         self.updateCurrentStep = function(payload) {
 //            var defer = $.Deferred();
-            var serverURL = "https://140.86.1.93/hexiCloudRest/services/rest/createUserStep/";
+            var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/createUserStep/";
             $.ajax({
                 type: "POST",
                 url: serverURL,
@@ -40,7 +44,7 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
         
         self.getUserStep = function(userId) {
             var defer = $.Deferred();
-            var serverURL = "https://140.86.1.93/hexiCloudRest/services/rest/findUsersCurrentStep/" + userId + "/";
+            var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/findUsersCurrentStep/" + userId + "/";
             $.ajax({
                 type: "GET",
                 url: serverURL,
@@ -58,7 +62,7 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
         
         self.getFileDetails = function(stepId) {
             var defer = $.Deferred();
-            var serverURL = "https://141.145.40.38/hexiCloudRestApp/services/rest/findStepDocsByStepId/" + stepId;
+            var serverURL = self.portalRestHost() + "hexiCloudRestApp/services/rest/findStepDocsByStepId/" + stepId;
             $.ajax({
                 type: "GET",
                 url: serverURL,
@@ -99,7 +103,7 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
         
         self.submitSR = function(payload) {
             var defer = $.Deferred();
-            var serverURL = "https://140.86.1.93/hexiCloudRest/services/rest/saveAndSendEmail/";
+            var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/saveAndSendEmail/";
             $.ajax({
                 type: "POST",
                 url: serverURL,
@@ -111,6 +115,46 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log("Error posting data to the service" + serverURL);
+                    defer.reject(xhr);
+                }
+            });
+            return $.when(defer);
+        };
+        self.authenticate = function(payload) {
+            var defer = $.Deferred();
+            var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/authenticate/";
+            $.ajax({
+                type: "POST",
+                url: serverURL,
+               dataType: "json",
+            contentType: "application/json;charset=utf-8",
+                data: JSON.stringify(payload),
+                success: function (data, textStatus, xhr) {
+                    console.log('Successfully posted data at: ' + serverURL);
+                    console.log('textStatus : ' + textStatus);
+                    console.log('Response status code : ' + xhr.status);
+                    defer.resolve(data, {status: xhr.status});
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log("Error posting data to the service : " + serverURL);
+                    defer.reject(xhr);
+                }
+            });
+            return $.when(defer);
+        };
+        
+        self.getUserClmData = function(registryId) {
+            var defer = $.Deferred();
+            var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/getClmData/" + registryId;
+            $.ajax({
+                type: "GET",
+                url: serverURL,
+                success: function (data) {
+                    console.log('Successfully retrieved details at: ' + serverURL);
+                    defer.resolve(data);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log("Error retrieving service details at: " + serverURL);
                     defer.reject(xhr);
                 }
             });
