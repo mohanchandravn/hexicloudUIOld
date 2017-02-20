@@ -50,9 +50,9 @@ requirejs.config({
  * objects in the callback
  */
 
-require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
+require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknockout',
     'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule'],
-        function (oj, ko, $)
+        function (oj, ko, $, sessionInfo)
         {
             var self = this;
             
@@ -111,16 +111,13 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
                 
                 //screenrange observable for responsive alignment
                 self.screenRange = oj.ResponsiveKnockoutUtils.createScreenRangeObservable();
-                self.isLoggedInUser = ko.observable(false);
+                self.isLoggedInUser = ko.observable(sessionInfo.getFromSession(sessionInfo.isLoggedInUser));
                 self.wrapperRestEndPoint = ko.observable("https://140.86.1.93/HexiCloudRESTAPI/resources/rest/myservices");
-                //self.restEndPoint = ko.observable("https://api-z12.compute.em2.oraclecloud.com/");
-//                self.restEndPoint = ko.observable("https://api-z11.compute.em3.oraclecloud.com/");
-                self.containerName = ko.observable();
-                self.loggedInUser = ko.observable();
-                self.loggedInUserRole = ko.observable();
-                self.userFirstLastName = ko.observable();
-                 self.userClmRegistryId = ko.observable();
-                self.userRole = ko.observable('');
+                self.containerName = ko.observable(sessionInfo.getFromSession(sessionInfo.containerName));
+                self.loggedInUser = ko.observable(sessionInfo.getFromSession(sessionInfo.loggedInUser));
+                self.loggedInUserRole = ko.observable(sessionInfo.getFromSession(sessionInfo.loggedInUserRole));
+                self.userFirstLastName = ko.observable(sessionInfo.getFromSession(sessionInfo.userFirstLastName));
+                self.userClmRegistryId = ko.observable(sessionInfo.getFromSession(sessionInfo.userClmRegistryId));
                 self.isChatInitialized = ko.observable(false);
 
                 self.getStateId = function () {

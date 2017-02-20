@@ -7,8 +7,8 @@
 /**
  * dashboard module
  */
-define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'ojs/ojprogressbar', 'ojs/ojoffcanvas'
-], function ($, ko, oj, service) {
+define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'config/sessionInfo', 'ojs/ojprogressbar', 'ojs/ojoffcanvas'
+], function ($, ko, oj, service, sessionInfo) {
     /**
      * The view model for the main content view template
      */
@@ -247,6 +247,13 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'ojs/ojprogr
         };
         
         self.logout = function(data, event) {
+            sessionInfo.removeFromSession(sessionInfo.isLoggedInUser);
+            sessionInfo.removeFromSession(sessionInfo.containerName);
+            sessionInfo.removeFromSession(sessionInfo.loggedInUser);
+            sessionInfo.removeFromSession(sessionInfo.loggedInUserRole);
+            sessionInfo.removeFromSession(sessionInfo.userFirstLastName);
+            sessionInfo.removeFromSession(sessionInfo.userClmRegistryId);
+            
             router.go('home/');
         };
     }
