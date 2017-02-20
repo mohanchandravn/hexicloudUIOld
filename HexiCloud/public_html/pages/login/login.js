@@ -18,7 +18,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinput
         console.log('login page');
         self.userName = ko.observable();
         self.password = ko.observable();
-        self.iDomain = ko.observable();
+        self.iDomain = ko.observable("");
         self.restEndPoint = ko.observable();
         self.tracker = ko.observable();
         self.isIDomainActive = ko.observable(false);
@@ -31,9 +31,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinput
             });
         };
 
-        self._showComponentValidationErrors = function (trackerObj)
-        {
-        
+    
         self._showComponentValidationErrors = function (trackerObj) {
             trackerObj.showMessages();
             if (trackerObj.focusOnFirstInvalid())
@@ -67,7 +65,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojinput
 //            router.go('hello/');
 
             //self.dataToSend = {"user" : containerName() + loggedInUser(), "password" : self.password()};
-            if (!self.iDomain()) {
+            if (self.iDomain() == "" ) {
                 var successCallBackFn = function (data, xhrStatus) {
                     console.log(data);
                     console.log(status);
