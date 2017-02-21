@@ -12,8 +12,8 @@
 /**
  * service module
  */
-define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar'
-], function (ko, service, $) {
+define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar',  'ojs/ojmasonrylayout'
+], function (ko, service) {
     /**
      * The view model for the main content view template
      */
@@ -21,25 +21,46 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         var self = this;
         var router = params.ojRouter.parentRouter;
 
-        console.log('guided path page');
+        console.log('Mini Services page');
 
-        self.srunningCPUCount = ko.observable(1);
-        self.stotalCPUCount = ko.observable(5);
-        self.scurrentUsedMemory = ko.observable(30);
         self.sservicesArray = ko.observableArray([]);
-        self.sguidedPathsArray = ko.observableArray([]);
+
+
+        var getUserClmDataSuccessCallBackFn = function (data) {
+            if (data) {
+                for (i in data) {
+                    var tierName = data[i].productTier5;
+                    if (tierName.indexOf("Storage") > -1) {
+                        data[i].iaasImage = "img/mini-DB-Icon.png";
+                         data[i].cpuUsage = "44";
+                          data[i].memUsage = "12";
+                    }
+                    if (tierName.indexOf("Compute") > -1) {
+                        data[i].iaasImage = "img/mini-compute-icon.png";
+                          data[i].cpuUsage = "55";
+                          data[i].memUsage = "85";
+                    }
+                     data[i].sizeClass = 'oj-masonrylayout-tile-1x1';
+                }
+                self.sservicesArray(data);
+            }
+        };
 
         self.getServiceDetails = function () {
-            $.getJSON("pages/servicesMini/servicesMini.json", function (result) {
-                self.sservicesArray([]);
-                self.sservicesArray(result.services);
-            });
+            if (!userClmRegistryId()) {
+                $.getJSON("pages/servicesMini/servicesMini.json", function (result) {
+                    self.sservicesArray([]);
+                    self.sservicesArray(result.services);
+                });
+            } else {
+                service.getUserClmData(userClmRegistryId()).then(getUserClmDataSuccessCallBackFn);
+            }
         };
 
         self.handleAttached = function () {
             self.getServiceDetails();
         };
-        
+
         self.gotoGuidedPaths = function () {
             isLoggedInUser(true);
             service.updateCurrentStep({
@@ -59,6 +80,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
             });
         };
     }
+
 
     return serviceContentViewModel;
 });

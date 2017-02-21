@@ -1,34 +1,52 @@
 {
    "services": [{
-           "serviceType": "COMPUTE",
+           "productTier5": "COMPUTE",
+            "additionalInfo" : "10 CPU",
            "runningInstances": "1",
            "cpuUsage": "34",
-           "memUsage": "20"   
+           "memUsage": "20",
+            "sizeClass" : "oj-masonrylayout-tile-1x1",
+            "iaasImage" : "img/mini-compute-icon.png"
         }, {
-           "serviceType": "COMPUTE",
+           "productTier5": "COMPUTE",
+            "additionalInfo" : "20 CPU",
            "runningInstances": "1",
            "cpuUsage": "54",
-           "memUsage": "20"       
+           "memUsage": "20",
+            "sizeClass" : "oj-masonrylayout-tile-1x1",
+            "iaasImage" : "img/mini-compute-icon.png"       
         }, {
-           "serviceType": "COMPUTE",
+           "productTier5": "STORAGE",
+            "additionalInfo" : "15 TB",
            "runningInstances": "1",
            "cpuUsage": "44",
-           "memUsage": "12"       
+           "memUsage": "12",
+            "sizeClass" : "oj-masonrylayout-tile-1x1",
+            "iaasImage" : "img/mini-DB-Icon.png"       
         }, {
-           "serviceType": "COMPUTE",
+           "productTier5": "COMPUTE",
+            "additionalInfo" : "30 CPU",
            "runningInstances": "1",
            "cpuUsage": "14",
-           "memUsage": "22"          
+           "memUsage": "22",
+            "sizeClass" : "oj-masonrylayout-tile-1x1",
+            "iaasImage" : "img/mini-compute-icon.png"          
         }, {
-           "serviceType": "COMPUTE",
+           "productTier5": "COMPUTE",
+            "additionalInfo" : "40 CPU",
            "runningInstances": "1",
            "cpuUsage": "52",
-           "memUsage": "32"           
+           "memUsage": "32",
+            "sizeClass" : "oj-masonrylayout-tile-1x1",
+            "iaasImage" : "img/mini-compute-icon.png"           
     },{
-           "serviceType": "COMPUTE",
+           "productTier5": "STORAGE",
+            "additionalInfo" : "25 TB",
            "runningInstances": "1",
            "cpuUsage": "52",
-           "memUsage": "25"
+           "memUsage": "25",
+            "sizeClass" : "oj-masonrylayout-tile-1x1",
+            "iaasImage" : "img/mini-DB-Icon.png"
     }
     ]
 }

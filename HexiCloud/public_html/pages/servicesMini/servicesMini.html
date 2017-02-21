@@ -3,7 +3,76 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+
 <div class="oj-flex responsive-height">
+    <div class="oj-panel main-backgroud-opaque-layer" >
+        <div class="olive-sorround-div">
+            <div class="oj-panel oj-margin olive-background-panel">
+                <span class="services-mini-top-heading" data-bind="text: 'Are your services displayed as expected?'"></span>
+                <div class="services-mini-menu">
+                    <div class="mini-services-scroll-container">
+                        <div id="masonryLayout" data-bind="ojComponent: {component: 'ojMasonryLayout'}">
+                            <!-- ko foreach: sservicesArray -->
+
+                            <div class="services-mini-item" 
+                                 data-bind="css: sizeClass">
+                                <span class="services-mini-heading oj-sm-justify-content-center oj-flex" data-bind="text: productTier5"></span>
+                                <div class="services-details oj-flex">
+                                    <img data-bind="attr:{src:iaasImage}" alt="icon thumbnail"/>
+                                    <span class="service-instance-count oj-flex-item" data-bind="text: additionalInfo"></span>
+
+                                </div>
+                                <div class="services-mini-usage-details oj-flex">
+                                    <div class="oj-sm-flex-direction-column oj-sm-10 oj-flex-item">
+                                        <span class="oj-sm-10 oj-flex-item" data-bind="text: 'CPU'"></span>                              
+                                        <div id="progressPercentage" data-bind="ojComponent:{
+                                          component: 'ojProgressbar', 
+                                          value: cpuUsage}">
+                                        </div>                            
+                                    </div>
+                                    <div class="oj-sm-flex-direction-column oj-sm-10 oj-flex-item">
+                                        <span data-bind="text: 'MEM'"></span>
+                                        <div id="progressPercentage" data-bind="ojComponent:{
+                                          component: 'ojProgressbar', 
+                                          value: memUsage}">
+                                        </div>           
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- /ko -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="oj-flex-items-pad">
+
+                    <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">
+                        <div class="oj-flex-item">
+                            <div class="standard-button oj-sm-justify-content-center oj-flex" data-bind="click: gotoGuidedPaths">
+                                <span data-bind="text: 'YES'">YES</span>
+                            </div>
+                        </div>
+                        <div class="oj-hybrid-padding"> </div>
+                        <div class="oj-hybrid-padding"> </div>
+                        <div class="oj-flex-item">
+                            <div class="standard-button oj-sm-justify-content-center oj-flex" data-bind="click: raiseSR">
+                                <span data-bind="text: 'NO'">NO</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Original content before integrating with Registry id -->
+<!--<div class="oj-flex responsive-height">
     <div class="oj-panel main-backgroud-opaque-layer" >
         <div class="olive-sorround-div">
             <div class="oj-panel oj-margin olive-background-panel">
@@ -58,4 +127,4 @@ and open the template in the editor.
             </div>
         </div>
     </div>
-</div>
+</div>-->
