@@ -47,6 +47,15 @@
            "memUsage": "25",
             "sizeClass" : "oj-masonrylayout-tile-1x1",
             "iaasImage" : "img/mini-DB-Icon.png"
+    },
+    {
+           "productTier5": "STORAGE",
+            "additionalInfo" : "35 TB",
+           "runningInstances": "1",
+           "cpuUsage": "52",
+           "memUsage": "25",
+            "sizeClass" : "oj-masonrylayout-tile-1x1",
+            "iaasImage" : "img/mini-DB-Icon.png"
     }
     ]
 }
