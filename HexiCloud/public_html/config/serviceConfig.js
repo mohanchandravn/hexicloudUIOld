@@ -60,15 +60,20 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             return $.when(defer);
         };
         
-        self.getFileDetails = function(stepId) {
+        // for fetching file details by stepId/stepCode
+        self.getFileDetails = function(stepDetail) {
             var defer = $.Deferred();
-            var serverURL = self.portalRestHost() + "hexiCloudRestApp/services/rest/findStepDocsByStepId/" + stepId;
+            if (typeof stepDetail === 'number') {
+                var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/findStepDocsByStepId/" + stepDetail;
+            } else {
+                var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/findStepDocsByStepCode/" + stepDetail;
+            }
             $.ajax({
                 type: "GET",
                 url: serverURL,
-                success: function (data) {
-                    console.log('Successfully retrieved details at: ' + serverURL);
-                    defer.resolve(data);
+                success: function (data, status) {
+                    console.log("Successfully retrieved details at: " + serverURL);
+                    defer.resolve(data, status);
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log("Error retrieving service details at: " + serverURL);

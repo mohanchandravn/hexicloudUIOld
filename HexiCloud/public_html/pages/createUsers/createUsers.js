@@ -8,7 +8,7 @@
  * login module
  */
 define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', 'ojs/ojaccordion', 'ojs/ojcollapsible'
-], function (ko, service) {
+], function (ko, service, oj) {
     /**
      * The view model for the main content view template
      */
@@ -26,15 +26,25 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', 'ojs/ojaccor
         
         self.documentsArray = ko.observableArray([]);
         
-        if (loggedInUserRole() === 'itAdmin') {
-            for (var idx = 0; idx < 5; idx++) {
-                self.documentsArray.push({"docName": "Document " + (idx + 1), "pdfSrc": "https://documents-gse00002841.documents.us2.oraclecloud.com/documents/link/LDFC37ABC5CD3EF8CBE505C7704A23FFF5A54B6D86DA/file/D68745A6BB6089B3199A8163704A23FFF5A54B6D86DA"});
+        var getFileDetailsSuccessFn = function(data, status) {
+            if (status !== 'nocontent') {
+                console.log(data);
+                self.documentsArray([]);
+                var array = [];
+                for (var idx = 0; idx < data.length; idx++) {
+                    array.push({
+                        "docName": data[idx].fileName,
+                        "pdfSrc": "https://documents-usoracleam82569.documents.us2.oraclecloud.com/documents/link/" + data[idx].publicLinkId + "/file/" + data[idx].docFileId});
+                }
+                self.documentsArray(array);
+            } else {
+                console.log('Content not available for the selected step');
             }
-        } else {
-            for (var idx = 0; idx < 5; idx++) {
-                self.documentsArray.push({"docName": "Document " + (idx + 1), "pdfSrc": "https://documents-gse00002841.documents.us2.oraclecloud.com/documents/link/LDCDFF97F6E7411D4416C588704A23FFF5A54B6D86DA/file/DD9ADEC488FEEDE3210A732A704A23FFF5A54B6D86DA"});
-            }
-        }
+        };
+        
+        var getFileDetailsFailFn = function(xhr) {
+            console.log(xhr);
+        };
         
         self.goToServices = function(data, event) {
             isLoggedInUser(true);
@@ -46,8 +56,6 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', 'ojs/ojaccor
             });
         };
         
-//        self.pdfSrc(service.serverURI() + fetchedLinkId + "/file/" + fileId);
-
 //        self.addMoreUsers = function() {
 //            console.log('Clicked add more user');
 //            isLoggedInUser(true);
@@ -57,6 +65,10 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', 'ojs/ojaccor
 //            isLoggedInUser(true);
 //            router.go('servicesMini/');
 //        };
+        
+        self.handleAttached = function() {
+            service.getFileDetails(getStateId()).then(getFileDetailsSuccessFn, getFileDetailsFailFn);
+        };
     }
     
     return createUsersViewModel;

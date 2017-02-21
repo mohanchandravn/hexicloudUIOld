@@ -47,7 +47,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         };
 
         self.getServiceDetails = function () {
-            if (!userClmRegistryId() || userClmRegistryId() != null) {
+            if (!userClmRegistryId()) {
                 $.getJSON("pages/servicesMini/servicesMini.json", function (result) {
                     self.sservicesArray([]);
                     self.sservicesArray(result.services);
