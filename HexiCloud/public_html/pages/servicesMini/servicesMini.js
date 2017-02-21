@@ -13,7 +13,7 @@
  * service module
  */
 define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar',  'ojs/ojmasonrylayout'
-], function (ko, service) {
+], function (ko, service, $) {
     /**
      * The view model for the main content view template
      */
@@ -28,7 +28,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
 
         var getUserClmDataSuccessCallBackFn = function (data) {
             if (data) {
-                for (i in data) {
+                for (var i in data) {
                     var tierName = data[i].productTier5;
                     if (tierName.indexOf("Storage") > -1) {
                         data[i].iaasImage = "img/mini-DB-Icon.png";
@@ -47,7 +47,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         };
 
         self.getServiceDetails = function () {
-            if (userClmRegistryId()) {
+            if (!userClmRegistryId() || userClmRegistryId() != null) {
                 $.getJSON("pages/servicesMini/servicesMini.json", function (result) {
                     self.sservicesArray([]);
                     self.sservicesArray(result.services);
