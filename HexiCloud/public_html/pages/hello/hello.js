@@ -45,7 +45,8 @@ define(['config/serviceConfig', 'knockout', 'ojs/ojcore', 'jquery', 'ojs/ojinput
                 "userId": loggedInUser(),
                 "userRole": loggedInUserRole(),
                 "curStepCode": "dashboard",
-                "preStepCode": getStateId()
+                "preStepCode": getStateId(),
+                "userAction" : "Skip Process"
             });
         };
 
@@ -56,7 +57,8 @@ define(['config/serviceConfig', 'knockout', 'ojs/ojcore', 'jquery', 'ojs/ojinput
                 "userId": loggedInUser(),
                 "userRole": loggedInUserRole(),
                 "curStepCode": self.buttonRouterConfig(),
-                "preStepCode": getStateId()
+                "preStepCode": getStateId(),
+                "userAction" : self.workFlowButtonText()
             });
         };
     }

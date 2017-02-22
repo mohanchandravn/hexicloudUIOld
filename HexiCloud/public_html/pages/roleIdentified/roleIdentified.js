@@ -45,7 +45,8 @@ define(['config/serviceConfig', 'knockout', 'ojs/ojcore', 'jquery', 'ojs/ojradio
                 "userId": loggedInUser(),
                 "userRole": loggedInUserRole(),
                 "curStepCode": "addAdditionalUsers",
-                "preStepCode": getStateId()
+                "preStepCode": getStateId(),
+                "userAction" : "Yes"
             });
         };
         self.rejectRole = function () {
@@ -54,7 +55,8 @@ define(['config/serviceConfig', 'knockout', 'ojs/ojcore', 'jquery', 'ojs/ojradio
                 "userId": loggedInUser(),
                 "userRole": loggedInUserRole(),
                 "curStepCode": "chooseRole",
-                "preStepCode": getStateId()
+                "preStepCode": getStateId(),
+                "userAction" : "No"
             });
         };
     }

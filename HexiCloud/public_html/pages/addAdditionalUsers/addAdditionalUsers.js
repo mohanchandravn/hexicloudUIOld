@@ -22,7 +22,8 @@ define(['config/serviceConfig'], function (service) {
                 "userId": loggedInUser(),
                 "userRole": "itAdmin",
                 "curStepCode": 'createUsers',
-                "preStepCode": getStateId()
+                "preStepCode": getStateId(),
+                "userAction" : "Add Users"
             });
         };
         self.addLater = function () {
@@ -31,7 +32,8 @@ define(['config/serviceConfig'], function (service) {
                 "userId": loggedInUser(),
                 "userRole": "itAdmin",
                 "curStepCode": 'servicesMini',
-                "preStepCode": getStateId()
+                "preStepCode": getStateId(),
+                "userAction" : "Add Later"
             });
         };
     }

@@ -44,7 +44,8 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
                 "userId": loggedInUser(),
                 "userRole": "itAdmin",
                 "curStepCode": 'dashboard',
-                "preStepCode": getStateId()
+                "preStepCode": getStateId(),
+                "userAction" : "Go to Dashboard"
             });
         };
     }

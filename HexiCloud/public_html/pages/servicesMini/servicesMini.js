@@ -67,7 +67,8 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
                 "userId": loggedInUser(),
                 "userRole": "itAdmin",
                 "curStepCode": 'guidedPathsMini',
-                "preStepCode": getStateId()
+                "preStepCode": getStateId(),
+                "userAction" : "Go To Guided Paths mini"
             });
         };
         self.raiseSR = function () {
@@ -76,7 +77,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
                 "userId": loggedInUser(),
                 "userRole": "itAdmin",
                 "curStepCode": 'raiseSR',
-                "preStepCode": getStateId()
+                "preStepCode": "Raise a email request"
             });
         };
     }

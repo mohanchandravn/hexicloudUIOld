@@ -66,7 +66,8 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojinput
                 "userId": loggedInUser(),
                 "userRole": "itAdmin",
                 "curStepCode": "guidedPathsMini",
-                "preStepCode": getStateId()
+                "preStepCode": getStateId(),
+                "userAction" : "To Submit Email Request"
             });
         };
     }
