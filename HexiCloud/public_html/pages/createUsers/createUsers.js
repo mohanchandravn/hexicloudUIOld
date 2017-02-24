@@ -93,7 +93,8 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojaccor
                 "userId": loggedInUser(),
                 "userRole": "itAdmin",
                 "curStepCode": 'servicesMini',
-                "preStepCode": getStateId()
+                "preStepCode": getStateId(),
+                "userAction" : "Go to Services Provisioned"
             });
         };
         

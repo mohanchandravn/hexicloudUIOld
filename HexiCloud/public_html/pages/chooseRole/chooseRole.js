@@ -33,7 +33,8 @@ define(['config/serviceConfig', 'knockout', 'jquery', 'ojs/ojcore', 'ojs/ojradio
                     "userId": loggedInUser(),
                     "userRole": self.currentRole(),
                     "curStepCode": "addAdditionalUsers",
-                    "preStepCode": getStateId()
+                    "preStepCode": getStateId(),
+                    "userAction": "Next, selected Role as : " + self.currentRole()
                 });
 
             }
