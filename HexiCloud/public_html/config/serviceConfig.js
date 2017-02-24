@@ -66,7 +66,7 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             if (typeof stepDetail === 'number') {
                 var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/findStepDocsByStepId/" + stepDetail;
             } else {
-                var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/findStepDocsByStepCode/" + stepDetail;
+                var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/findStepDocsByCode/" + stepDetail;
             }
             $.ajax({
                 type: "GET",

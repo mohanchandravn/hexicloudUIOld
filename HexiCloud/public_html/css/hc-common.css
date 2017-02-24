@@ -169,3 +169,7 @@ span.oj-message-content > div.oj-message-summary {
 span.oj-component-icon.oj-message-status-icon.oj-message-error-icon {
     display: none;
 }
+
+div[aria-label="Pop-out"] {
+    display: none;
+}

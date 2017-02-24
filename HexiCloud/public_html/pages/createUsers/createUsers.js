@@ -7,8 +7,8 @@
 /**
  * login module
  */
-define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', 'ojs/ojaccordion', 'ojs/ojcollapsible'
-], function (ko, service, oj) {
+define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojaccordion', 'ojs/ojcollapsible'
+], function (ko, service, $) {
     /**
      * The view model for the main content view template
      */
@@ -33,12 +33,53 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', 'ojs/ojaccor
                 var array = [];
                 for (var idx = 0; idx < data.length; idx++) {
                     array.push({
-                        "docName": data[idx].fileName,
-                        "pdfSrc": "https://documents-usoracleam82569.documents.us2.oraclecloud.com/documents/link/" + data[idx].publicLinkId + "/file/" + data[idx].docFileId});
+                        "displayLabel": data[idx].displayLabel,
+                        "accessToken": data[idx].accessToken,
+                        "appLinkId": data[idx].appLinkId,
+                        "appLinkUrl": data[idx].appLinkUrl,
+                        "displayOrder": data[idx].displayOrder,
+                        "docCsRole": data[idx].docCsRole,
+                        "docFileId": data[idx].docFileId,
+                        "docMetaData": data[idx].docMetaData,
+                        "docType": data[idx].docType,
+                        "docTypeExtn": data[idx].docTypeExtn,
+                        "fileName": data[idx].fileName,
+                        "publicLinkId": data[idx].publicLinkId,
+                        "refreshToken": data[idx].refreshToken,
+                        "stepCode": data[idx].stepCode,
+                        "stepId": data[idx].stepId,
+                        "subStepCode": data[idx].subStepCode,
+                    });
                 }
                 self.documentsArray(array);
             } else {
                 console.log('Content not available for the selected step');
+            }
+        };
+        
+        self.getDocsViewLink = function(docTypeExtn, appLinkUrl, refreshToken, accessToken, appLinkId, docFileId) {
+            if (docTypeExtn !== 'mp4') {
+                $("#" + docFileId).attr('src', appLinkUrl);
+                function OnMessage (evt) {   
+                    console.log(evt.data);
+                    if (evt.data.message === 'appLinkReady') {
+                        var iframe= $("#" + docFileId)[0];
+                        var iframewindow= iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument.defaultView;
+                        var msg = {
+                                message: 'setAppLinkTokens',
+                                appLinkRefreshToken: refreshToken,
+                                appLinkAccessToken: accessToken,
+                                appLinkRoleName: "downloader",
+                                embedPreview: true
+                        };
+
+                        iframewindow.postMessage(msg, '*');
+                    }
+                };
+                window.addEventListener && window.addEventListener('message', OnMessage, false);
+            } else {
+                console.log("https://documents-usoracleam82569.documents.us2.oraclecloud.com/documents/link/app/" + appLinkId + "/file/" + docFileId + "&dAppLinkAccessToken=" + accessToken);
+                return("https://documents-usoracleam82569.documents.us2.oraclecloud.com/documents/link/app/" + appLinkId + "/file/" + docFileId + "&dAppLinkAccessToken=" + accessToken);
             }
         };
         
