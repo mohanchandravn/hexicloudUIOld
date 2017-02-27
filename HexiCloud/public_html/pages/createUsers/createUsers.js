@@ -7,43 +7,97 @@
 /**
  * login module
  */
-define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', , 'ojs/ojinputtext', 'ojs/ojaccordion', 'ojs/ojcollapsible'
-], function (ko, service) {
+define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojaccordion', 'ojs/ojcollapsible'
+], function (ko, service, $) {
     /**
      * The view model for the main content view template
      */
-    function createUsersViewModel() {
+    function createUsersViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
         
         //for adding Users and Assigning roles
-        self.urlForAddingUsersAndAssigningRoles = ko.observable('http://docs.oracle.com/en/cloud/get-started/subscriptions-cloud/csgsg/adding-users-and-assigning-roles.html');
-        self.textForAddingUsersAndAssigningRoles = ko.observable('How to add users - adding Users and Assigning Roles');
+        self.urlForMyServices = ko.observable('https://myservices.em2.oraclecloud.com/mycloud/faces/dashboard.jspx');
+        self.textForMyServices = ko.observable('Go to MyServices to Add Users');
         
         //for adding Admin Users and Assigning roles
-        self.urlForAddingAdminUsersAndAssigningRoles = ko.observable('http://docs.oracle.com/en/cloud/get-started/subscriptions-cloud/csgsg/adding-users-and-assigning-roles.html');
-        self.textForAddingAdminUsersAndAssigningRoles = ko.observable('How to add Account Admins - adding Users and Assigning Roles');
+        self.urlForMyAccount = ko.observable('https://myaccount.cloud.oracle.com/mycloud/faces/dashboard.jspx');
+        self.textForMyAccount = ko.observable('Go to MyAccounts to Add Users');
         
         self.documentsArray = ko.observableArray([]);
         
-        if (userRole() === 'itAdmin') {
-            for (var idx = 0; idx < 5; idx++) {
-                self.documentsArray.push({"docName": "Document " + (idx + 1), "pdfSrc": "https://documents-gse00002841.documents.us2.oraclecloud.com/documents/link/LDFC37ABC5CD3EF8CBE505C7704A23FFF5A54B6D86DA/file/D68745A6BB6089B3199A8163704A23FFF5A54B6D86DA"});
+        var getFileDetailsSuccessFn = function(data, status) {
+            if (status !== 'nocontent') {
+                console.log(data);
+                self.documentsArray([]);
+                var array = [];
+                for (var idx = 0; idx < data.length; idx++) {
+                    array.push({
+                        "displayLabel": data[idx].displayLabel,
+                        "accessToken": data[idx].accessToken,
+                        "appLinkId": data[idx].appLinkId,
+                        "appLinkUrl": data[idx].appLinkUrl,
+                        "displayOrder": data[idx].displayOrder,
+                        "docCsRole": data[idx].docCsRole,
+                        "docFileId": data[idx].docFileId,
+                        "docMetaData": data[idx].docMetaData,
+                        "docType": data[idx].docType,
+                        "docTypeExtn": data[idx].docTypeExtn,
+                        "fileName": data[idx].fileName,
+                        "publicLinkId": data[idx].publicLinkId,
+                        "refreshToken": data[idx].refreshToken,
+                        "stepCode": data[idx].stepCode,
+                        "stepId": data[idx].stepId,
+                        "subStepCode": data[idx].subStepCode,
+                    });
+                }
+                self.documentsArray(array);
+            } else {
+                console.log('Content not available for the selected step');
             }
-//            self.pdfSrc = ko.observable('https://documents-gse00002841.documents.us2.oraclecloud.com/documents/link/LDFC37ABC5CD3EF8CBE505C7704A23FFF5A54B6D86DA/file/D68745A6BB6089B3199A8163704A23FFF5A54B6D86DA');
-        } else {
-            for (var idx = 0; idx < 5; idx++) {
-                self.documentsArray.push({"docName": "Document " + (idx + 1), "pdfSrc": "https://documents-gse00002841.documents.us2.oraclecloud.com/documents/link/LDCDFF97F6E7411D4416C588704A23FFF5A54B6D86DA/file/DD9ADEC488FEEDE3210A732A704A23FFF5A54B6D86DA"});
+        };
+        
+        self.getDocsViewLink = function(docTypeExtn, appLinkUrl, refreshToken, accessToken, appLinkId, docFileId) {
+            if (docTypeExtn !== 'mp4') {
+                $("#" + docFileId).attr('src', appLinkUrl);
+                function OnMessage (evt) {   
+                    console.log(evt.data);
+                    if (evt.data.message === 'appLinkReady') {
+                        var iframe= $("#" + docFileId)[0];
+                        var iframewindow= iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument.defaultView;
+                        var msg = {
+                                message: 'setAppLinkTokens',
+                                appLinkRefreshToken: refreshToken,
+                                appLinkAccessToken: accessToken,
+                                appLinkRoleName: "downloader",
+                                embedPreview: true
+                        };
+
+                        iframewindow.postMessage(msg, '*');
+                    }
+                };
+                window.addEventListener && window.addEventListener('message', OnMessage, false);
+            } else {
+                console.log("https://documents-usoracleam82569.documents.us2.oraclecloud.com/documents/link/app/" + appLinkId + "/file/" + docFileId + "&dAppLinkAccessToken=" + accessToken);
+                return("https://documents-usoracleam82569.documents.us2.oraclecloud.com/documents/link/app/" + appLinkId + "/file/" + docFileId + "&dAppLinkAccessToken=" + accessToken);
             }
-//            self.pdfSrc = ko.observable('https://documents-gse00002841.documents.us2.oraclecloud.com/documents/link/LDCDFF97F6E7411D4416C588704A23FFF5A54B6D86DA/file/DD9ADEC488FEEDE3210A732A704A23FFF5A54B6D86DA');
-        }
+        };
+        
+        var getFileDetailsFailFn = function(xhr) {
+            console.log(xhr);
+        };
         
         self.goToServices = function(data, event) {
             isLoggedInUser(true);
-            router.go('servicesMini/');
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": 'servicesMini',
+                "preStepCode": getStateId(),
+                "userAction" : "Go to Services Provisioned"
+            });
         };
         
-//        self.pdfSrc(service.serverURI() + fetchedLinkId + "/file/" + fileId);
-
 //        self.addMoreUsers = function() {
 //            console.log('Clicked add more user');
 //            isLoggedInUser(true);
@@ -53,6 +107,10 @@ define(['knockout', 'config/serviceConfig', 'ojs/ojcore', 'jquery', , 'ojs/ojinp
 //            isLoggedInUser(true);
 //            router.go('servicesMini/');
 //        };
+        
+        self.handleAttached = function() {
+            service.getFileDetails(getStateId()).then(getFileDetailsSuccessFn, getFileDetailsFailFn);
+        };
     }
     
     return createUsersViewModel;

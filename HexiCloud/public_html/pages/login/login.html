@@ -4,40 +4,65 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<div class="oj-flex responsive-height">
-    <div class="login-panel-position-div">
-        <div class="oj-panel oj-margin login-background-panel" >
-            <div class="oj-flex oj-sm-flex-direction-column oj-sm-align-items-center">
-                <div class="oj-flex-item " style="padding-top: 35px">
-                    <img src="img/login_man_face.png" alt="icon thumbnail"/>
-                </div>
-                <div class="oj-flex-item" style="padding-top: 10px">
-                    <span style="color: white; font-size:25px;"> Login here:</span>
-                </div>
-                <div class="oj-flex-item" style="padding-top: 30px; width: 70%">
-                    <div class="oj-sm-justify-content-center oj-flex">
-                        <input id="text-input" type="text" class="moreHeight" style="background: white; min-width: 100%;"
-                               data-bind="ojComponent: {component: 'ojInputText', placeholder: 'Username', value: userName}"/>
+<div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center responsive-height" style="text-align: -webkit-center;">
+    <div class="oj-flex-item">
+        <div class="login-panel oj-flex oj-sm-flex-direction-column oj-sm-align-items-center">
+            <div class="oj-flex-item ">
+                <img src="img/login_man_face.png" alt="icon thumbnail"/>
+            </div>
+            <div class="oj-flex-item">
+                <span style="color: white; font-size:20px;"> Login here:</span>
+            </div>
+
+            <div class="oj-flex-item" data-bind="visible: loginFailureText() != ''">
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <span data-bind="text: loginFailureText" class="error-message-text"></span> 
                     </div>
                 </div>
-                <div class="oj-flex-item " style="padding-top: 20px; width: 70%;">
-                    <div class="oj-sm-justify-content-center oj-flex">
-                        <input type="password" id="password"  class="moreHeight" style="background: white;  min-width: 100%;"
-                               data-bind="ojComponent: {component: 'ojInputPassword', placeholder: 'Password', value: password}"/>
-                    </div>
+            </div>
+
+            <div class="oj-flex-item">
+                <div class="oj-flex">
+                    <input id="text-input" type="text" class="input-text"
+                           data-bind="ojComponent: {component: 'ojInputText', 
+                                                        placeholder: 'Username', 
+                                                        value: userName,
+                                                        invalidComponentTracker: tracker,
+                                                        required: true, 
+                                                        translations: {'required': {
+                                                                      hint: 'Enter your user name here', 
+                                                                      messageDetail: 'Please enter a valid user name'}}}"/>
                 </div>
-                <div class="oj-flex-item " style="padding-top: 20px; width: 70%;">
-                    <div class="oj-sm-justify-content-center oj-flex">
-                        <input type="text" id="iDomain"  class="moreHeight" style="background: white;  min-width: 100%;"
-                               data-bind="ojComponent: {component: 'ojInputText', placeholder: 'Identity Domain', value: iDomain}"/>
-                    </div>
+            </div>
+            <div class="oj-flex-item">
+                <div class="oj-flex">
+                    <input type="password" id="password"  class="input-text"
+                           data-bind="ojComponent: {component: 'ojInputPassword', 
+                                                        placeholder: 'Password', 
+                                                        value: password, 
+                                                        invalidComponentTracker: tracker,
+                                                        required: true, 
+                                                        translations: {'required': {
+                                                                      hint: 'Enter your password here', 
+                                                                      messageDetail: 'Please enter the password'}}}"/>
                 </div>
-                <div class="oj-flex-item" style="padding-top: 30px; ">
-                    <!--                            <button id= "button" class="oj-button oj-component oj-enabled oj-button-outlined-chrome" style="color: white;"
-                                                        data-bind="click: login, ojComponent: { component: 'ojButton', label: 'LOGIN', chroming: 'outlined'}"/>-->
-                    <div class="standard-button oj-sm-justify-content-center oj-flex">
-                        <span data-bind="click: login, text: 'LOGIN'">LOGIN</span>
-                    </div>
+            </div>
+            <div class="oj-flex-item">
+                <div class="oj-flex">
+                    <input type="text" id="iDomain" class="input-text"
+                           data-bind="onchange: test, ojComponent: {component: 'ojInputText', placeholder: 'Identity Domain', value: iDomain}"/>
+                </div>
+            </div>
+            <div class="oj-flex-item" data-bind="visible: isIDomainActive">
+                <div class="oj-flex">
+                    <input type="text" id="restEndPoint"  class="input-text"
+                           data-bind="ojComponent: {component: 'ojInputText', placeholder: 'REST End Point URL', value: restEndPoint}"/>
+                </div>
+            </div>
+            <div class="oj-flex-item">
+                <div class="standard-button oj-sm-justify-content-center oj-flex" data-bind="click: login">
+                    <span data-bind="text: 'LOGIN'">LOGIN</span>
                 </div>
             </div>
         </div>

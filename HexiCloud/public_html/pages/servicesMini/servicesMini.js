@@ -12,49 +12,73 @@
 /**
  * service module
  */
-define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar'
-], function (oj, ko) {
+define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar',  'ojs/ojmasonrylayout'
+], function (ko, service, $) {
     /**
      * The view model for the main content view template
      */
-    function serviceContentViewModel() {
+    function serviceContentViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
 
-        console.log('guided path page');
+        console.log('Mini Services page');
 
-        self.srunningCPUCount = ko.observable(1);
-        self.stotalCPUCount = ko.observable(5);
-        self.scurrentUsedMemory = ko.observable(30);
         self.sservicesArray = ko.observableArray([]);
-        self.sguidedPathsArray = ko.observableArray([]);
+
+
+        var getUserClmDataSuccessCallBackFn = function (data) {
+            if (data) {
+                for (var i in data) {
+                    var tierName = data[i].productTier5;
+                    if (tierName.indexOf("Storage") > -1) {
+                        data[i].iaasImage = "img/mini-DB-Icon.png";
+                         data[i].cpuUsage = "44";
+                          data[i].memUsage = "12";
+                    }
+                    if (tierName.indexOf("Compute") > -1) {
+                        data[i].iaasImage = "img/mini-compute-icon.png";
+                          data[i].cpuUsage = "55";
+                          data[i].memUsage = "85";
+                    }
+                     data[i].sizeClass = 'oj-masonrylayout-tile-1x1';
+                }
+                self.sservicesArray(data);
+            }
+        };
 
         self.getServiceDetails = function () {
-            $.getJSON("pages/servicesMini/servicesMini.json", function (result) {
-                self.sservicesArray([]);
-                self.sservicesArray(result.services);
-            });
-//            $.getJSON("pages/service/fullGuidedPathsDisplay.json", function(result) {
-//                self.sguidedPathsArray([]);
-//                self.sguidedPathsArray(result.guidedPaths);
-//            });
+            if (!userClmRegistryId()) {
+                $.getJSON("pages/servicesMini/servicesMini.json", function (result) {
+                    self.sservicesArray([]);
+                    self.sservicesArray(result.services);
+                });
+            } else {
+                service.getUserClmData(userClmRegistryId()).then(getUserClmDataSuccessCallBackFn);
+            }
         };
 
         self.handleAttached = function () {
             self.getServiceDetails();
         };
 
-        self.routeTo = function (data, event) {
-            var id = event.currentTarget.id.toLowerCase();
-            router.go(id);
-        };
-        
         self.gotoGuidedPaths = function () {
             isLoggedInUser(true);
-            router.go('guidedPathsMini/');
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": 'guidedPathsMini',
+                "preStepCode": getStateId(),
+                "userAction" : "Go To Guided Paths mini"
+            });
         };
         self.raiseSR = function () {
             isLoggedInUser(true);
-            router.go('raiseSR/');
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": 'raiseSR',
+                "preStepCode": "Raise a email request"
+            });
         };
     }
 

@@ -7,13 +7,14 @@
 /**
  * service module
  */
-define(['jquery','knockout','ojs/ojcore', 'ojs/ojprogressbar'
-], function (oj, ko) {
+define(['knockout', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar'
+], function (ko, $) {
     /**
      * The view model for the main content view template
      */
-    function serviceContentViewModel() {
+    function serviceContentViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
         
         console.log('guided path page');
         
@@ -28,10 +29,6 @@ define(['jquery','knockout','ojs/ojcore', 'ojs/ojprogressbar'
                 self.sservicesArray([]);
                 self.sservicesArray(result.services);
             });
-//            $.getJSON("pages/service/fullGuidedPathsDisplay.json", function(result) {
-//                self.sguidedPathsArray([]);
-//                self.sguidedPathsArray(result.guidedPaths);
-//            });
         };
         
         self.handleAttached = function() {
@@ -47,7 +44,6 @@ define(['jquery','knockout','ojs/ojcore', 'ojs/ojprogressbar'
             router.go('home/');
         };
     }
-    
     
     return serviceContentViewModel;
 });

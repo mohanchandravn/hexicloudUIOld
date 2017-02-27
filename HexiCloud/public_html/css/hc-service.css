@@ -60,29 +60,16 @@ and open the template in the editor.
 
 .services-mini-heading {
     border-bottom: 1px solid #ffffff;
-    font-size: 10px;
+    font-size: 15px;
     font-weight: 500;
 }
 
-.services-mini-menu {
-    margin-top: 30px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
 .services-mini-content {
     padding-top: 20px;       
     padding-bottom: 20px;    
 }
 
-.services-mini-item {
-    width: 165px;
-    min-height: 175px;
-    box-sizing: border-box;
-    border: 1px solid #ffffff;
-    margin-right: 30px;
-    margin-bottom: 30px;    
-    color: #ffffff;
-}
+
 .services-mini-usage-details {
     margin-top: 10px;
     margin-left: 10px;
@@ -93,9 +80,43 @@ and open the template in the editor.
     color: #ffffff;       
     padding-top: 125px;
     padding-left: 125px;
-  
+
 }
 
 .services-mini-menu .oj-progressbar-value {
     background-color: #253741;
 }
+
+
+
+.mini-services-scroll-container {
+    /*height: 400px;*/
+    overflow: auto;
+
+}
+
+.oj-masonrylayout-tile-1x1 {
+    width: 200px;
+    height: 200px;
+}
+
+.services-mini-item {
+    /*width: 165px;*/
+    /*min-height: 120px;*/
+    box-sizing: border-box;
+    border: 1px solid #ffffff;
+    margin-right: 15px;
+    margin-bottom: 10px;    
+    color: #ffffff;
+}
+
+.services-mini-menu {
+    margin-top: 15px;
+    margin-left: 30px;
+    /*margin-right: 20px;*/
+    min-height: 445px;
+    height: 445px;
+    overflow: auto;
+
+}
+

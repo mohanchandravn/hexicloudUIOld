@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojbutton'], 
-    function(oj, ko, $) {
+define(['knockout', 'ojs/ojcore', 'jquery', 'ojs/ojbutton'], 
+    function(ko, $) {
     
-    function sampleCSVViewModel() {
+    function sampleCSVViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
         
         self.resultData = ko.observable('Sample Text before calling the JSON..');
         

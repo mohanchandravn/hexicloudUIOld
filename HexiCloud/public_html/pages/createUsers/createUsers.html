@@ -16,19 +16,31 @@ and open the template in the editor.
                         <div data-bind="foreach: documentsArray" style="height: 420px; width: 620px; overflow-y: auto; overflow-x: hidden;">
                             <div data-bind="ojComponent: {component: 'ojAccordion'}">
                                 <div>
-                                    <span class="demo-icon-font demo-education-icon-24" data-bind="text: docName"></span>
-                                    <iframe id="pdf" width="600" height="420" data-bind="attr : { src: 'http://docs.google.com/gview?url=' + pdfSrc + '&embedded=true' }" frameborder="0"></iframe>
+                                    <span class="demo-icon-font demo-education-icon-24" data-bind="text: displayLabel"></span>
+                                    <!--<iframe id="pdf" width="600" height="420" data-bind="attr : { src: 'https://docs.google.com/gview?url=' + pdfSrc + '&embedded=true' }" frameborder="0"></iframe>-->
+                                    
+                                    <!-- DOCS File view -->
+                                    <div data-bind="visible: docTypeExtn !== 'mp4'">
+                                        <iframe width="600" height="420" data-bind="attr : { id: docFileId, src: $parent.getDocsViewLink(docTypeExtn, appLinkUrl, refreshToken, accessToken, appLinkId, docFileId) }" frameborder="0"></iframe>
+                                    </div>
+                                    
+                                    <div data-bind="visible: docTypeExtn === 'mp4'">
+                                        <video preload="auto" controls data-bind="attr: {id: docFileId}">
+                                            <source data-bind="attr: { src: $parent.getDocsViewLink(docTypeExtn, appLinkUrl, refreshToken, accessToken, appLinkId, docFileId)}">
+                                            Your browser does not support the <code>video</code> element.
+                                        </video>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="oj-padding">
                             <div class="oj-flex-bar">
                                 <div class="oj-flex-bar-start">
-                                    <!-- ko if: userRole() === 'itAdmin' -->
-                                    <a style="color: white;" data-bind="text: textForAddingUsersAndAssigningRoles,attr: { href: urlForAddingUsersAndAssigningRoles, title: urlForAddingUsersAndAssigningRoles, target: '_blank' }"></a>
+                                    <!-- ko if: loggedInUserRole() === 'itAdmin' -->
+                                    <a style="color: white;" data-bind="text: textForMyServices,attr: { href: urlForMyServices, title: textForMyServices, target: '_blank' }"></a>
                                     <!-- /ko -->
-                                    <!-- ko if: userRole() === 'accountAdmin' -->
-                                    <a style="color: white;" data-bind="text: textForAddingAdminUsersAndAssigningRoles,attr: { href: urlForAddingAdminUsersAndAssigningRoles, title: urlForAddingAdminUsersAndAssigningRoles, target: '_blank' }"></a>
+                                    <!-- ko if: loggedInUserRole() === 'accountAdmin' -->
+                                    <a style="color: white;" data-bind="text: textForMyAccount,attr: { href: urlForMyAccount, title: textForMyAccount, target: '_blank' }"></a>
                                     <!-- /ko -->
                                 </div>
                                 <div class="oj-flex-bar-end">
@@ -117,5 +129,4 @@ and open the template in the editor.
             </div>
         </div>
     </div>
-
 </div>

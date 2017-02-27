@@ -8,6 +8,7 @@ and open the template in the editor.
     <div class="oj-offcanvas-inner-wrapper oj-flex">
         <navigationbarleft id="navigationDrawerLeft" class="nav-left-pane oj-flex-item"></navigationbarleft>
         <div class="dashboard page-content oj-sm-12 oj-md-12 oj-flex-item">
+            <a href="index.html?root=csmadmin">Go to CSM Admin</a>
             <!-- ko if: !isScreenXL() -->
             <div class="oj-flex-bar">
                 <button id="start" class="oj-flex-bar-start" 
@@ -62,7 +63,7 @@ and open the template in the editor.
                                     <span class="bold" data-bind="text: cpuUsage + usageMetric"></span><span data-bind="text: ' Volume'"></span>
                                 </div>
                                 <div class="oj-sm-12 oj-flex-item">
-                                    <span class="bold" data-bind="text: ramMemory + usageMetric"></span><span data-bind="text: ' Memory'"></span>
+                                    <span class="bold" data-bind="text: ramSize + usageMetric"></span><span data-bind="text: ' Memory'"></span>
                                 </div>
                             </div>
                             <div class="oj-sm-justify-content-center oj-flex">
@@ -83,13 +84,6 @@ and open the template in the editor.
                                 <span class="oj-sm-3 oj-flex-item" data-bind="text: 'Step Description'"></span>
                                 <span class="bold" data-bind="text: 'Guided Path Title'"></span>
                                 <span class="steps-count" data-bind="text: 'Steps ' + stepCount + ' out of ' + totalSteps"></span>
-<!--                                <div class="oj-sm-flex-direction-column oj-sm-2 oj-flex-item">
-                                    <label for="progressPercentage">PROGRESS</label>
-                                    <div id="progressPercentage" data-bind="ojComponent:{
-                                              component: 'ojProgressbar', 
-                                              value: percentage}">
-                                    </div>
-                                </div>-->
                                 <div class="oj-flex-item oj-margin">
                                     <div class="oj-flex-bar">
                                         <div class="oj-sm-flex-direction-column oj-flex-bar-start">

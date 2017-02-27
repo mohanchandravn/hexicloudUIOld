@@ -7,8 +7,8 @@
 /**
  * dashboard module
  */
-define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanvas'
-], function ($, ko, oj) {
+define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'config/sessionInfo', 'ojs/ojprogressbar', 'ojs/ojoffcanvas'
+], function ($, ko, oj, service, sessionInfo) {
     /**
      * The view model for the main content view template
      */
@@ -19,23 +19,21 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
         "edge": "start",
         "displayMode": "push",
         "modality": "modal",
-        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.XL_UP)//,
-//        "autoDismiss": "none"
+        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.XL_UP)
     };
     navigationDrawerRight = {
         "selector": "#navigationDrawerRight",
         "edge": "end",
         "displayMode": "push",
         "modality": "modeless",
-        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.LG_UP)//,
-//        "autoDismiss": "none"
+        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.LG_UP)
     };
     
-    function dashboardContentViewModel() {
+    function dashboardContentViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
         
         console.log('dashboard page');
-        var router = oj.Router.rootInstance;  
         self.runningCPUCount = ko.observable(1);
         self.totalCPUCount = ko.observable(5);
         self.currentUsedMemory = ko.observable(30);
@@ -181,25 +179,28 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
                                     }
                                 }
                                 console.log('----------------------------------------------------------');
-//                                console.log(idx);
                                 console.log('Instance size: ' + instanceVolume);
                                 services.push({
                                     "serviceType": "COMPUTE",
-        //                            "runningInstances": shapes.result[shapeKey].cpus,
                                     "runningInstances": "1",
                                     "cpuUsage": Number(instanceVolume),
-                                    "ramMemory": ramSize,
+                                    "ramSize": ramSize,
                                     "usageMetric": " GB",
                                     "status": instances.result[instanceKey].state
                                 });
                             }
                         }
-                        
 //                    } else {
 //                        return console.log('returning bcoz count is equal to 5');;
 //                    }
                 }
-                self.servicesArray(services);
+                
+                if(isDomainDetailsGiven()){
+                    self.servicesArray(dashboardServices()); 
+                }else{
+                    self.servicesArray(services);
+                }
+            
             }
         });
         
@@ -237,10 +238,22 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojoffcanva
         
         self.routeTo = function(data, event) {
             var id = event.currentTarget.id.toLowerCase();
-            router.go(id);
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": id,
+                "preStepCode": getStateId()
+            });
         };
         
         self.logout = function(data, event) {
+            sessionInfo.removeFromSession(sessionInfo.isLoggedInUser);
+            sessionInfo.removeFromSession(sessionInfo.containerName);
+            sessionInfo.removeFromSession(sessionInfo.loggedInUser);
+            sessionInfo.removeFromSession(sessionInfo.loggedInUserRole);
+            sessionInfo.removeFromSession(sessionInfo.userFirstLastName);
+            sessionInfo.removeFromSession(sessionInfo.userClmRegistryId);
+            
             router.go('home/');
         };
     }

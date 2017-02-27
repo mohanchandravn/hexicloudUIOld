@@ -7,28 +7,19 @@
 /**
  * home module
  */
-define(['ojs/ojcore', 'knockout', 'jquery'
-], function (oj, ko, $) {
+define(['config/serviceConfig'
+], function (service) {
     /**
      * The view model for the main content view template
      */
     function homeContentViewModel(params) {
         var self = this;
+        var router = params.ojRouter.parentRouter;
         
         console.log('home page');
         
         self.isLoggedinTrue = function() {
             router.go('login/');
-        };
-        
-        self.startProcess = function() {
-            console.log('start process');
-            router.go('learning/');
-        };
-        
-        self.skipProcess = function() {
-            console.log('skip process');
-            router.go('dashboard/');
         };
     }
     

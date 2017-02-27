@@ -7,24 +7,36 @@
 /**
  * login module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojinputtext'
-], function (oj, ko, $) {
+define(['config/serviceConfig'], function (service) {
     /**
      * The view model for the main content view template
      */
-    function additionalUserViewModel() {
+    function additionalUserViewModel(params) {
         var self = this;
-        
-        console.log('hello page');
-        self.addUsers = function() {
+        var router = params.ojRouter.parentRouter;
+
+        console.log('Add additional users page');
+        self.addUsers = function () {
             isLoggedInUser(true);
-            router.go('createUsers/');
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": 'createUsers',
+                "preStepCode": getStateId(),
+                "userAction" : "Add Users"
+            });
         };
-        self.addLater = function() {
+        self.addLater = function () {
             isLoggedInUser(true);
-            router.go('servicesMini/');
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": "itAdmin",
+                "curStepCode": 'servicesMini',
+                "preStepCode": getStateId(),
+                "userAction" : "Add Later"
+            });
         };
     }
-    
+
     return additionalUserViewModel;
 });
