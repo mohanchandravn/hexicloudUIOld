@@ -70,11 +70,11 @@ video#bgvid {
     background-size: cover;
 }
 
-.home p.lg {
+.home span.lg {
     font-size: 22px;
 }
 
-.home p {
+.home span {
     font-size: 18px;
     color: #4e5052;
 }
