@@ -4,68 +4,47 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center responsive-height" style="text-align: -webkit-center;">
-    <div class="oj-flex-item">
-        <div class="login-panel oj-flex oj-sm-flex-direction-column oj-sm-align-items-center">
-            <div class="oj-flex-item ">
-                <img src="img/login_man_face.png" alt="icon thumbnail"/>
+<div class="home oj-flex oj-sm-align-items-flex-end oj-sm-flex-direction-column">
+    <div class="oj-sm-12 oj-flex-item" style="height: 250px;">
+    </div>
+    <div class="oj-padding-horizontal oj-md-6 oj-flex-item">
+        <div class="oj-flex oj-sm-justify-content-center">
+            <div class="content welcome">
+                <h2>Login to IaaS Cloud Services</h2>                
+                <hr>
             </div>
-            <div class="oj-flex-item">
-                <span style="color: white; font-size:20px;"> Login here:</span>
-            </div>
-
-            <div class="oj-flex-item" data-bind="visible: loginFailureText() != ''">
+            <div class="oj-sm-12 oj-flex-item">
                 <div class="oj-flex">
-                    <div class="oj-flex-item">
-                        <span data-bind="text: loginFailureText" class="error-message-text"></span> 
+                    <div class="oj-sm-4 oj-flex-item">
+                        <label for="username" style="font-size: 18px;">Username</label>
+                    </div>
+                    <div class="oj-sm-8 oj-flex-item">
+                        <input id="username" type="text" class="input-text"
+                                       data-bind="ojComponent: {component: 'ojInputText', 
+                                                                    placeholder: 'Username', 
+                                                                    value: userName}"/>
                     </div>
                 </div>
             </div>
-
-            <div class="oj-flex-item">
+            <div class="oj-sm-12 oj-flex-item">
                 <div class="oj-flex">
-                    <input id="text-input" type="text" class="input-text"
-                           data-bind="ojComponent: {component: 'ojInputText', 
-                                                        placeholder: 'Username', 
-                                                        value: userName,
-                                                        invalidComponentTracker: tracker,
-                                                        required: true, 
-                                                        translations: {'required': {
-                                                                      hint: 'Enter your user name here', 
-                                                                      messageDetail: 'Please enter a valid user name'}}}"/>
-                </div>
+                    <div class="oj-sm-4 oj-flex-item">
+                        <label for="password" style="font-size: 18px;">Password</label>
+                    </div>
+                    <div class="oj-sm-8 oj-flex-item">
+                        <input id="password" type="password" class="input-text"
+                               data-bind="ojComponent: {component: 'ojInputText', 
+                                                            placeholder: 'Password', 
+                                                            value: userName}"/>
+                    </div>
+                </div>                
             </div>
-            <div class="oj-flex-item">
-                <div class="oj-flex">
-                    <input type="password" id="password"  class="input-text"
-                           data-bind="ojComponent: {component: 'ojInputPassword', 
-                                                        placeholder: 'Password', 
-                                                        value: password, 
-                                                        invalidComponentTracker: tracker,
-                                                        required: true, 
-                                                        translations: {'required': {
-                                                                      hint: 'Enter your password here', 
-                                                                      messageDetail: 'Please enter the password'}}}"/>
-                </div>
+            <div class="checkbox">
+                <label><input type="checkbox" class="remember"> Remember me</label>
             </div>
-            <div class="oj-flex-item">
-                <div class="oj-flex">
-                    <input type="text" id="iDomain" class="input-text"
-                           data-bind="onchange: test, ojComponent: {component: 'ojInputText', placeholder: 'Identity Domain', value: iDomain}"/>
-                </div>
-            </div>
-            <div class="oj-flex-item" data-bind="visible: isIDomainActive">
-                <div class="oj-flex">
-                    <input type="text" id="restEndPoint"  class="input-text"
-                           data-bind="ojComponent: {component: 'ojInputText', placeholder: 'REST End Point URL', value: restEndPoint}"/>
-                </div>
-            </div>
-            <div class="oj-flex-item">
-                <div class="standard-button oj-sm-justify-content-center oj-flex" data-bind="click: login">
-                    <span data-bind="text: 'LOGIN'">LOGIN</span>
-                </div>
+            <div class="get-started">
+                <a href="" class="blue-button" data-bind="click: login">Login</a>
             </div>
         </div>
     </div>
 </div>
-

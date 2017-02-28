@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Hexi Cloud Application</title>
+        <title>HexiCloud Application</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -24,14 +24,25 @@ and open the template in the editor.
         <link href="css/hc-chooseRole.css" rel="stylesheet" type="text/css"/>
         <link href="css/hc-csmadmin.css" rel="stylesheet" type="text/css"/>
         
+        <link href="css/hc-dnx.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
         <!-- RequireJS bootstrap file -->
         <script data-main="js/main" src="js/libs/require/require.js"></script>
         <script type="text/javascript" src="//sc-ramesh.widget.rightnowdemo.com/euf/rightnow/RightNow.Client.js" ></script>
     </head>
     <body class="mainBackGroundImage">
+        <header-content class="oj-flex" data-bind="css: disableVideo() ? 'display-none' : ''"></header-content>
+        <video autoplay muted loop id="bgvid" data-bind="css: disableVideo() ? 'display-none' : ''">
+            <source src="assets/bg.mp4" type="video/mp4">
+	</video>
         <div id="routingContainer" class="oj-flex">
             <!-- This is where your main page content will be loaded by module -->
-            <div class="oj-sm-12 oj-flex-item" data-bind="ojModule: moduleConfig"></div>
+            <div id="module" class="oj-sm-12 oj-flex-item" data-bind="ojModule: moduleConfig"></div>
         </div>
+        <footer class="fixed">
+            <p>© Oracle 2017 | Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+	</footer>
     </body>
 </html>

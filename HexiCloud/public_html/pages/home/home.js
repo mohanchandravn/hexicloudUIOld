@@ -19,6 +19,7 @@ define(['config/serviceConfig'
         console.log('home page');
         
         self.isLoggedinTrue = function() {
+            slideOutAnimate();
             router.go('login/');
         };
     }

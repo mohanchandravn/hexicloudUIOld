@@ -51,7 +51,7 @@ requirejs.config({
  */
 
 require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknockout',
-    'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule'],
+    'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule', 'ojs/ojmoduleanimations', 'ojs/ojanimation'],
         function (oj, ko, $, sessionInfo)
         {
             var self = this;
@@ -69,6 +69,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
             oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
 
             // Register custom components for reusing the code
+            ko.components.register('header-content', {require: 'components/header/header'});
             ko.components.register('navigationbarleft', {require: 'components/navigationbarleft/navigationbarleft'});
             ko.components.register('navigationbarright', {require: 'components/navigationbarright/navigationbarright'});
             function getPath(path) {
@@ -119,6 +120,29 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 self.userFirstLastName = ko.observable(sessionInfo.getFromSession(sessionInfo.userFirstLastName));
                 self.userClmRegistryId = ko.observable(sessionInfo.getFromSession(sessionInfo.userClmRegistryId));
                 self.isChatInitialized = ko.observable(false);
+
+                self.effect = ko.observable('slideOut');
+                
+                self.disableVideo = ko.computed( function() {
+                    console.log(router.currentState().id !== 'home' || router.currentState().id !== 'login');
+                    return !(router.currentState().id === 'home' || router.currentState().id === 'login');
+                });
+                
+                self.slideOutAnimate = function() {
+                    if (self.effect() && oj.AnimationUtils[self.effect()]) {
+                        var jElem = $('#module');
+
+                        // jElem.css('backgroundColor', self.sampleBackground);
+
+                        var animateOptions = {'delay': undefined,
+                                              'duration': undefined,
+                                              'timingFunction': undefined};
+                        $.extend(animateOptions, self.effectOptions);
+
+                        // Invoke the animation effect method with options
+                        oj.AnimationUtils[self.effect()](jElem[0], animateOptions);
+                    }
+                };
 
                 self.getStateId = function () {
                     return router.currentState().id;

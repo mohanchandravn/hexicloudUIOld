@@ -17,6 +17,10 @@ html, body, #routingContainer, .responsive-height {
     overflow-y: auto;
 }
 
+.display-none {
+    display: none !important;
+}
+
 navigationbarleft, navigationbarright {
     max-width: 250px;
 }
