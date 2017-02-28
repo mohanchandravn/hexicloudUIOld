@@ -52,14 +52,61 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojaccor
                     });
                 }
                 self.documentsArray(array);
+                $( "#docsListAccordion" ).ojAccordion( "refresh" );
             } else {
                 console.log('Content not available for the selected step');
             }
         };
         
-        self.getDocsViewLink = function(docTypeExtn, appLinkUrl, refreshToken, accessToken, appLinkId, docFileId) {
+        
+        self.getAccessToken = function(event, data) {
+            console.log(event);
+            console.log(data);
+            // collapsibleId is the index of collapsible [parent object]
+            var collapsibleId = data.toCollapsible[0].id;
+            var selectedObject = self.documentsArray()[collapsibleId];
+            console.log(selectedObject);
+            if(selectedObject.docTypeExtn !== 'mp4') {
+                if($("#iframe" + collapsibleId)) {
+                    console.log("found iframe: " + collapsibleId);
+                    $("#iframe" + collapsibleId).attr('src', selectedObject.appLinkUrl);
+                    console.log('successfully added iframe source');
+                    function OnMessage (evt) {   
+                        console.log(evt.data);
+                        if (evt.data.message === 'appLinkReady') {
+                            var iframe= $("#iframe" + collapsibleId)[0];
+                            console.log(iframe);
+                            var iframewindow= iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument.defaultView;
+                            var msg = {
+                                    message: 'setAppLinkTokens',
+                                    appLinkRefreshToken: selectedObject.refreshToken,
+                                    appLinkAccessToken: selectedObject.accessToken,
+                                    appLinkRoleName: "downloader",
+                                    embedPreview: true
+                            };
+
+                            iframewindow.postMessage(msg, '*');
+                            console.log('successfully added iframe with message');
+                        }
+                    };
+                    window.addEventListener && window.addEventListener('message', OnMessage, false);
+                }
+            } else {
+                if($("#video" + collapsibleId)) {
+                    console.log("found video: " + collapsibleId);
+                    var video = document.getElementById("video" + collapsibleId);
+                    var sources = video.getElementsByTagName('source');
+                    sources[0].src = "https://documents-usoracleam82569.documents.us2.oraclecloud.com/documents/link/app/" + selectedObject.appLinkId + "/file/" + selectedObject.docFileId + "&dAppLinkAccessToken=" + selectedObject.accessToken;
+                    video.load();
+                    console.log('successfully added source');
+//                    return("https://documents-usoracleam82569.documents.us2.oraclecloud.com/documents/link/app/" + appLinkId + "/file/" + docFileId + "&dAppLinkAccessToken=" + accessToken);
+                }
+            }
+        };
+        
+        self.getDocsViewLink = function(docTypeExtn, index, appLinkUrl, refreshToken, accessToken, appLinkId, docFileId) {
             if (docTypeExtn !== 'mp4') {
-                $("#" + docFileId).attr('src', appLinkUrl);
+                $("#iframe" + index).attr('src', appLinkUrl);
                 function OnMessage (evt) {   
                     console.log(evt.data);
                     if (evt.data.message === 'appLinkReady') {
