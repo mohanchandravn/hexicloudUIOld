@@ -9,16 +9,16 @@ and open the template in the editor.
 */
 
 .nav-wrapper {
-    position: fixed;
-    top: 0;
-    z-index: 9999;
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*z-index: 9999;*/
     width: 100%;
-    padding: 0px 20px 0px 20px;
+    /*padding: 0px 20px 0px 20px;*/
     height: 80px;
-    background: -moz-linear-gradient(left, #3a913f 0%, #00758f 100%);
-    background: -webkit-linear-gradient(left, #3a913f 0%, #00758f 100%);
-    background: linear-gradient(to right, #3a913f 0%, #00758f 100%);
-    box-sizing: border-box;
+    /*background: -moz-linear-gradient(left, #3a913f 0%, #00758f 100%);*/
+    /*background: -webkit-linear-gradient(left, #3a913f 0%, #00758f 100%);*/
+    /*background: linear-gradient(to right, #3a913f 0%, #00758f 100%);*/
+        /*box-sizing: border-box;*/
 }
 
 div.nav-expander {

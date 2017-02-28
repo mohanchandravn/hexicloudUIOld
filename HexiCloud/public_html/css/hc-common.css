@@ -21,6 +21,10 @@ html, body, #routingContainer, .responsive-height {
     display: none !important;
 }
 
+.visibility-hidden {
+    visibility: hidden;
+}
+
 navigationbarleft, navigationbarright {
     max-width: 250px;
 }

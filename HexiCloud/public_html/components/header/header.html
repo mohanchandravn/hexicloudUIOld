@@ -4,9 +4,9 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<div class="nav-wrapper">
+<div class="header-wrapper oj-sm-12 oj-flex-item">
     <div class="oj-flex-bar">
-        <div class="nav-expander oj-flex-bar-start">
+        <div class="nav-expander oj-flex-bar-start" data-bind="css: showHeaderNav()">
             <span class="ico-container">
                 <i class="material-icons">menu</i>
             </span>
@@ -23,7 +23,8 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-        <div class="nav-expander oj-flex-bar-end"><span class="ico-container">
+        <div class="nav-expander oj-flex-bar-end" data-bind="css: showHeaderNav()">
+            <span class="ico-container">
                 <i class="material-icons">settings</i>
             </span>
         </div>

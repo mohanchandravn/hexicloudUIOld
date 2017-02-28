@@ -123,11 +123,18 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
 
                 self.effect = ko.observable('slideOut');
                 
-                self.disableVideo = ko.computed( function() {
-                    console.log(router.currentState().id !== 'home' || router.currentState().id !== 'login');
-                    return !(router.currentState().id === 'home' || router.currentState().id === 'login');
-                });
+//                self.disableVideo = ko.computed( function() {
+//                    console.log(router.currentState().id !== 'home' || router.currentState().id !== 'login');
+//                    return !(router.currentState().id === 'home' || router.currentState().id === 'login');
+//                });
                 
+                self.showHeaderNav = ko.computed( function() {
+                    if (router.currentState().id === 'dashboard') {
+                        return "";
+                    } else {
+                        return "visibility-hidden";
+                    } 
+                });
                 self.slideOutAnimate = function() {
                     if (self.effect() && oj.AnimationUtils[self.effect()]) {
                         var jElem = $('#module');
