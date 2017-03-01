@@ -8,30 +8,173 @@ and open the template in the editor.
     Author     : nyasarap
 */
 
-.home-top-section {
-    padding-top: 100px;
+.home-page {
+    margin-top: 50px;
 }
-.home .content.welcome h2 {
+
+.home-page .ring img {
+    position: absolute;
+}
+
+.home-page .img-responsive {
+    height: 60%;
+}
+
+.home-page .ring img:nth-child(1) {
+    -webkit-animation: spin1 5s infinite linear;
+    -moz-animation: spin1 5s infinite linear;
+    -o-animation: spin1 5s infinite linear;
+    -ms-animation: spin1 5s infinite linear;
+    animation: spin1 5s infinite linear;
+}
+
+.home-page .ring img:nth-child(2) {
+    -webkit-animation: spin2 4s infinite linear;
+    -moz-animation: spin2 4s infinite linear;
+    -o-animation: spin2 4s infinite linear;
+    -ms-animation: spin2 4s infinite linear;
+    animation: spin2 4s infinite linear;
+}
+
+.home-page .ring img:nth-child(3) {
+    -webkit-animation: spin1 8s infinite linear;
+    -moz-animation: spin1 8s infinite linear;
+    -o-animation: spin1 8s infinite linear;
+    -ms-animation: spin1 8s infinite linear;
+    animation: spin1 8s infinite linear;
+}
+
+.home-page .welcome-content {
+    line-height: 1.1;
+}
+
+.home-page .welcome-content h2 {
     color: #00758f;
     font-size: 80px;
     font-weight: 500;
     margin-top: 0;
 }
 
-.sub-content {
-    
-    max-width: 536px;
+.home-page .welcome-content h3 {
+    color: #00758f;
+    font-size: 57px;
+    font-weight: 500;
+    margin-top: 0;
 }
 
-.sub-content p {
-   width: inherit;
+.home-page .welcome-description {
+    max-width: 555px;
 }
 
-.home hr {
+.home-page .welcome-description hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.home-page .welcome-description p {
+    line-height: 28px;
+}
+
+.home-page span.branding-homepage {
+    color: #f80000 !important;
+}
+
+.home-page .welcome-content span {
+    font-size: 105px;
+    color: #000;
+}
+
+.home-page hr {
     border-top: 1px solid #b1c7d2;
 }
 
+@media screen and (min-width: 1281px) {
+    .home-page .ring {
+        margin-left: 250px;
+    }
+}
 
+/* Animation key names */
+@-webkit-keyframes spin1 {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes spin1 {
+    0% {
+        -moz-transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+@-o-keyframes spin1 {
+    0% {
+        -o-transform: rotate(0deg);
+    }
+    100% {
+        -o-transform: rotate(360deg);
+    }
+}
+@-ms-keyframes spin1 {
+    0% {
+        -ms-transform: rotate(0deg);
+    }
+    100% {
+        -ms-transform: rotate(360deg);
+    }
+}
+@keyframes spin1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes spin2 {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(-360deg);
+    }
+}
+@-moz-keyframes spin2 {
+    0% {
+        -moz-transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(-360deg);
+    }
+}
+@-o-keyframes spin2 {
+    0% {
+        -o-transform: rotate(0deg);
+    }
+    100% {
+        -o-transform: rotate(-360deg);
+    }
+}
+@-ms-keyframes spin2 {
+    0% {
+        -ms-transform: rotate(0deg);
+    }
+    100% {
+        -ms-transform: rotate(-360deg);
+    }
+}
+@keyframes spin2 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
 
 
 /* Large Devices, Wide Screens */

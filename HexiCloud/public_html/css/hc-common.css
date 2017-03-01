@@ -13,7 +13,11 @@ body {
     font-weight: normal;
 }
 
-html, body, #routingContainer, .responsive-height {
+header {
+    height: 80px;
+}
+
+html, body, .responsive-height {
     height: 100vh;
 }
 
@@ -28,10 +32,6 @@ html, body, #routingContainer, .responsive-height {
 
 .visibility-hidden {
     visibility: hidden;
-}
-
-.dashboard-page {
-    margin-top: 80px;
 }
 
 navigationbarleft {
