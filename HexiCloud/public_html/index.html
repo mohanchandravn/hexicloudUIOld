@@ -23,6 +23,7 @@ and open the template in the editor.
         <link href="css/hc-roleIdentified.css" rel="stylesheet" type="text/css"/>
         <link href="css/hc-chooseRole.css" rel="stylesheet" type="text/css"/>
         <link href="css/hc-csmadmin.css" rel="stylesheet" type="text/css"/>
+          <link href="css/hc-home.css" rel="stylesheet" type="text/css"/>
         
         <link href="css/hc-dnx.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -32,7 +33,7 @@ and open the template in the editor.
         <script data-main="js/main" src="js/libs/require/require.js"></script>
         <script type="text/javascript" src="//sc-ramesh.widget.rightnowdemo.com/euf/rightnow/RightNow.Client.js" ></script>
     </head>
-    <body>
+    <body class="body-font">
         <header-content class="oj-flex"></header-content>
         <video autoplay muted loop id="bgvid">
             <source src="assets/bg.mp4" type="video/mp4">
@@ -41,8 +42,9 @@ and open the template in the editor.
             <!-- This is where your main page content will be loaded by module -->
             <div id="module" class="oj-sm-12 oj-flex-item" data-bind="ojModule: moduleConfig"></div>
         </div>
-        <footer class="fixed">
+        <!-- Commenting as they do not have the footer in any of the pages -->
+<!--        <footer class="fixed">
             <p>© Oracle 2017 | Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-	</footer>
+	</footer>-->
     </body>
 </html>
