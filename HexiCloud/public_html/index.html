@@ -11,10 +11,13 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- This is the main css file for the default Alta theme -->
-        <link rel="stylesheet" href="css/libs/oj/v2.2.0/alta/oj-alta.css" type="text/css"/>
+        <!--<link rel="stylesheet" href="css/libs/oj/v2.2.0/alta/oj-alta.css" type="text/css"/>-->
+        <!-- modified @media Queries for HexiCloud project -->
+        <link rel="stylesheet" href="css/libs/oj/v2.2.0/alta/oj-alta-for-hc.css" type="text/css"/>
 
         <!-- This is where you would add any app specific styling -->
         <link href="css/hc-common.css" rel="stylesheet" type="text/css"/>
+        <link href="css/hc-header.css" rel="stylesheet" type="text/css"/>
         <link href="css/hc-dashboard.css" rel="stylesheet" type="text/css"/>
         <link href="css/hc-navigationbar.css" rel="stylesheet" type="text/css"/>
         <link href="css/hc-learning.css" rel="stylesheet" type="text/css"/>
@@ -33,7 +36,9 @@ and open the template in the editor.
         <script type="text/javascript" src="//sc-ramesh.widget.rightnowdemo.com/euf/rightnow/RightNow.Client.js" ></script>
     </head>
     <body>
-        <header-content class="oj-flex"></header-content>
+        <header>
+            <header-content class="fixed-header oj-padding-lg-horizontal"></header-content>
+        </header>
         <video autoplay muted loop id="bgvid">
             <source src="assets/bg.mp4" type="video/mp4">
 	</video>
@@ -41,8 +46,5 @@ and open the template in the editor.
             <!-- This is where your main page content will be loaded by module -->
             <div id="module" class="oj-sm-12 oj-flex-item" data-bind="ojModule: moduleConfig"></div>
         </div>
-        <footer class="fixed">
-            <p>© Oracle 2017 | Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-	</footer>
     </body>
 </html>

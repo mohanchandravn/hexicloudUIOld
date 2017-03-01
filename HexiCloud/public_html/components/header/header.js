@@ -14,5 +14,5 @@ define(['text!./header.html', 'ojs/ojcore', 'knockout'
      */
     function headerContentViewModel() { }
     
-    return {viewModel: {createViewModel: headerContentViewModel }, template: template};
+    return {viewModel: headerContentViewModel, template: template};
 });

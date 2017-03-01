@@ -7,10 +7,9 @@ and open the template in the editor.
 <div class="dashboard-page oj-offcanvas-outer-wrapper">
     <div class="oj-offcanvas-inner-wrapper oj-flex">
         <navigationbarleft id="navigationDrawerLeft" class="nav-left-pane oj-flex-item"></navigationbarleft>
-        <div class="dashboard page-content oj-sm-12 oj-md-12 oj-flex-item">
-            <a href="index.html?root=csmadmin">Go to CSM Admin</a>
-            <!-- ko if: !isScreenXL() -->
-            <div class="oj-flex-bar">
+        <div class="dashboard oj-sm-12 oj-md-12 oj-flex-item">
+             <!--if: !isScreenXL() -->
+<!--            <div class="oj-flex-bar">
                 <button id="start" class="oj-flex-bar-start" 
                         data-bind="click: toggleLeft,
                                    ojComponent: {component:'ojButton', 
@@ -27,8 +26,8 @@ and open the template in the editor.
                                    display: 'icons', 
                                    icons: {end: 'oj-fwk-icon-hamburger oj-fwk-icon'}}">
                 </button>
-            </div>
-            <!--/ko-->
+            </div>-->
+            
             <div class="dashboard-heading oj-sm-align-items-center oj-flex">
                 <div class="oj-sm-12 oj-md-12 oj-lg-6 oj-flex-item">
                     <div class="oj-sm-justify-content-center oj-flex">
@@ -103,6 +102,6 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-        <navigationbarright id="navigationDrawerRight" class="nav-right-pane oj-flex-item"></navigationbarright>
+        <!--<navigationbarright id="navigationDrawerRight" class="nav-right-pane oj-flex-item"></navigationbarright>-->
     </div>
 </div>

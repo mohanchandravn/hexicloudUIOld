@@ -7,6 +7,60 @@ and open the template in the editor.
     Created on : Feb 28, 2017, 6:41:56 PM
     Author     : mohchand
 */
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(216, 225, 229, 1);
+    box-sizing: border-box;
+    z-index: 9999;
+}
+
 .header-wrapper {
-        height: 80px;
+    height: 80px;
+    background-color: rgba(216, 225, 229, 1);
+}
+
+.header-start-item, .header-branding, .header-end-item {
+    height: 80px;
+    border-bottom: 2px solid rgb(229, 110, 111);
+    box-sizing: border-box;
+}
+
+.header-start-item, .header-end-item {
+    color: #324b5c;
+}
+
+.header-branding {
+    color: #000;
+}
+
+.brand-logo {
+    color: #f80000;
+}
+
+.header-start-item, .header-end-item {
+    padding: 20px 20px 0px 20px;
+}
+
+.header-branding {
+    padding: 10px 20px 0px 20px;
+    font-size: 30px;
+    line-height: 45px;
+}
+
+span.ico-container {
+    display: block;
+    width: 36px;
+    height: 36px;
+    font-size: 36px !important;
+}
+
+@media only screen and (max-width: 480px) {
+    .header-branding {
+        padding: 0px;
+        font-size: 20px;
+        line-height: 35px;
+    }
 }

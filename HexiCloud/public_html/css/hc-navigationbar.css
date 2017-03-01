@@ -63,38 +63,36 @@ and open the template in the editor.
 }
 
 .navigation-left {
-    color: white;
-
-}
-
-.navigation-left .loginFace {
-    width: 120px;
-    height: 120px;
-    margin-top: 5px;
-}
-
-.nav-profile {
-    height: 150px;
+    color: #324b5c;
+    background-color: rgba(216, 225, 229, 1);
 }
 
 .nav-list {
-    margin: 0px 24px;
-}
-
-.nav-list ul {
-    padding: 0px;
+    padding-top: 10px;
+    padding-left: 0;
+    list-style: none;
 }
 
 .nav-list li {
-    list-style-type: none;
-    padding: 0.925rem;
+    font-size: 20px;
     cursor: pointer;
 }
 
 .nav-list li:not(:last-child) {
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid #b0c6d1;
 }
 
+.nav-list li.sub-nav:not(:last-child) {
+    border-bottom: 2px solid #b0c6d1;
+}
+
+.nav-list li a{
+    color: #324b5c;
+    text-decoration: none;
+    padding: 16px 30px;
+    display: block;
+    max-height: 60px;
+}
 .navigation-left .logout span {
     margin-top: 15px;
 }

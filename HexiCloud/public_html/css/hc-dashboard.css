@@ -29,7 +29,7 @@ and open the template in the editor.
 
 @media screen and (min-width: 1281px) {
     .dashboard {
-        max-width: calc(100% - 250px);
+        /*max-width: calc(100% - 250px);*/
         padding: 40px 120px 50px 100px;
     }
 }

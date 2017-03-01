@@ -8,14 +8,19 @@ and open the template in the editor.
     Author     : nyasarap
 */
 
+body {
+    font-family: 'Roboto-regular', sans-serif;
+    font-weight: normal;
+}
+
 html, body, #routingContainer, .responsive-height {
     height: 100vh;
 }
 
-.page-content {
+/*.page-content {
     height: 100vh;
     overflow-y: auto;
-}
+}*/
 
 .display-none {
     display: none !important;
@@ -25,9 +30,15 @@ html, body, #routingContainer, .responsive-height {
     visibility: hidden;
 }
 
-navigationbarleft, navigationbarright {
-    max-width: 250px;
+.dashboard-page {
+    margin-top: 80px;
 }
+
+navigationbarleft {
+    width: 340px;
+    top: 0;
+}
+
 navigationbarright {
     position: fixed;
     height: 100%;

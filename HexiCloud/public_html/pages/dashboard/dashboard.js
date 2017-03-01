@@ -12,22 +12,23 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'config/sess
     /**
      * The view model for the main content view template
      */
-    var navigationDrawerLeft, navigationDrawerRight;
+    var navigationDrawerLeft;//, navigationDrawerRight;
 
     navigationDrawerLeft = {
         "selector": "#navigationDrawerLeft",
         "edge": "start",
         "displayMode": "push",
-        "modality": "modal",
-        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.XL_UP)
+        "autoDismiss": "focusLoss",
+        "modality": "modeless"//,
+//        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.XL_UP)
     };
-    navigationDrawerRight = {
-        "selector": "#navigationDrawerRight",
-        "edge": "end",
-        "displayMode": "push",
-        "modality": "modeless",
-        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.LG_UP)
-    };
+//    navigationDrawerRight = {
+//        "selector": "#navigationDrawerRight",
+//        "edge": "end",
+//        "displayMode": "push",
+//        "modality": "modeless"//,
+////        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.LG_UP)
+//    };
     
     function dashboardContentViewModel(params) {
         var self = this;
@@ -212,28 +213,37 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'config/sess
             if ($("#navigationDrawerLeft").hasClass('oj-offcanvas-open')) {
                 oj.OffcanvasUtils.close(navigationDrawerLeft);
                 return;
-            } else if ($("#navigationDrawerRight").hasClass('oj-offcanvas-open')) {
-                oj.OffcanvasUtils.close(navigationDrawerRight);
             }
+//            } else if ($("#navigationDrawerRight").hasClass('oj-offcanvas-open')) {
+//                oj.OffcanvasUtils.close(navigationDrawerRight);
+//            }
             return (oj.OffcanvasUtils.open(navigationDrawerLeft));
         };
         
         self.toggleRight = function() {
-            if ($("#navigationDrawerLeft").hasClass('oj-offcanvas-open')) {
-                oj.OffcanvasUtils.close(navigationDrawerLeft);
-            } else if ($("#navigationDrawerRight").hasClass('oj-offcanvas-open')) {
-                return;
-                oj.OffcanvasUtils.close(navigationDrawerRight);
-            }
-            return (oj.OffcanvasUtils.open(navigationDrawerRight));
+//            if ($("#navigationDrawerLeft").hasClass('oj-offcanvas-open')) {
+//                oj.OffcanvasUtils.close(navigationDrawerLeft);
+//            } else if ($("#navigationDrawerRight").hasClass('oj-offcanvas-open')) {
+//                return;
+//                oj.OffcanvasUtils.close(navigationDrawerRight);
+//            }
+//            return (oj.OffcanvasUtils.open(navigationDrawerRight));
         };
         
         self.handleAttached = function() {
             self.getServiceDetails();
             
+            $("#navigationIconLeft").click(function() {
+                self.toggleLeft();
+            });
+            
+            $("#test").click(function() {
+                alert('inner');
+            });
+            
             // setup the Navigation and Ancillary offcanvases for the responsive layout
             oj.OffcanvasUtils.setupResponsive(navigationDrawerLeft);
-            oj.OffcanvasUtils.setupResponsive(navigationDrawerRight);
+//            oj.OffcanvasUtils.setupResponsive(navigationDrawerRight);
         };
         
         self.routeTo = function(data, event) {

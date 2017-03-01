@@ -5,7 +5,27 @@ and open the template in the editor.
 -->
 
 <div class="navigation-left oj-flex">
-    <div class="nav-profile oj-sm-12 oj-flex-item">
+    <div class="oj-sm-12 oj-flex-item">
+        <a id="navClose"><i class="material-icons">close</i></a>
+        <ul class="nav-list">
+            <li><a href="#"><i class="material-icons left">home</i> Dashboard</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Use Cases</a></li>
+            <li><a href="#">Guided paths</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Assistance</a></li>
+            <li><a href="#">Contact <i class="material-icons">keyboard_arrow_down</i></a>
+                    <ul class="nav-list oj-sm-hide">
+                        <li class="sub-nav"><a href="#"><i class="material-icons left">email</i> email</a></li>
+                        <li class="sub-nav"><a href="#"><i class="material-icons left">phone</i> Call</a></li>
+                        <li class="sub-nav"><a href="#"><i class="material-icons left">chat</i> Chat</a></li>
+                    </ul>
+            </li>
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">Logout</a></li>		
+        </ul>
+    </div>
+<!--    <div class="nav-profile oj-sm-12 oj-flex-item">
         <div class="oj-sm-justify-content-center oj-flex"><img src="img/login_man_face.png" alt="Login Face" class="loginFace"/>
             <p class="oj-sm-justify-content-center oj-flex">Jim Smith</p>
         </div> 
@@ -38,5 +58,5 @@ and open the template in the editor.
         <div class="logout oj-sm-justify-content-center oj-flex">
             <span data-bind="click: $parent.logout, text: 'LOGOUT'">LOGOUT</span>
         </div>
-    </div>
+    </div>-->
 </div>
