@@ -12,14 +12,12 @@ and open the template in the editor.
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(216, 225, 229, 1);
     box-sizing: border-box;
     z-index: 9999;
 }
 
 .header-wrapper {
     height: 80px;
-    background-color: rgba(216, 225, 229, 1);
 }
 
 .header-start-item, .header-branding, .header-end-item {
