@@ -3,47 +3,85 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
-<div class="home oj-flex oj-sm-align-items-flex-end oj-sm-flex-direction-column">
-    <div class="oj-sm-12 oj-flex-item" style="height: 250px;">
-    </div>
+<!--oj-sm-align-items-flex-end-->
+<div class="home-page oj-flex oj-md-align-items-flex-end oj-lg-align-items-flex-end oj-sm-flex-direction-column">
+    <!--<div class="oj-sm-12 oj-flex-item login-top-section">-->
+    <!--</div>-->
     <div class="oj-padding-horizontal oj-md-6 oj-flex-item">
-        <div class="oj-flex oj-sm-justify-content-center">
-            <div class="content welcome">
-                <h2>Login to IaaS Cloud Services</h2>                
-                <hr>
-            </div>
-            <div class="oj-sm-12 oj-flex-item">
-                <div class="oj-flex">
-                    <div class="oj-sm-4 oj-flex-item">
-                        <label for="username" style="font-size: 18px;">Username</label>
-                    </div>
-                    <div class="oj-sm-8 oj-flex-item">
-                        <input id="username" type="text" class="input-text"
-                                       data-bind="ojComponent: {component: 'ojInputText', 
+        <div class="oj-flex">
+            <div class="welcome-content">
+                <h2>Login to <br/> Hexicloud</h2>                
+                <hr class="login-form-group">
+                <div class="oj-sm-12 oj-flex-item login-form-group">
+                    <div class="oj-flex">
+                        <div class="oj-sm-8 oj-flex-item">
+                            <input id="username" type="text" class="input-text"
+                                   data-bind="ojComponent: {component: 'ojInputText', 
                                                                     placeholder: 'Username', 
-                                                                    value: userName}"/>
+                                                                    value: userName,
+                                                                    rootAttributes: {style:'max-width:25em'} }"/>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="oj-sm-12 oj-flex-item">
-                <div class="oj-flex">
-                    <div class="oj-sm-4 oj-flex-item">
-                        <label for="password" style="font-size: 18px;">Password</label>
-                    </div>
-                    <div class="oj-sm-8 oj-flex-item">
-                        <input id="password" type="password" class="input-text"
-                               data-bind="ojComponent: {component: 'ojInputText', 
+                <div class="oj-sm-12 oj-flex-item login-form-group">
+                    <div class="oj-flex">
+                        <div class="oj-sm-8 oj-flex-item">
+                            <input id="password" type="password" class="input-text"
+                                   data-bind="ojComponent: {component: 'ojInputText', 
                                                             placeholder: 'Password', 
                                                             value: userName}"/>
-                    </div>
-                </div>                
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox" class="remember"> Remember me</label>
-            </div>
-            <div class="get-started">
-                <a href="" class="blue-button" data-bind="click: login">Login</a>
+                        </div>
+                    </div>                
+                </div>
+                <div class="oj-sm-12 oj-flex-item login-form-group">
+                    <div class="oj-flex">
+                        <div class="oj-sm-8 oj-flex-item">
+                            <input id="iDomain" type="text" class="input-text"
+                                   data-bind="ojComponent: {component: 'ojInputText', 
+                                                            placeholder: 'Identity Domain', 
+                                                            value: iDomain}"/>
+                        </div>
+                    </div>                
+                </div>
+                <div class="oj-sm-12 oj-flex-item login-form-group">
+                    <div class="oj-flex">
+                        <div class="oj-sm-8 oj-flex-item">
+                            <select id="dataCenter" class="input-text" 
+                                    data-bind="ojComponent: {component: 'ojSelect', value: dataCenter}">
+                                <option value="" selected="">Select Data Center...</option>
+                                <option value="https://myservices.us1.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 1 (us1)</option>
+                                <option value="https://myservices.us2.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 2 (us2)</option>
+                                <option value="https://myservices.us6.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 6 (us6)</option>
+                                <option value="https://myservices.us8.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 8 (us8)</option>
+                                <option value="https://myservices.ap1.oraclecloud.com/mycloud/faces/dashboard.jspx">APAC Commercial 1 (ap1)</option>
+                                <option value="https://myservices.ap2.oraclecloud.com/mycloud/faces/dashboard.jspx">APAC Commercial 2 (ap2)</option>
+                                <option value="https://myservices.ap4.oraclecloud.com/mycloud/faces/dashboard.jspx">APAC Commercial 4 (ap4)</option>
+                                <option value="https://myservices.ca2.oraclecloud.com/mycloud/faces/dashboard.jspx">CA Commercial 2 (ca2)</option>
+                                <option value="https://myservices.ca3.oraclecloud.com/mycloud/faces/dashboard.jspx">CA Commercial 3 (ca3)</option>
+                                <option value="https://myservices.em1.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 1 (em1)</option>
+                                <option value="https://myservices.em2.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 2 (em2)</option>
+                                <option value="https://myservices.em3.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 3 (em3)</option>
+                                <option value="https://myservices.em4.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 4 (em4)</option>
+                                <option value="https://myservices.la1.oraclecloud.com/mycloud/faces/dashboard.jspx">LAD Commercial 1 (la1)</option>
+                                <option value="https://myservices.us.oraclecloud.com/mycloud/faces/dashboard.jspx">Public Cloud Services - US</option>
+                                <option value="https://myservices.emea.oraclecloud.com/mycloud/faces/dashboard.jspx">Public Cloud Services - EMEA</option>
+                            </select>
+                        </div>
+                    </div>                
+                </div>
+                <div class="oj-sm-12 oj-flex-item login-form-group">
+                    <div class="oj-flex">
+                        <div class="oj-sm-8 oj-flex-item">
+                            <input id="phoneNumber" type="text" class="input-text"
+                                   data-bind="ojComponent: {component: 'ojInputText', 
+                                                            placeholder: 'Telephone number(optional)', 
+                                                            value: phoneNumber}"/>
+                        </div>
+                    </div>                
+                </div>
+                <div class="get-started">
+                    <a href="" class="red-button" data-bind="click: login">Login</a>
+                </div>
             </div>
         </div>
     </div>

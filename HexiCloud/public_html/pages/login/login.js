@@ -7,7 +7,7 @@
 /**
  * login module
  */
-define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs/ojcore', 'ojs/ojinputtext', 'ojs/ojknockout-validation'
+define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs/ojcore', 'ojs/ojinputtext', 'ojs/ojknockout-validation', 'ojs/ojselectcombobox'
 ], function (ko, $, service, sessionInfo) {
     /**
      * The view model for the main content view template
@@ -24,6 +24,8 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
         self.isIDomainActive = ko.observable(false);
         self.loginFailureText = ko.observable();
 
+        self.dataCenter = ko.observable();
+        self.phoneNumber = ko.observable();
         self.handleBindingsApplied = function () {
             $("#iDomain").on('keyup paste cut', function () {
                 var iDomain = $(this).val();
