@@ -46,12 +46,6 @@ div i {
     font-size: 36px !important;
 }
 
-.home .content.welcome h2 {
-    color: #00758f;
-    font-size: 80px;
-    font-weight: 500;
-    margin-top: 0;
-}
 
 video#bgvid {
     position: fixed;
@@ -70,7 +64,7 @@ video#bgvid {
     background-size: cover;
 }
 
-.home span.lg {
+/*.home span.lg {
     font-size: 22px;
 }
 
@@ -86,16 +80,13 @@ video#bgvid {
     padding: 10px 50px;
     display: inline-block;
     text-align: center;
-    /*height: 54px;*/
+    height: 54px;
     border-radius: 27px;
     margin: 20px 0;
     text-decoration: none;
     z-index: 9999;
-}
+}*/
 
-.home hr {
-    border-top: 1px solid #b1c7d2;
-}
 
 footer.fixed {
     position: fixed;

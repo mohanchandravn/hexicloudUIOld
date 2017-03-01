@@ -8,3 +8,41 @@ and open the template in the editor.
     Author     : nyasarap
 */
 
+.home-top-section {
+    padding-top: 100px;
+}
+.home .content.welcome h2 {
+    color: #00758f;
+    font-size: 80px;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.sub-content {
+    
+    max-width: 536px;
+}
+
+.sub-content p {
+   width: inherit;
+}
+
+.home hr {
+    border-top: 1px solid #b1c7d2;
+}
+
+
+
+
+/* Large Devices, Wide Screens */
+/* Medium Devices, Desktops */
+/* Small Devices, Tablets */
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+    .home-top-section {
+        padding-top: 60px;
+    }
+    .home .content.welcome h2 {
+        font-size: 50px;
+    }
+}
