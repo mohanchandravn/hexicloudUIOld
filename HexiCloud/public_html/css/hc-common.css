@@ -64,7 +64,9 @@ navigationbarright {
 .service-status-suspended {
     border-bottom: 4px solid #FF645F !important;
 }
-
+a {
+    color: #ee4f50; 
+}
 /*.mainBackGroundImage {
     background-image:url('../img/Main_background.jpg');
     background-size: cover;
@@ -168,11 +170,7 @@ textarea.whitePlaceHolder:-ms-input-placeholder {
     font-style: normal !important;
 }
 
-.input-text {
-    height: 3.5rem !important;
-    width: 540px;
-    padding-left: 10%;;
-}
+
 
 .input-color-white {
     color: white;

@@ -4,9 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!--oj-sm-align-items-flex-end-->
-<div class="home-page oj-flex oj-md-align-items-flex-end oj-lg-align-items-flex-end oj-sm-flex-direction-column">
-    <!--<div class="oj-sm-12 oj-flex-item login-top-section">-->
-    <!--</div>-->
+<div class="login-page oj-flex oj-md-align-items-flex-end oj-lg-align-items-flex-end  oj-sm-flex-direction-column">
     <div class="oj-padding-horizontal oj-md-6 oj-flex-item">
         <div class="oj-flex">
             <div class="welcome-content">
@@ -18,8 +16,8 @@ and open the template in the editor.
                             <input id="username" type="text" class="input-text"
                                    data-bind="ojComponent: {component: 'ojInputText', 
                                                                     placeholder: 'Username', 
-                                                                    value: userName,
-                                                                    rootAttributes: {style:'max-width:25em'} }"/>
+                                                                    value: userName
+                                                                    }"/>
                         </div>
                     </div>
                 </div>
@@ -46,8 +44,8 @@ and open the template in the editor.
                 <div class="oj-sm-12 oj-flex-item login-form-group">
                     <div class="oj-flex">
                         <div class="oj-sm-8 oj-flex-item">
-                            <select id="dataCenter" class="input-text" 
-                                    data-bind="ojComponent: {component: 'ojSelect', value: dataCenter}">
+                            <select id="dataCenter" class="select" 
+                                    data-bind="value: dataCenter">
                                 <option value="" selected="">Select Data Center...</option>
                                 <option value="https://myservices.us1.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 1 (us1)</option>
                                 <option value="https://myservices.us2.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 2 (us2)</option>
@@ -79,10 +77,22 @@ and open the template in the editor.
                         </div>
                     </div>                
                 </div>
-                <div class="get-started">
-                    <a href="" class="red-button" data-bind="click: login">Login</a>
+                <div class="oj-sm-12 oj-flex-item">
+                    <div class="oj-flex  login-box">
+                        <div class="oj-flex-item">
+                            <a class="red-button" data-bind="click: login">Login</a>
+                        </div>
+                        <div class="oj-flex-item">
+                            <a href="#" class="forgotten">Forgotten your password?</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="oj-sm-12 oj-flex-item">
+                    <p class="login-footer">&copy; Oracle <a class="red" href="#">Legal Notices</a> I <a class="red" href="#">Terms of Use</a> I <a class="red" href="#">Privacy Policy</a></p>  
+
                 </div>
             </div>
         </div>
+
     </div>
 </div>
