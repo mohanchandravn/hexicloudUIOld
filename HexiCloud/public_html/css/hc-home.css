@@ -45,6 +45,48 @@ and open the template in the editor.
     animation: spin1 8s infinite linear;
 }
 
+.home-page .ring .filmStrip-details {
+    text-align: center;
+    max-height: 250px;
+    max-width: 300px;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+}
+    
+.home-page .ring .filmStrip-title {
+    font-weight: bold;
+    color: #f80000;
+    font-size: 36px;
+}
+
+.home-page .ring .filmStrip-description {
+    font-weight: normal;
+    color: #333;
+    font-size: 24px;
+}
+
+.home-page .ring .oj-filmstrip {
+    margin: 80px 0 0 80px;
+}
+
+.home-page .ring .oj-filmstrip, .home-page .ring .oj-filmstrip-pages-container, .home-page .ring .oj-filmstrip-page-container {
+    position: absolute;
+    height: 340px;
+    width: 340px;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.home-page .ring .filmStrip-paging-control {
+    position: absolute;
+    margin: 370px 0 0 170px;
+}
+
+.home-page .ring .oj-pagingcontrol-nav-dot-bullet.oj-selected, .oj-pagingcontrol-nav-dot-bullet.oj-hover {
+    background-color: #ee4f50;
+}
+
 .home-page .welcome-content {
     line-height: 1.1;
 }

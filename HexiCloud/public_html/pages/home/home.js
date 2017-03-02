@@ -18,9 +18,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
         
         console.log('home page');
         self.filmStripItems = [
-            { title: 'Prepare', description: 'set up what you need and get your team geared up' },
-            { title: 'Learn', description: 'see how it\'s done in our use cases and success stories' },
-            { title: 'Plan', description: 'choose the services you need for your business' },
+            { title: 'Prepare', description: 'for what you need and get your team geared up' },
+            { title: 'Learn', description: 'how it\'s done in our use cases and success stories' },
+            { title: 'Plan', description: 'the services you need for your business' },
             { title: 'Build', description: 'with real-time support and help' },
             { title: 'Succeed', description: 'in your journey to the cloud' }
         ];
