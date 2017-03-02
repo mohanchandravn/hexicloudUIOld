@@ -3,16 +3,74 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<style>
+
+    .filmStrip-item {
+        box-sizing: border-box;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        color: #333;
+        font-size: 3rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .filmStrip-overlaid-paging-control {
+        position: absolute;
+/*        bottom: 0;
+        left: 50%;*/
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    
+    .filmStrip-stretch-items {
+        position: absolute;
+        height: 50%;
+    }
+    
+    .filmStrip-stretch-items .oj-filmstrip-item-container {
+        -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+    }    
+</style>
 
 <div class="home-page oj-flex">
-    <div class="oj-xl-6 oj-flex-item">
+    <div class="oj-sm-only-hide oj-xl-6 oj-flex-item">
         <div class="ring">
             <img class="img-responsive" src="img/outer-ring-3.png">
             <img class="img-responsive" src="img/outer-ring-2.png">
             <img class="img-responsive" src="img/outer-ring-1.png">
             <img class="img-responsive" src="img/inner-ring.png">
+<!--            <div id="filmStrip" 
+                data-bind="ojComponent: {
+                  component: 'ojFilmStrip', 
+                  maxItemsPerPage: 1, 
+                  arrowVisibility: 'hidden'}" 
+                aria-label="Set of chemicals" 
+                class="filmStrip-stretch-items">
+                 ko foreach: filmStripItems 
+                <div class="oj-panel oj-panel-alt2 filmStrip-item" 
+                    data-bind="style: {
+                       display: getItemInitialDisplay($index())}">
+                    <span data-bind="text: title"></span>
+                </div>
+                 /ko 
+            </div>
+            <div class="filmStrip-overlaid-paging-control">
+                <div id="pagingControl" data-bind="ojComponent: {
+                                                        component: 'ojPagingControl', 
+                                                        data: getPagingModel(), 
+                                                        pageSize: 0, 
+                                                        pageOptions: {type: 'dots'}}">
+                </div>
+            </div>-->
         </div>
     </div>
+<!--    <div class="oj-xl-6 oj-flex-item">
+        
+    </div>-->
     <div class="oj-xl-6 oj-flex-item">
         <div class="oj-flex">
             <div class="welcome-content oj-sm-12 oj-flex-item">
@@ -30,7 +88,7 @@ and open the template in the editor.
                     </p>
                     <p>
                         And with our 
-                        <b>customer success consultant</b> 
+                        <b>Customer Success Consultant (CSC) </b> 
                         on hand to help you on your way, your cloud journey is just beginning.
                     </p>
                     <a class="red-button oj-lg-4 oj-sm-10" data-bind="click: isLoggedinTrue">I'm ready</a>
