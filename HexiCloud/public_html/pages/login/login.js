@@ -27,7 +27,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
         self.dataCenter = ko.observable();
         self.phoneNumber = ko.observable();
         self.handleBindingsApplied = function () {
-            
+
             $("#iDomain").on('keyup paste cut', function () {
                 var iDomain = $(this).val();
                 return self.isIDomainActive(iDomain.length > 0);
@@ -42,108 +42,17 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
             return true;
         };
 
-        self.handleAttached = function() {
+        self.handleAttached = function () {
             slideInAnimate(600, 0);
         };
 
         self.login = function () {
 //            router.go('chooseRoleNew/');
-            
+
             console.log('login clicked');
             console.log(loggedInUser());
             console.log(self.restEndPoint());
             var trackerObj = ko.utils.unwrapObservable(self.tracker);
-            setTimeout(function(){
-                router.go('chooseRoleNew/');
-            }, 600);
-            slideOutAnimate(1000, 0);
-//            
-//            console.log('login clicked');
-//            console.log(loggedInUser());
-//            console.log(self.restEndPoint());
-//            var trackerObj = ko.utils.unwrapObservable(self.tracker);
-//
-//            // Step 1
-//            if (!this._showComponentValidationErrors(trackerObj))
-//            {
-//                return;
-//            }
-//
-//            if (self.iDomain() == "") {
-//                var successCallBackFn = function (data, xhrStatus) {
-//                    console.log(data);
-//                    console.log(status);
-//                    if (xhrStatus.status == 200) {
-//                        isLoggedInUser(true);
-//                        sessionInfo.setToSession(sessionInfo.isLoggedInUser, true);
-//                        loggedInUser(data.userId);
-//                        sessionInfo.setToSession(sessionInfo.loggedInUser, data.userId);
-//                        loggedInUserRole(data.userRole);
-//                        sessionInfo.setToSession(sessionInfo.loggedInUserRole, data.userRole);
-//                        userFirstLastName(data.firstName + ' ' + data.lastName);
-//                        sessionInfo.setToSession(sessionInfo.userFirstLastName, data.firstName + ' ' + data.lastName);
-//                        userClmRegistryId(data.registryId);
-//                        sessionInfo.setToSession(sessionInfo.userClmRegistryId, data.registryId);
-//                        self.loginFailureText("");
-//                        router.go('hello/');
-//                    } else {
-//                        self.loginFailureText("Username or password do not match");
-//                    }
-//                };
-//
-//                var failCallBackFn = function (xhr) {
-//                    console.log(xhr);
-//                    self.loginFailureText("Username or password do not match");
-//                };
-//                service.authenticate({
-//                    "userId": self.userName(),
-//                    "password": btoa(self.password())
-//                }).then(successCallBackFn, failCallBackFn);
-//
-//            } else {
-//                loggedInUser(self.userName());
-//                sessionInfo.setToSession(sessionInfo.loggedInUser, self.userName());
-//                userFirstLastName(self.userName());
-//                sessionInfo.setToSession(sessionInfo.userFirstLastName, self.userName());
-//                containerName(self.iDomain());
-//                sessionInfo.setToSession(sessionInfo.containerName, self.iDomain());
-//                self.dataToSend = "?container=" + containerName() + "&password=" + self.password() + "&userName=" + self.userName() + "&restEndPoint=" + self.restEndPoint();
-//                console.log(self.dataToSend);
-//                var url = wrapperRestEndPoint() + self.dataToSend;
-//                console.log(wrapperRestEndPoint() + self.dataToSend);
-//                if (self.userName() != null && self.password() != null && containerName() != null && self.restEndPoint() != null) {
-//                    isDomainDetailsGiven(true);
-//                    $.ajax({
-//                        type: "POST",
-//                        url: url,
-//                        contentType: "text/plain",
-//                        dataType: "text",
-//                        data: {userName: self.userName(), password: self.password(), container: containerName(), restEndPoint: self.restEndPoint()},
-//                        crossDomain: true,
-//                        beforeSend: function (xhr) {
-//                            xhr.setRequestHeader("Access-Control-Allow-Origin", "https://140.86.1.93/");
-//                            xhr.setRequestHeader("Access-Control-Allow-Headers", "Origin, options,X-Requested-With, Content-Type, Accept");
-//                        },
-//                        success: function (data) {
-//
-//                            //dashBoardServices(result);
-//                            data = $.parseJSON(data);
-//
-//                            dashboardServices(data.result);// = sArray.slice();                     
-//                            // console.log(dashboardServices());
-//                        },
-//                        error: function (xhr, ajaxOptions, thrownError) {
-//                            console.log('Error retrieving details..');
-//                            console.log(xhr);
-//                            console.log(ajaxOptions);
-//                            console.log(thrownError);
-//                        }
-//                    });
-//                    isLoggedInUser(true);
-//                    sessionInfo.setToSession(sessionInfo.isLoggedInUser, true);
-//                    router.go('hello/');
-//                }
-//            }
 
             // Step 1
             if (!this._showComponentValidationErrors(trackerObj))
@@ -167,6 +76,10 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         userClmRegistryId(data.registryId);
                         sessionInfo.setToSession(sessionInfo.userClmRegistryId, data.registryId);
                         self.loginFailureText("");
+                        setTimeout(function () {
+                            router.go('chooseRoleNew/');
+                        }, 600);
+                        slideOutAnimate(1000, 0);
                         router.go('chooseRoleNew/');
                     } else {
                         self.loginFailureText("Username or password do not match");
@@ -223,6 +136,10 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                     });
                     isLoggedInUser(true);
                     sessionInfo.setToSession(sessionInfo.isLoggedInUser, true);
+                    setTimeout(function () {
+                        router.go('chooseRoleNew/');
+                    }, 600);
+                    slideOutAnimate(1000, 0);
                     router.go('chooseRoleNew/');
                 }
             }
