@@ -8,10 +8,10 @@ define(['ojs/ojcore',
             self.headerTitle = "Please confirm your role:";
             self.buyerTitle = "Buyer »";
             self.identityDomainAdminTitle = "Identity Domain Admin »";
-            self.welcomeUserMessage = ko.observable("Welcome, Firstname");
+            self.welcomeUserMessage = ko.observable("Welcome ");
             if(loggedInUser())
             {
-                self.welcomeUserMessage(self.welcomeUserMessage()+loggedInUser());
+                self.welcomeUserMessage(self.welcomeUserMessage()+ userFirstLastName());
             }
             var router = params.ojRouter.parentRouter;
             self.buyerSelect = function ()

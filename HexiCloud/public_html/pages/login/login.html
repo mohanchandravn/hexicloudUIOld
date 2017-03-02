@@ -10,13 +10,24 @@ and open the template in the editor.
             <div class="welcome-content">
                 <h2>Login to <br/> Hexicloud</h2>                
                 <hr class="login-form-group">
+                <div class="oj-flex-item" data-bind="visible: loginFailureText() != ''">
+                    <div class="oj-flex">
+                        <div class="oj-flex-item">
+                            <span data-bind="text: loginFailureText" class="error-message-text"></span> 
+                        </div>
+                    </div>
+                </div>
                 <div class="oj-sm-12 oj-flex-item login-form-group">
                     <div class="oj-flex">
                         <div class="oj-sm-8 oj-flex-item">
                             <input id="username" type="text" class="input-text"
                                    data-bind="ojComponent: {component: 'ojInputText', 
                                                                     placeholder: 'Username', 
-                                                                    value: userName
+                                                                    value: userName,
+                                                                    invalidComponentTracker: tracker,
+                                                                    required: true, 
+                                                                    translations: {'required': {
+                                                                                  messageDetail: 'Please enter a valid user name'}}
                                                                     }"/>
                         </div>
                     </div>
@@ -25,9 +36,12 @@ and open the template in the editor.
                     <div class="oj-flex">
                         <div class="oj-sm-8 oj-flex-item">
                             <input id="password" type="password" class="input-text"
-                                   data-bind="ojComponent: {component: 'ojInputText', 
+                                   data-bind="ojComponent: {component: 'ojInputPassword', 
                                                             placeholder: 'Password', 
-                                                            value: userName}"/>
+                                                            value: password,
+                                                        invalidComponentTracker: tracker,
+                                                        required: true, 
+                                                        translations: {'required': {messageDetail: 'Please enter the password'}}}"/>
                         </div>
                     </div>                
                 </div>
