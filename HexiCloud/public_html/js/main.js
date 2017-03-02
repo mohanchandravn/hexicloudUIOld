@@ -86,6 +86,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 'hello': {label: 'Hello', value: getPath('hello')},
                 'roleIdentified': {label: 'Role Identified', value: getPath('roleIdentified')},
                 'chooseRole': {label: 'Choose Role', value: getPath('chooseRole')},
+                'chooseRoleNew': {label: 'Choose Role', value: getPath('chooseRoleNew')},
                 'createUsers': {label: 'Create Users', value: getPath('createUsers')},
                 'addAdditionalUsers': {label: 'Add Additional Users', value: getPath('addAdditionalUsers')},
                 'learning': {label: 'Learning', value: getPath('learning')},
@@ -97,7 +98,9 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 'servicesMini': {label: 'Mini Services', value: getPath('servicesMini')},
                 'guidedPathsMini': {label: 'Mini Learning', value: getPath('guidedPathsMini')},
                 'csmadmin': {label: 'CSM Admin', value: getPath('csmadmin')},
-                'samplecsv': {label: 'Sample CSV', value: getPath('samplecsv')}
+                'samplecsv': {label: 'Sample CSV', value: getPath('samplecsv')},
+                'addAnother': {label: 'Add Another', value: getPath('addAnother')},
+                        'addUsersTut': {label: 'Add Users Tutorial', value: getPath('addUsersTutorial')}
             });
 
             function viewModel() {
