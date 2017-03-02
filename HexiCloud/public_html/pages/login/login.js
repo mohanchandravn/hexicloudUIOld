@@ -44,7 +44,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
 
 
         self.login = function () {
-            router.go('hello/');
+            router.go('chooseRoleNew/');
 //            
 //            console.log('login clicked');
 //            console.log(loggedInUser());

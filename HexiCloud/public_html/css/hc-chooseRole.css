@@ -12,3 +12,151 @@ and open the template in the editor.
     height: 2em;
 }
 
+.blur-node1, .blur-node3 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(../img/blur-node1.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-transition: all 0.8s ease-in-out;
+  -moz-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s; }
+  .blur-node1.animate, .blur-node3.animate {
+    background-position: -200px; }
+  
+.blur-node2, .blur-node4 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(../img/blur-node2.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out; }
+  .blur-node2.animate, .blur-node4.animate {
+    background-position: -400px; }
+
+.chooseRoleContainer {
+/*        text-align: center;*/
+position: relative;
+margin-top: 80px;
+}
+.chooseRoleContainer h2{
+       color: #00758f;
+    font-size: 36px;
+    padding: 0 50px;
+    text-align: center;
+}
+.chooseRoleContainer .header-border-bottom {
+    border-bottom: 1px solid #b1c7d2;
+}
+.chooseRoleContainer h1{
+    color: #00758f;
+    font-size: 74px;
+    font-family: 'Roboto-thin', sans-serif;
+    font-weight: 100;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    text-align: center;
+    margin: 0 auto;
+    width:80%;
+}
+
+@media only screen and (max-width: 480px){
+   h1 {
+    font-size: 54px !important;
+    } 
+     h4 {
+    font-size: 26px !important; }
+     h5 {
+    font-size: 20px !important; }
+       p {
+    font-size: 16px !important; }
+    p.lg {
+      font-size: 18px !important; }
+/*    .material-icons {
+    font-size: 36px !important;
+    margin: 0 auto; }*/
+}
+
+
+.chooseRoleContainer h4 {
+        font-family: 'Roboto-thin', sans-serif;
+    font-size: 36px;
+    color: #00758f;
+}
+
+.chooseRoleContainer .lg {
+    font-size: 23px !important;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.chooseRoleContainer p {
+    
+    font-size: 18px;
+    color: #4e5052;
+    width: auto;
+    margin: 0 0 10px;
+    font-family: 'Roboto-thin', sans-serif;
+/*    text-align: center;*/
+}
+
+.chooseRoleContainer .red-button {
+    background-color: #ee4f50 !important;
+/*    padding: 10px 30px;*/
+    display: inline-block;
+    text-align: center;
+    height: 54px;
+    border-radius: 27px;
+    margin: 20px 0;
+    background-image: none !important;
+    color: #fff;
+    font-size: 24px;
+    line-height: 3.5rem;
+    cursor: pointer;
+    width:100%;
+    padding: 0px 20px 0px 20px;
+    z-index: 999;
+}
+
+/*.chooseRole .oj-button .oj-button-text 
+{
+    color: #fff;
+    font-size: 24px;
+}*/
+
+.chooseRoleContainer .list-item-container{
+    width: 83%;
+}
+
+.list-item-container .material-icons {
+    padding: 0 10px;
+    color: #217e93;
+    font-size: 30px !important;
+}
+
+.list-item-container p {
+    font-size: 18px;
+    color: #4e5052;
+    width: auto;
+    margin: 0 0 10px;
+    font-family: 'Roboto-thin', sans-serif;
+    padding-top: 5px;
+}
+
