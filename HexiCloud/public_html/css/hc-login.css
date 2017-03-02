@@ -38,6 +38,7 @@ and open the template in the editor.
     height: 3.5rem !important;
     width: 540px;
     padding-left: 6%;
+    border-color: white;
 }
 
 .login-page .forgotten {
