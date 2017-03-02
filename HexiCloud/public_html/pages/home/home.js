@@ -7,8 +7,8 @@
 /**
  * home module
  */
-define(['config/serviceConfig'
-], function (service) {
+define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip', 'ojs/ojpagingcontrol' 
+], function () {
     /**
      * The view model for the main content view template
      */
@@ -17,10 +17,37 @@ define(['config/serviceConfig'
         var router = params.ojRouter.parentRouter;
         
         console.log('home page');
+        self.filmStripItems = [
+            { title: 'Prepare' },
+            { title: 'Learn' },
+            { title: 'Plan' },
+            { title: 'Build' },
+            { title: 'Succeed' }
+        ];
+        self.pagingModel = null;
+        
+        getItemInitialDisplay = function(index) {
+            return index < 1 ? '' : 'none';
+        };
+        
+        getPagingModel = function() {
+            if (!self.pagingModel) {
+              var filmStrip = $("#filmStrip");
+              var pagingModel = filmStrip.ojFilmStrip("getPagingModel");
+              self.pagingModel = pagingModel;
+            }
+            return self.pagingModel;
+        }
         
         self.isLoggedinTrue = function() {
-//            slideOutAnimate();
-            router.go('login/');
+            setTimeout(function(){
+                router.go('login/');
+            }, 600);
+            slideOutAnimate(1000, 0);
+        };
+
+        self.handleAttached = function() {
+            slideInAnimate(600, 0);
         };
     }
     

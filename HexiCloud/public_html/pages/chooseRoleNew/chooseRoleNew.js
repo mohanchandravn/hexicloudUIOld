@@ -8,32 +8,36 @@ define(['ojs/ojcore',
             self.headerTitle = "Please confirm your role:";
             self.buyerTitle = "Buyer »";
             self.identityDomainAdminTitle = "Identity Domain Admin »";
-            self.welcomeUserMessage = ko.observable("Welcome, Firstname");
+            self.welcomeUserMessage = ko.observable("Welcome ");
             if(loggedInUser())
             {
-                self.welcomeUserMessage(self.welcomeUserMessage()+loggedInUser());
+                self.welcomeUserMessage(self.welcomeUserMessage()+ userFirstLastName());
             }
             var router = params.ojRouter.parentRouter;
             self.buyerSelect = function ()
             {
                 loggedInUserRole('accountAdmin');
-                $('.blur-node1, .blur-node2').addClass('animate');
                 setTimeout(function(){
                     router.go('/addAnother');
 			slideOutAnimate();
                         //$.fn.fullpage.moveSlideLeft();
 		}, 600);
+                $('.blur-node1, .blur-node2').addClass('animate');
                 
                 
             };
             self.identityDomainAdminSelect = function (){
                 loggedInUserRole('itAdmin');
-                $('.blur-node1, .blur-node2').addClass('animate');
                 setTimeout(function(){
                     router.go('/addAnother');
-			slideOutAnimate();
+			slideOutAnimate(1000, 0);
                         //$.fn.fullpage.moveSlideLeft();
 		}, 600);
+                $('.blur-node1, .blur-node2').addClass('animate');
+            };
+
+            self.handleAttached = function() {
+                slideInAnimate(600, 0);
             };
         }
         
