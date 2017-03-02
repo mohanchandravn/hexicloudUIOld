@@ -55,11 +55,11 @@ and open the template in the editor.
 position: relative;
 margin-top: 80px;
 }
-.chooseRoleContainer header{
-       font-size: 54px;
-    font-family: 'Roboto-thin', sans-serif;
-    font-family: 'Roboto-thin', sans-serif;
-    color: #00758f;
+.chooseRoleContainer h2{
+       color: #00758f;
+    font-size: 36px;
+    padding: 0 50px;
+    text-align: center;
 }
 .chooseRoleContainer .header-border-bottom {
     border-bottom: 1px solid #b1c7d2;
