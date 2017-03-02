@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 .home-page {
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .home-page .ring img {
@@ -17,7 +17,8 @@ and open the template in the editor.
 }
 
 .home-page .img-responsive {
-    height: 60%;
+    height: 500px;
+    /*height: 60%;*/
 }
 
 .home-page .ring img:nth-child(1) {
@@ -88,7 +89,32 @@ and open the template in the editor.
     border-top: 1px solid #b1c7d2;
 }
 
+/* for small screen devices */
+@media screen and (max-width: 480px) {
+    .home-page .welcome-content h2 {
+        font-size: 36px;
+    }
+    .home-page .welcome-content span {
+        font-size: 48px;
+    }
+    .home-page .welcome-content h3 {
+        font-size: 32px;
+    }
+}
+
+/* for medium screen devices */
+@media screen and (min-width: 480px) and (max-width: 1023px) {
+}
+
+/* for large screen devices */
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+}
+
+/* for extra large screen devices */
 @media screen and (min-width: 1281px) {
+    .home-page {
+        margin-top: 50px;
+    }
     .home-page .ring {
         margin-left: 250px;
     }

@@ -18,11 +18,11 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
         
         console.log('home page');
         self.filmStripItems = [
-            { title: 'Prepare' },
-            { title: 'Learn' },
-            { title: 'Plan' },
-            { title: 'Build' },
-            { title: 'Succeed' }
+            { title: 'Prepare', description: 'set up what you need and get your team geared up' },
+            { title: 'Learn', description: 'see how it\'s done in our use cases and success stories' },
+            { title: 'Plan', description: 'choose the services you need for your business' },
+            { title: 'Build', description: 'with real-time support and help' },
+            { title: 'Succeed', description: 'in your journey to the cloud' }
         ];
         self.pagingModel = null;
         
@@ -37,7 +37,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
               self.pagingModel = pagingModel;
             }
             return self.pagingModel;
-        }
+        };
         
         self.isLoggedinTrue = function() {
             setTimeout(function(){
