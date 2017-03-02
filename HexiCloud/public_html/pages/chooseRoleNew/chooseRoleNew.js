@@ -17,23 +17,27 @@ define(['ojs/ojcore',
             self.buyerSelect = function ()
             {
                 loggedInUserRole('accountAdmin');
-                $('.blur-node1, .blur-node2').addClass('animate');
                 setTimeout(function(){
                     router.go('/addAnother');
 			slideOutAnimate();
                         //$.fn.fullpage.moveSlideLeft();
 		}, 600);
+                $('.blur-node1, .blur-node2').addClass('animate');
                 
                 
             };
             self.identityDomainAdminSelect = function (){
                 loggedInUserRole('itAdmin');
-                $('.blur-node1, .blur-node2').addClass('animate');
                 setTimeout(function(){
                     router.go('/addAnother');
-			slideOutAnimate();
+			slideOutAnimate(1000, 0);
                         //$.fn.fullpage.moveSlideLeft();
 		}, 600);
+                $('.blur-node1, .blur-node2').addClass('animate');
+            };
+
+            self.handleAttached = function() {
+                slideInAnimate(600, 0);
             };
         }
         

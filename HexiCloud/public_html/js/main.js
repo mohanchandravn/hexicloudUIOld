@@ -122,7 +122,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 self.userClmRegistryId = ko.observable(sessionInfo.getFromSession(sessionInfo.userClmRegistryId));
                 self.isChatInitialized = ko.observable(false);
 
-                self.effect = ko.observable('slideOut');
+                self.slideInEffect = ko.observable('slideIn');
+                self.slideOutEffect = ko.observable('slideOut');
                 
 //                self.disableVideo = ko.computed( function() {
 //                    console.log(router.currentState().id !== 'home' || router.currentState().id !== 'login');
@@ -144,19 +145,39 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                     return range.toUpperCase();
                 });
                 
-                self.slideOutAnimate = function() {
-                    if (self.effect() && oj.AnimationUtils[self.effect()]) {
-                        var jElem = $('#module');
+                self.slideInAnimate = function(duration, delay) {
+                    if (self.slideInEffect() && oj.AnimationUtils[self.slideInEffect()]) {
+                        var jElem = $('.' + self.getStateId() + '-page');
+                        console.log(jElem);
+//                        var jElem = $('#module');
 
                         // jElem.css('backgroundColor', self.sampleBackground);
 
-                        var animateOptions = {'delay': undefined,
-                                              'duration': undefined,
-                                              'timingFunction': undefined};
+                        var animateOptions = {'delay': delay ? delay + 'ms' : '',
+                                              'duration': duration + 'ms',
+                                              'timingFunction': ''};
                         $.extend(animateOptions, self.effectOptions);
-
+console.log(animateOptions);
                         // Invoke the animation effect method with options
-                        oj.AnimationUtils[self.effect()](jElem[0], animateOptions);
+                        oj.AnimationUtils[self.slideInEffect()](jElem[0], animateOptions);
+                    }
+                };
+                
+                self.slideOutAnimate = function(duration, delay) {
+                    if (self.slideOutEffect() && oj.AnimationUtils[self.slideOutEffect()]) {
+                        var jElem = $('.' + self.getStateId() + '-page');
+                        console.log(jElem);
+//                        var jElem = $('#module');
+
+                        // jElem.css('backgroundColor', self.sampleBackground);
+
+                        var animateOptions = {'delay': delay ? delay + 'ms' : '',
+                                              'duration': duration + 'ms',
+                                              'timingFunction': ''};
+                        $.extend(animateOptions, self.effectOptions);
+console.log(animateOptions);
+                        // Invoke the animation effect method with options
+                        oj.AnimationUtils[self.slideOutEffect()](jElem[0], animateOptions);
                     }
                 };
 

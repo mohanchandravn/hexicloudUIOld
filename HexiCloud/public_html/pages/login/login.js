@@ -27,12 +27,12 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
         self.dataCenter = ko.observable();
         self.phoneNumber = ko.observable();
         self.handleBindingsApplied = function () {
+            
             $("#iDomain").on('keyup paste cut', function () {
                 var iDomain = $(this).val();
                 return self.isIDomainActive(iDomain.length > 0);
             });
         };
-
 
         self._showComponentValidationErrors = function (trackerObj) {
             trackerObj.showMessages();
@@ -42,9 +42,15 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
             return true;
         };
 
+        self.handleAttached = function() {
+            slideInAnimate(600, 0);
+        };
 
         self.login = function () {
-            router.go('chooseRoleNew/');
+            setTimeout(function(){
+                router.go('chooseRoleNew/');
+            }, 600);
+            slideOutAnimate(1000, 0);
 //            
 //            console.log('login clicked');
 //            console.log(loggedInUser());

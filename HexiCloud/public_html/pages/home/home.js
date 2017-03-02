@@ -40,8 +40,14 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
         }
         
         self.isLoggedinTrue = function() {
-//            slideOutAnimate();
-            router.go('login/');
+            setTimeout(function(){
+                router.go('login/');
+            }, 600);
+            slideOutAnimate(1000, 0);
+        };
+
+        self.handleAttached = function() {
+            slideInAnimate(600, 0);
         };
     }
     
