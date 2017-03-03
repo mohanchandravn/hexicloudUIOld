@@ -8,7 +8,7 @@
  * home module
  */
 define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip', 'ojs/ojpagingcontrol' 
-], function () {
+], function (oj, ko, $) {
     /**
      * The view model for the main content view template
      */
@@ -45,9 +45,21 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
             }, 600);
             slideOutAnimate(1000, 0);
         };
+        
+        self.changeFilmStripValue = function() {
+            var currentItem = $( "#filmStrip" ).ojFilmStrip( "option", "currentItem" );
+            if (currentItem !== (self.filmStripItems.length - 1)) {
+                $("#filmStrip").ojFilmStrip("option", "currentItem", (currentItem + 1));
+            } else {
+                $("#filmStrip").ojFilmStrip("option", "currentItem", 0);
+            }
+        };
 
         self.handleAttached = function() {
             slideInAnimate(600, 0);
+            setInterval(function() {
+                self.changeFilmStripValue();
+            }, 3000);
         };
     }
     
