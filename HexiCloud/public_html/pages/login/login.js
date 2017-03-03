@@ -85,7 +85,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         loggedInUserRole(data.userRole);
                         sessionInfo.setToSession(sessionInfo.loggedInUserRole, data.userRole);
                         userFirstLastName(data.firstName);
-                        sessionInfo.setToSession(sessionInfo.userFirstLastName, data.firstName + ' ' + data.lastName);
+                        sessionInfo.setToSession(sessionInfo.userFirstLastName, data.firstName);
                         userClmRegistryId(data.registryId);
                         sessionInfo.setToSession(sessionInfo.userClmRegistryId, data.registryId);
                         self.loginFailureText("");

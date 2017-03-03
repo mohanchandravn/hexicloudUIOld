@@ -13,14 +13,15 @@ and open the template in the editor.
     </div>-->
 <div data-bind="css: returnLgXlClass">
     <div class="login-page  oj-flex oj-sm-align-items-center  oj-sm-flex-direction-column oj-padding-horizontal" data-bind="css: returnFlexStart">
-
-        <div class="oj-flex-item welcome-content">
-            <h2>Login to</h2>
+        <div class="oj-sm-only-hide">
+            <div class="oj-flex-item welcome-content">
+                <h2>Login to</h2>
+            </div>
+            <div class="oj-flex-item welcome-content">
+                <h2>Hexicloud</h2>
+            </div>
+            <hr class="login-form-group">
         </div>
-        <div class="oj-flex-item welcome-content">
-            <h2>Hexicloud</h2>
-        </div>
-        <hr class="login-form-group">
         <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-flex-item login-form-group" data-bind="visible: loginFailureText() != ''">
 
             <span data-bind="text: loginFailureText" class="error-message-text"></span> 
