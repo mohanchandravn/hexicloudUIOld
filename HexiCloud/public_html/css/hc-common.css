@@ -36,6 +36,7 @@ html, body, .responsive-height {
 
 navigationbarleft {
     width: 340px;
+    max-width: 340px;
     top: 0;
 }
 

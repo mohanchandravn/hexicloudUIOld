@@ -68,7 +68,7 @@ and open the template in the editor.
 }
 
 .nav-list {
-    padding-top: 10px;
+    margin: 0px;
     padding-left: 0;
     list-style: none;
 }
@@ -76,6 +76,9 @@ and open the template in the editor.
 .nav-list li {
     font-size: 20px;
     cursor: pointer;
+    padding: 16px 30px;
+    box-sizing: border-box;
+    height: 54px;
 }
 
 .nav-list li:not(:last-child) {
@@ -86,12 +89,17 @@ and open the template in the editor.
     border-bottom: 2px solid #b0c6d1;
 }
 
+.nav-list span {
+    margin-left: 10px;
+}
+
 .nav-list li a{
     color: #324b5c;
     text-decoration: none;
-    padding: 16px 30px;
+    /*padding: 16px 30px;*/
     display: block;
-    max-height: 60px;
+    height: 54px;
+    box-sizing: border-box;
 }
 .navigation-left .logout span {
     margin-top: 15px;

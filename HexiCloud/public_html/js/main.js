@@ -131,7 +131,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
 //                });
                 
                 self.showHeaderNav = ko.computed( function() {
-                    if (router.currentState().id === 'dashboard') {
+                    var id = router.currentState().id;
+                    if (id === 'dashboard') {
                         return "";
                     } else {
                         return "visibility-hidden";
