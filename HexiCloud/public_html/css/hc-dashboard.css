@@ -33,7 +33,8 @@ and open the template in the editor.
 .usecase1, .usecase2 {
     max-width: 400px;
     padding: 20px;
-    border-radius: 16px;
+    border-radius: 27px;
+    border: 1px solid #000;
     background-color: rgba(216, 225, 229, 1);
 }
 
@@ -46,7 +47,7 @@ and open the template in the editor.
 }
 
 .usecase-content {
-    font-size: 24px;
+    font-size: 26px;
     min-height: 56px;
 }
 
@@ -61,30 +62,96 @@ and open the template in the editor.
 }
 
 .usecase-detail-item {
+    max-width: 843px;
     margin: 20px 40px;
-    background-color: white;
+    padding: 20px;
+    border: 1px solid #000;
 }
 
 .usecase-img-container {
     height: 160px;
+    margin-bottom: 30px;
+}
+
+.usecase-detail-image {
+    width: 100%;
 }
 
 .usecase-detail-heading {
-    font-size: 24px;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.usecase-detail-heading2 {
+    font-size: 26px;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 .detail-container {
     margin: 0 20px;
-    font-size: 12px;
+    font-size: 20px;
+}
+
+.detail-container  li:not(:last-child) {
+    margin-bottom: 10px;
 }
 
 .readmore-button {
     border-bottom: 1px solid #324b5c;
 }
 
-.max-width-200px {
-    max-width: 200px;
-    /*float: right;*/
+.guided-path-container {
+    border: 1px solid #000;
+    border-radius: 27px;
+    padding: 10px 20px;
+    margin-top: 5px;
+}
+
+.guided-path-container .progressbar-item {
+    margin-right: 20px;
+}
+
+.guided-path-container .oj-progressbar {
+    border-radius: 27px;
+    /*border: 2px solid white;*/
+    background-color: orange;
+}
+
+.guided-path-container .oj-progressbar-value {
+    /*border-right: 2px solid white;*/
+    background-color: green;
+}
+
+.guided-path-container i {
+    font-size: 24px !important;
+    cursor: pointer;
+}
+
+.guided-path-detail {
+    border: 0.5px solid #000;
+    margin: 5px 20px 0 20px;
+    /*padding: 15px;*/
+}
+
+.guided-path-detail-item {
+    margin: 10px;
+}
+
+.guided-path-status-continue, .guided-path-status-complete {
+    width: 100px;
+    color: white;
+    text-align: center;
+    padding: 3px 20px;
+    border-radius: 27px;
+}
+
+.guided-path-status-complete {
+    background: green;
+}
+
+.guided-path-status-continue {
+    background: orange;
 }
 
 @media screen and (max-width: 1280px) {

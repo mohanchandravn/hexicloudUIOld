@@ -12,29 +12,34 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'config/sess
     /**
      * The view model for the main content view template
      */
-    var navigationDrawerLeft;//, navigationDrawerRight;
-
-    navigationDrawerLeft = {
-        "selector": "#navigationDrawerLeft",
-        "edge": "start",
-        "displayMode": "push",
-        "autoDismiss": "focusLoss",
-        "modality": "modeless"//,
-//        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.XL_UP)
-    };
-//    navigationDrawerRight = {
-//        "selector": "#navigationDrawerRight",
-//        "edge": "end",
-//        "displayMode": "push",
-//        "modality": "modeless"//,
-////        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.LG_UP)
-//    };
-    
     function dashboardContentViewModel(params) {
         var self = this;
         var router = params.ojRouter.parentRouter;
         
         console.log('dashboard page');
+        
+        self.togglePath = function(data, event) {
+            var id = event.currentTarget.id;
+            console.log(id);
+            for (var idx = 0; idx < 5; idx++) {
+                if (idx === Number(id)) {
+                    if ( ($("#guidedPathDetail" + idx).hasClass("oj-sm-hide")) ) {
+                        $("#" + idx).text('remove');
+                        $("#guidedPathDetail" + idx).removeClass("oj-sm-hide");
+                        //return;
+                    } else {
+                        $("#" + idx).text('add');
+                        $("#guidedPathDetail" + idx).addClass("oj-sm-hide");
+                        //return;
+                    }
+                } else {
+                    if ( !($("#guidedPathDetail" + idx).hasClass("oj-sm-hide")) ) {
+                        $("#" + idx).text('add');
+                        $("#guidedPathDetail" + idx).addClass("oj-sm-hide");
+                    }
+                }
+            }
+        };
         
         self.handleAttached = function() {
             
