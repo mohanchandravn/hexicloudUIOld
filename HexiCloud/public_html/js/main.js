@@ -200,8 +200,13 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 self.dashboardServices = ko.observableArray([]);
                 
                 self.toggleContactType = function() {
-                    alert('contact');
+                    if ($("#contactType").hasClass("oj-sm-hide")) {
+                        $("#contactType").removeClass("oj-sm-hide");
+                    } else {
+                        $("#contactType").addClass("oj-sm-hide");
+                    }
                 };
+                
                 self.toggleLeft = function() {
                     if ($("#navigationDrawerLeft").hasClass('oj-offcanvas-open')) {
                         oj.OffcanvasUtils.close(navigationDrawerLeft);
