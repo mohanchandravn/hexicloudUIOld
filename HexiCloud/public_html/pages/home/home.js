@@ -42,8 +42,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
         self.isLoggedinTrue = function() {
             setTimeout(function(){
                 router.go('login/');
-            }, 600);
-            slideOutAnimate(1000, 0);
+            }, 500);
+            slideOutAnimate(1500, 0);
         };
         
         self.changeFilmStripValue = function() {
@@ -56,7 +56,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
         };
 
         self.handleAttached = function() {
-            slideInAnimate(600, 0);
+            slideInAnimate(500, 0);
             setInterval(function() {
                 self.changeFilmStripValue();
             }, 3000);

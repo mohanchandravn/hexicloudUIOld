@@ -26,12 +26,12 @@ define(['ojs/ojcore',
             self.onClickAddUser = function () {
                 setTimeout(function(){
                     router.go('addUsersTut/');
-                }, 600);
-                slideOutAnimate(1000, 0);
+                }, 500);
+                slideOutAnimate(1500, 0);
             };
 
             self.handleAttached = function() {
-                slideInAnimate(600, 0);
+                slideInAnimate(500, 0);
             };
         }
         

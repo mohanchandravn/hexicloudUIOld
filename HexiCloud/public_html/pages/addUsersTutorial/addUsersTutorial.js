@@ -6,7 +6,7 @@ define(['ojs/ojcore',
             var self = this;
 
             self.handleAttached = function() {
-                slideInAnimate(600, 0);
+                slideInAnimate(500, 0);
             };
             var screenRange = viewportSize();
             if(screenRange)
