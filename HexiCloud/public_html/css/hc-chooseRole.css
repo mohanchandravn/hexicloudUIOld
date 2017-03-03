@@ -83,16 +83,16 @@ and open the template in the editor.
         position: relative;
         margin-top: 20px;
     }
-    h1 {
+    .chooseRoleContainer h1 {
         font-size: 36px !important;
     } 
-    h4 {
+    .chooseRoleContainer h4 {
         font-size: 26px !important; }
-    h5 {
+    .chooseRoleContainer h5 {
         font-size: 20px !important; }
-    p {
+    .chooseRoleContainer p {
         font-size: 16px !important; }
-    p.lg {
+    .chooseRoleContainer p.lg {
         font-size: 18px !important; }
     /*    .material-icons {
         font-size: 36px !important;
