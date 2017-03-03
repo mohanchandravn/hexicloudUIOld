@@ -155,9 +155,9 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
 
                         var animateOptions = {'delay': delay ? delay + 'ms' : '',
                                               'duration': duration + 'ms',
-                                              'timingFunction': ''};
+                                              'timingFunction': 'ease-in-out'};
                         $.extend(animateOptions, self.effectOptions);
-console.log(animateOptions);
+                        
                         // Invoke the animation effect method with options
                         oj.AnimationUtils[self.slideInEffect()](jElem[0], animateOptions);
                     }
@@ -173,9 +173,9 @@ console.log(animateOptions);
 
                         var animateOptions = {'delay': delay ? delay + 'ms' : '',
                                               'duration': duration + 'ms',
-                                              'timingFunction': ''};
+                                              'timingFunction': 'ease-in-out'};
                         $.extend(animateOptions, self.effectOptions);
-console.log(animateOptions);
+
                         // Invoke the animation effect method with options
                         oj.AnimationUtils[self.slideOutEffect()](jElem[0], animateOptions);
                     }

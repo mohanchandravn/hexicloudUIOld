@@ -8,7 +8,7 @@
  * home module
  */
 define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip', 'ojs/ojpagingcontrol' 
-], function () {
+], function (oj, ko, $) {
     /**
      * The view model for the main content view template
      */
@@ -18,11 +18,11 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
         
         console.log('home page');
         self.filmStripItems = [
-            { title: 'Prepare' },
-            { title: 'Learn' },
-            { title: 'Plan' },
-            { title: 'Build' },
-            { title: 'Succeed' }
+            { title: 'Prepare', description: 'for what you need and get your team geared up' },
+            { title: 'Learn', description: 'how it\'s done in our use cases and success stories' },
+            { title: 'Plan', description: 'the services you need for your business' },
+            { title: 'Build', description: 'with real-time support and help' },
+            { title: 'Succeed', description: 'in your journey to the cloud' }
         ];
         self.pagingModel = null;
         
@@ -37,7 +37,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
               self.pagingModel = pagingModel;
             }
             return self.pagingModel;
-        }
+        };
         
         self.isLoggedinTrue = function() {
             setTimeout(function(){
@@ -45,9 +45,21 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
             }, 600);
             slideOutAnimate(1000, 0);
         };
+        
+        self.changeFilmStripValue = function() {
+            var currentItem = $( "#filmStrip" ).ojFilmStrip( "option", "currentItem" );
+            if (currentItem !== (self.filmStripItems.length - 1)) {
+                $("#filmStrip").ojFilmStrip("option", "currentItem", (currentItem + 1));
+            } else {
+                $("#filmStrip").ojFilmStrip("option", "currentItem", 0);
+            }
+        };
 
         self.handleAttached = function() {
             slideInAnimate(600, 0);
+            setInterval(function() {
+                self.changeFilmStripValue();
+            }, 3000);
         };
     }
     

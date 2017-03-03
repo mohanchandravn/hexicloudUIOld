@@ -4,109 +4,93 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!--oj-sm-align-items-flex-end-->
-<div class="login-page oj-flex oj-lg-align-items-flex-end oj-sm-align-items-center oj-sm-flex-direction-column">
-    <div class="oj-padding-horizontal oj-md-6 oj-flex-item">
-        <div class="oj-flex">
-            <div class="welcome-content">
-                <h2>Login to <br/> Hexicloud</h2>                
-                <hr class="login-form-group">
-                <div class="oj-flex-item" data-bind="visible: loginFailureText() != ''">
-                    <div class="oj-flex">
-                        <div class="oj-flex-item">
-                            <span data-bind="text: loginFailureText" class="error-message-text"></span> 
-                        </div>
-                    </div>
-                </div>
-                <div class="oj-sm-12 oj-flex-item login-form-group">
-                    <div class="oj-flex">
-                        <div class="oj-sm-8 oj-flex-item">
-                            <input id="username" type="text" class="input-text"
-                                   data-bind="ojComponent: {component: 'ojInputText', 
-                                                                    placeholder: 'Username', 
-                                                                    value: userName,
-                                                                    invalidComponentTracker: tracker,
-                                                                    required: true, 
-                                                                    translations: {'required': {
-                                                                                  messageDetail: 'Please enter a valid user name'}}
-                                                                    }"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="oj-sm-12 oj-flex-item login-form-group">
-                    <div class="oj-flex">
-                        <div class="oj-sm-8 oj-flex-item">
-                            <input id="password" type="password" class="input-text"
-                                   data-bind="ojComponent: {component: 'ojInputPassword', 
-                                                            placeholder: 'Password', 
-                                                            value: password,
-                                                        invalidComponentTracker: tracker,
-                                                        required: true, 
-                                                        translations: {'required': {messageDetail: 'Please enter the password'}}}"/>
-                        </div>
-                    </div>                
-                </div>
-                <div class="oj-sm-12 oj-flex-item login-form-group">
-                    <div class="oj-flex">
-                        <div class="oj-sm-8 oj-flex-item">
-                            <input id="iDomain" type="text" class="input-text"
-                                   data-bind="ojComponent: {component: 'ojInputText', 
-                                                            placeholder: 'Identity Domain', 
-                                                            value: iDomain}"/>
-                        </div>
-                    </div>                
-                </div>
-                <div class="oj-sm-12 oj-flex-item login-form-group">
-                    <div class="oj-flex">
-                        <div class="oj-sm-8 oj-flex-item">
-                            <select id="dataCenter" class="select" 
-                                    data-bind="value: dataCenter">
-                                <option value="" selected="">Select Data Center...</option>
-                                <option value="https://myservices.us1.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 1 (us1)</option>
-                                <option value="https://myservices.us2.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 2 (us2)</option>
-                                <option value="https://myservices.us6.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 6 (us6)</option>
-                                <option value="https://myservices.us8.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 8 (us8)</option>
-                                <option value="https://myservices.ap1.oraclecloud.com/mycloud/faces/dashboard.jspx">APAC Commercial 1 (ap1)</option>
-                                <option value="https://myservices.ap2.oraclecloud.com/mycloud/faces/dashboard.jspx">APAC Commercial 2 (ap2)</option>
-                                <option value="https://myservices.ap4.oraclecloud.com/mycloud/faces/dashboard.jspx">APAC Commercial 4 (ap4)</option>
-                                <option value="https://myservices.ca2.oraclecloud.com/mycloud/faces/dashboard.jspx">CA Commercial 2 (ca2)</option>
-                                <option value="https://myservices.ca3.oraclecloud.com/mycloud/faces/dashboard.jspx">CA Commercial 3 (ca3)</option>
-                                <option value="https://myservices.em1.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 1 (em1)</option>
-                                <option value="https://myservices.em2.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 2 (em2)</option>
-                                <option value="https://myservices.em3.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 3 (em3)</option>
-                                <option value="https://myservices.em4.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 4 (em4)</option>
-                                <option value="https://myservices.la1.oraclecloud.com/mycloud/faces/dashboard.jspx">LAD Commercial 1 (la1)</option>
-                                <option value="https://myservices.us.oraclecloud.com/mycloud/faces/dashboard.jspx">Public Cloud Services - US</option>
-                                <option value="https://myservices.emea.oraclecloud.com/mycloud/faces/dashboard.jspx">Public Cloud Services - EMEA</option>
-                            </select>
-                        </div>
-                    </div>                
-                </div>
-                <div class="oj-sm-12 oj-flex-item login-form-group">
-                    <div class="oj-flex">
-                        <div class="oj-sm-8 oj-flex-item">
-                            <input id="phoneNumber" type="text" class="input-text"
-                                   data-bind="ojComponent: {component: 'ojInputText', 
-                                                            placeholder: 'Telephone number(optional)', 
-                                                            value: phoneNumber}"/>
-                        </div>
-                    </div>                
-                </div>
-                <div class="oj-sm-12 oj-flex-item">
-                    <div class="oj-flex  login-box">
-                        <div class="oj-flex-item">
-                            <a class="red-button  oj-lg-9 oj-sm-10" data-bind="click: login">Login</a>
-                        </div>
-                        <div class="oj-flex-item">
-                            <a href="#" class="forgotten">Forgotten your password?</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="oj-sm-12 oj-flex-item">
-                    <p class="login-footer">&copy; Oracle <a class="red" href="#">Legal Notices</a> I <a class="red" href="#">Terms of Use</a> I <a class="red" href="#">Privacy Policy</a></p>  
 
-                </div>
-            </div>
-        </div>
+<div class="login-page  oj-flex oj-sm-align-items-center oj-md-align-items-center oj-sm-flex-direction-column oj-padding-horizontal">
+
+    <div class="oj-flex-item welcome-content">
+        <h2>Login to</h2>
+    </div>
+    <div class="oj-flex-item welcome-content">
+        <h2>Hexicloud</h2>
+    </div>
+    <hr class="login-form-group">
+    <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-flex-item login-form-group" data-bind="visible: loginFailureText() != ''">
+
+        <span data-bind="text: loginFailureText" class="error-message-text"></span> 
 
     </div>
+    <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-flex-item login-form-group">
+        <input id="username" type="text" class="input-text"
+               data-bind="ojComponent: {component: 'ojInputText', 
+                                                           placeholder: 'Username', 
+                                                           value: userName,
+                                                           invalidComponentTracker: tracker,
+                                                           required: true,
+                                                           rootAttributes: {style:'max-width:100%'} ,
+                                                           translations: {'required': {
+                                                                         messageDetail: 'Please enter a valid user name'}}
+                                                           }"/>
+    </div>
+    <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-flex-item login-form-group">
+
+        <input id="password" type="password" class="input-text"
+               data-bind="ojComponent: {component: 'ojInputPassword', 
+                                                   placeholder: 'Password', 
+                                                   value: password,
+                                                    rootAttributes: {style:'max-width:100%'} ,
+                                               invalidComponentTracker: tracker,
+                                               required: true, 
+                                               translations: {'required': {messageDetail: 'Please enter the password'}}}"/>
+    </div>
+    <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-flex-item login-form-group">
+        <input id="iDomain" type="text" class="input-text"
+               data-bind="ojComponent: {component: 'ojInputText', 
+                                                   placeholder: 'Identity Domain',
+                                                           rootAttributes: {style:'max-width:100%'} , 
+                                                   value: iDomain}"/>
+    </div>
+    <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-flex-item login-form-group">
+        <select id="dataCenter" class="select" data-bind="ojComponent: {component: 'ojSelect',
+                                                                        value: dataCenter,
+                                                                        rootAttributes: {style:'max-width:100%'}}">
+            <option value="" selected="">Select Data Center...</option>
+            <option value="https://myservices.us1.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 1 (us1)</option>
+            <option value="https://myservices.us2.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 2 (us2)</option>
+            <option value="https://myservices.us6.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 6 (us6)</option>
+            <option value="https://myservices.us8.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 8 (us8)</option>
+            <option value="https://myservices.ap1.oraclecloud.com/mycloud/faces/dashboard.jspx">APAC Commercial 1 (ap1)</option>
+            <option value="https://myservices.ap2.oraclecloud.com/mycloud/faces/dashboard.jspx">APAC Commercial 2 (ap2)</option>
+            <option value="https://myservices.ap4.oraclecloud.com/mycloud/faces/dashboard.jspx">APAC Commercial 4 (ap4)</option>
+            <option value="https://myservices.ca2.oraclecloud.com/mycloud/faces/dashboard.jspx">CA Commercial 2 (ca2)</option>
+            <option value="https://myservices.ca3.oraclecloud.com/mycloud/faces/dashboard.jspx">CA Commercial 3 (ca3)</option>
+            <option value="https://myservices.em1.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 1 (em1)</option>
+            <option value="https://myservices.em2.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 2 (em2)</option>
+            <option value="https://myservices.em3.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 3 (em3)</option>
+            <option value="https://myservices.em4.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 4 (em4)</option>
+            <option value="https://myservices.la1.oraclecloud.com/mycloud/faces/dashboard.jspx">LAD Commercial 1 (la1)</option>
+            <option value="https://myservices.us.oraclecloud.com/mycloud/faces/dashboard.jspx">Public Cloud Services - US</option>
+            <option value="https://myservices.emea.oraclecloud.com/mycloud/faces/dashboard.jspx">Public Cloud Services - EMEA</option>
+        </select>
+    </div>
+    <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-flex-item login-form-group">
+        <input id="phoneNumber" type="text" class="input-text"
+               data-bind="ojComponent: {component: 'ojInputText', 
+                                                   placeholder: 'Telephone number(optional)', 
+                                                   value: phoneNumber,
+                                                 rootAttributes: {style:'max-width:100%'}}"/>
+    </div>
+    <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-flex-item login-form-group">
+        <div class="oj-flex oj-sm-align-items-center oj-sm-only-flex-direction-column">
+            <div class="oj-flex-item oj-lg-4 oj-md-5 oj-sm-10 login-form-group">
+                <a class="red-button" data-bind="click: login">Login</a>
+            </div>
+            <div class="oj-flex-item oj-md-7 oj-md-justify-content-flex-end login-form-group">
+                <a href="#" class="forgotten">Forgotten your password?</a>
+            </div>
+        </div>
+    </div>
+    <div class="oj-flex-item oj-sm-align-items-center">
+        <p class="login-footer">&copy; Oracle <a class="red" href="#">Legal Notices</a> I <a class="red" href="#">Terms of Use</a> I <a class="red" href="#">Privacy Policy</a></p>  
+    </div>
+
 </div>

@@ -23,6 +23,7 @@ and open the template in the editor.
 }
 .login-page hr {
     border-top: 1px solid #b1c7d2;
+    width: 85%;
 }
 
 .login-page .login-form-group {
@@ -31,20 +32,17 @@ and open the template in the editor.
 
 .login-page .input-text {
     height: 3.5rem !important;
-    width: 540px;
-    padding-left: 10%;
+    padding-left: 5%;
 }
-.login-page .select {
+.login-page #oj-select-choice-dataCenter {
     height: 3.5rem !important;
-    width: 540px;
-    padding-left: 6%;
-    border-color: white;
+    padding-left: 5%;
 }
 
 .login-page .forgotten {
     display: inline-block;
-    margin-top: 43px;
-    float: right;
+    /*margin-top: 43px;*/
+    /*float: right;*/
     font-size: 15px; 
 }
 
@@ -56,31 +54,45 @@ and open the template in the editor.
     font-size: 15px;
     text-align: center; 
 }
+
+.login-page .oj-messaging-inline-container .oj-message.oj-message-error {
+     background-color: transparent; 
+     border-color: transparent; 
+}
+.login-page .oj-messaging-inline-container .oj-message {
+     padding: 0px; 
+     border-style: none; 
+     border-width: 0px; 
+}
+.login-page .oj-message-detail {
+    color: red;
+    white-space: normal;
+}
 /* Large Devices, Wide Screens */
 /* Medium Devices, Desktops */
 /* Small Devices, Tablets */
 /* Extra Small Devices, Phones */
+
+@media print, screen and (min-width: 481px) {
+    .login-page .forgotten {
+        float: right;
+    }
+}
 @media only screen and (max-width: 480px) {
     .login-page {
-        margin-top: 20px;
+        margin-top: 45px;
     }
     .login-page  .welcome-content h2 {
         font-size: 50px;
     }
     .login-page .input-text {
-        height: 3.5rem !important;
-        width: 350px;
         padding-left: 10%;;
     }
-    .login-page .select {
-        height: 3.5rem !important;
-        width: 350px;
-        padding-left: 6%;
+    .login-page #oj-select-choice-dataCenter {
+        padding-left: 10%;
     }
-    .login-page .login-box {
-        width: 350px;
-        -webkit-flex-direction: column;
-        flex-direction: column;
+    .login-page .red-button {
+        padding: 0px !important;
     }
 }
 
