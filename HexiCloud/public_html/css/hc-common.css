@@ -232,7 +232,7 @@ p.lg {
 
 .red-button {
     background-color: #ee4f50 !important;
-/*    padding: 10px 30px;*/
+    /*    padding: 10px 30px;*/
     display: inline-block;
     text-align: center;
     height: 54px;
@@ -282,9 +282,15 @@ p.lg {
     p.lg {
         font-size: 18px; 
     }
-
     .white-button, .red-button, .blue-button {
         margin: 0 auto;
         display: table;
+    }
+    .mainBackGroundImage {
+        background-image:url('../img/bg-image.jpg');
+        background-size: cover;
+        /*background-repeat: no-repeat;*/
+        background-position: center center;
+        /*background-color: #335C62 !important;*/
     }
 }
