@@ -21,7 +21,7 @@ define(['ojs/ojcore',
                     router.go('/addAnother');
 			slideOutAnimate();
                         //$.fn.fullpage.moveSlideLeft();
-		}, 600);
+		}, 500);
                 $('.blur-node1, .blur-node2').addClass('animate');
                 
                 
@@ -30,14 +30,14 @@ define(['ojs/ojcore',
                 loggedInUserRole('itAdmin');
                 setTimeout(function(){
                     router.go('/addAnother');
-			slideOutAnimate(1000, 0);
+			slideOutAnimate(1500, 0);
                         //$.fn.fullpage.moveSlideLeft();
-		}, 600);
+		}, 500);
                 $('.blur-node1, .blur-node2').addClass('animate');
             };
 
             self.handleAttached = function() {
-                slideInAnimate(600, 0);
+                slideInAnimate(500, 0);
             };
         }
         

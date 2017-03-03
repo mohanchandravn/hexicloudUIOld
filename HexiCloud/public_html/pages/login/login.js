@@ -26,6 +26,19 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
 
         self.dataCenter = ko.observable();
         self.phoneNumber = ko.observable();
+
+        self.returnLgXlClass = ko.computed(function () {
+            var range = viewportSize();
+             return (range === 'LG' || range === 'XL') ? 'margin-left-half' : '';
+
+        });
+        
+        self.returnFlexStart = ko.computed(function () {
+            var range = viewportSize();
+             return (range === 'LG' || range === 'XL') ? 'oj-lg-align-items-flex-start' : '';
+
+        });
+        
         self.handleBindingsApplied = function () {
 
             $("#iDomain").on('keyup paste cut', function () {
@@ -43,7 +56,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
         };
 
         self.handleAttached = function () {
-            slideInAnimate(600, 0);
+            slideInAnimate(500, 0);
         };
 
         self.login = function () {
@@ -78,17 +91,17 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         self.loginFailureText("");
                         setTimeout(function () {
                             router.go('chooseRoleNew/');
-                        }, 600);
-                        slideOutAnimate(1000, 0);
+                        }, 500);
+                        slideOutAnimate(1500, 0);
                         router.go('chooseRoleNew/');
                     } else {
-                        self.loginFailureText("Username or password do not match");
+                        self.loginFailureText("Invalid Username or Password");
                     }
                 };
 
                 var failCallBackFn = function (xhr) {
                     console.log(xhr);
-                    self.loginFailureText("Username or password do not match");
+                    self.loginFailureText("Invalid Username or Password");
                 };
                 service.authenticate({
                     "userId": self.userName(),
@@ -138,8 +151,8 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                     sessionInfo.setToSession(sessionInfo.isLoggedInUser, true);
                     setTimeout(function () {
                         router.go('chooseRoleNew/');
-                    }, 600);
-                    slideOutAnimate(1000, 0);
+                    }, 500);
+                    slideOutAnimate(1500, 0);
                     router.go('chooseRoleNew/');
                 }
             }

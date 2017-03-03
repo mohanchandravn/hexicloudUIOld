@@ -23,11 +23,11 @@ and open the template in the editor.
 }
 .login-page hr {
     border-top: 1px solid #b1c7d2;
-    width: 85%;
+    width: 67%;
 }
 
 .login-page .login-form-group {
-    margin-bottom: 12px;
+    margin-bottom: 11px;
 }
 
 .login-page .input-text {
@@ -68,6 +68,11 @@ and open the template in the editor.
     color: red;
     white-space: normal;
 }
+
+.margin-left-half {
+    margin-left: 50%;
+}
+
 /* Large Devices, Wide Screens */
 /* Medium Devices, Desktops */
 /* Small Devices, Tablets */
@@ -77,6 +82,12 @@ and open the template in the editor.
     .login-page .forgotten {
         float: right;
     }
+}
+
+@media only screen and (max-width: 1280px) {
+   .login-page hr {
+    width: 85%;
+}
 }
 @media only screen and (max-width: 480px) {
     .login-page {
