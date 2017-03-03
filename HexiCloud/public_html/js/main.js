@@ -138,7 +138,6 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
 
                 self.showHeaderNav = ko.computed( function() {
                     var id = router.currentState().id;
-                    console.log(id);
                     if (id === 'dashboard') {
                         return "";
                     } else {

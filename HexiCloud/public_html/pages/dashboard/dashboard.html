@@ -4,96 +4,45 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<div class="dashboard-page oj-offcanvas-outer-wrapper">
-    <div class="oj-offcanvas-inner-wrapper oj-flex">
-        <!--<navigationbarleft id="navigationDrawerLeft" class="nav-left-pane oj-flex-item"></navigationbarleft>-->
-        <div class="dashboard oj-sm-12 oj-md-12 oj-flex-item">
-             <!--if: !isScreenXL() -->
-<!--            <div class="oj-flex-bar">
-                <button id="start" class="oj-flex-bar-start" 
-                        data-bind="click: toggleLeft,
-                                   ojComponent: {component:'ojButton', 
-                                   label: 'Toggle start offcanvas', 
-                                   chroming: 'half',
-                                   display: 'icons', 
-                                   icons: {start: 'oj-fwk-icon-hamburger oj-fwk-icon'}}">
-                </button>
-                <button id="end" class="oj-lg-hide oj-flex-bar-end"
-                        data-bind="click: toggleRight,
-                                   ojComponent: {component:'ojButton', 
-                                   label: 'Toggle end offcanvas', 
-                                   chroming: 'half',
-                                   display: 'icons', 
-                                   icons: {end: 'oj-fwk-icon-hamburger oj-fwk-icon'}}">
-                </button>
-            </div>-->
-            
-            <div class="dashboard-heading oj-sm-align-items-center oj-flex">
-                <div class="oj-sm-12 oj-md-12 oj-lg-6 oj-flex-item">
-                    <div class="oj-sm-justify-content-center oj-flex">
-                        <span data-bind="text: runningCPUCount() + ' out of ' + totalCPUCount() + ' OCPUs '"></span>
-                        <img src="img/mini-compute-icon.png" alt="icon thumbnail"/>
-                    </div>
+<div class="dashboard-page oj-flex">
+    <div class="dashboard oj-sm-12 oj-flex-item">
+        <span class="content-title bold oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">Use Cases</span>
+        <div class="content-detail oj-flex">
+            <div class="usecase-container oj-flex-item">
+                <div class="usecase1 oj-flex">
+                    <span class="usecase-title oj-sm-12 oj-flex-item">Use Case</span>
+                    <span class="usecase-content oj-sm-12 oj-flex-item">Migrate Non Oracle Workloads to the Public Cloud</span>
+                    <span class="open-usecase oj-sm-12 oj-flex-item">read use case ></span>
                 </div>
-                <div class="oj-sm-12 oj-md-12 oj-lg-6 oj-flex-item">
-                    <div class="oj-sm-justify-content-center oj-flex">
-                        <span data-bind="text: currentUsedMemory() + '% Memory '"></span>
-                        <img src="img/mini-DB-Icon.png" alt="icon thumbnail"/>
-                    </div>
+                <div class="usecase2 oj-flex">
+                    <span class="usecase-title oj-sm-12 oj-flex-item">Extended Use Case for added value</span>
+                    <span class="usecase-content oj-sm-12 oj-flex-item">Oracle Ravello Cloud Service</span>
+                    <span class="usecase-title open-usecase oj-sm-12 oj-flex-item">read use case ></span>
                 </div>
             </div>
-            <div class="dashboard-services-content oj-flex">
-                <span class="labelled-button-title" data-bind="text: 'My Services Preview'"></span>
-                <span class="labelled-button" data-bind="click: function(data){ router.go('service')},text: 'SEE ALL'"></span>
-                <div class="service-menu oj-sm-12 oj-flex-item">
-                    <div class="oj-flex" data-bind="foreach: servicesArray">
-                        <div class="service-item oj-margin oj-flex-item" data-bind="css: $parent.checkServiceStatus(status)">
-                            <span class="service-heading oj-sm-justify-content-center oj-flex" data-bind="text: serviceType"></span>
-                            <div class="service-details oj-flex">
-                                <img src="img/DashBoard-Comp-icon.png" alt="icon thumbnail"/>
-                                <span class="service-instance-count oj-sm-2 oj-flex-item" data-bind="text: runningInstances"></span>
-                                <div>
-                                    <span class="oj-flex" data-bind="text: 'instance'"></span>
-                                    <span class="oj-flex" data-bind="text: 'running'"></span>
-                                </div>
-                            </div>
-                            <div class="service-usage-details oj-flex">
-                                <div class="oj-sm-12 oj-flex-item">
-                                    <span class="bold" data-bind="text: cpuUsage + usageMetric"></span><span data-bind="text: ' Volume'"></span>
-                                </div>
-                                <div class="oj-sm-12 oj-flex-item">
-                                    <span class="bold" data-bind="text: ramSize + usageMetric"></span><span data-bind="text: ' Memory'"></span>
-                                </div>
-                            </div>
-                            <div class="oj-sm-justify-content-center oj-flex">
-                                <span class="service-learn-more" data-bind="text: 'LEARN MORE'"></span>
-                            </div>
+            <div class="usecase-detail-container oj-flex-item">
+                <div class="usecase-detail-item oj-flex" style="height: 900px; border: 1px solid red;">
+                    <div class="oj-sm-12 oj-flex-item">
+                        <div class="usecase-img-container oj-flex">
+                            <img class="usecase-detail-image" src="img/logo.png" alt="Image" />
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="dashboard-services-content oj-flex">
-                <span class="labelled-button-title" data-bind="text: 'My Guided Paths Preview'"></span>
-                <span class="labelled-button" data-bind="click: function(data){ router.go('learning')},text: 'SEE ALL'"></span>
-                <div class="service-menu oj-sm-12 oj-flex-item">
-                    <div class="oj-flex" data-bind="foreach: guidedPathsArray">
-                        <div class="oj-sm-12 oj-flex-item">
-                            <div class="paths-menu oj-sm-align-items-center oj-flex">
-                                <img src="img/DashBoard-DB-icon.png" alt="icon thumbnail"/>
-                                <span class="oj-sm-3 oj-flex-item" data-bind="text: 'Step Description'"></span>
-                                <span class="bold" data-bind="text: 'Guided Path Title'"></span>
-                                <span class="steps-count" data-bind="text: 'Steps ' + stepCount + ' out of ' + totalSteps"></span>
-                                <div class="oj-flex-item oj-margin">
-                                    <div class="oj-flex-bar">
-                                        <div class="oj-sm-flex-direction-column oj-flex-bar-start">
-                                            <label for="progressPercentage">PROGRESS</label>
-                                            <div id="progressPercentage" data-bind="ojComponent:{
-                                                      component: 'ojProgressbar', 
-                                                      value: percentage,
-                                                      rootAttributes: {style: 'width: 200px;'}}">
-                                            </div>
-                                        </div>
-                                        <span class="oj-flex-bar-end oj-padding labelled-button" data-bind="click: function(data){ router.go('learningFlow')}, text: path"></span>
+                        <span class="usecase-detail-heading oj-flex">Migrate to the Public Cloud</span>
+                        <div class="detail-container oj-flex">
+                            <span class="oj-sm-12 oj-flex-item">Discover how you can:</span>
+                            <ul class="oj-xl-6 oj-flex-item">
+                                <li>Setup your site</li>
+                                <li>Size your VMs</li>
+                                <li>Choose your image</li>
+                            </ul>
+                            <ul class="oj-xl-6 oj-flex-item">
+                                <li>Organise storage</li>
+                                <li>Design your network</li>
+                                <li>Automate Resource Management</li>
+                            </ul>
+                            <div class="oj-flex-item">
+                                <div class="readmore-button oj-flex-bar">
+                                    <div class="oj-flex-bar-end">
+                                        <a class="red-button max-width-200px">Read More</a>
                                     </div>
                                 </div>
                             </div>
@@ -102,6 +51,5 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-        <!--<navigationbarright id="navigationDrawerRight" class="nav-right-pane oj-flex-item"></navigationbarright>-->
     </div>
 </div>
