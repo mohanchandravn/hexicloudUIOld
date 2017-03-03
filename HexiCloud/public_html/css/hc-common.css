@@ -13,8 +13,12 @@ body {
     font-weight: normal;
 }
 
-header {
+header-content {
     height: 80px;
+}
+
+#module {
+    margin-top: 80px;
 }
 
 html, body, .responsive-height {

@@ -7,7 +7,7 @@
 /**
  * dashboard module
  */
-define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'config/sessionInfo', 'ojs/ojprogressbar', 'ojs/ojoffcanvas'
+define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'config/sessionInfo', 'ojs/ojprogressbar'
 ], function ($, ko, oj, service, sessionInfo) {
     /**
      * The view model for the main content view template
@@ -220,6 +220,10 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'config/sess
             return (oj.OffcanvasUtils.open(navigationDrawerLeft));
         };
         
+        self.toggleContactType = function() {
+            alert('contact');
+        };
+        
         self.toggleRight = function() {
 //            if ($("#navigationDrawerLeft").hasClass('oj-offcanvas-open')) {
 //                oj.OffcanvasUtils.close(navigationDrawerLeft);
@@ -233,16 +237,16 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'config/sess
         self.handleAttached = function() {
             self.getServiceDetails();
             
-            $("#navigationIconLeft").click(function() {
-                self.toggleLeft();
-            });
-            
-            $("#test").click(function() {
-                alert('inner');
-            });
+//            $("#navigationIconLeft").click(function() {
+//                self.toggleLeft();
+//            });
+//            
+//            $("#test").click(function() {
+//                alert('inner');
+//            });
             
             // setup the Navigation and Ancillary offcanvases for the responsive layout
-            oj.OffcanvasUtils.setupResponsive(navigationDrawerLeft);
+//            oj.OffcanvasUtils.setupResponsive(navigationDrawerLeft);
 //            oj.OffcanvasUtils.setupResponsive(navigationDrawerRight);
         };
         

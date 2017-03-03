@@ -6,11 +6,11 @@ and open the template in the editor.
 
 <div class="navigation-left oj-flex">
     <div class="oj-sm-12 oj-flex-item">
-        <!--<a id="navClose"><i class="material-icons">close</i></a>-->
+        <a id="navClose" data-bind="click: toggleLeft"><i class="material-icons">close</i></a>
         <ul class="nav-list">
             <li>
                 <div class="oj-flex-bar">
-                    <div class="oj-flex-bar-start"><i class="material-icons left">home</i><span>Dashboard</span></div>
+                    <div class="oj-flex-bar-start"><i class="material-icons">home</i><span>Dashboard</span></div>
                 </div>
             </li>
             <li>
@@ -38,18 +38,18 @@ and open the template in the editor.
                     <div class="oj-flex-bar-start"><span>Assistance</span></div>
                 </div>
             </li>
-            <li>
+            <li data-bind="click: toggleContactType">
                 <div class="oj-flex-bar">
                     <div class="oj-flex-bar-start"><span>Contact</span></div>
-                    <div class="oj-flex-bar-end"><i class="material-icons left">keyboard_arrow_down</i></div>
-                </div>
-            </li>
-<!--            <li><a href="#">Contact <i class="material-icons">keyboard_arrow_down</i></a>
-                    <ul class="nav-list oj-sm-hide">
+                    <div class="oj-flex-bar-end"><i class="material-icons">keyboard_arrow_down</i></div>
+                    <ul id="contactType" class="nav-list oj-sm-hide">
                         <li class="sub-nav"><a href="#"><i class="material-icons left">email</i> email</a></li>
                         <li class="sub-nav"><a href="#"><i class="material-icons left">phone</i> Call</a></li>
                         <li class="sub-nav"><a href="#"><i class="material-icons left">chat</i> Chat</a></li>
                     </ul>
+                </div>
+            </li>
+<!--            <li><a href="#">Contact <i class="material-icons">keyboard_arrow_down</i></a>
             </li>-->            
             <li>
                 <div class="oj-flex-bar">

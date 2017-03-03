@@ -51,10 +51,21 @@ requirejs.config({
  */
 
 require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknockout',
-    'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule', 'ojs/ojmoduleanimations', 'ojs/ojanimation'],
+    'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule', 'ojs/ojmoduleanimations', 'ojs/ojanimation', 'ojs/ojoffcanvas'],
         function (oj, ko, $, sessionInfo)
         {
             var self = this;
+            
+            var navigationDrawerLeft;//, navigationDrawerRight;
+
+            navigationDrawerLeft = {
+                "selector": "#navigationDrawerLeft",
+                "edge": "start",
+                "displayMode": "push",
+                "autoDismiss": "none",
+                "modality": "modeless"//,
+        //        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.XL_UP)
+            };
             
             //oj.Assert.forceDebug();
             //oj.Logger.option('level', oj.Logger.LEVEL_INFO);
@@ -124,19 +135,15 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
 
                 self.slideInEffect = ko.observable('slideIn');
                 self.slideOutEffect = ko.observable('slideOut');
-                
-//                self.disableVideo = ko.computed( function() {
-//                    console.log(router.currentState().id !== 'home' || router.currentState().id !== 'login');
-//                    return !(router.currentState().id === 'home' || router.currentState().id === 'login');
-//                });
-                
+
                 self.showHeaderNav = ko.computed( function() {
                     var id = router.currentState().id;
+                    console.log(id);
                     if (id === 'dashboard') {
                         return "";
                     } else {
                         return "visibility-hidden";
-                    } 
+                    }
                 });
                 
                 self.screenRange = oj.ResponsiveKnockoutUtils.createScreenRangeObservable();
@@ -191,8 +198,20 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 };
 
                 self.dashboardServices = ko.observableArray([]);
-//                document.cookie = "nimbula=eyJpZGVudGl0eSI6ICJ7XCJyZWFsbVwiOiBcImNvbXB1dGUtZW0yLXoxMlwiLCBcInZhbHVlXCI6IFwie1xcXCJjdXN0b21lclxcXCI6IFxcXCJDb21wdXRlLWdzZTAwMDAwNTE0XFxcIiwgXFxcInJlYWxtXFxcIjogXFxcImNvbXB1dGUtZW0yLXoxMlxcXCIsIFxcXCJlbnRpdHlfdHlwZVxcXCI6IFxcXCJ1c2VyXFxcIiwgXFxcInNlc3Npb25fZXhwaXJlc1xcXCI6IDE0ODYwMzQyMzAuMjM1MjA0LCBcXFwiZXhwaXJlc1xcXCI6IDE0ODYwMjU2MzUuNDA5ODIxLCBcXFwidXNlclxcXCI6IFxcXCIvQ29tcHV0ZS1nc2UwMDAwMDUxNC9jbG91ZC5hZG1pblxcXCIsIFxcXCJncm91cHNcXFwiOiBbXFxcIi9Db21wdXRlLWdzZTAwMDAwNTE0L0NvbXB1dGUuQ29tcHV0ZV9Nb25pdG9yXFxcIiwgXFxcIi9Db21wdXRlLWdzZTAwMDAwNTE0L0NvbXB1dGUuQ29tcHV0ZV9PcGVyYXRpb25zXFxcIl19XCIsIFwic2lnbmF0dXJlXCI6IFwiclRyTlNnVytrdnNZMG56MWhlOTRmS2V5Tjg3NDBQRU10NUhPVkdrSDF3Si8veFdkSnBGaytxWUFuc0tDNTBLQy9mSU1jS01kMzBaN201ZXlSL2I1ekZNUHR4VUdqaVExMkMybnFPVEFOSHQrRlQrcW9HQXNzRnFPcXlkaGhyb2hCKzFjbldubzV4K1d5Mi9wOGlibllpRSswNHBsS21HYlpEMmxhVGVCcTJKbGRSVXMwdjgrODlUeWRQd0dpQUZjWXJkUE9GSnljdjNQMm5pcjdqYStRZ1F6ZzlrSTFxRk4rNlJSdXRvQXhtK0d6RFk4MVgrTGFmN0RNL1RLN08xNXpPUERZalBEUkxjUUEyZnRrRURHYUxMVVhxMlA4Zm56N3BzU3pTYUZOWGJnK2x5WkUrUVV6Q3hDd3p1Nk5DU0laOXE0TUFoY21ub3ZMNkhqMDNmMldRPT1cIn0ifQ==";
-//                document.cookie = "atgRecVisitorId=11C9P_gPbvotlemq3jnCeAbaFmWOzRjoIXTBVSyM4iM5YJc7C5B";
+                
+                self.toggleContactType = function() {
+                    alert('contact');
+                };
+                self.toggleLeft = function() {
+                    if ($("#navigationDrawerLeft").hasClass('oj-offcanvas-open')) {
+                        oj.OffcanvasUtils.close(navigationDrawerLeft);
+                        $("#navigationIconLeft").removeClass('oj-sm-hide');
+                        return true;
+                    }
+                    $("#navigationIconLeft").addClass('oj-sm-hide');
+                    return (oj.OffcanvasUtils.open(navigationDrawerLeft));
+                };
+
                 $(window).resize(function () {
                     if (oj.ResponsiveUtils.compare(self.screenRange(), oj.ResponsiveUtils.SCREEN_RANGE.LG) < 0) {
                         self.isChatInitialized(false);
@@ -239,8 +258,13 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
             ;
 
 
-            $(document).ready(function ()
-            {
+            $(document).ready(function () {
+//                $("#navigationIconLeft").click(function() {
+//                    self.toggleLeft();
+//                });
+                // setup the Navigation and Ancillary offcanvases for the responsive layout
+                oj.OffcanvasUtils.setupResponsive(navigationDrawerLeft);
+                
                 oj.Router.sync().then(function () {
                     ko.applyBindings(viewModel(), document.getElementById('routing-container'));
                 });
