@@ -8,7 +8,20 @@ define(['ojs/ojcore',
             self.handleAttached = function() {
                 slideInAnimate(600, 0);
             };
+            var screenRange = viewportSize();
+            if(screenRange)
+            {
+                if(screenRange !== 'SM' &&  screenRange !== 'MD'){
+                    self.followStepsContaineCss = 'follow-steps-container';
+                }
+                else
+                {
+                    self.followStepsContaineCss = "";
+                }
+            }
+            
         }
+        
         
         return addUsersTutorialViewModel;
     

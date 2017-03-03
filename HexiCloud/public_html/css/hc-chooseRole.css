@@ -53,7 +53,7 @@ and open the template in the editor.
 .chooseRoleContainer {
 /*        text-align: center;*/
 position: relative;
-margin-top: 80px;
+margin-top: 60px;
 }
 .chooseRoleContainer h2{
        color: #00758f;
@@ -158,5 +158,123 @@ margin-top: 80px;
     margin: 0 0 10px;
     font-family: 'Roboto-thin', sans-serif;
     padding-top: 5px;
+}
+
+.grey-button {
+    color: #fff !important;
+    font-size: 18px;
+    padding: 8px 30px;
+    display: inline-block;
+    text-align: center;
+/*    height: 40px;*/
+    border-radius: 20px;
+    margin: 20px 10px 20px 0;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    background: -moz-linear-gradient(top, #7e929f 0%, #b0c7d3 100%);
+    background: -webkit-linear-gradient(top, #7e929f 0%, #b0c7d3 100%);
+    background: linear-gradient(to bottom, #7e929f 0%, #b0c7d3 100%)
+}
+
+.grey-button:hover {
+    color: #fff;
+    opacity: 0.8;
+    text-decoration: none
+}
+
+.grey-button:focus {
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+.grey-button .material-icons {
+    font-size: 22px !important;
+    padding: 2px 9px !important;
+    vertical-align: middle;
+/*    color: #fff !important;*/
+}
+
+
+/*.create-user-steps-continer ul ul{
+    padding-left: 17px;
+}*/
+
+/*.create-user-steps-continer .step{
+    font-size: 18px;
+    color: #00758f;
+    font-family: 'Roboto-thin', sans-serif;
+}*/
+
+.create-user-steps-container ol li{
+    font-size: 22px;
+    line-height: 32px;
+    margin: 10px 0;
+}
+.create-user-steps-container ol li ul li
+{
+    list-style-type: disc;
+    color: #00758f;
+    font-size: 18px;
+}
+
+.create-user-steps-container ol li ul li span{
+    color: #4e5052 !important;
+}
+/*.create-user-steps-container .steps-bulltet-text{
+    color: #4e5052 !important;
+}*/
+
+hr{
+    border-top: 1px solid #b1c7d2
+}
+
+.deep-red-button {
+    background-color: #F80000;
+    color: #fff;
+    font-size: 24px;
+    padding: 9px 30px;
+    display: inline-block;
+    text-align: center;
+    height: 54px;
+    border-radius: 27px;
+    margin: 20px;
+    opacity: 0.65;
+    min-width: 230px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.deep-red-button:hover {
+    background-color: #C80000;
+    color: #fff;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.fadeIn {
+        -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.follow-steps-container {
+        left: 8.333333333333332%;
+    position: relative;
 }
 

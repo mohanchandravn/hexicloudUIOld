@@ -13,12 +13,12 @@ define(['ojs/ojcore',
             {
                 if(loggedInUserRole() === 'accountAdmin')
                 {
-                     self.headerTitle('Would you like to add another account admin?');
+                     self.headerTitle('Please confirm if you would like to add another Account Admin?');
                     self.addButtonLabel('Add admin now »');
                 }
                 else if(loggedInUserRole() === 'itAdmin')
                 {
-                    self.headerTitle('Would you like to add users now?');
+                    self.headerTitle('Please confirm if you would like to add users now?');
                     self.addButtonLabel('Add users now »');
                 }
             }
