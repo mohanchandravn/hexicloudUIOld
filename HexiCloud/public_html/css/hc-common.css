@@ -287,10 +287,12 @@ p.lg {
         display: table;
     }
     .mainBackGroundImage {
+        margin:0 auto;
         background-image:url('../img/bg-image.jpg');
         background-size: cover;
-        /*background-repeat: no-repeat;*/
+        background-repeat: no-repeat;
         background-position: center center;
+        background-attachment:fixed;
         /*background-color: #335C62 !important;*/
     }
 }
