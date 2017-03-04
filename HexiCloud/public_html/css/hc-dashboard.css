@@ -153,7 +153,10 @@ and open the template in the editor.
 .guided-path-status-continue {
     background: orange;
 }
-
+.provisioned-services.dashboard .content.stage h1,
+.provisioned-services.dashboard .content.stage p{
+   text-align: left; 
+}
 @media screen and (max-width: 1280px) {
     .dashboard {
         padding: 40px 10px 10px 10px;
