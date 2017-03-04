@@ -283,3 +283,13 @@ hr{
     position: relative;
 }
 
+.addAnother-page p {
+    margin-bottom: 18px;
+    text-align: center;
+}
+.addAnother-page p.lg {
+    font-size: 22px;
+    line-height: 32px;
+    margin-bottom: 18px;
+}
+
