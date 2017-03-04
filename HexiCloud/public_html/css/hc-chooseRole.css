@@ -53,7 +53,8 @@ and open the template in the editor.
 .chooseRoleContainer {
 /*        text-align: center;*/
 position: relative;
-margin-top: 60px;
+margin-top: 40px;
+
 }
 .chooseRoleContainer h2{
        color: #00758f;
@@ -206,6 +207,16 @@ margin-top: 60px;
     color: #00758f;
     font-family: 'Roboto-thin', sans-serif;
 }*/
+@media print and (orientation: landscape), screen and (min-width: 1024px) {
+ .create-user-steps-container {
+     height: 500px;
+     padding-right: 20px;
+     overflow-y: auto;
+}
+}
+/*.create-user-steps-container {
+    overflow-y : auto;
+}*/
 
 .create-user-steps-container ol li{
     font-size: 22px;
@@ -276,5 +287,18 @@ hr{
 .follow-steps-container {
         left: 8.333333333333332%;
     position: relative;
+}
+
+.chooseRoleContainer .addusers-img-container 
+{
+  content: "";
+  position: absolute;
+  background: url("../img/add-user-step.png") no-repeat;
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+  right:0;
+      top: 75px;
+    left: 25px;
 }
 

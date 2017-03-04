@@ -100,7 +100,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 'csmadmin': {label: 'CSM Admin', value: getPath('csmadmin')},
                 'samplecsv': {label: 'Sample CSV', value: getPath('samplecsv')},
                 'addAnother': {label: 'Add Another', value: getPath('addAnother')},
-                        'addUsersTut': {label: 'Add Users Tutorial', value: getPath('addUsersTutorial')}
+                 'addUsersTut': {label: 'Add Users Tutorial', value: getPath('addUsersTutorial')},
+                 'techSupport': {label: 'Techical Support', value: getPath('techSupport')}
             });
 
             function viewModel() {
