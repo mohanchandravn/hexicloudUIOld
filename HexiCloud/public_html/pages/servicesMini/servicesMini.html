@@ -116,16 +116,16 @@ and open the template in the editor.
                 <div class="oj-flex-item">
                     <div class="oj-flex oj-flex-items-pad oj-md-justify-content-center">
                         <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact">
-                            <img src="img/call.png" class="img-responsive">
+                            <img src="img/call.png" class="img-responsive" data-bind="click: displayCall">
                             <h4>Call 01234 567890</h4>
                             <p>Telephone support hours: 9:00am-5:00pm (CET) or <a href="#">request a call back »</a></p>
                         </div>
-                        <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact">
+                        <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact" data-bind="click: displayChat">
                             <img src="img/chat.png" class="img-responsive">
                             <h4>Start Chat &raquo;</h4>
                             <p>Chat support hours: 9:00am-5:00pm (CET)</p>
                         </div>
-                        <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact">
+                        <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact" data-bind="click: displayMail">
                             <img src="img/email.png" class="img-responsive">
                             <h4>Email &raquo;</h4>
                             <p>Response guaranteed by the next working day</p>
@@ -143,3 +143,86 @@ and open the template in the editor.
         </div>
     </div>
 </div>
+<div id="tech_support" class="tech-support-container oj-lg-3 oj-sm-12">
+    
+    <div class="oj-flex oj-sm-flex-direction-column navContainer">
+        <div class="oj-flex-item">
+            <a id="chat" data-bind="click: viewChatContent">
+						<i class="material-icons" style="opacity: 1;">chat</i>
+					</a>
+            <a id="call" data-bind="click: viewCallContent">
+						<i class="material-icons" style="opacity: 1;">phone</i>
+					</a>
+            <a id="mail" data-bind="click: viewMailContent">
+						<i class="material-icons" style="opacity: 1;">mail</i>
+					</a>
+            <a href="#" data-bind="click: closeTechSupportLayout">
+						<i class="material-icons close-button" style="opacity: 1;">clear</i>
+					</a>
+				</div>
+        <div class='oj-flex-item' data-bind="template: selectedTemplate">
+            
+        </div>
+    </div>
+    
+</div>
+
+
+<script type="text/html" id='email_content'>		
+        <div class="oj-flex-item">          
+                <input type="text" id="from" placeholder="From:">
+            
+        </div>
+         <div class="oj-flex-item">          
+                <input type="text" id="from" placeholder="To:">
+            
+        </div>
+        <div class="oj-flex-item">
+							<textarea rows="10" id="comment" placeholder="Please comment on your provisioned services issue..."></textarea>
+						</div>
+         <div class="oj-flex-item">
+		<div class="oj-flex oj-sm-justify-content-flex-end">
+                    <button class="email-submit-btn" data-bind="ojComponent: {component: 'ojButton',
+                                              label: 'Send »'}" ></button>
+                </div>
+             
+         </div>
+</script>
+
+<script type="text/html" id='phone_content'>
+<div class= "oj-flex phoneContainer">
+ <div class="oj-flex-item form-background">
+   <h4>Call 01234 567890</h4>
+   <p>Telephone support hours: 9:00am-5:00pm (CET)</p>
+ </div>
+ 
+ <div class="oj-flex-item form-background">
+ <h4>Request a callback</h4>
+ <p>Select your preferred callback time</p>
+ <div class="oj-flex oj-sm-flex-wrap-nowrap" data-bind="css: phoneContainerBtLayoutCss">
+                    <button class="phone-submit-btn" data-bind="ojComponent: {component: 'ojButton',
+                                              label: 'AM'}" ></button>
+                     <button class="phone-submit-btn" data-bind="ojComponent: {component: 'ojButton',
+                                              label: 'PM'}" ></button>                      
+                </div>
+ </div>
+ </div>
+</script>
+
+<script type="text/html" id='chat_content'>
+<div class= "oj-flex oj-sm-flex-direction-column chatContainer">
+   <div class="oj-flex-item">
+   <textarea rows="15" id="comment" placeholder="Please comment on your provisioned services issue..."></textarea>
+   </div>
+   <div class="oj-flex-item">
+   <div class="oj-flex">
+   <div class=oj-flex-item>
+   <input type="text" class="form-control message" id="to" placeholder="Simon: Hi Michel! How can I help you?">
+   </div>
+   <div class="oj-sm-flex-items-initial square">
+  <i class="material-icons" style="opacity: 1;">keyboard_arrow_right</i>
+   </div>
+   </div>
+   </div>
+ </div>
+</script>
