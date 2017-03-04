@@ -3,64 +3,139 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
-<div class="oj-flex responsive-height">
-    <div class="oj-panel main-backgroud-opaque-layer" >
-        <div class="olive-sorround-div">
-            <div class="oj-panel oj-margin olive-background-panel">
-                <span class="services-mini-top-heading" data-bind="text: 'Are your services displayed as expected?'"></span>
-                <div class="services-mini-menu">
-                    <div class="mini-services-scroll-container">
-                        <div id="masonryLayout" data-bind="ojComponent: {component: 'ojMasonryLayout'}">
-                            <!-- ko foreach: sservicesArray -->
-
-                            <div class="services-mini-item" 
-                                 data-bind="css: sizeClass">
-                                <span class="services-mini-heading oj-sm-justify-content-center oj-flex" data-bind="text: productTier5"></span>
-                                <div class="services-details oj-flex">
-                                    <img data-bind="attr:{src:iaasImage}" alt="icon thumbnail"/>
-                                    <span class="service-instance-count oj-flex-item" data-bind="text: additionalInfo"></span>
-
-                                </div>
-                                <div class="services-mini-usage-details oj-flex">
-                                    <div class="oj-sm-flex-direction-column oj-sm-10 oj-flex-item">
-                                        <span class="oj-sm-10 oj-flex-item" data-bind="text: 'CPU'"></span>                              
-                                        <div id="progressPercentage" data-bind="ojComponent:{
-                                          component: 'ojProgressbar', 
-                                          value: cpuUsage}">
-                                        </div>                            
-                                    </div>
-                                    <div class="oj-sm-flex-direction-column oj-sm-10 oj-flex-item">
-                                        <span data-bind="text: 'MEM'"></span>
-                                        <div id="progressPercentage" data-bind="ojComponent:{
-                                          component: 'ojProgressbar', 
-                                          value: memUsage}">
-                                        </div>           
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <!-- /ko -->
+<div class="provisioned-services oj-sm-align-items-center oj-padding-horizontal">
+    <div class="oj-flex-item">
+        <div class="oj-flex oj-flex-items-pad oj-md-align-items-center oj-sm-flex-direction-column">
+            <div class="oj-flex-item oj-md-8">
+                <div class="content stage">
+                    <h1>Your Services</h1>
+                    <hr>
+                    <p class="text-center">Please see below for an overview of your provisioned cloud services</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="oj-flex-item animated fadeIn oj-margin-lg-vertical">
+        <img src="img/service-step.png" class="img-responsive">
+    </div>
+    <div class="oj-flex-item">
+        <div class="oj-flex oj-flex-items-pad oj-md-justify-content-center">
+            <div class="oj-flex-item oj-md-10 oj-lg-4 oj-xl-3">
+                <div class="service blue">
+                    <div class="head">
+                        <div class="laas"><img src="img/laas-icon.png">laaS</div>
+                        <img src="img/service-icon.png">
+                        <p class="metered">METERED</p>
+                        <h4>Compute</h4>
+                    </div>
+                    <div class="body">
+                        <div class="col-60">
+                            <p class="instances"><span>3</span></p>
+                            <p>Instances running</p>
                         </div>
+                        <div class="col-40">
+                            <p><span>3</span> OCPU</p>
+                            <p><span>22.5</span> MB Memory</p>
+                            <p><span>307</span> GB Storage</p>
+                        </div>
+                        <img src="img/graph-green.png">
                     </div>
                 </div>
-
-                <div class="oj-flex-items-pad">
-
-                    <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">
-                        <div class="oj-hybrid-padding"> </div>
-                        <div class="oj-flex-item">
-                            <div class="standard-button oj-sm-justify-content-center oj-flex" data-bind="click: gotoGuidedPaths">
-                                <span data-bind="text: 'YES'">YES</span>
-                            </div>
+            </div>
+            <div class="oj-flex-item oj-md-10 oj-lg-4 oj-xl-3">
+                <div class="service green">
+                    <div class="head">
+                        <div class="laas"><img src="img/laas-icon.png">PaaS</div>
+                        <img src="img/service-icon.png">
+                        <p class="metered">&nbsp;</p>
+                        <h4>JCS</h4>
+                    </div>
+                    <div class="body">
+                        <div class="col-60">
+                            <p class="instances"><span>1</span></p>
+                            <p>Instances running</p>
                         </div>
-                        <div class="oj-hybrid-padding"> </div>
-                        <div class="oj-hybrid-padding"> </div>
-                        <div class="oj-flex-item">
-                            <div class="standard-button oj-sm-justify-content-center oj-flex" data-bind="click: raiseSR">
-                                <span data-bind="text: 'NO'">NO</span>
-                            </div>
+                        <div class="col-40">
+                            <p><span>2</span> OCPU</p>
+                            <p><span>15</span> MB Memory</p>
+                            <p><span>122</span> GB Storage</p>
+                        </div>
+                        <img src="img/graph-green.png">
+                    </div>
+                </div>
+            </div>
+            <div class="oj-flex-item oj-md-10 oj-lg-4 oj-xl-3">
+                <div class="service purple">
+                    <div class="head">
+                        <div class="laas"><img src="img/laas-icon.png">PaaS</div>
+                        <img src="img/service-icon.png">
+                        <p class="metered">&nbsp;</p>
+                        <h4>DBCS</h4>
+                    </div>
+                    <div class="body">
+                        <div class="col-60">
+                            <p class="instances"><span>1</span></p>
+                            <p>Instances running</p>
+                        </div>
+                        <div class="col-40">
+                            <p><span>1</span> OCPU</p>
+                            <p><span>7.5</span> MB Memory</p>
+                            <p><span>185</span> GB Storage</p>
+                        </div>
+                        <img src="img/graph-green.png">
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <div class="oj-flex-item" data-bind="visible: servicesAsExpected">
+        <div class="oj-flex oj-flex-items-pad oj-md-align-items-center oj-sm-flex-direction-column">
+            <div class="oj-flex-item oj-md-8">
+                <h1 class="text-center">Please confirm if your cloud services are provisioned correctly</h1>
+            </div>
+            <div class="oj-flex-item">
+                <div class="oj-flex oj-padding-horizontal text-center">
+                    <div class="oj-flex-item ">
+                        <a class="deep-red-button" data-bind="click: goToDashboard">Yes</a>
+
+                    </div>
+                    <div class="oj-flex-item">
+                        <a class="deep-red-button" data-bind="click: contactSupport">No</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="oj-hybrid-padding"></div>
+    <div data-bind="visible: showSupportPanel">
+        <div class="oj-flex-item">
+            <div class="oj-flex oj-flex-items-pad oj-md-align-items-center oj-sm-flex-direction-column">
+                <div class="oj-flex-item oj-md-8">
+                    <h1 class="text-center">Please contact us to resolve your issue</h1>
+                </div>
+                <div class="oj-flex-item">
+                    <div class="oj-flex oj-flex-items-pad oj-md-justify-content-center">
+                        <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact">
+                            <img src="img/call.png" class="img-responsive">
+                            <h4>Call 01234 567890</h4>
+                            <p>Telephone support hours: 9:00am-5:00pm (CET) or <a href="#">request a call back »</a></p>
+                        </div>
+                        <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact">
+                            <img src="img/chat.png" class="img-responsive">
+                            <h4>Start Chat &raquo;</h4>
+                            <p>Chat support hours: 9:00am-5:00pm (CET)</p>
+                        </div>
+                        <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact">
+                            <img src="img/email.png" class="img-responsive">
+                            <h4>Email &raquo;</h4>
+                            <p>Response guaranteed by the next working day</p>
+                        </div>
+                    </div>    
+                </div>
+                <div class="oj-flex-item">
+                    <div class="oj-flex oj-padding-horizontal text-center">
+                        <div class="oj-flex-item ">
+                            <a class="deep-red-button" data-bind="click: goToDashboard">Continue to Dashboard &raquo;</a>
                         </div>
                     </div>
                 </div>
@@ -68,64 +143,3 @@ and open the template in the editor.
         </div>
     </div>
 </div>
-
-
-
-
-<!-- Original content before integrating with Registry id -->
-<!--<div class="oj-flex responsive-height">
-    <div class="oj-panel main-backgroud-opaque-layer" >
-        <div class="olive-sorround-div">
-            <div class="oj-panel oj-margin olive-background-panel">
-                <span class="services-mini-top-heading oj-flex-item" data-bind="text: 'Are your services displayed as expected?'"></span>
-                <div class="services-mini-menu oj-sm-12 oj-flex-item">             
-                    <div class="oj-flex" data-bind="foreach: sservicesArray">
-                        <div class="services-mini-item oj-flex-item">
-                            <span class="services-mini-heading oj-sm-justify-content-center oj-flex" data-bind="text: serviceType"></span>
-                            <div class="services-details oj-flex">
-                                <img src="img/mini-compute-icon.png" alt="icon thumbnail"/>
-                                <span class="service-instance-count oj-sm-2 oj-flex-item" data-bind="text: runningInstances"></span>
-                                <div class="oj-sm-2 oj-flex-item">
-                                    <span data-bind="text: 'instance'"></span>
-                                    <span data-bind="text: 'running'"></span>
-                                </div>
-                            </div>
-                            <div class="services-mini-usage-details oj-flex">
-                                <div class="oj-sm-flex-direction-column oj-sm-10 oj-flex-item">
-                                    <span class="oj-sm-10 oj-flex-item" data-bind="text: 'CPU'"></span>                              
-                                    <div id="progressPercentage" data-bind="ojComponent:{
-                                          component: 'ojProgressbar', 
-                                          value: cpuUsage}">
-                                    </div>                            
-                                </div>
-                                <div class="oj-sm-flex-direction-column oj-sm-10 oj-flex-item">
-                                    <span data-bind="text: 'MEM'"></span>
-                                    <div id="progressPercentage" data-bind="ojComponent:{
-                                          component: 'ojProgressbar', 
-                                          value: memUsage}">
-                                    </div>           
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="oj-flex-items-pad">
-                    <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">
-                        <div class="oj-flex-item">
-                            <div class="standard-button oj-sm-justify-content-center oj-flex" data-bind="click: gotoGuidedPaths">
-                                <span data-bind="text: 'YES'">YES</span>
-                            </div>
-                        </div>
-                        <div class="oj-hybrid-padding"> </div>
-                        <div class="oj-hybrid-padding"> </div>
-                        <div class="oj-flex-item">
-                            <div class="standard-button oj-sm-justify-content-center oj-flex" data-bind="click: raiseSR">
-                                <span data-bind="text: 'NO'">NO</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->

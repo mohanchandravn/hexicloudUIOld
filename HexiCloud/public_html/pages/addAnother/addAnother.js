@@ -4,8 +4,11 @@ define(['ojs/ojcore',
         
         function createUsersViewModel (params){
             var self = this;
+            self.greetingText = ko.observable("Thanks, " + userFirstLastName());
+            self.roleConfirmationText=ko.observable("");
             self.headerTitle = ko.observable("");
             self.addButtonLabel = ko.observable("");
+            self.skipHelpText = ko.observable("To skip this step, select ‘skip’ and begin checking your provisioned cloud services now.");
             self.skipButtonLabel = "Skip this step »";
             var router = params.ojRouter.parentRouter;
             
@@ -13,12 +16,14 @@ define(['ojs/ojcore',
             {
                 if(loggedInUserRole() === 'accountAdmin')
                 {
-                     self.headerTitle('Please confirm if you would like to add another Account Admin?');
+                    self.roleConfirmationText('You’ve told us you’re a buyer.');
+                    self.headerTitle('To add another account admin, select ‘Add admin now’ for a step-by-step guide.');
                     self.addButtonLabel('Add admin now »');
                 }
                 else if(loggedInUserRole() === 'itAdmin')
                 {
-                    self.headerTitle('Please confirm if you would like to add users now?');
+                     self.roleConfirmationText('You’ve told us you’re a ID admin.')
+                    self.headerTitle('To add more users, select ‘Add users now’ for a step-by-step guide.');
                     self.addButtonLabel('Add users now »');
                 }
             }
@@ -26,12 +31,12 @@ define(['ojs/ojcore',
             self.onClickAddUser = function () {
                 setTimeout(function(){
                     router.go('addUsersTut/');
-                }, 600);
-                slideOutAnimate(1000, 0);
+                }, 500);
+                slideOutAnimate(1500, 0);
             };
 
             self.handleAttached = function() {
-                slideInAnimate(600, 0);
+                slideInAnimate(500, 0);
             };
         }
         

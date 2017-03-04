@@ -6,9 +6,62 @@ and open the template in the editor.
 
 <div class="navigation-left oj-flex">
     <div class="oj-sm-12 oj-flex-item">
-        <a id="navClose"><i class="material-icons">close</i></a>
+        <a id="navClose" data-bind="click: toggleLeft"><i class="material-icons">close</i></a>
         <ul class="nav-list">
-            <li><a href="#"><i class="material-icons left">home</i> Dashboard</a></li>
+            <li>
+                <div class="oj-flex-bar">
+                    <div class="oj-flex-bar-start"><i class="material-icons">home</i><span>Dashboard</span></div>
+                </div>
+            </li>
+            <li>
+                <div class="oj-flex-bar">
+                    <div class="oj-flex-bar-start"><span>Services</span></div>
+                </div>
+            </li>
+            <li>
+                <div class="oj-flex-bar">
+                    <div class="oj-flex-bar-start"><span>Use Cases</span></div>
+                </div>
+            </li>
+            <li>
+                <div class="oj-flex-bar">
+                    <div class="oj-flex-bar-start"><span>Guided paths</span></div>
+                </div>
+            </li>
+            <li>
+                <div class="oj-flex-bar">
+                    <div class="oj-flex-bar-start"><span>Resources</span></div>
+                </div>
+            </li>
+            <li>
+                <div class="oj-flex-bar">
+                    <div class="oj-flex-bar-start"><span>Assistance</span></div>
+                </div>
+            </li>
+            <li data-bind="click: toggleContactType">
+                <div class="oj-flex-bar">
+                    <div class="oj-flex-bar-start"><span>Contact</span></div>
+                    <div class="oj-flex-bar-end"><i class="material-icons">keyboard_arrow_down</i></div>
+                    <ul id="contactType" class="nav-list oj-sm-hide">
+                        <li class="sub-nav"><a href="#"><i class="material-icons left">email</i> email</a></li>
+                        <li class="sub-nav"><a href="#"><i class="material-icons left">phone</i> Call</a></li>
+                        <li class="sub-nav"><a href="#"><i class="material-icons left">chat</i> Chat</a></li>
+                    </ul>
+                </div>
+            </li>
+<!--            <li><a href="#">Contact <i class="material-icons">keyboard_arrow_down</i></a>
+            </li>-->            
+            <li>
+                <div class="oj-flex-bar">
+                    <div class="oj-flex-bar-start"><span>My Profile</span></div>
+                </div>
+            </li>            
+            <li>
+                <div class="oj-flex-bar">
+                    <div class="oj-flex-bar-start"><span>Logout</span></div>
+                </div>
+            </li>		
+<!--            <li><a href="#"><i class="material-icons left">home</i> Dashboard</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Use Cases</a></li>
             <li><a href="#">Guided paths</a></li>
@@ -22,7 +75,7 @@ and open the template in the editor.
                     </ul>
             </li>
             <li><a href="#">My Profile</a></li>
-            <li><a href="#">Logout</a></li>		
+            <li><a href="#">Logout</a></li>		-->
         </ul>
     </div>
 <!--    <div class="nav-profile oj-sm-12 oj-flex-item">

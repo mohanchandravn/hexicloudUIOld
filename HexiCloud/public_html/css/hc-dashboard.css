@@ -9,12 +9,154 @@ and open the template in the editor.
 */
 
 .dashboard {
-    background-color: white;
-    /*max-width: 1240px;*/
-        /*max-width: 77%;*/
-    /*padding: 40px 30px 50px 100px;*/
+    /*min-height: calc(100vh - 80px);*/
 }
 
+.bold {
+    font-weight: bold;
+}
+
+.content-title {
+    font-size: 48px;
+    color: #324b5c;
+    border-bottom: 1px solid #324b5c
+}
+
+.content-detail {
+    margin-top: 20px;
+}
+
+.usecase-container {
+    max-width: 400px;
+}
+
+.usecase1, .usecase2 {
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 27px;
+    border: 1px solid #000;
+    background-color: rgba(216, 225, 229, 1);
+}
+
+.usecase2 {
+    margin-top: 30px;
+}
+
+.usecase-title {
+    font-size: 16px;
+}
+
+.usecase-content {
+    font-size: 26px;
+    min-height: 56px;
+}
+
+.open-usecase {
+    cursor: pointer;
+    text-align: right;
+}
+
+.usecase-detail-container {
+    margin-left: 20px;
+    background-color: rgba(216, 225, 229, 1);
+}
+
+.usecase-detail-item {
+    max-width: 843px;
+    margin: 20px 40px;
+    padding: 20px;
+    border: 1px solid #000;
+}
+
+.usecase-img-container {
+    height: 160px;
+    margin-bottom: 30px;
+}
+
+.usecase-detail-image {
+    width: 100%;
+}
+
+.usecase-detail-heading {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.usecase-detail-heading2 {
+    font-size: 26px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.detail-container {
+    margin: 0 20px;
+    font-size: 20px;
+}
+
+.detail-container  li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.readmore-button {
+    border-bottom: 1px solid #324b5c;
+}
+
+.guided-path-container {
+    border: 1px solid #000;
+    border-radius: 27px;
+    padding: 10px 20px;
+    margin-top: 5px;
+}
+
+.guided-path-container .progressbar-item {
+    margin-right: 20px;
+}
+
+.guided-path-container .oj-progressbar {
+    border-radius: 27px;
+    /*border: 2px solid white;*/
+    background-color: orange;
+}
+
+.guided-path-container .oj-progressbar-value {
+    /*border-right: 2px solid white;*/
+    background-color: green;
+}
+
+.guided-path-container i {
+    font-size: 24px !important;
+    cursor: pointer;
+}
+
+.guided-path-detail {
+    border: 0.5px solid #000;
+    margin: 5px 20px 0 20px;
+    /*padding: 15px;*/
+}
+
+.guided-path-detail-item {
+    margin: 10px;
+}
+
+.guided-path-status-continue, .guided-path-status-complete {
+    width: 100px;
+    color: white;
+    text-align: center;
+    padding: 3px 20px;
+    border-radius: 27px;
+}
+
+.guided-path-status-complete {
+    background: green;
+}
+
+.guided-path-status-continue {
+    background: orange;
+}
+.provisioned-services.dashboard .content.stage h1,
+.provisioned-services.dashboard .content.stage p{
+   text-align: left; 
+}
 @media screen and (max-width: 1280px) {
     .dashboard {
         padding: 40px 10px 10px 10px;
@@ -29,129 +171,6 @@ and open the template in the editor.
 
 @media screen and (min-width: 1281px) {
     .dashboard {
-        /*max-width: calc(100% - 250px);*/
-        padding: 40px 120px 50px 100px;
+        margin: 80px 120px 80px 120px;
     }
-}
-
-.dashboard-heading {
-    min-height: 100px;
-    font-size: 32px;
-    color: #E5DDCD;
-    background-color: #253741;
-}
-
-.dashboard-heading img {
-    width: 44px;
-    height: 44px;
-    margin-top: 2px;
-    margin-left: 10px;
-}
-
-.dashboard-services-content {
-    padding-top: 20px
-}
-
-.service-menu {
-    margin-top: 10px;
-}
-
-.labelled-button-title {
-    font-weight: 500;
-}
-
-.dashboard .labelled-button {
-    width: 120px;
-    font-size: 11px;
-    border: 1px solid #848E94;
-    text-align: center;
-    margin-left: 30px;
-    cursor: pointer;
-}
-
-.dashboard .service-usage-details {
-    /*margin-top: 20px;*/
-    margin-left: 10px;
-}
-
-.dashboard .service-learn-more {
-    width: 120px;
-    font-size: 11px;
-    border: 1px solid #848E94;
-    text-align: center;
-    margin: 10px 20px;
-    cursor: pointer;
-}
-
-.service-item {
-    max-width: 180px;
-    box-sizing: border-box;
-    border: 1px solid #405058;
-}
-
-.service-heading {
-    border-bottom: 1px solid #405058;
-    font-size: 10px;
-    font-weight: 500;
-}
-
-.service-item img {
-    width: 44px;
-    height: 44px;
-}
-
-.service-details {
-    height: 60px;
-    font-size: 16px;
-    font-weight: 500;
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-.service-instance-count {
-    font-size: 28px;
-    font-weight: normal;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.paths-menu {
-    margin: 10px 0px;
-    min-height: 70px;
-    border: 1px solid #405058;
-}
-
-
-.paths-menu img {
-    width: 44px;
-    height: 44px;
-    margin: 0px 10px;
-}
-
-.paths-menu .steps-count {
-    margin: 0px 30px;
-}
-
-.padding4px {
-    padding: 4px;
-}
-
-.dashboard .oj-progressbar-value {
-    background-color: #253741;
-}
-
-.paths-mini-menu {
-    margin: 10px 0px;
-    height: 70px;
-    border: 1px solid #ffffff;
-    color:#ffffff;
-}
-.paths-mini-menu img {
-    width: 44px;
-    height: 44px;
-    margin: 0px 10px;
 }

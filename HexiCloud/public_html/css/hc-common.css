@@ -13,8 +13,12 @@ body {
     font-weight: normal;
 }
 
-header {
+header-content {
     height: 80px;
+}
+
+#module {
+    margin-top: 80px;
 }
 
 html, body, .responsive-height {
@@ -36,6 +40,7 @@ html, body, .responsive-height {
 
 navigationbarleft {
     width: 340px;
+    max-width: 340px;
     top: 0;
 }
 
@@ -227,7 +232,7 @@ p.lg {
 
 .red-button {
     background-color: #ee4f50 !important;
-/*    padding: 10px 30px;*/
+    /*    padding: 10px 30px;*/
     display: inline-block;
     text-align: center;
     height: 54px;
@@ -245,6 +250,32 @@ p.lg {
 .red-button:hover {
     color: #fff;
     text-decoration: none; 
+}
+
+.overlay {
+    /*position: fixed;*/
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: url(../img/bg-overlay.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.mainBackGroundImage {
+    margin:0 auto;
+    background-image:url('../img/bg-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment:fixed;
+    /*background-color: #335C62 !important;*/
+}
+@media only screen and (min-width: 1280px) {
+    .mainBackGroundImage {
+        background-image:url('../img/bg-image-xs.jpg');
+        /*background-color: #335C62 !important;*/
+    }
 }
 /*.red-button.inverted {
     color: #ee4f50;
@@ -277,7 +308,6 @@ p.lg {
     p.lg {
         font-size: 18px; 
     }
-
     .white-button, .red-button, .blue-button {
         margin: 0 auto;
         display: table;

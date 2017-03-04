@@ -15,7 +15,10 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
         //local
 //        self.portalRestHost = ko.observable("http://127.0.0.1:7101/");
         //GSE JCS
-        self.portalRestHost = ko.observable("https://140.86.1.93/");
+//        self.portalRestHost = ko.observable("https://140.86.1.93/");
+        
+         // New GSE JCS
+        self.portalRestHost = ko.observable("https://129.152.128.105/");
         
         self.serverURI = ko.observable("https://documents-gse00002841.documents.us2.oraclecloud.com/documents/link/");
         

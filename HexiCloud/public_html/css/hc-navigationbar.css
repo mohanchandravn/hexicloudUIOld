@@ -8,6 +8,9 @@ and open the template in the editor.
     Author     : nyasarap
 */
 
+navigationbarleft {
+    background-color: rgba(216, 225, 229, 0.9);
+}
     
 .chat-window {
     position: fixed;
@@ -62,20 +65,36 @@ and open the template in the editor.
     cursor: pointer;
 }
 
-.navigation-left {
-    color: #324b5c;
-    background-color: rgba(216, 225, 229, 1);
-}
-
 .nav-list {
-    padding-top: 10px;
+    margin: 0px;
     padding-left: 0;
     list-style: none;
 }
 
 .nav-list li {
     font-size: 20px;
+    color: #324b5c;
+    padding: 16px 30px;
+    height: 54px;
+    box-sizing: border-box;
     cursor: pointer;
+}
+
+.nav-list li i {
+    font-size: 28px !important;
+}
+
+.navigation-left a#navClose {
+    float: right;
+    padding: 10px 10px 0px 0px;
+}
+
+.nav-list li:first-child {
+    margin-top: 10px;
+}
+
+.nav-list li:first-child span {
+    margin-left: 10px;
 }
 
 .nav-list li:not(:last-child) {
@@ -85,14 +104,7 @@ and open the template in the editor.
 .nav-list li.sub-nav:not(:last-child) {
     border-bottom: 2px solid #b0c6d1;
 }
-
-.nav-list li a{
-    color: #324b5c;
-    text-decoration: none;
-    padding: 16px 30px;
-    display: block;
-    max-height: 60px;
-}
+/*
 .navigation-left .logout span {
     margin-top: 15px;
 }
@@ -105,7 +117,7 @@ and open the template in the editor.
     border: 1px solid white;
     margin-top: 250px;
     cursor: pointer;
-}
+}*/
 
 .nav-list-right {
     /* margin: 200px 24px; */

@@ -3,97 +3,318 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
-<div class="dashboard-page oj-offcanvas-outer-wrapper">
-    <div class="oj-offcanvas-inner-wrapper oj-flex">
-        <navigationbarleft id="navigationDrawerLeft" class="nav-left-pane oj-flex-item"></navigationbarleft>
-        <div class="dashboard oj-sm-12 oj-md-12 oj-flex-item">
-             <!--if: !isScreenXL() -->
-<!--            <div class="oj-flex-bar">
-                <button id="start" class="oj-flex-bar-start" 
-                        data-bind="click: toggleLeft,
-                                   ojComponent: {component:'ojButton', 
-                                   label: 'Toggle start offcanvas', 
-                                   chroming: 'half',
-                                   display: 'icons', 
-                                   icons: {start: 'oj-fwk-icon-hamburger oj-fwk-icon'}}">
-                </button>
-                <button id="end" class="oj-lg-hide oj-flex-bar-end"
-                        data-bind="click: toggleRight,
-                                   ojComponent: {component:'ojButton', 
-                                   label: 'Toggle end offcanvas', 
-                                   chroming: 'half',
-                                   display: 'icons', 
-                                   icons: {end: 'oj-fwk-icon-hamburger oj-fwk-icon'}}">
-                </button>
-            </div>-->
-            
-            <div class="dashboard-heading oj-sm-align-items-center oj-flex">
-                <div class="oj-sm-12 oj-md-12 oj-lg-6 oj-flex-item">
-                    <div class="oj-sm-justify-content-center oj-flex">
-                        <span data-bind="text: runningCPUCount() + ' out of ' + totalCPUCount() + ' OCPUs '"></span>
-                        <img src="img/mini-compute-icon.png" alt="icon thumbnail"/>
-                    </div>
-                </div>
-                <div class="oj-sm-12 oj-md-12 oj-lg-6 oj-flex-item">
-                    <div class="oj-sm-justify-content-center oj-flex">
-                        <span data-bind="text: currentUsedMemory() + '% Memory '"></span>
-                        <img src="img/mini-DB-Icon.png" alt="icon thumbnail"/>
-                    </div>
+<div class="provisioned-services dashboard oj-sm-align-items-center oj-padding-horizontal">
+    <div class="oj-flex-item">
+        <div class="oj-flex oj-flex-items-pad oj-md-align-items-center oj-sm-flex-direction-column">
+            <div class="oj-flex-item oj-md-10">
+                <div class="content stage">
+                    <h1>Your Services</h1>
+                    <hr>
+                    <p class="text-center">Please see below for an overview of your provisioned cloud services</p>
                 </div>
             </div>
-            <div class="dashboard-services-content oj-flex">
-                <span class="labelled-button-title" data-bind="text: 'My Services Preview'"></span>
-                <span class="labelled-button" data-bind="click: function(data){ router.go('service')},text: 'SEE ALL'"></span>
-                <div class="service-menu oj-sm-12 oj-flex-item">
-                    <div class="oj-flex" data-bind="foreach: servicesArray">
-                        <div class="service-item oj-margin oj-flex-item" data-bind="css: $parent.checkServiceStatus(status)">
-                            <span class="service-heading oj-sm-justify-content-center oj-flex" data-bind="text: serviceType"></span>
-                            <div class="service-details oj-flex">
-                                <img src="img/DashBoard-Comp-icon.png" alt="icon thumbnail"/>
-                                <span class="service-instance-count oj-sm-2 oj-flex-item" data-bind="text: runningInstances"></span>
-                                <div>
-                                    <span class="oj-flex" data-bind="text: 'instance'"></span>
-                                    <span class="oj-flex" data-bind="text: 'running'"></span>
-                                </div>
-                            </div>
-                            <div class="service-usage-details oj-flex">
-                                <div class="oj-sm-12 oj-flex-item">
-                                    <span class="bold" data-bind="text: cpuUsage + usageMetric"></span><span data-bind="text: ' Volume'"></span>
-                                </div>
-                                <div class="oj-sm-12 oj-flex-item">
-                                    <span class="bold" data-bind="text: ramSize + usageMetric"></span><span data-bind="text: ' Memory'"></span>
-                                </div>
-                            </div>
-                            <div class="oj-sm-justify-content-center oj-flex">
-                                <span class="service-learn-more" data-bind="text: 'LEARN MORE'"></span>
-                            </div>
+        </div>
+    </div>
+    <div class="oj-flex-item">
+        <div class="oj-flex oj-flex-items-pad oj-md-justify-content-center">
+            <div class="oj-flex-item oj-md-10 oj-lg-4 oj-xl-4">
+                <div class="service blue">
+                    <div class="head">
+                        <div class="laas"><img src="img/laas-icon.png">laaS</div>
+                        <img src="img/service-icon.png">
+                        <p class="metered">METERED</p>
+                        <h4>Compute</h4>
+                    </div>
+                    <div class="body">
+                        <div class="col-60">
+                            <p class="instances"><span>3</span></p>
+                            <p>Instances running</p>
                         </div>
+                        <div class="col-40">
+                            <p><span>3</span> OCPU</p>
+                            <p><span>22.5</span> MB Memory</p>
+                            <p><span>307</span> GB Storage</p>
+                        </div>
+                        <img src="img/graph-green.png">
                     </div>
                 </div>
             </div>
-            <div class="dashboard-services-content oj-flex">
-                <span class="labelled-button-title" data-bind="text: 'My Guided Paths Preview'"></span>
-                <span class="labelled-button" data-bind="click: function(data){ router.go('learning')},text: 'SEE ALL'"></span>
-                <div class="service-menu oj-sm-12 oj-flex-item">
-                    <div class="oj-flex" data-bind="foreach: guidedPathsArray">
-                        <div class="oj-sm-12 oj-flex-item">
-                            <div class="paths-menu oj-sm-align-items-center oj-flex">
-                                <img src="img/DashBoard-DB-icon.png" alt="icon thumbnail"/>
-                                <span class="oj-sm-3 oj-flex-item" data-bind="text: 'Step Description'"></span>
-                                <span class="bold" data-bind="text: 'Guided Path Title'"></span>
-                                <span class="steps-count" data-bind="text: 'Steps ' + stepCount + ' out of ' + totalSteps"></span>
-                                <div class="oj-flex-item oj-margin">
-                                    <div class="oj-flex-bar">
-                                        <div class="oj-sm-flex-direction-column oj-flex-bar-start">
-                                            <label for="progressPercentage">PROGRESS</label>
-                                            <div id="progressPercentage" data-bind="ojComponent:{
-                                                      component: 'ojProgressbar', 
-                                                      value: percentage,
-                                                      rootAttributes: {style: 'width: 200px;'}}">
+            <div class="oj-flex-item oj-md-10 oj-lg-4 oj-xl-4">
+                <div class="service green">
+                    <div class="head">
+                        <div class="laas"><img src="img/laas-icon.png">PaaS</div>
+                        <img src="img/service-icon.png">
+                        <p class="metered">&nbsp;</p>
+                        <h4>JCS</h4>
+                    </div>
+                    <div class="body">
+                        <div class="col-60">
+                            <p class="instances"><span>1</span></p>
+                            <p>Instances running</p>
+                        </div>
+                        <div class="col-40">
+                            <p><span>2</span> OCPU</p>
+                            <p><span>15</span> MB Memory</p>
+                            <p><span>122</span> GB Storage</p>
+                        </div>
+                        <img src="img/graph-green.png">
+                    </div>
+                </div>
+            </div>
+            <div class="oj-flex-item oj-md-10 oj-lg-4 oj-xl-4">
+                <div class="service purple">
+                    <div class="head">
+                        <div class="laas"><img src="img/laas-icon.png">PaaS</div>
+                        <img src="img/service-icon.png">
+                        <p class="metered">&nbsp;</p>
+                        <h4>DBCS</h4>
+                    </div>
+                    <div class="body">
+                        <div class="col-60">
+                            <p class="instances"><span>1</span></p>
+                            <p>Instances running</p>
+                        </div>
+                        <div class="col-40">
+                            <p><span>1</span> OCPU</p>
+                            <p><span>7.5</span> MB Memory</p>
+                            <p><span>185</span> GB Storage</p>
+                        </div>
+                        <img src="img/graph-green.png">
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <div class="oj-flex-item">
+        <div class="oj-flex oj-sm-flex-direction-column oj-sm-align-items-flex-end">
+            <div class="oj-flex-item">
+                <a class="deep-red-button">View All &raquo;</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dashboard-page oj-flex">
+    <div class="dashboard oj-sm-12 oj-flex-item">
+        <span class="content-title bold oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">Use Cases</span>
+        <div class="content-detail oj-flex">
+            <div class="usecase-container oj-flex-item">
+                <div class="usecase1 oj-flex">
+                    <span class="usecase-title oj-sm-12 oj-flex-item">Use Case</span>
+                    <span class="usecase-content oj-sm-12 oj-flex-item">Migrate Non Oracle Workloads to the Public Cloud</span>
+                    <span class="open-usecase oj-sm-12 oj-flex-item">read use case ></span>
+                </div>
+                <div class="usecase2 oj-flex">
+                    <span class="usecase-title oj-sm-12 oj-flex-item">Extended Use Case for added value</span>
+                    <span class="usecase-content oj-sm-12 oj-flex-item">Oracle Ravello Cloud Service</span>
+                    <span class="usecase-title open-usecase oj-sm-12 oj-flex-item">read use case ></span>
+                </div>
+            </div>
+            <div class="usecase-detail-container oj-flex-item">
+                <div class="usecase-detail-item oj-flex">
+                    <div class="oj-sm-12 oj-flex-item">
+                        <div class="usecase-img-container oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">
+                            <img class="usecase-detail-image" src="img/discover.jpg" alt="Image" />
+                        </div>
+                        <span class="usecase-detail-heading oj-flex">Migrate to the Public Cloud</span>
+                        <div class="detail-container oj-flex">
+                            <span class="oj-sm-12 oj-flex-item">Discover how you can:</span>
+                            <div class="oj-xl-6 oj-flex-item">
+                                <ul>
+                                    <li>Setup your site</li>
+                                    <li>Size your VMs</li>
+                                    <li>Choose your image</li>
+                                </ul>
+                            </div>
+                            <div class="oj-xl-6 oj-flex-item">
+                                <ul>
+                                    <li>Organise storage</li>
+                                    <li>Design your network</li>
+                                    <li>Automate Resource Management</li>
+                                </ul>
+                            </div>
+                            <div class="oj-sm-12 oj-flex-item">
+                                <div class="readmore-button oj-flex-bar">
+                                    <div class="oj-flex-bar-end">
+                                        <a class="red-button">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="usecase-detail-heading2 oj-flex">Welcome to the Compute Guided Path</span>
+                            <span class="oj-sm-12 oj-flex-item">Here you will find out how to:</span>
+                            <div class="oj-sm-12 oj-flex-item">
+                                <!-- Guided Path 0 -->
+                                <div id="guidedPath0" class="guided-path-container oj-flex-bar">
+                                    <div class="oj-sm-align-items-center oj-flex-bar-start">
+                                        Generate SSH Key Pairs
+                                    </div>
+                                    <div class="oj-sm-align-items-center oj-flex-bar-end">
+                                        <div id="progressPercentage" class="progressbar-item"
+                                             data-bind="ojComponent:{
+                                                            component: 'ojProgressbar', 
+                                                            value: 65,
+                                                            rootAttributes: {style: 'width: 200px;'}}">
+                                        </div>
+                                        <i id="0" class="material-icons" data-bind="click: togglePath">add</i>
+                                    </div>
+                                </div>
+                                <div id="guidedPathDetail0" class="guided-path-detail oj-flex oj-sm-hide">
+                                    <div class="oj-sm-12 oj-flex-item">
+                                        <div class="guided-path-detail-item oj-flex-bar">
+                                            <div class="oj-sm-align-items-center oj-flex-bar-start">
+                                                1. Accessing a Windows Instance Using RDP
+                                            </div>
+                                            <div class="oj-sm-align-items-center oj-flex-bar-end">
+                                                <span class="guided-path-status-complete">Complete</span>
                                             </div>
                                         </div>
-                                        <span class="oj-flex-bar-end oj-padding labelled-button" data-bind="click: function(data){ router.go('learningFlow')}, text: path"></span>
+                                        <div class="guided-path-detail-item oj-flex-bar">
+                                            <div class="oj-sm-align-items-center oj-flex-bar-start">
+                                                2. Creating SSH Keys for Use with Oracle Cloud Services
+                                            </div>
+                                            <div class="oj-sm-align-items-center oj-flex-bar-end">
+                                                <span class="guided-path-status-continue">Continue</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Guided Path 1 -->
+                                <div id="guidedPath1" class="guided-path-container oj-flex-bar">
+                                    <div class="oj-sm-align-items-center oj-flex-bar-start">
+                                        Adding an SSH Public Key
+                                    </div>
+                                    <div class="oj-sm-align-items-center oj-flex-bar-end">
+                                        <div id="progressPercentage" class="progressbar-item"
+                                             data-bind="ojComponent:{
+                                                            component: 'ojProgressbar', 
+                                                            value: 20,
+                                                            rootAttributes: {style: 'width: 200px;'}}">
+                                        </div>
+                                        <i id="1" class="material-icons" data-bind="click: togglePath">add</i>
+                                    </div>
+                                </div>
+                                <div id="guidedPathDetail1" class="guided-path-detail oj-flex oj-sm-hide">
+                                    <div class="oj-sm-12 oj-flex-item">
+                                        <div class="guided-path-detail-item oj-flex-bar">
+                                            <div class="oj-sm-align-items-center oj-flex-bar-start">
+                                                1. Accessing a Windows Instance Using RDP
+                                            </div>
+                                            <div class="oj-sm-align-items-center oj-flex-bar-end">
+                                                <span class="guided-path-status-complete">Complete</span>
+                                            </div>
+                                        </div>
+                                        <div class="guided-path-detail-item oj-flex-bar">
+                                            <div class="oj-sm-align-items-center oj-flex-bar-start">
+                                                2. Creating SSH Keys for Use with Oracle Cloud Services
+                                            </div>
+                                            <div class="oj-sm-align-items-center oj-flex-bar-end">
+                                                <span class="guided-path-status-continue">Continue</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Guided Path 2 -->
+                                <div id="guidedPath2" class="guided-path-container oj-flex-bar">
+                                    <div class="oj-sm-align-items-center oj-flex-bar-start">
+                                        Managing Instances
+                                    </div>
+                                    <div class="oj-sm-align-items-center oj-flex-bar-end">
+                                        <div id="progressPercentage" class="progressbar-item"
+                                             data-bind="ojComponent:{
+                                                            component: 'ojProgressbar', 
+                                                            value: 50,
+                                                            rootAttributes: {style: 'width: 200px;'}}">
+                                        </div>
+                                        <i id="2" class="material-icons" data-bind="click: togglePath">add</i>
+                                    </div>
+                                </div>
+                                <div id="guidedPathDetail2" class="guided-path-detail oj-flex oj-sm-hide">
+                                    <div class="oj-sm-12 oj-flex-item">
+                                        <div class="guided-path-detail-item oj-flex-bar">
+                                            <div class="oj-sm-align-items-center oj-flex-bar-start">
+                                                1. Accessing a Windows Instance Using RDP
+                                            </div>
+                                            <div class="oj-sm-align-items-center oj-flex-bar-end">
+                                                <span class="guided-path-status-complete">Complete</span>
+                                            </div>
+                                        </div>
+                                        <div class="guided-path-detail-item oj-flex-bar">
+                                            <div class="oj-sm-align-items-center oj-flex-bar-start">
+                                                2. Creating SSH Keys for Use with Oracle Cloud Services
+                                            </div>
+                                            <div class="oj-sm-align-items-center oj-flex-bar-end">
+                                                <span class="guided-path-status-continue">Continue</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Guided Path 3 -->
+                                <div id="guidedPath3" class="guided-path-container oj-flex-bar">
+                                    <div class="oj-sm-align-items-center oj-flex-bar-start">
+                                        Logging in to an Instance
+                                    </div>
+                                    <div class="oj-sm-align-items-center oj-flex-bar-end">
+                                        <div id="progressPercentage" class="progressbar-item"
+                                             data-bind="ojComponent:{
+                                                            component: 'ojProgressbar', 
+                                                            value: 10,
+                                                            rootAttributes: {style: 'width: 200px;'}}">
+                                        </div>
+                                        <i id="3" class="material-icons" data-bind="click: togglePath">add</i>
+                                    </div>
+                                </div>
+                                <div id="guidedPathDetail3" class="guided-path-detail oj-flex oj-sm-hide">
+                                    <div class="oj-sm-12 oj-flex-item">
+                                        <div class="guided-path-detail-item oj-flex-bar">
+                                            <div class="oj-sm-align-items-center oj-flex-bar-start">
+                                                1. Accessing a Windows Instance Using RDP
+                                            </div>
+                                            <div class="oj-sm-align-items-center oj-flex-bar-end">
+                                                <span class="guided-path-status-complete">Complete</span>
+                                            </div>
+                                        </div>
+                                        <div class="guided-path-detail-item oj-flex-bar">
+                                            <div class="oj-sm-align-items-center oj-flex-bar-start">
+                                                2. Creating SSH Keys for Use with Oracle Cloud Services
+                                            </div>
+                                            <div class="oj-sm-align-items-center oj-flex-bar-end">
+                                                <span class="guided-path-status-continue">Continue</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Guided Path 4 -->
+                                <div id="guidedPath4" class="guided-path-container oj-flex-bar">
+                                    <div class="oj-sm-align-items-center oj-flex-bar-start">
+                                        Managing Storage Volumes
+                                    </div>
+                                    <div class="oj-sm-align-items-center oj-flex-bar-end">
+                                        <div id="progressPercentage" class="progressbar-item"
+                                             data-bind="ojComponent:{
+                                                            component: 'ojProgressbar', 
+                                                            value: 90,
+                                                            rootAttributes: {style: 'width: 200px;'}}">
+                                        </div>
+                                        <i id="4" class="material-icons" data-bind="click: togglePath">add</i>
+                                    </div>
+                                </div>
+                                <div id="guidedPathDetail4" class="guided-path-detail oj-flex oj-sm-hide">
+                                    <div class="oj-sm-12 oj-flex-item">
+                                        <div class="guided-path-detail-item oj-flex-bar">
+                                            <div class="oj-sm-align-items-center oj-flex-bar-start">
+                                                1. Accessing a Windows Instance Using RDP
+                                            </div>
+                                            <div class="oj-sm-align-items-center oj-flex-bar-end">
+                                                <span class="guided-path-status-complete">Complete</span>
+                                            </div>
+                                        </div>
+                                        <div class="guided-path-detail-item oj-flex-bar">
+                                            <div class="oj-sm-align-items-center oj-flex-bar-start">
+                                                2. Creating SSH Keys for Use with Oracle Cloud Services
+                                            </div>
+                                            <div class="oj-sm-align-items-center oj-flex-bar-end">
+                                                <span class="guided-path-status-continue">Continue</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -102,6 +323,5 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-        <!--<navigationbarright id="navigationDrawerRight" class="nav-right-pane oj-flex-item"></navigationbarright>-->
     </div>
 </div>

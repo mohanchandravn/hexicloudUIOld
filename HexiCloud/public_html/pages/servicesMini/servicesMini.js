@@ -20,65 +20,25 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
     function serviceContentViewModel(params) {
         var self = this;
         var router = params.ojRouter.parentRouter;
-
-        console.log('Mini Services page');
-
-        self.sservicesArray = ko.observableArray([]);
-
-
-        var getUserClmDataSuccessCallBackFn = function (data) {
-            if (data) {
-                for (var i in data) {
-                    var tierName = data[i].productTier5;
-                    if (tierName.indexOf("Storage") > -1) {
-                        data[i].iaasImage = "img/mini-DB-Icon.png";
-                         data[i].cpuUsage = "44";
-                          data[i].memUsage = "12";
-                    }
-                    if (tierName.indexOf("Compute") > -1) {
-                        data[i].iaasImage = "img/mini-compute-icon.png";
-                          data[i].cpuUsage = "55";
-                          data[i].memUsage = "85";
-                    }
-                     data[i].sizeClass = 'oj-masonrylayout-tile-1x1';
-                }
-                self.sservicesArray(data);
-            }
-        };
-
-        self.getServiceDetails = function () {
-            if (!userClmRegistryId()) {
-                $.getJSON("pages/servicesMini/servicesMini.json", function (result) {
-                    self.sservicesArray([]);
-                    self.sservicesArray(result.services);
-                });
-            } else {
-                service.getUserClmData(userClmRegistryId()).then(getUserClmDataSuccessCallBackFn);
-            }
-        };
-
         self.handleAttached = function () {
-            self.getServiceDetails();
+            slideInAnimate(500, 0);
         };
+        self.servicesAsExpected = ko.observable(true);
+        self.showSupportPanel = ko.observable(false);
 
-        self.gotoGuidedPaths = function () {
+        self.goToDashboard = function () {
             isLoggedInUser(true);
             service.updateCurrentStep({
                 "userId": loggedInUser(),
-                "userRole": "itAdmin",
-                "curStepCode": 'guidedPathsMini',
+                "userRole": loggedInUserRole(),
+                "curStepCode": 'dashboard',
                 "preStepCode": getStateId(),
-                "userAction" : "Go To Guided Paths mini"
+                "userAction" : "Go To Dashboard"
             });
         };
-        self.raiseSR = function () {
-            isLoggedInUser(true);
-            service.updateCurrentStep({
-                "userId": loggedInUser(),
-                "userRole": "itAdmin",
-                "curStepCode": 'raiseSR',
-                "preStepCode": "Raise a email request"
-            });
+        self.contactSupport = function () {
+           self.servicesAsExpected(false);
+           self.showSupportPanel(true);
         };
     }
 

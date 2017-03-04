@@ -120,3 +120,226 @@ and open the template in the editor.
 
 }
 
+
+/*All the styles for provisioned Services goes here*/
+
+.provisioned-services {
+    margin-top: 20px;
+}
+
+.provisioned-services .content.stage h1 {
+    color: #00758f;
+    font-size: 61px;
+    padding: 0 50px;
+    text-align: center;
+}
+
+.provisioned-services .content.stage p {
+    margin-bottom: 18px;
+    font-size: 18px;
+    color: #4e5052;
+    line-height: 28px;
+    text-align: center;
+}
+
+.provisioned-services .service {
+    position: relative;
+    overflow: auto;
+    background-color: #fff;
+    margin: 50px 0;
+}
+.provisioned-services .service.blue .head {
+    background-color: #008bbc;
+}
+
+.provisioned-services .service.green .head {
+    background-color: #3f9f8a;
+}
+
+.provisioned-services .service.purple .head {
+    background-color: #56638a;
+}
+.provisioned-services .service .head {
+    padding: 10px 15px;
+}
+
+.provisioned-services .service .head .laas {
+    float: right;
+    padding: 8px 10px 5px 5px;
+    margin-right: -15px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: #fff;
+}
+
+.provisioned-services .service.blue .laas {
+    background-color: #45aace;
+}
+
+.provisioned-services .service.green .laas {
+    background-color: #73b9aa;
+}
+
+.provisioned-services .service.purple .laas {
+    background-color: #848daa;
+}
+
+.provisioned-services .service .head .laas img {
+    margin: 0 10px;
+}
+
+.provisioned-services .service .head img {
+    float: left;
+    margin-top: 25px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border: 0;
+}
+
+.provisioned-services .service .head img {
+    float: left;
+    margin-top: 25px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border: 0;
+}
+
+.provisioned-services .service .head .metered {
+    font-size: 14px;
+    margin: 20px 0 -5px 0;
+    padding: 0;
+}
+
+.provisioned-services .service .head p {
+    color: #fff;
+    font-size: 18px;
+    /*color: #4e5052;*/
+    line-height: 28px;
+}
+
+.provisioned-services .service .head h4 {
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.provisioned-services .service .body {
+    background-color: #fff;
+    padding: 20px 0 60px 0;
+}
+
+.provisioned-services .service .body .col-60 {
+    display: inline-block;
+    width: 40%;
+    padding: 0 20px;
+    border-right: 1px solid #bbcfda;
+}
+
+.provisioned-services .service .body p {
+    color: #8aadbf;
+}
+.provisioned-services .service .body .instances {
+    font-size: 100px;
+    line-height: 120px;
+    font-family: 'Roboto-thin', sans-serif;
+    margin: 0;
+    text-align: center;
+}
+
+.provisioned-services .service.blue span {
+    color: #008bbc;
+}
+
+.provisioned-services .service.green span {
+    color: #3f9f8a;
+}
+
+.provisioned-services .service.purple span {
+    color: #56638a;
+}
+.provisioned-services .service .body .col-40 {
+    display: inline-block;
+    width: 35%;
+    vertical-align: top;
+    padding-left: 20px;
+    padding-top: 15px;
+}
+.provisioned-services .service .body .col-40 p {
+    font-size: 16px;
+}
+
+.provisioned-services .service .body img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    vertical-align: middle;
+    border: 0;
+}
+
+.provisioned-services h1 {
+    color: #00758f;
+    font-size: 50px;
+    z-index: 99999;
+    text-align: center;
+}
+.provisioned-services .text-center{
+    text-align: center;
+}
+.provisioned-services .deep-red-button {
+    height : 32px;
+    min-width: 160px;
+}
+
+.provisioned-services .contact {
+    margin-bottom: 50px;
+}
+.provisioned-services .contact img {
+    overflow: visible;
+    margin-bottom: -100px;
+}
+
+.provisioned-services .contact h4 {
+    color: #f80000;
+    font-size: 22px;
+    font-family: 'Roboto-regular', sans-serif;
+    text-align: center;
+}
+
+.provisioned-services .contact p {
+    font-size: 14px;
+    text-align: center;
+    padding: 0 25px;
+}
+
+.provisioned-services .contact a {
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 480px) {
+    .provisioned-services {
+        margin-top: 15px;
+    }
+    .provisioned-services .content.stage h1 {
+        font-size: 38px;
+    }
+    .provisioned-services .content.stage p {
+        font-size: 16px;
+    }
+    .provisioned-services .service .head h4 {
+        font-size: 26px;
+    }
+    .provisioned-services h1 {
+        font-size: 34px;
+    }
+    .provisioned-services .deep-red-button {
+        height: 25px;
+        font-size: 18px;
+        border-radius: 21px;
+        margin: 14px auto;
+        min-width: 200px;
+    }
+}
+
+
+

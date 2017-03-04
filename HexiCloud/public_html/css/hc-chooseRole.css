@@ -13,41 +13,41 @@ and open the template in the editor.
 }
 
 .blur-node1, .blur-node3 {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: url(../img/blur-node1.png) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  -webkit-transition: all 0.8s ease-in-out;
-  -moz-transition: all 0.8s ease-in-out;
-  -o-transition: all 0.8s ease-in-out;
-  transition: all 0.8s ease-in-out;
-  -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s; }
-  .blur-node1.animate, .blur-node3.animate {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url(../img/blur-node1.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s; }
+.blur-node1.animate, .blur-node3.animate {
     background-position: -200px; }
-  
+
 .blur-node2, .blur-node4 {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: url(../img/blur-node2.png) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  -webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out; }
-  .blur-node2.animate, .blur-node4.animate {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url(../img/blur-node2.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out; }
+.blur-node2.animate, .blur-node4.animate {
     background-position: -400px; }
 
 .chooseRoleContainer {
@@ -57,7 +57,7 @@ margin-top: 40px;
 
 }
 .chooseRoleContainer h2{
-       color: #00758f;
+    color: #00758f;
     font-size: 36px;
     padding: 0 50px;
     text-align: center;
@@ -79,25 +79,30 @@ margin-top: 40px;
 }
 
 @media only screen and (max-width: 480px){
-   h1 {
-    font-size: 54px !important;
+    .chooseRoleContainer {
+        /*        text-align: center;*/
+        position: relative;
+        margin-top: 20px;
+    }
+    .chooseRoleContainer h1 {
+        font-size: 36px !important;
     } 
-     h4 {
-    font-size: 26px !important; }
-     h5 {
-    font-size: 20px !important; }
-       p {
-    font-size: 16px !important; }
-    p.lg {
-      font-size: 18px !important; }
-/*    .material-icons {
-    font-size: 36px !important;
-    margin: 0 auto; }*/
+    .chooseRoleContainer h4 {
+        font-size: 26px !important; }
+    .chooseRoleContainer h5 {
+        font-size: 20px !important; }
+    .chooseRoleContainer p {
+        font-size: 16px !important; }
+    .chooseRoleContainer p.lg {
+        font-size: 18px !important; }
+    /*    .material-icons {
+        font-size: 36px !important;
+        margin: 0 auto; }*/
 }
 
 
 .chooseRoleContainer h4 {
-        font-family: 'Roboto-thin', sans-serif;
+    font-family: 'Roboto-thin', sans-serif;
     font-size: 36px;
     color: #00758f;
 }
@@ -109,18 +114,18 @@ margin-top: 40px;
 }
 
 .chooseRoleContainer p {
-    
+
     font-size: 18px;
     color: #4e5052;
     width: auto;
     margin: 0 0 10px;
     font-family: 'Roboto-thin', sans-serif;
-/*    text-align: center;*/
+    /*    text-align: center;*/
 }
 
 .chooseRoleContainer .red-button {
     background-color: #ee4f50 !important;
-/*    padding: 10px 30px;*/
+    /*    padding: 10px 30px;*/
     display: inline-block;
     text-align: center;
     height: 54px;
@@ -167,7 +172,7 @@ margin-top: 40px;
     padding: 8px 30px;
     display: inline-block;
     text-align: center;
-/*    height: 40px;*/
+    /*    height: 40px;*/
     border-radius: 20px;
     margin: 20px 10px 20px 0;
     -webkit-transition: all 0.2s ease-in-out;
@@ -194,7 +199,7 @@ margin-top: 40px;
     font-size: 22px !important;
     padding: 2px 9px !important;
     vertical-align: middle;
-/*    color: #fff !important;*/
+    /*    color: #fff !important;*/
 }
 
 
@@ -267,7 +272,7 @@ hr{
 }
 
 .fadeIn {
-        -webkit-animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
 }
 
@@ -285,7 +290,7 @@ hr{
 }
 
 .follow-steps-container {
-        left: 8.333333333333332%;
+    left: 8.333333333333332%;
     position: relative;
 }
 
@@ -300,5 +305,13 @@ hr{
   right:0;
       top: 75px;
     left: 25px;
+.addAnother-page p {
+    margin-bottom: 18px;
+    text-align: center;
+}
+.addAnother-page p.lg {
+    font-size: 22px;
+    line-height: 32px;
+    margin-bottom: 18px;
 }
 
