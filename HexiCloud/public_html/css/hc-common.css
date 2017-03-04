@@ -253,13 +253,29 @@ p.lg {
 }
 
 .overlay {
-    position: fixed;
+    /*position: fixed;*/
     top: 0; right: 0; bottom: 0; left: 0;
     background: url(../img/bg-overlay.png) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.mainBackGroundImage {
+    margin:0 auto;
+    background-image:url('../img/bg-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment:fixed;
+    /*background-color: #335C62 !important;*/
+}
+@media only screen and (min-width: 1280px) {
+    .mainBackGroundImage {
+        background-image:url('../img/bg-image-xs.jpg');
+        /*background-color: #335C62 !important;*/
+    }
 }
 /*.red-button.inverted {
     color: #ee4f50;
@@ -295,14 +311,5 @@ p.lg {
     .white-button, .red-button, .blue-button {
         margin: 0 auto;
         display: table;
-    }
-    .mainBackGroundImage {
-        margin:0 auto;
-        background-image:url('../img/bg-image.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment:fixed;
-        /*background-color: #335C62 !important;*/
     }
 }

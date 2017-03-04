@@ -93,6 +93,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                             router.go('chooseRoleNew/');
                         }, 500);
                         slideOutAnimate(1500, 0);
+                        $('#bgvid').remove();
                         router.go('chooseRoleNew/');
                     } else {
                         self.loginFailureText("Invalid Username or Password");

@@ -135,6 +135,9 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
 
                 self.slideInEffect = ko.observable('slideIn');
                 self.slideOutEffect = ko.observable('slideOut');
+                if (self.isLoggedInUser()) {
+                    $('#bgvid').remove();
+                }
 
                 self.showHeaderNav = ko.computed( function() {
                     var id = router.currentState().id;
