@@ -89,7 +89,7 @@ and open the template in the editor.
 }
 
 .usecase-detail-container {
-    margin-left: 20px;
+    padding-left: 20px;
 }
 
 .usecase-detail-item {
@@ -196,6 +196,16 @@ and open the template in the editor.
 .provisioned-services.dashboard .content.stage h1,
 .provisioned-services.dashboard .content.stage p{
    text-align: left; 
+}
+
+@media screen and (max-width: 480px) {
+    .content-title {
+        font-size: 34px !important;
+    }
+    .usecase-detail-container {
+        margin-top: 20px;
+        padding-left: 0px;
+    }
 }
 
 @media screen and (max-width: 1280px) {
