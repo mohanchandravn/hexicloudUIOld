@@ -88,7 +88,7 @@ and open the template in the editor.
             </div>
         </div>    
     </div>
-    <div class="oj-flex-item">
+    <div class="oj-flex-item" data-bind="visible: servicesAsExpected">
         <div class="oj-flex oj-flex-items-pad oj-md-align-items-center oj-sm-flex-direction-column">
             <div class="oj-flex-item oj-md-8">
                 <h1 class="text-center">Please confirm if your cloud services are provisioned correctly</h1>
@@ -96,15 +96,50 @@ and open the template in the editor.
             <div class="oj-flex-item">
                 <div class="oj-flex oj-padding-horizontal text-center">
                     <div class="oj-flex-item ">
-                        <a class="deep-red-button">Yes</a>
+                        <a class="deep-red-button" data-bind="click: goToDashboard">Yes</a>
 
                     </div>
                     <div class="oj-flex-item">
-                        <a class="deep-red-button">No</a>
+                        <a class="deep-red-button" data-bind="click: contactSupport">No</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="oj-hybrid-padding"></div>
+    <div data-bind="visible: showSupportPanel">
+        <div class="oj-flex-item">
+            <div class="oj-flex oj-flex-items-pad oj-md-align-items-center oj-sm-flex-direction-column">
+                <div class="oj-flex-item oj-md-8">
+                    <h1 class="text-center">Please contact us to resolve your issue</h1>
+                </div>
+                <div class="oj-flex-item">
+                    <div class="oj-flex oj-flex-items-pad oj-md-justify-content-center">
+                        <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact">
+                            <img src="img/call.png" class="img-responsive">
+                            <h4>Call 01234 567890</h4>
+                            <p>Telephone support hours: 9:00am-5:00pm (CET) or <a href="#">request a call back »</a></p>
+                        </div>
+                        <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact">
+                            <img src="img/chat.png" class="img-responsive">
+                            <h4>Start Chat &raquo;</h4>
+                            <p>Chat support hours: 9:00am-5:00pm (CET)</p>
+                        </div>
+                        <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact">
+                            <img src="img/email.png" class="img-responsive">
+                            <h4>Email &raquo;</h4>
+                            <p>Response guaranteed by the next working day</p>
+                        </div>
+                    </div>    
+                </div>
+                <div class="oj-flex-item">
+                    <div class="oj-flex oj-padding-horizontal text-center">
+                        <div class="oj-flex-item ">
+                            <a class="deep-red-button" data-bind="click: goToDashboard">Continue to Dashboard &raquo;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

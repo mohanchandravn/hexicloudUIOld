@@ -291,6 +291,31 @@ and open the template in the editor.
     min-width: 160px;
 }
 
+.provisioned-services .contact {
+    margin-bottom: 50px;
+}
+.provisioned-services .contact img {
+    overflow: visible;
+    margin-bottom: -100px;
+}
+
+.provisioned-services .contact h4 {
+    color: #f80000;
+    font-size: 22px;
+    font-family: 'Roboto-regular', sans-serif;
+    text-align: center;
+}
+
+.provisioned-services .contact p {
+    font-size: 14px;
+    text-align: center;
+    padding: 0 25px;
+}
+
+.provisioned-services .contact a {
+    font-size: 14px;
+}
+
 @media only screen and (max-width: 480px) {
     .provisioned-services {
         margin-top: 15px;
@@ -307,13 +332,13 @@ and open the template in the editor.
     .provisioned-services h1 {
         font-size: 34px;
     }
- .provisioned-services .deep-red-button {
-    height: 25px;
-    font-size: 18px;
-    border-radius: 21px;
-    margin: 14px auto;
-    min-width: 200px;
-}
+    .provisioned-services .deep-red-button {
+        height: 25px;
+        font-size: 18px;
+        border-radius: 21px;
+        margin: 14px auto;
+        min-width: 200px;
+    }
 }
 
 

@@ -23,25 +23,22 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         self.handleAttached = function () {
             slideInAnimate(500, 0);
         };
+        self.servicesAsExpected = ko.observable(true);
+        self.showSupportPanel = ko.observable(false);
 
-        self.gotoGuidedPaths = function () {
+        self.goToDashboard = function () {
             isLoggedInUser(true);
             service.updateCurrentStep({
                 "userId": loggedInUser(),
-                "userRole": "itAdmin",
-                "curStepCode": 'guidedPathsMini',
+                "userRole": loggedInUserRole(),
+                "curStepCode": 'dashboard',
                 "preStepCode": getStateId(),
-                "userAction" : "Go To Guided Paths mini"
+                "userAction" : "Go To Dashboard"
             });
         };
-        self.raiseSR = function () {
-            isLoggedInUser(true);
-            service.updateCurrentStep({
-                "userId": loggedInUser(),
-                "userRole": "itAdmin",
-                "curStepCode": 'raiseSR',
-                "preStepCode": "Raise a email request"
-            });
+        self.contactSupport = function () {
+           self.servicesAsExpected(false);
+           self.showSupportPanel(true);
         };
     }
 
