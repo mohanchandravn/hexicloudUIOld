@@ -34,6 +34,13 @@ define(['ojs/ojcore',
                 }, 500);
                 slideOutAnimate(1500, 0);
             };
+            
+            self.gotoDashboard = function () {
+                setTimeout(function(){
+                    router.go('servicesMini/');
+                }, 500);
+                slideOutAnimate(1500, 0);
+            };
 
             self.handleAttached = function() {
                 slideInAnimate(500, 0);
