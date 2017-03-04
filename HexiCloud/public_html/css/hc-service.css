@@ -123,10 +123,13 @@ and open the template in the editor.
 
 /*All the styles for provisioned Services goes here*/
 
+.provisioned-services {
+    margin-top: 20px;
+}
 
 .provisioned-services .content.stage h1 {
     color: #00758f;
-    font-size: 74px;
+    font-size: 61px;
     padding: 0 50px;
     text-align: center;
 }
@@ -227,7 +230,7 @@ and open the template in the editor.
 
 .provisioned-services .service .body .col-60 {
     display: inline-block;
-    width: 45%;
+    width: 40%;
     padding: 0 20px;
     border-right: 1px solid #bbcfda;
 }
@@ -240,6 +243,7 @@ and open the template in the editor.
     line-height: 120px;
     font-family: 'Roboto-thin', sans-serif;
     margin: 0;
+    text-align: center;
 }
 
 .provisioned-services .service.blue span {
@@ -279,13 +283,20 @@ and open the template in the editor.
     z-index: 99999;
     text-align: center;
 }
+.provisioned-services .text-center{
+    text-align: center;
+}
+.provisioned-services .deep-red-button {
+    height : 32px;
+    min-width: 160px;
+}
 
 @media only screen and (max-width: 480px) {
     .provisioned-services {
         margin-top: 15px;
     }
     .provisioned-services .content.stage h1 {
-        font-size: 54px;
+        font-size: 38px;
     }
     .provisioned-services .content.stage p {
         font-size: 16px;
@@ -293,6 +304,16 @@ and open the template in the editor.
     .provisioned-services .service .head h4 {
         font-size: 26px;
     }
+    .provisioned-services h1 {
+        font-size: 34px;
+    }
+ .provisioned-services .deep-red-button {
+    height: 25px;
+    font-size: 18px;
+    border-radius: 21px;
+    margin: 14px auto;
+    min-width: 200px;
+}
 }
 
 

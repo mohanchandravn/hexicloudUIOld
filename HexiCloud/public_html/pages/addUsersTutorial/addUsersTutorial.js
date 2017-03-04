@@ -1,30 +1,40 @@
 define(['ojs/ojcore',
-        'jquery',
-        'knockout'], function (oj,$,ko){
-        
-        function addUsersTutorialViewModel(params) {
-            var self = this;
+    'jquery',
+    'knockout', 'config/serviceConfig'], function (oj, $, ko, service) {
 
-            self.handleAttached = function() {
-                slideInAnimate(500, 0);
-            };
-            var screenRange = viewportSize();
-            if(screenRange)
+    function addUsersTutorialViewModel(params) {
+        var self = this;
+
+        self.handleAttached = function () {
+            slideInAnimate(500, 0);
+        };
+        var screenRange = viewportSize();
+        if (screenRange)
+        {
+            if (screenRange !== 'SM' && screenRange !== 'MD') {
+                self.followStepsContaineCss = 'follow-steps-container';
+            } else
             {
-                if(screenRange !== 'SM' &&  screenRange !== 'MD'){
-                    self.followStepsContaineCss = 'follow-steps-container';
-                }
-                else
-                {
-                    self.followStepsContaineCss = "";
-                }
+                self.followStepsContaineCss = "";
             }
-            
         }
-        
-        
-        return addUsersTutorialViewModel;
-    
+
+        self.goToServices = function () {
+            setTimeout(function () {
+                service.updateCurrentStep({
+                    "userId": loggedInUser(),
+                    "userRole": loggedInUserRole(),
+                    "curStepCode": 'servicesMini',
+//                 "preStepCode": getStateId(),
+                    "preStepCode": 'createUsers',
+                    "userAction": "Go to Provisioned Services"
+                });
+            }, 500);
+            slideOutAnimate(1500, 0);
+
+        };
+    }
+    return addUsersTutorialViewModel;
 });
 
 

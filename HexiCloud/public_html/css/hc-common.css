@@ -251,6 +251,16 @@ p.lg {
     color: #fff;
     text-decoration: none; 
 }
+
+.overlay {
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: url(../img/bg-overlay.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 /*.red-button.inverted {
     color: #ee4f50;
     background: none;
