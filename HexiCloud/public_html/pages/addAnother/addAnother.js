@@ -17,13 +17,13 @@ define(['ojs/ojcore',
                 if(loggedInUserRole() === 'accountAdmin')
                 {
                     self.roleConfirmationText('You’ve told us you’re a buyer.');
-                    self.headerTitle('To add another account admiin, select ‘add admin now’ for a step-by-step guide.');
+                    self.headerTitle('To add another account admin, select ‘Add admin now’ for a step-by-step guide.');
                     self.addButtonLabel('Add admin now »');
                 }
                 else if(loggedInUserRole() === 'itAdmin')
                 {
                      self.roleConfirmationText('You’ve told us you’re a ID admin.')
-                    self.headerTitle('To add more users, select ‘add users now’ for a step-by-step guide.');
+                    self.headerTitle('To add more users, select ‘Add users now’ for a step-by-step guide.');
                     self.addButtonLabel('Add users now »');
                 }
             }
