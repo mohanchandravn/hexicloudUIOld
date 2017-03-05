@@ -252,6 +252,12 @@ p.lg {
     text-decoration: none; 
 }
 
+.red-button:active {
+    color: #fff;
+    text-decoration: none;
+    border-radius: 27px;
+}
+
 .overlay {
     /*position: fixed;*/
     top: 0; right: 0; bottom: 0; left: 0;

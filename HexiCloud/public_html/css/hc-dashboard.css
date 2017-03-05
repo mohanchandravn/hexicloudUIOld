@@ -223,6 +223,5 @@ and open the template in the editor.
 @media screen and (min-width: 1281px) {
     .dashboard {
         margin: 80px 120px 80px 120px;
-        width: 1170px;
     }
 }

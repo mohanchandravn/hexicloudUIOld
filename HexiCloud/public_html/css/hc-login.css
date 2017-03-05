@@ -21,6 +21,14 @@ and open the template in the editor.
     font-weight: 500;
     margin-top: 0;
 }
+
+.login-page .welcome-content h4 {
+    color: #00758f;
+    font-size: 40px;
+    font-weight: 500;
+    margin-top: 0;
+}
+
 .login-page hr {
     border-top: 1px solid #b1c7d2;
     width: 67%;

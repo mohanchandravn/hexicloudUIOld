@@ -283,6 +283,12 @@ and open the template in the editor.
     z-index: 99999;
     text-align: center;
 }
+
+.provisioned-services h4 {
+    color: #00758f;
+    z-index: 99999;
+}
+
 .provisioned-services .text-center{
     text-align: center;
 }
