@@ -8,6 +8,31 @@ define(['ojs/ojcore',
         self.handleAttached = function () {
             slideInAnimate(500, 0);
         };
+
+        self.videoSrc = ko.observable();
+        if (loggedInUserRole() === 'accountAdmin') {
+            self.videoSrc("assets/AddIDAFromMyAccount.mp4");
+        } else {
+            self.videoSrc("assets/AddUserToMyServices.mp4");
+        }
+        self.getShortVideo = function () {
+            if (loggedInUserRole() === 'accountAdmin') {
+                self.videoSrc("assets/AddIDAFromMyAccount.mp4");
+            } else {
+                self.videoSrc("assets/AddUserToMyServices.mp4");
+            }
+            $("#createUsersVid")[0].load();
+        };
+        self.getLongVideo = function () {
+            
+            if (loggedInUserRole() === 'accountAdmin') {
+                self.videoSrc("assets/AddIDAFromMyAccount2.mp4");
+            } else {
+                self.videoSrc("assets/loginAndaddusers.mp4");
+            }
+            $("#createUsersVid")[0].load();
+        };
+
         var screenRange = viewportSize();
         if (screenRange)
         {
