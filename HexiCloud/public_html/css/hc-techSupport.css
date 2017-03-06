@@ -8,80 +8,80 @@ and open the template in the editor.
     Author     : shiva
 */
 
-.tech-support-container {
-    position: fixed;
-    bottom: -36px;
-/*    box-shadow: 2px 2px 2px 2px;*/
-    background-color: white;
-    height: 580px;
-    padding: 20px;
-}
-
-.tech-support-container .chat-disabled-container {
-    background: url("../img/chat-disabled.png");
-    background-repeat: no-repeat;
-    height:60px;
-/*    background-position: center;*/
-}
-
-
-@media print and (orientation: landscape), screen and (min-width: 1024px) {
- .tech-support-container {
-     right: 20px !important;
-     bottom: 0;
-}
-.tech-support-container .navContainer input, .tech-support-container .navContainer textArea{
-            width: 90%;
+@media screen and (max-width: 767px){
+    .tech-support-container {
+        right: -30px !important;
+        top: 80px;
     }
-    .tech-support-container .email-submit-btn.oj-button,
-    .tech-support-container .email-submit-btn.oj-button.oj-hover{
-        margin-right: 10px;
-    } 
-/*    .square .material-icons
-    {
-     right:10px;
-    }*/
-
     .tech-support-container .phoneContainer {
-            width: 100% !important;
+        width: 95% !important;
     }
     .tech-support-container .phone-submit-btn.oj-button,
     .tech-support-container .phone-submit-btn.oj-button.oj-hover{
-    margin-right: 27px;
-}
-
-}
-/*@media screen and (max-width: 767px){
-   .tech-support-conatiner {
-        top: 80px
+        padding: 0px 38px !important;
+        margin-right: 10px !important;
     }
     .tech-support-container .navContainer input, .tech-support-container .navContainer textArea{
-            width: 83%;
+        width: 85% !important;
     }
-    
+     .square .material-icons
+    {
+        right: 25px !important;
+    }
+
+}
+
+@media screen and (max-width: 320px){
+    .tech-support-container {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        padding-top: 6px !important;
+    }
     .tech-support-container .email-submit-btn.oj-button,
     .tech-support-container .email-submit-btn.oj-button.oj-hover{
-        margin-right: 27px;
-    } 
-}*/
-
-/*@media screen and (min-width: 768px) {
-    .tech-support-conatiner {
-        top: 80px
+        margin-top: 10px !important;
     }
     .tech-support-container .navContainer input, .tech-support-container .navContainer textArea{
-            width: 83%;
+        margin-top: 10px !important; 
+        line-height: none !important;
+        width: 85% !important;
     }
-    
-    .tech-support-container .email-submit-btn.oj-button,
-    .tech-support-container .email-submit-btn.oj-button.oj-hover{
-        margin-right: 27px;
+    .tech-support-container .material-icons {
+        padding: 15px !important;
     }
-}*/
+    .square .material-icons
+    {
+        right: 18px !important;
+        top: 9px !important;
+        width: 10px !important;
+    }
+    .tech-support-container .phoneContainer {
+        width: 94% !important;
+    }
+    .phoneContainer .form-background {
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+    }
+    .tech-support-container .phone-submit-btn.oj-button,
+    .tech-support-container .phone-submit-btn.oj-button.oj-hover{
+        padding: 0px 23px !important;
+        margin-right: 15px !important;
+    }
 
 
+}
 
-
+.tech-support-container {
+    position: fixed;
+    right: 20px;
+    bottom: 0;
+    background-color: white;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
 
 .tech-support-container .send-button {
     background-color: #F80000;
@@ -131,7 +131,7 @@ and open the template in the editor.
     border: none;
     padding: 15px;
     background-color: #eaeef0;
-     width: 83%;
+    width: 90%;
     margin-top: 20px;
     height: 20px;
     font-size: 14px;
@@ -139,7 +139,7 @@ and open the template in the editor.
 }
 
 .tech-support-container .navContainer textArea{
-        height: auto;
+    height: auto;
 }
 
 .tech-support-container .email-submit-btn.oj-button,
@@ -159,7 +159,8 @@ and open the template in the editor.
 .tech-support-container .phone-submit-btn.oj-button.oj-hover{
     margin-top: 45px;
     font-size: 18px;
-    padding: 0px 45px;
+    margin-right: 15px;
+    padding: 0px 43px;
     height: 40px;
     border-radius: 27px;
     background-image: none !important;
@@ -172,7 +173,7 @@ and open the template in the editor.
 .tech-support-container .email-submit-btn.oj-button.oj-hover, 
 .tech-support-container .email-submit-btn.oj-button.oj-focus,
 .tech-support-container .email-submit-btn.oj-button.oj-focus-highlight {
-   border: 1px solid transparent !important;
+    border: 1px solid transparent !important;
 }
 
 .tech-support-container .navContainer input:active{
@@ -182,28 +183,31 @@ and open the template in the editor.
 }
 
 .tech-support-container .phoneContainer {
-        width: 90%;
+    width: 100%;
 }
 
 .tech-support-container .phoneContainer h4{
-        font-size: 22px;
+    font-size: 22px;
     color: #00758f;
 }
 
 .phoneContainer .form-background{
-        background-color: #eaeef0;
+    background-color: #eaeef0;
     margin-top: 30px;
     padding: 30px;
 }
 
 .phoneContainer .form-background h4,
 .phoneContainer .form-background p{
-        text-align: center;
+    text-align: center;
 }
 
 .phoneContainer .form-background p
 {
     font-size: 14px;
+}
+.chatContainer{
+    width:100%;
 }
 
 .chatContainer .square{
@@ -212,13 +216,13 @@ and open the template in the editor.
 
 .square .material-icons
 {
-        background: #f80000;
+    background: #f80000;
     color: #fff;
     width: 22px;
     height: 25px;
-    padding: 8px 24px 17px 6px;
+    padding: 8px 24px 17px 6px !important;
     position: absolute;
-    right: 34px;
+    right: 11px;
     top: 19px;
     cursor: pointer;
 }
