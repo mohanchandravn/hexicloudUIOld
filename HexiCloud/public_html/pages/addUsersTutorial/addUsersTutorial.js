@@ -45,7 +45,7 @@ define(['ojs/ojcore',
         }
 
         self.goToServices = function () {
-            setTimeout(function () {
+//            setTimeout(function () {
                 service.updateCurrentStep({
                     "userId": loggedInUser(),
                     "userRole": loggedInUserRole(),
@@ -54,8 +54,8 @@ define(['ojs/ojcore',
 //                    "preStepCode": 'createUsers',
                     "userAction": "Go to Provisioned Services"
                 });
-            }, 500);
-            slideOutAnimate(1500, 0);
+//            }, 500);
+//            slideOutAnimate(1500, 0);
 
         };
     }

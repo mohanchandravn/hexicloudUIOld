@@ -58,7 +58,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
         };
 
         self.handleAttached = function () {
-            slideInAnimate(500, 0);
+//            slideInAnimate(500, 0);
         };
         var getUserStepSuccessCallBackFn = function (data) {
             console.log(data);
@@ -99,12 +99,12 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         userClmRegistryId(data.registryId);
                         sessionInfo.setToSession(sessionInfo.userClmRegistryId, data.registryId);
                         self.loginFailureText("");
-//                        service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn);
-                        setTimeout(function () {
+                        service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn);
+//                        setTimeout(function () {
                             $('#bgvid').remove();
                             router.go(self.savedStep() + '/');
-                        }, 500);
-                        slideOutAnimate(1500, 0);
+//                        }, 500);
+//                        slideOutAnimate(1500, 0);
                     } else {
                         self.loginFailureText("Invalid Username or Password");
                     }
@@ -160,10 +160,10 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                     });
                     isLoggedInUser(true);
                     sessionInfo.setToSession(sessionInfo.isLoggedInUser, true);
-                    setTimeout(function () {
+//                    setTimeout(function () {
                         router.go('chooseRole/');
-                    }, 500);
-                    slideOutAnimate(1500, 0);
+//                    }, 500);
+//                    slideOutAnimate(1500, 0);
                     router.go('chooseRole/');
                 }
             }

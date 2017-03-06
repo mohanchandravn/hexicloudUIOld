@@ -18,6 +18,16 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'config/sess
         
         console.log('dashboard page');
         
+        self.logout = function(data, event) {
+            console.log('Logging out');
+            sessionInfo.removeFromSession(sessionInfo.isLoggedInUser);
+            sessionInfo.removeFromSession(sessionInfo.loggedInUser);
+            sessionInfo.removeFromSession(sessionInfo.loggedInUserRole);
+            sessionInfo.removeFromSession(sessionInfo.userFirstLastName);
+            sessionInfo.removeFromSession(sessionInfo.userClmRegistryId);
+            router.go('home/');
+        };
+        
         self.togglePath = function(data, event) {
             var id = event.currentTarget.id;
             console.log(id);
