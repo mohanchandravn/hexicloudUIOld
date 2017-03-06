@@ -74,10 +74,6 @@ and open the template in the editor.
 }
 
 .usecase1 {
-    margin-bottom: 30px;
-}
-
-.usecase1, .usecase2 {
     padding: 20px;
     border-bottom: 1px solid #F80000;
     background-color: white;
@@ -100,18 +96,27 @@ and open the template in the editor.
     cursor: pointer;
 }
 
-.red-text {
+.raquo-right-text {
+    position: absolute;
+    margin-left: 355px;
     color: #F80000;
+    font-size: 40px;
+    margin-top: 70px;
 }
 
 .usecase-detail-container {
-    padding-left: 70px;
+    margin-bottom: 30px;
+    background-color: #fff;
 }
 
 .usecase-detail-item {
-    background-color: #fff;
     padding: 20px;
-    margin-bottom: 30px;
+}
+
+.guided-path-display-image {
+    margin-top: 15px;
+    width: 40px;
+    height: 40px;
 }
 
 .usecase-img-container {
@@ -239,6 +244,9 @@ and open the template in the editor.
 }
 
 @media screen and (min-width: 480px) {
+    .usecase-detail-container {
+        margin-left: 70px;
+    }
     .guided-path-container .progress-indication {
         margin-right: 20px;
     }
