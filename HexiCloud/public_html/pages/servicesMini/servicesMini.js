@@ -29,13 +29,16 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
 
         self.goToDashboard = function () {
             isLoggedInUser(true);
-            service.updateCurrentStep({
-                "userId": loggedInUser(),
-                "userRole": loggedInUserRole(),
-                "curStepCode": 'dashboard',
-                "preStepCode": getStateId(),
-                "userAction": "Go To Dashboard"
-            });
+            setTimeout(function () {
+                service.updateCurrentStep({
+                    "userId": loggedInUser(),
+                    "userRole": loggedInUserRole(),
+                    "curStepCode": 'dashboard',
+                    "preStepCode": getStateId(),
+                    "userAction": "Go To Dashboard"
+                });
+            }, 500);
+            slideOutAnimate(1500, 0);
         };
         self.contactSupport = function () {
             self.servicesAsExpected(false);
