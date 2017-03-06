@@ -94,12 +94,12 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
             router.configure({
                 'home': {label: 'Home', value: getPath('home'), isDefault: true},
                 'login': {label: 'Login', value: getPath('login')},
-                'hello': {label: 'Hello', value: getPath('hello')},
+//                'hello': {label: 'Hello', value: getPath('hello')},
                 'roleIdentified': {label: 'Role Identified', value: getPath('roleIdentified')},
-                'chooseRole': {label: 'Choose Role', value: getPath('chooseRole')},
-                'chooseRoleNew': {label: 'Choose Role', value: getPath('chooseRoleNew')},
-                'createUsers': {label: 'Create Users', value: getPath('createUsers')},
-                'addAdditionalUsers': {label: 'Add Additional Users', value: getPath('addAdditionalUsers')},
+//                'chooseRole': {label: 'Choose Role', value: getPath('chooseRole')},
+                'chooseRole': {label: 'Choose Role', value: getPath('chooseRoleNew')},
+//                'createUsers': {label: 'Create Users', value: getPath('createUsers')},
+//                'addAdditionalUsers': {label: 'Add Additional Users', value: getPath('addAdditionalUsers')},
                 'learning': {label: 'Learning', value: getPath('learning')},
                 'dashboard': {label: 'Dashboard', value: getPath('dashboard')},
                 'service': {label: 'Service', value: getPath('service')},
@@ -107,11 +107,11 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 'learningFlow': {label: 'learningFlow', value: getPath('learningFlow')},
                 'raiseSR': {label: 'Raise an SR', value: getPath('raiseSR')},
                 'servicesMini': {label: 'Mini Services', value: getPath('servicesMini')},
-                'guidedPathsMini': {label: 'Mini Learning', value: getPath('guidedPathsMini')},
+//                'guidedPathsMini': {label: 'Mini Learning', value: getPath('guidedPathsMini')},
                 'csmadmin': {label: 'CSM Admin', value: getPath('csmadmin')},
                 'samplecsv': {label: 'Sample CSV', value: getPath('samplecsv')},
-                'addAnother': {label: 'Add Another', value: getPath('addAnother')},
-                 'addUsersTut': {label: 'Add Users Tutorial', value: getPath('addUsersTutorial')},
+                'addAdditionalUsers': {label: 'Add Another', value: getPath('addAnother')},
+                 'createUsers': {label: 'Add Users Tutorial', value: getPath('addUsersTutorial')},
                  'techSupport': {label: 'Techical Support', value: getPath('techSupport')}
             });
 

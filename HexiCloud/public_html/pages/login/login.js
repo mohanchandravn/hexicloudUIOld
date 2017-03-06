@@ -90,11 +90,11 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         sessionInfo.setToSession(sessionInfo.userClmRegistryId, data.registryId);
                         self.loginFailureText("");
                         setTimeout(function () {
-                            router.go('chooseRoleNew/');
+                            router.go('chooseRole/');
                         }, 500);
                         slideOutAnimate(1500, 0);
                         $('#bgvid').remove();
-                        router.go('chooseRoleNew/');
+                        router.go('chooseRole/');
                     } else {
                         self.loginFailureText("Invalid Username or Password");
                     }
@@ -151,10 +151,10 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                     isLoggedInUser(true);
                     sessionInfo.setToSession(sessionInfo.isLoggedInUser, true);
                     setTimeout(function () {
-                        router.go('chooseRoleNew/');
+                        router.go('chooseRole/');
                     }, 500);
                     slideOutAnimate(1500, 0);
-                    router.go('chooseRoleNew/');
+                    router.go('chooseRole/');
                 }
             }
         };
