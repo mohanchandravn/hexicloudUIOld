@@ -25,8 +25,8 @@ define(['ojs/ojcore',
                     "userId": loggedInUser(),
                     "userRole": loggedInUserRole(),
                     "curStepCode": 'servicesMini',
-//                 "preStepCode": getStateId(),
-                    "preStepCode": 'createUsers',
+                    "preStepCode": getStateId(),
+//                    "preStepCode": 'createUsers',
                     "userAction": "Go to Provisioned Services"
                 });
             }, 500);

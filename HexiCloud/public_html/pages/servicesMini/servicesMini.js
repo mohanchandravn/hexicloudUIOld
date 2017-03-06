@@ -12,7 +12,7 @@
 /**
  * service module
  */
-define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar',  'ojs/ojmasonrylayout'
+define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojmasonrylayout'
 ], function (ko, service, $) {
     /**
      * The view model for the main content view template
@@ -34,61 +34,60 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
                 "userRole": loggedInUserRole(),
                 "curStepCode": 'dashboard',
                 "preStepCode": getStateId(),
-                "userAction" : "Go To Dashboard"
+                "userAction": "Go To Dashboard"
             });
         };
         self.contactSupport = function () {
-           self.servicesAsExpected(false);
-           self.showSupportPanel(true);
+            self.servicesAsExpected(false);
+            self.showSupportPanel(true);
         };
-        
+
         self.selectedTemplate = ko.observable('phone_content');
-            self.viewMailContent = function (){
-                self.selectedTemplate('email_content');
-            };
-            
-            self.viewCallContent = function (){
-                self.selectedTemplate('phone_content');
-            };
-            
-            self.viewChatContent = function (){
-                self.selectedTemplate('chat_content');
-            };
-            
-            self.displayMail = function (){
-                self.selectedTemplate('email_content');
-                $('#tech_support').slideToggle();
-            };
-            
-            self.displayCall = function (){
-                self.selectedTemplate('phone_content');
-                 $('#tech_support').slideToggle();
-            };
-            
-            self.displayChat = function (){
-                self.selectedTemplate('chat_content');
-                 $('#tech_support').slideToggle();
-            };
-            
-            var screenRange = viewportSize();
-            if(screenRange)
+        self.viewMailContent = function () {
+            self.selectedTemplate('email_content');
+        };
+
+        self.viewCallContent = function () {
+            self.selectedTemplate('phone_content');
+        };
+
+        self.viewChatContent = function () {
+            self.selectedTemplate('chat_content');
+        };
+
+        self.displayMail = function () {
+            self.selectedTemplate('email_content');
+            $('#tech_support').slideToggle();
+        };
+
+        self.displayCall = function () {
+            self.selectedTemplate('phone_content');
+            $('#tech_support').slideToggle();
+        };
+
+        self.displayChat = function () {
+            self.selectedTemplate('chat_content');
+            $('#tech_support').slideToggle();
+        };
+
+        var screenRange = viewportSize();
+        if (screenRange)
+        {
+            if (screenRange)
             {
-                if(screenRange)
-            {
-                if(screenRange === 'LG' &&  screenRange === 'XL'){
+                if (screenRange === 'LG' && screenRange === 'XL') {
                     self.phoneContainerBtLayoutCss = 'oj-sm-justify-content-center';
-                }
-                else
+                } else
                 {
                     self.phoneContainerBtLayoutCss = "";
                 }
             }
-            }
-            
-            self.closeTechSupportLayout = function ()
-            {
-                $('#tech_support').hide();
-            };
+        }
+
+        self.closeTechSupportLayout = function ()
+        {
+            $('#tech_support').hide();
+        };
     }
 
 
