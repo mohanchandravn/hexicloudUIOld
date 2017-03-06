@@ -102,7 +102,7 @@ and open the template in the editor.
             <div class="content-detail oj-flex">
                 <div class="usecase-container oj-lg-4 oj-flex-item">
                     <div class="head active oj-flex"></div>
-                    <div class="usecase1 oj-flex">
+                    <div id="usecase1" class="usecase1 oj-flex">
                         <div class="oj-sm-3 oj-flex-item">
                             <i class="material-icons">lightbulb_outline</i>
                         </div>
@@ -112,7 +112,7 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="head oj-flex"></div>
-                    <div class="usecase2 oj-flex">
+                    <div id="usecase2" class="usecase2 oj-flex">
                         <div class="oj-sm-3 oj-flex-item">
                             <i class="material-icons">lightbulb_outline</i>
                         </div>
@@ -122,7 +122,7 @@ and open the template in the editor.
                         </div>
                     </div>
                 </div>
-                <div class="usecase-detail-container oj-sm-12 oj-lg-8 oj-flex-item">
+                <div id="usecase1Container" class="usecase-detail-container oj-sm-12 oj-lg-8 oj-flex-item">
                     <div class="usecase-detail-item oj-flex">
                         <div class="oj-sm-12 oj-flex-item">
                             <div class="usecase-img-container oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">
@@ -162,25 +162,24 @@ and open the template in the editor.
                         <div class="guided-path-items oj-sm-12 oj-flex-item">
                             <!-- Guided Path 0 -->
                             <div id="guidedPath0" class="guided-path-container oj-flex">
-                                <div class="left-half oj-sm-4 oj-flex-item">
+                                <div class="left-half oj-sm-5 oj-lg-5 oj-flex-item">
                                     Generate SSH Key Pairs
                                 </div>
-                                <div class="right-half oj-sm-8 oj-flex-item">
+                                <div class="right-half oj-sm-align-self-center oj-sm-7 oj-lg-7 oj-flex-item">
                                     <div class="oj-sm-align-items-center oj-flex">
-                                        <div class="oj-sm-12 oj-flex-item">
-                                            <div class="oj-flex-bar">
-                                                <div class="oj-sm-align-self-center oj-flex-bar-start">
-                                                    <span class="progress-indication">10%</span>
-                                                    <div id="progressPercentage" class="progressbar-item"
-                                                        data-bind="ojComponent:{
-                                                                        component: 'ojProgressbar', 
-                                                                        value: 10,
-                                                                        rootAttributes: {style: 'width: 200px;'}}">
-                                                    </div>
+                                        <div class="oj-sm-11 oj-flex-item">
+                                            <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center oj-sm-align-items-center oj-sm-only-flex-direction-column">
+                                                <span class="progress-indication">10%</span>
+                                                <div id="progressPercentage" class="oj-sm-only-10 oj-md-6 progressbar-item"
+                                                    data-bind="ojComponent:{
+                                                                    component: 'ojProgressbar', 
+                                                                    value: 10}">
                                                 </div>
-                                                <div class="oj-flex-bar-end">
-                                                    <i id="0" class="material-icons" data-bind="click: togglePath">add</i>
-                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="oj-sm-align-self-center oj-sm-1 oj-flex-item">
+                                            <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-flex-end">
+                                                <i id="0" class="material-icons" data-bind="click: togglePath">add</i>
                                             </div>
                                         </div>
                                     </div>
@@ -198,25 +197,24 @@ and open the template in the editor.
                             </div>
                             <!-- Guided Path 1 -->
                             <div id="guidedPath1" class="guided-path-container oj-flex-bar">
-                                <div class="left-half oj-sm-4 oj-flex-item">
-                                    Generate SSH Key Pairs
+                                <div class="left-half oj-sm-5 oj-lg-5 oj-flex-item">
+                                    Add an SSH Public Key
                                 </div>
-                                <div class="right-half oj-sm-8 oj-flex-item">
+                                <div class="right-half oj-sm-align-self-center oj-sm-7 oj-lg-7 oj-flex-item">
                                     <div class="oj-sm-align-items-center oj-flex">
-                                        <div class="oj-sm-12 oj-flex-item">
-                                            <div class="oj-flex-bar">
-                                                <div class="oj-sm-align-self-center oj-flex-bar-start">
-                                                    <span class="progress-indication">25%</span>
-                                                    <div id="progressPercentage" class="progressbar-item"
-                                                        data-bind="ojComponent:{
-                                                                        component: 'ojProgressbar', 
-                                                                        value: 25,
-                                                                        rootAttributes: {style: 'width: 200px;'}}">
-                                                    </div>
+                                        <div class="oj-sm-11 oj-flex-item">
+                                            <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center oj-sm-align-items-center oj-sm-only-flex-direction-column">
+                                                <span class="progress-indication">25%</span>
+                                                <div id="progressPercentage" class="oj-sm-only-10 oj-md-6 progressbar-item"
+                                                    data-bind="ojComponent:{
+                                                                    component: 'ojProgressbar', 
+                                                                    value: 25}">
                                                 </div>
-                                                <div class="oj-flex-bar-end">
-                                                    <i id="1" class="material-icons" data-bind="click: togglePath">add</i>
-                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="oj-sm-align-self-center oj-sm-1 oj-flex-item">
+                                            <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-flex-end">
+                                                <i id="1" class="material-icons" data-bind="click: togglePath">add</i>
                                             </div>
                                         </div>
                                     </div>
@@ -224,35 +222,29 @@ and open the template in the editor.
                             </div>
                             <div id="guidedPathDetail1" class="guided-path-detail oj-flex oj-sm-hide">
                                 <div class="oj-sm-12 oj-flex-item">
-                                    <ol>
-                                        <li class="active"><span>Accessing a windows instance using RDP <span class="red-text">»</span></span></li>
-                                        <li><span>Creating SSH Keys for use with Oracle Cloud Services <span class="red-text">»</span></span></li>
-                                        <li><span>Lorem ipsum dolor sit amet <span class="red-text">»</span></span></li>
-                                        <li><span>Avec nonummy quis adispicing elit <span class="red-text">»</span></span></li>
-                                    </ol>
+                                    Body for Add an SSH Public Key
                                 </div>
                             </div>
                             <!-- Guided Path 2 -->
                             <div id="guidedPath2" class="guided-path-container oj-flex-bar">
-                                <div class="left-half oj-sm-4 oj-flex-item">
-                                    Generate SSH Key Pairs
+                                <div class="left-half oj-sm-5 oj-lg-5 oj-flex-item">
+                                    Manage Instances
                                 </div>
-                                <div class="right-half oj-sm-8 oj-flex-item">
+                                <div class="right-half oj-sm-align-self-center oj-sm-7 oj-lg-7 oj-flex-item">
                                     <div class="oj-sm-align-items-center oj-flex">
-                                        <div class="oj-sm-12 oj-flex-item">
-                                            <div class="oj-flex-bar">
-                                                <div class="oj-sm-align-self-center oj-flex-bar-start">
-                                                    <span class="progress-indication">90%</span>
-                                                    <div id="progressPercentage" class="progressbar-item"
-                                                        data-bind="ojComponent:{
-                                                                        component: 'ojProgressbar', 
-                                                                        value: 90,
-                                                                        rootAttributes: {style: 'width: 200px;'}}">
-                                                    </div>
+                                        <div class="oj-sm-11 oj-flex-item">
+                                            <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center oj-sm-align-items-center oj-sm-only-flex-direction-column">
+                                                <span class="progress-indication">0%</span>
+                                                <div id="progressPercentage" class="oj-sm-only-10 oj-md-6 progressbar-item"
+                                                    data-bind="ojComponent:{
+                                                                    component: 'ojProgressbar', 
+                                                                    value: 0}">
                                                 </div>
-                                                <div class="oj-flex-bar-end">
-                                                    <i id="2" class="material-icons" data-bind="click: togglePath">add</i>
-                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="oj-sm-align-self-center oj-sm-1 oj-flex-item">
+                                            <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-flex-end">
+                                                <i id="2" class="material-icons" data-bind="click: togglePath">add</i>
                                             </div>
                                         </div>
                                     </div>
@@ -260,84 +252,7 @@ and open the template in the editor.
                             </div>
                             <div id="guidedPathDetail2" class="guided-path-detail oj-flex oj-sm-hide">
                                 <div class="oj-sm-12 oj-flex-item">
-                                    <ol>
-                                        <li><span>Accessing a windows instance using RDP <span class="red-text">»</span></span></li>
-                                        <li><span>Creating SSH Keys for use with Oracle Cloud Services <span class="red-text">»</span></span></li>
-                                        <li class="active"><span>Lorem ipsum dolor sit amet <span class="red-text">»</span></span></li>
-                                        <li><span>Avec nonummy quis adispicing elit <span class="red-text">»</span></span></li>
-                                    </ol>
-                                </div>
-                            </div>
-                            <!-- Guided Path 3 -->
-                            <div id="guidedPath3" class="guided-path-container oj-flex-bar">
-                                <div class="left-half oj-sm-4 oj-flex-item">
-                                    Generate SSH Key Pairs
-                                </div>
-                                <div class="right-half oj-sm-8 oj-flex-item">
-                                    <div class="oj-sm-align-items-center oj-flex">
-                                        <div class="oj-sm-12 oj-flex-item">
-                                            <div class="oj-flex-bar">
-                                                <div class="oj-sm-align-self-center oj-flex-bar-start">
-                                                    <span class="progress-indication">57%</span>
-                                                    <div id="progressPercentage" class="progressbar-item"
-                                                        data-bind="ojComponent:{
-                                                                        component: 'ojProgressbar', 
-                                                                        value: 57,
-                                                                        rootAttributes: {style: 'width: 200px;'}}">
-                                                    </div>
-                                                </div>
-                                                <div class="oj-flex-bar-end">
-                                                    <i id="3" class="material-icons" data-bind="click: togglePath">add</i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="guidedPathDetail3" class="guided-path-detail oj-flex oj-sm-hide">
-                                <div class="oj-sm-12 oj-flex-item">
-                                    <ol>
-                                        <li><span>Accessing a windows instance using RDP <span class="red-text">»</span></span></li>
-                                        <li class="active"><span>Creating SSH Keys for use with Oracle Cloud Services <span class="red-text">»</span></span></li>
-                                        <li><span>Lorem ipsum dolor sit amet <span class="red-text">»</span></span></li>
-                                        <li><span>Avec nonummy quis adispicing elit <span class="red-text">»</span></span></li>
-                                    </ol>
-                                </div>
-                            </div>
-                            <!-- Guided Path 4 -->
-                            <div id="guidedPath4" class="guided-path-container oj-flex-bar">
-                                <div class="left-half oj-sm-4 oj-flex-item">
-                                    Generate SSH Key Pairs
-                                </div>
-                                <div class="right-half oj-sm-8 oj-flex-item">
-                                    <div class="oj-sm-align-items-center oj-flex">
-                                        <div class="oj-sm-12 oj-flex-item">
-                                            <div class="oj-flex-bar">
-                                                <div class="oj-sm-align-self-center oj-flex-bar-start">
-                                                    <span class="progress-indication">65%</span>
-                                                    <div id="progressPercentage" class="progressbar-item"
-                                                        data-bind="ojComponent:{
-                                                                        component: 'ojProgressbar', 
-                                                                        value: 65,
-                                                                        rootAttributes: {style: 'width: 200px;'}}">
-                                                    </div>
-                                                </div>
-                                                <div class="oj-flex-bar-end">
-                                                    <i id="4" class="material-icons" data-bind="click: togglePath">add</i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="guidedPathDetail4" class="guided-path-detail oj-flex oj-sm-hide">
-                                <div class="oj-sm-12 oj-flex-item">
-                                    <ol>
-                                        <li><span>Accessing a windows instance using RDP <span class="red-text">»</span></span></li>
-                                        <li><span>Creating SSH Keys for use with Oracle Cloud Services <span class="red-text">»</span></span></li>
-                                        <li class="active"><span>Lorem ipsum dolor sit amet <span class="red-text">»</span></span></li>
-                                        <li><span>Avec nonummy quis adispicing elit <span class="red-text">»</span></span></li>
-                                    </ol>
+                                    Body for Manage Instances
                                 </div>
                             </div>
                         </div>
