@@ -19,6 +19,9 @@ define(['config/serviceConfig', 'knockout', 'jquery', 'ojs/ojcore', 'ojs/ojradio
         self.noRoleChoosenErrorText = ko.observable();
 
         console.log('choose role page');
+         self.handleAttached = function () {
+            slideInAnimate(500, 0);
+        };
 
         self.currentRole = ko.observable(loggedInUserRole());
         self.selectedRole = function () {

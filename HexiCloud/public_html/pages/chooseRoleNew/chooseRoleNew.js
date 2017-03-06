@@ -25,9 +25,10 @@ define(['ojs/ojcore',
                     "preStepCode": getStateId(),
                     "userAction": "Selected Role as : " + loggedInUserRole()
                 });
-                slideOutAnimate();
+
                 //$.fn.fullpage.moveSlideLeft();
             }, 500);
+            slideOutAnimate(1500, 0);
             $('.blur-node1, .blur-node2').addClass('animate');
 
 
@@ -42,9 +43,10 @@ define(['ojs/ojcore',
                     "preStepCode": getStateId(),
                     "userAction": "Selected Role as : " + loggedInUserRole()
                 });
-                slideOutAnimate(1500, 0);
+
                 //$.fn.fullpage.moveSlideLeft();
             }, 500);
+            slideOutAnimate(1500, 0);
             $('.blur-node1, .blur-node2').addClass('animate');
         };
 

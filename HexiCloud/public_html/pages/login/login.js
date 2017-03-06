@@ -26,6 +26,8 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
 
         self.dataCenter = ko.observable();
         self.phoneNumber = ko.observable();
+        
+        self.savedStep = ko.observable("chooseRole");
 
         self.returnLgXlClass = ko.computed(function () {
             var range = viewportSize();
@@ -58,6 +60,14 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
         self.handleAttached = function () {
             slideInAnimate(500, 0);
         };
+        var getUserStepSuccessCallBackFn = function (data) {
+            console.log(data);
+            if (data) {
+                loggedInUser(data.userId);
+                loggedInUserRole(data.userRole);
+                self.savedStep(data.curStepCode);
+            }
+        };
 
         self.login = function () {
 //            router.go('chooseRoleNew/');
@@ -89,12 +99,12 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         userClmRegistryId(data.registryId);
                         sessionInfo.setToSession(sessionInfo.userClmRegistryId, data.registryId);
                         self.loginFailureText("");
+//                        service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn);
                         setTimeout(function () {
-                            router.go('chooseRole/');
+                            $('#bgvid').remove();
+                            router.go(self.savedStep() + '/');
                         }, 500);
                         slideOutAnimate(1500, 0);
-                        $('#bgvid').remove();
-                        router.go('chooseRole/');
                     } else {
                         self.loginFailureText("Invalid Username or Password");
                     }
@@ -105,7 +115,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                     self.loginFailureText("Invalid Username or Password");
                 };
                 service.authenticate({
-                    "userId": self.userName(),
+                    "userId": self.userName().toLowerCase(),
                     "password": btoa(self.password())
                 }).then(successCallBackFn, failCallBackFn);
 
