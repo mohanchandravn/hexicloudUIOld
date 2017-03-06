@@ -161,178 +161,183 @@ and open the template in the editor.
                         <hr class="oj-sm-12 oj-flex-item">
                         <div class="guided-path-items oj-sm-12 oj-flex-item">
                             <!-- Guided Path 0 -->
-                            <div id="guidedPath0" class="guided-path-container oj-flex-bar">
-                                <div class="oj-sm-align-items-center oj-flex-bar-start">
+                            <div id="guidedPath0" class="guided-path-container oj-flex">
+                                <div class="left-half oj-sm-4 oj-flex-item">
                                     Generate SSH Key Pairs
                                 </div>
-                                <div class="oj-sm-align-items-center oj-flex-bar-end">
-                                    <div id="progressPercentage" class="progressbar-item"
-                                        data-bind="ojComponent:{
-                                                        component: 'ojProgressbar', 
-                                                        value: 65,
-                                                        rootAttributes: {style: 'width: 200px;'}}">
+                                <div class="right-half oj-sm-8 oj-flex-item">
+                                    <div class="oj-sm-align-items-center oj-flex">
+                                        <div class="oj-sm-12 oj-flex-item">
+                                            <div class="oj-flex-bar">
+                                                <div class="oj-sm-align-self-center oj-flex-bar-start">
+                                                    <span class="progress-indication">10%</span>
+                                                    <div id="progressPercentage" class="progressbar-item"
+                                                        data-bind="ojComponent:{
+                                                                        component: 'ojProgressbar', 
+                                                                        value: 10,
+                                                                        rootAttributes: {style: 'width: 200px;'}}">
+                                                    </div>
+                                                </div>
+                                                <div class="oj-flex-bar-end">
+                                                    <i id="0" class="material-icons" data-bind="click: togglePath">add</i>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <i id="0" class="material-icons" data-bind="click: togglePath">add</i>
                                 </div>
                             </div>
                             <div id="guidedPathDetail0" class="guided-path-detail oj-flex oj-sm-hide">
                                 <div class="oj-sm-12 oj-flex-item">
-                                    <div class="guided-path-detail-item oj-flex-bar">
-                                        <div class="oj-sm-align-items-center oj-flex-bar-start">
-                                            1. Accessing a Windows Instance Using RDP
-                                        </div>
-                                        <div class="oj-sm-align-items-center oj-flex-bar-end">
-                                            <span class="guided-path-status-complete">Complete</span>
-                                        </div>
-                                    </div>
-                                    <div class="guided-path-detail-item oj-flex-bar">
-                                        <div class="oj-sm-align-items-center oj-flex-bar-start">
-                                            2. Creating SSH Keys for Use with Oracle Cloud Services
-                                        </div>
-                                        <div class="oj-sm-align-items-center oj-flex-bar-end">
-                                            <span class="guided-path-status-continue">Continue</span>
-                                        </div>
-                                    </div>
+                                    <ol>
+                                        <li class="active"><span>Accessing a windows instance using RDP <span class="red-text">»</span></span></li>
+                                        <li><span>Creating SSH Keys for use with Oracle Cloud Services <span class="red-text">»</span></span></li>
+                                        <li><span>Lorem ipsum dolor sit amet <span class="red-text">»</span></span></li>
+                                        <li><span>Avec nonummy quis adispicing elit <span class="red-text">»</span></span></li>
+                                    </ol>
                                 </div>
                             </div>
                             <!-- Guided Path 1 -->
                             <div id="guidedPath1" class="guided-path-container oj-flex-bar">
-                                <div class="oj-sm-align-items-center oj-flex-bar-start">
-                                    Adding an SSH Public Key
+                                <div class="left-half oj-sm-4 oj-flex-item">
+                                    Generate SSH Key Pairs
                                 </div>
-                                <div class="oj-sm-align-items-center oj-flex-bar-end">
-                                    <div id="progressPercentage" class="progressbar-item"
-                                        data-bind="ojComponent:{
-                                                        component: 'ojProgressbar', 
-                                                        value: 20,
-                                                        rootAttributes: {style: 'width: 200px;'}}">
+                                <div class="right-half oj-sm-8 oj-flex-item">
+                                    <div class="oj-sm-align-items-center oj-flex">
+                                        <div class="oj-sm-12 oj-flex-item">
+                                            <div class="oj-flex-bar">
+                                                <div class="oj-sm-align-self-center oj-flex-bar-start">
+                                                    <span class="progress-indication">25%</span>
+                                                    <div id="progressPercentage" class="progressbar-item"
+                                                        data-bind="ojComponent:{
+                                                                        component: 'ojProgressbar', 
+                                                                        value: 25,
+                                                                        rootAttributes: {style: 'width: 200px;'}}">
+                                                    </div>
+                                                </div>
+                                                <div class="oj-flex-bar-end">
+                                                    <i id="0" class="material-icons" data-bind="click: togglePath">add</i>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <i id="1" class="material-icons" data-bind="click: togglePath">add</i>
                                 </div>
                             </div>
                             <div id="guidedPathDetail1" class="guided-path-detail oj-flex oj-sm-hide">
                                 <div class="oj-sm-12 oj-flex-item">
-                                    <div class="guided-path-detail-item oj-flex-bar">
-                                        <div class="oj-sm-align-items-center oj-flex-bar-start">
-                                            1. Accessing a Windows Instance Using RDP
-                                        </div>
-                                        <div class="oj-sm-align-items-center oj-flex-bar-end">
-                                            <span class="guided-path-status-complete">Complete</span>
-                                        </div>
-                                    </div>
-                                    <div class="guided-path-detail-item oj-flex-bar">
-                                        <div class="oj-sm-align-items-center oj-flex-bar-start">
-                                            2. Creating SSH Keys for Use with Oracle Cloud Services
-                                        </div>
-                                        <div class="oj-sm-align-items-center oj-flex-bar-end">
-                                            <span class="guided-path-status-continue">Continue</span>
-                                        </div>
-                                    </div>
+                                    <ol>
+                                        <li class="active"><span>Accessing a windows instance using RDP <span class="red-text">»</span></span></li>
+                                        <li><span>Creating SSH Keys for use with Oracle Cloud Services <span class="red-text">»</span></span></li>
+                                        <li><span>Lorem ipsum dolor sit amet <span class="red-text">»</span></span></li>
+                                        <li><span>Avec nonummy quis adispicing elit <span class="red-text">»</span></span></li>
+                                    </ol>
                                 </div>
                             </div>
                             <!-- Guided Path 2 -->
                             <div id="guidedPath2" class="guided-path-container oj-flex-bar">
-                                <div class="oj-sm-align-items-center oj-flex-bar-start">
-                                    Managing Instances
+                                <div class="left-half oj-sm-4 oj-flex-item">
+                                    Generate SSH Key Pairs
                                 </div>
-                                <div class="oj-sm-align-items-center oj-flex-bar-end">
-                                    <div id="progressPercentage" class="progressbar-item"
-                                        data-bind="ojComponent:{
-                                                        component: 'ojProgressbar', 
-                                                        value: 50,
-                                                        rootAttributes: {style: 'width: 200px;'}}">
+                                <div class="right-half oj-sm-8 oj-flex-item">
+                                    <div class="oj-sm-align-items-center oj-flex">
+                                        <div class="oj-sm-12 oj-flex-item">
+                                            <div class="oj-flex-bar">
+                                                <div class="oj-sm-align-self-center oj-flex-bar-start">
+                                                    <span class="progress-indication">90%</span>
+                                                    <div id="progressPercentage" class="progressbar-item"
+                                                        data-bind="ojComponent:{
+                                                                        component: 'ojProgressbar', 
+                                                                        value: 90,
+                                                                        rootAttributes: {style: 'width: 200px;'}}">
+                                                    </div>
+                                                </div>
+                                                <div class="oj-flex-bar-end">
+                                                    <i id="0" class="material-icons" data-bind="click: togglePath">add</i>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <i id="2" class="material-icons" data-bind="click: togglePath">add</i>
                                 </div>
                             </div>
                             <div id="guidedPathDetail2" class="guided-path-detail oj-flex oj-sm-hide">
                                 <div class="oj-sm-12 oj-flex-item">
-                                    <div class="guided-path-detail-item oj-flex-bar">
-                                        <div class="oj-sm-align-items-center oj-flex-bar-start">
-                                            1. Accessing a Windows Instance Using RDP
-                                        </div>
-                                        <div class="oj-sm-align-items-center oj-flex-bar-end">
-                                            <span class="guided-path-status-complete">Complete</span>
-                                        </div>
-                                    </div>
-                                    <div class="guided-path-detail-item oj-flex-bar">
-                                        <div class="oj-sm-align-items-center oj-flex-bar-start">
-                                            2. Creating SSH Keys for Use with Oracle Cloud Services
-                                        </div>
-                                        <div class="oj-sm-align-items-center oj-flex-bar-end">
-                                            <span class="guided-path-status-continue">Continue</span>
-                                        </div>
-                                    </div>
+                                    <ol>
+                                        <li><span>Accessing a windows instance using RDP <span class="red-text">»</span></span></li>
+                                        <li><span>Creating SSH Keys for use with Oracle Cloud Services <span class="red-text">»</span></span></li>
+                                        <li class="active"><span>Lorem ipsum dolor sit amet <span class="red-text">»</span></span></li>
+                                        <li><span>Avec nonummy quis adispicing elit <span class="red-text">»</span></span></li>
+                                    </ol>
                                 </div>
                             </div>
                             <!-- Guided Path 3 -->
                             <div id="guidedPath3" class="guided-path-container oj-flex-bar">
-                                <div class="oj-sm-align-items-center oj-flex-bar-start">
-                                    Logging in to an Instance
+                                <div class="left-half oj-sm-4 oj-flex-item">
+                                    Generate SSH Key Pairs
                                 </div>
-                                <div class="oj-sm-align-items-center oj-flex-bar-end">
-                                    <div id="progressPercentage" class="progressbar-item"
-                                        data-bind="ojComponent:{
-                                                        component: 'ojProgressbar', 
-                                                        value: 10,
-                                                        rootAttributes: {style: 'width: 200px;'}}">
+                                <div class="right-half oj-sm-8 oj-flex-item">
+                                    <div class="oj-sm-align-items-center oj-flex">
+                                        <div class="oj-sm-12 oj-flex-item">
+                                            <div class="oj-flex-bar">
+                                                <div class="oj-sm-align-self-center oj-flex-bar-start">
+                                                    <span class="progress-indication">57%</span>
+                                                    <div id="progressPercentage" class="progressbar-item"
+                                                        data-bind="ojComponent:{
+                                                                        component: 'ojProgressbar', 
+                                                                        value: 57,
+                                                                        rootAttributes: {style: 'width: 200px;'}}">
+                                                    </div>
+                                                </div>
+                                                <div class="oj-flex-bar-end">
+                                                    <i id="0" class="material-icons" data-bind="click: togglePath">add</i>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <i id="3" class="material-icons" data-bind="click: togglePath">add</i>
                                 </div>
                             </div>
                             <div id="guidedPathDetail3" class="guided-path-detail oj-flex oj-sm-hide">
                                 <div class="oj-sm-12 oj-flex-item">
-                                    <div class="guided-path-detail-item oj-flex-bar">
-                                        <div class="oj-sm-align-items-center oj-flex-bar-start">
-                                            1. Accessing a Windows Instance Using RDP
-                                        </div>
-                                        <div class="oj-sm-align-items-center oj-flex-bar-end">
-                                            <span class="guided-path-status-complete">Complete</span>
-                                        </div>
-                                    </div>
-                                    <div class="guided-path-detail-item oj-flex-bar">
-                                        <div class="oj-sm-align-items-center oj-flex-bar-start">
-                                            2. Creating SSH Keys for Use with Oracle Cloud Services
-                                        </div>
-                                        <div class="oj-sm-align-items-center oj-flex-bar-end">
-                                            <span class="guided-path-status-continue">Continue</span>
-                                        </div>
-                                    </div>
+                                    <ol>
+                                        <li><span>Accessing a windows instance using RDP <span class="red-text">»</span></span></li>
+                                        <li class="active"><span>Creating SSH Keys for use with Oracle Cloud Services <span class="red-text">»</span></span></li>
+                                        <li><span>Lorem ipsum dolor sit amet <span class="red-text">»</span></span></li>
+                                        <li><span>Avec nonummy quis adispicing elit <span class="red-text">»</span></span></li>
+                                    </ol>
                                 </div>
                             </div>
                             <!-- Guided Path 4 -->
                             <div id="guidedPath4" class="guided-path-container oj-flex-bar">
-                                <div class="oj-sm-align-items-center oj-flex-bar-start">
-                                    Managing Storage Volumes
+                                <div class="left-half oj-sm-4 oj-flex-item">
+                                    Generate SSH Key Pairs
                                 </div>
-                                <div class="oj-sm-align-items-center oj-flex-bar-end">
-                                    <div id="progressPercentage" class="progressbar-item"
-                                        data-bind="ojComponent:{
-                                                        component: 'ojProgressbar', 
-                                                        value: 90,
-                                                        rootAttributes: {style: 'width: 200px;'}}">
+                                <div class="right-half oj-sm-8 oj-flex-item">
+                                    <div class="oj-sm-align-items-center oj-flex">
+                                        <div class="oj-sm-12 oj-flex-item">
+                                            <div class="oj-flex-bar">
+                                                <div class="oj-sm-align-self-center oj-flex-bar-start">
+                                                    <span class="progress-indication">65%</span>
+                                                    <div id="progressPercentage" class="progressbar-item"
+                                                        data-bind="ojComponent:{
+                                                                        component: 'ojProgressbar', 
+                                                                        value: 65,
+                                                                        rootAttributes: {style: 'width: 200px;'}}">
+                                                    </div>
+                                                </div>
+                                                <div class="oj-flex-bar-end">
+                                                    <i id="0" class="material-icons" data-bind="click: togglePath">add</i>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <i id="4" class="material-icons" data-bind="click: togglePath">add</i>
                                 </div>
                             </div>
                             <div id="guidedPathDetail4" class="guided-path-detail oj-flex oj-sm-hide">
                                 <div class="oj-sm-12 oj-flex-item">
-                                    <div class="guided-path-detail-item oj-flex-bar">
-                                        <div class="oj-sm-align-items-center oj-flex-bar-start">
-                                            1. Accessing a Windows Instance Using RDP
-                                        </div>
-                                        <div class="oj-sm-align-items-center oj-flex-bar-end">
-                                            <span class="guided-path-status-complete">Complete</span>
-                                        </div>
-                                    </div>
-                                    <div class="guided-path-detail-item oj-flex-bar">
-                                        <div class="oj-sm-align-items-center oj-flex-bar-start">
-                                            2. Creating SSH Keys for Use with Oracle Cloud Services
-                                        </div>
-                                        <div class="oj-sm-align-items-center oj-flex-bar-end">
-                                            <span class="guided-path-status-continue">Continue</span>
-                                        </div>
-                                    </div>
+                                    <ol>
+                                        <li><span>Accessing a windows instance using RDP <span class="red-text">»</span></span></li>
+                                        <li><span>Creating SSH Keys for use with Oracle Cloud Services <span class="red-text">»</span></span></li>
+                                        <li class="active"><span>Lorem ipsum dolor sit amet <span class="red-text">»</span></span></li>
+                                        <li><span>Avec nonummy quis adispicing elit <span class="red-text">»</span></span></li>
+                                    </ol>
                                 </div>
                             </div>
                         </div>

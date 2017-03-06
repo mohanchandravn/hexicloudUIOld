@@ -142,9 +142,6 @@ and open the template in the editor.
     margin-top: 5px;
     font-size: 18px;
     line-height: 28px;
-    color: #fff;
-    background-color: #008bbc;
-    padding: 20px;
 }
 /*
 .guided-path-container .progressbar-item {
@@ -155,42 +152,51 @@ and open the template in the editor.
     border-radius: 27px;
     border: 2px solid white;
     background-color: orange;
-}
+}*/
 
 .guided-path-container .oj-progressbar-value {
-    border-right: 2px solid white;
-    background-color: green;
-}*/
+    background-color: #008bbc;
+}
+
+.guided-path-container .left-half {
+    color: #fff;
+    background-color: #008bbc;
+    padding: 20px;
+    
+}
+
+.guided-path-container .right-half {
+    color: #008bbc;
+    background-color: #e3f0f5;
+    padding: 20px;
+}
 
 .guided-path-container i {
     font-size: 24px !important;
     cursor: pointer;
 }
 
+.guided-path-container .progress-indication {
+    font-size: 18px;
+}
+
 .guided-path-detail {
-    border: 0.5px solid #000;
-    margin: 5px 20px 0 20px;
-    /*padding: 15px;*/
+    padding: 15px;
 }
 
-.guided-path-detail-item {
-    margin: 10px;
+.guided-path-detail ol {
+    color: #00758f;
 }
 
-.guided-path-status-continue, .guided-path-status-complete {
-    width: 100px;
-    color: white;
-    text-align: center;
-    padding: 3px 20px;
-    border-radius: 27px;
+.guided-path-detail ol li {
+    font-size: 16px;
+    line-height: 32px;
+    margin: 10px 0;
 }
 
-.guided-path-status-complete {
-    background: green;
-}
-
-.guided-path-status-continue {
-    background: orange;
+.guided-path-detail ol li.active {
+    font-family: 'Roboto-bold', sans-serif;
+    background-color: #e3f0f5;
 }
 
 .provisioned-services.dashboard .content.stage h1,
