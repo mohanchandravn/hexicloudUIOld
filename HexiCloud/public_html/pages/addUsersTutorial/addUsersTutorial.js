@@ -1,6 +1,6 @@
 define(['ojs/ojcore',
     'jquery',
-    'knockout', 
+    'knockout',
     'config/serviceConfig',
     'components/trainnavigation/loader'], function (oj, $, ko, service) {
 
@@ -11,27 +11,15 @@ define(['ojs/ojcore',
             slideInAnimate(500, 0);
         };
 
-        self.videoSrc = ko.observable();
-        if (loggedInUserRole() === 'accountAdmin') {
-            self.videoSrc("assets/AddIDAFromMyAccount.mp4");
-        } else {
-            self.videoSrc("assets/AddUserToMyServices.mp4");
-        }
+        self.videoSrc = ko.observable("assets/newVids/addidamyaccount.mp4");
+
         self.getShortVideo = function () {
-            if (loggedInUserRole() === 'accountAdmin') {
-                self.videoSrc("assets/AddIDAFromMyAccount.mp4");
-            } else {
-                self.videoSrc("assets/AddUserToMyServices.mp4");
-            }
+            self.videoSrc = ko.observable("assets/newVids/addidamyaccount.mp4");
             $("#createUsersVid")[0].load();
         };
         self.getLongVideo = function () {
 
-            if (loggedInUserRole() === 'accountAdmin') {
-                self.videoSrc("assets/AddIDAFromMyAccount2.mp4");
-            } else {
-                self.videoSrc("assets/loginAndaddusers.mp4");
-            }
+            self.videoSrc("assets/newVids/addusers.mp4");
             $("#createUsersVid")[0].load();
         };
 
@@ -59,16 +47,16 @@ define(['ojs/ojcore',
 //            }, 500);
 //            slideOutAnimate(1500, 0);
 
-            
+
 
         };
         self.currentStepValue = ko.observable('stp2');
-            self.stepsArray =
+        self.stepsArray =
                 ko.observableArray(
                         [{label: 'Choose Role', id: 'stp1'},
                             {label: 'Add Users', id: 'stp2'},
                             {label: 'Services', id: 'stp3'}]);
-            self.actionDisabledCss = "disable-train-selection";
+        self.actionDisabledCss = "disable-train-selection";
     }
     return addUsersTutorialViewModel;
 });

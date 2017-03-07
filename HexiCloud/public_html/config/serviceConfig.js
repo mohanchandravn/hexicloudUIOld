@@ -16,13 +16,19 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
 //        self.portalRestHost = ko.observable("http://127.0.0.1:7101/");
         //GSE JCS
 //        self.portalRestHost = ko.observable("https://140.86.1.93/");
+
+        // New GSE JCS
         
-         // New GSE JCS
-        self.portalRestHost = ko.observable("https://129.152.128.105/");
-        
+        if (location.protocol === 'http:') {
+            self.portalRestHost = ko.observable("http://129.152.128.105:8080/");
+        } else {
+            self.portalRestHost = ko.observable("https://129.152.128.105/");
+        }
+//        self.portalRestHost = ko.observable("https://129.152.128.105/");
+
         self.serverURI = ko.observable("https://documents-gse00002841.documents.us2.oraclecloud.com/documents/link/");
-        
-        self.updateCurrentStep = function(payload) {
+
+        self.updateCurrentStep = function (payload) {
 //            var defer = $.Deferred();
             var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/createUserStep/";
             $.ajax({
@@ -44,8 +50,8 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
 //            return $.when(defer);
         };
-        
-        self.getUserStep = function(userId) {
+
+        self.getUserStep = function (userId) {
             var defer = $.Deferred();
             var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/findUsersCurrentStep/" + userId + "/";
             $.ajax({
@@ -62,9 +68,9 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
-        
+
         // for fetching file details by stepId/stepCode
-        self.getFileDetails = function(stepDetail) {
+        self.getFileDetails = function (stepDetail) {
             var defer = $.Deferred();
             if (typeof stepDetail === 'number') {
                 var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/findStepDocsByStepId/" + stepDetail;
@@ -85,8 +91,8 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
-        
-        self.getLinkId = function(fileId, docType) {
+
+        self.getLinkId = function (fileId, docType) {
             var defer = $.Deferred();
             var serverURL = "https://documents-gse00002841.documents.us2.oraclecloud.com/documents/api/1.1/publiclinks/file/" + fileId;
             $.ajax({
@@ -108,8 +114,8 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
-        
-        self.submitSR = function(payload) {
+
+        self.submitSR = function (payload) {
             var defer = $.Deferred();
             var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/saveAndSendEmail/";
             $.ajax({
@@ -128,14 +134,14 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
-        self.authenticate = function(payload) {
+        self.authenticate = function (payload) {
             var defer = $.Deferred();
             var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/authenticate/";
             $.ajax({
                 type: "POST",
                 url: serverURL,
-               dataType: "json",
-            contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
                 data: JSON.stringify(payload),
                 success: function (data, textStatus, xhr) {
                     console.log('Successfully posted data at: ' + serverURL);
@@ -150,8 +156,8 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
-        
-        self.getUserClmData = function(registryId) {
+
+        self.getUserClmData = function (registryId) {
             var defer = $.Deferred();
             var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/getClmData/" + registryId;
             $.ajax({
@@ -168,7 +174,8 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
-    };
-   
-   return new serviceConfig();
+    }
+    ;
+
+    return new serviceConfig();
 });
