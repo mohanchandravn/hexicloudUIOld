@@ -64,10 +64,10 @@ define(['ojs/ojcore',
         };
         self.currentStepValue = ko.observable('stp2');
             self.stepsArray =
-                    ko.observableArray(
-                            [{label: 'Choose Role', id: 'stp1'},
-                                {label: 'Add Additional Users', id: 'stp2'},
-                                {label: 'Provisioned Services', id: 'stp3'}]);
+                ko.observableArray(
+                        [{label: 'Choose Role', id: 'stp1'},
+                            {label: 'Add Users', id: 'stp2'},
+                            {label: 'Services', id: 'stp3'}]);
             self.actionDisabledCss = "disable-train-selection";
     }
     return addUsersTutorialViewModel;
