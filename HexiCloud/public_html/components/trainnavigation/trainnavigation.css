@@ -1,0 +1,28 @@
+/* 
+    Created on : Mar 7, 2017, 6:02:03 PM
+    Author     : sgunjur
+*/
+
+/*.ox-prompt-train .oj-train-connector{
+    background-color: #00758f !important;
+}*/
+
+.ox-prompt-train .oj-train-connector-fill{
+    background-color: #00758f !important;
+}
+
+.ox-prompt-train .oj-train-step-list-item a{
+    color: #00758f;
+    font-weight:bold;
+/*        font-size: 10px;*/
+}
+
+.ox-prompt-train .oj-train-button-connector{
+    background-color: #00758f;
+}
+
+.ox-prompt-train .oj-train-button.oj-selected
+{
+    border-color: #00758f;
+    background-color: #00758f;
+}

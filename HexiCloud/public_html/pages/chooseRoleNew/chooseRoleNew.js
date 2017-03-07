@@ -1,6 +1,8 @@
 define(['ojs/ojcore',
     'jquery',
-    'knockout', 'config/serviceConfig'], function (oj, $, ko, service) {
+    'knockout',
+    'config/serviceConfig',
+    'components/trainnavigation/loader'], function (oj, $, ko, service) {
 
     function ChooseRoleViewModel(params)
     {
@@ -18,15 +20,15 @@ define(['ojs/ojcore',
         {
             loggedInUserRole('accountAdmin');
 //            setTimeout(function () {
-                service.updateCurrentStep({
-                    "userId": loggedInUser(),
-                    "userRole": loggedInUserRole(),
-                    "curStepCode": "addAdditionalUsers",
-                    "preStepCode": getStateId(),
-                    "userAction": "Selected Role as : " + loggedInUserRole()
-                });
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": loggedInUserRole(),
+                "curStepCode": "addAdditionalUsers",
+                "preStepCode": getStateId(),
+                "userAction": "Selected Role as : " + loggedInUserRole()
+            });
 
-                //$.fn.fullpage.moveSlideLeft();
+            //$.fn.fullpage.moveSlideLeft();
 //            }, 500);
 //            slideOutAnimate(1500, 0);
             $('.blur-node1, .blur-node2').addClass('animate');
@@ -36,15 +38,15 @@ define(['ojs/ojcore',
         self.identityDomainAdminSelect = function () {
             loggedInUserRole('itAdmin');
 //            setTimeout(function () {
-                service.updateCurrentStep({
-                    "userId": loggedInUser(),
-                    "userRole": loggedInUserRole(),
-                    "curStepCode": "addAdditionalUsers",
-                    "preStepCode": getStateId(),
-                    "userAction": "Selected Role as : " + loggedInUserRole()
-                });
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": loggedInUserRole(),
+                "curStepCode": "addAdditionalUsers",
+                "preStepCode": getStateId(),
+                "userAction": "Selected Role as : " + loggedInUserRole()
+            });
 
-                //$.fn.fullpage.moveSlideLeft();
+            //$.fn.fullpage.moveSlideLeft();
 //            }, 500);
 //            slideOutAnimate(1500, 0);
             $('.blur-node1, .blur-node2').addClass('animate');
@@ -53,6 +55,14 @@ define(['ojs/ojcore',
         self.handleAttached = function () {
 //            slideInAnimate(500, 0);
         };
+
+        self.currentStepValue = ko.observable('stp1');
+        self.stepsArray =
+                ko.observableArray(
+                        [{label: 'Choose Role', id: 'stp1'},
+                            {label: 'Add Additional Users', id: 'stp'},
+                            {label: 'Provisioned Services', id: 'stp3'}]);
+        self.actionDisabledCss = "disable-train-selection";
     }
 
     return ChooseRoleViewModel;

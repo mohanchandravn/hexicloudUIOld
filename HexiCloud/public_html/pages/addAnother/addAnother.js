@@ -1,6 +1,8 @@
 define(['ojs/ojcore',
     'jquery',
-    'knockout', 'config/serviceConfig'], function (oj, $, ko, service) {
+    'knockout', 
+    'config/serviceConfig',
+    'components/trainnavigation/loader'], function (oj, $, ko, service) {
 
     function createUsersViewModel(params) {
         var self = this;
@@ -58,6 +60,14 @@ define(['ojs/ojcore',
         self.handleAttached = function () {
             slideInAnimate(500, 0);
         };
+        
+        self.currentStepValue = ko.observable('stp2');
+        self.stepsArray =
+                ko.observableArray(
+                        [{label: 'Choose Role', id: 'stp1'},
+                            {label: 'Add Additional Users', id: 'stp2'},
+                            {label: 'Provisioned Services', id: 'stp3'}]);
+        self.actionDisabledCss = "disable-train-selection";
     }
 
     return createUsersViewModel;

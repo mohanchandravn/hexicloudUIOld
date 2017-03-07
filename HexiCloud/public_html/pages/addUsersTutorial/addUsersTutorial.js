@@ -1,6 +1,8 @@
 define(['ojs/ojcore',
     'jquery',
-    'knockout', 'config/serviceConfig'], function (oj, $, ko, service) {
+    'knockout', 
+    'config/serviceConfig',
+    'components/trainnavigation/loader'], function (oj, $, ko, service) {
 
     function addUsersTutorialViewModel(params) {
         var self = this;
@@ -24,7 +26,7 @@ define(['ojs/ojcore',
             $("#createUsersVid")[0].load();
         };
         self.getLongVideo = function () {
-            
+
             if (loggedInUserRole() === 'accountAdmin') {
                 self.videoSrc("assets/AddIDAFromMyAccount2.mp4");
             } else {
@@ -46,18 +48,27 @@ define(['ojs/ojcore',
 
         self.goToServices = function () {
 //            setTimeout(function () {
-                service.updateCurrentStep({
-                    "userId": loggedInUser(),
-                    "userRole": loggedInUserRole(),
-                    "curStepCode": 'servicesMini',
-                    "preStepCode": getStateId(),
+            service.updateCurrentStep({
+                "userId": loggedInUser(),
+                "userRole": loggedInUserRole(),
+                "curStepCode": 'servicesMini',
+                "preStepCode": getStateId(),
 //                    "preStepCode": 'createUsers',
-                    "userAction": "Go to Provisioned Services"
-                });
+                "userAction": "Go to Provisioned Services"
+            });
 //            }, 500);
 //            slideOutAnimate(1500, 0);
 
+            
+
         };
+        self.currentStepValue = ko.observable('stp2');
+            self.stepsArray =
+                    ko.observableArray(
+                            [{label: 'Choose Role', id: 'stp1'},
+                                {label: 'Add Additional Users', id: 'stp2'},
+                                {label: 'Provisioned Services', id: 'stp3'}]);
+            self.actionDisabledCss = "disable-train-selection";
     }
     return addUsersTutorialViewModel;
 });

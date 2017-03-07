@@ -12,7 +12,7 @@
 /**
  * service module
  */
-define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojmasonrylayout'
+define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojmasonrylayout','components/trainnavigation/loader'
 ], function (ko, service, $) {
     /**
      * The view model for the main content view template
@@ -91,6 +91,14 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         {
             $('#tech_support').hide();
         };
+        
+        self.currentStepValue = ko.observable('stp3');
+        self.stepsArray =
+                ko.observableArray(
+                        [{label: 'Choose Role', id: 'stp1'},
+                            {label: 'Add Additional Users', id: 'stp2'},
+                            {label: 'Provisioned Services', id: 'stp3'}]);
+        self.actionDisabledCss = "disable-train-selection";
     }
 
 
