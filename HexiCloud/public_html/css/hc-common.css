@@ -319,3 +319,14 @@ p.lg {
         display: table;
     }
 }
+/* This used to work for parent element of button divs */
+
+/* But it is not enough now, below dont hide play button parent div */
+
+home-page video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+login-page video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}

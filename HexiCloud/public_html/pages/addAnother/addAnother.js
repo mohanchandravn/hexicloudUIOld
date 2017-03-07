@@ -28,7 +28,7 @@ define(['ojs/ojcore',
         }
 
         self.onClickAddUser = function () {
-            setTimeout(function () {
+//            setTimeout(function () {
 //                    router.go('createUsers/');
                 service.updateCurrentStep({
                     "userId": loggedInUser(),
@@ -38,8 +38,8 @@ define(['ojs/ojcore',
                     "userAction": "Watch the screencast"
                 });
 
-            }, 500);
-            slideOutAnimate(1500, 0);
+//            }, 500);
+//            slideOutAnimate(1500, 0);
         };
 
         self.gotoDashboard = function () {

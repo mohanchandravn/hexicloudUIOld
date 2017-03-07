@@ -17,7 +17,7 @@ define(['ojs/ojcore',
         self.buyerSelect = function ()
         {
             loggedInUserRole('accountAdmin');
-            setTimeout(function () {
+//            setTimeout(function () {
                 service.updateCurrentStep({
                     "userId": loggedInUser(),
                     "userRole": loggedInUserRole(),
@@ -27,15 +27,15 @@ define(['ojs/ojcore',
                 });
 
                 //$.fn.fullpage.moveSlideLeft();
-            }, 500);
-            slideOutAnimate(1500, 0);
+//            }, 500);
+//            slideOutAnimate(1500, 0);
             $('.blur-node1, .blur-node2').addClass('animate');
 
 
         };
         self.identityDomainAdminSelect = function () {
             loggedInUserRole('itAdmin');
-            setTimeout(function () {
+//            setTimeout(function () {
                 service.updateCurrentStep({
                     "userId": loggedInUser(),
                     "userRole": loggedInUserRole(),
@@ -45,13 +45,13 @@ define(['ojs/ojcore',
                 });
 
                 //$.fn.fullpage.moveSlideLeft();
-            }, 500);
-            slideOutAnimate(1500, 0);
+//            }, 500);
+//            slideOutAnimate(1500, 0);
             $('.blur-node1, .blur-node2').addClass('animate');
         };
 
         self.handleAttached = function () {
-            slideInAnimate(500, 0);
+//            slideInAnimate(500, 0);
         };
     }
 

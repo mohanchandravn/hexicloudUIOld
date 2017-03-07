@@ -11,7 +11,9 @@ and open the template in the editor.
 @media screen and (max-width: 767px){
     .tech-support-container {
         right: -30px !important;
-        top: 80px;
+        height: 85%;
+        overflow-y: auto;
+/*        top: 80px;*/
     }
     .tech-support-container .phoneContainer {
         width: 95% !important;
@@ -24,9 +26,21 @@ and open the template in the editor.
     .tech-support-container .navContainer input, .tech-support-container .navContainer textArea{
         width: 85% !important;
     }
+    .tech-support-container .material-icons {
+           padding: 10px !important;
+           margin-right: 10px !important;
+    }
      .square .material-icons
     {
-        right: 25px !important;
+            right: 14px !important;
+    }
+    .tech-support-container .phone-submit-btn.oj-button,
+    .tech-support-container .phone-submit-btn.oj-button.oj-hover{
+        margin-top: 10px !important;
+    }
+    
+    .phoneContainer .form-background {
+       padding: 15px !important;
     }
 
 }
@@ -47,22 +61,17 @@ and open the template in the editor.
         width: 85% !important;
     }
     .tech-support-container .material-icons {
-        padding: 15px !important;
+            padding: 10px !important;
+            margin-right: 10px !important;
     }
     .square .material-icons
     {
-        right: 18px !important;
+        right: 8px !important;
         top: 9px !important;
         width: 10px !important;
     }
     .tech-support-container .phoneContainer {
         width: 94% !important;
-    }
-    .phoneContainer .form-background {
-        padding-left: 30px !important;
-        padding-right: 30px !important;
-        padding-top: 20px !important;
-        padding-bottom: 20px !important;
     }
     .tech-support-container .phone-submit-btn.oj-button,
     .tech-support-container .phone-submit-btn.oj-button.oj-hover{
@@ -225,6 +234,10 @@ and open the template in the editor.
     right: 11px;
     top: 19px;
     cursor: pointer;
+}
+
+.tech-support-container .navContainer a{
+    color: transparent !important;
 }
 
 
