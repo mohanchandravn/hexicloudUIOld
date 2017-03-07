@@ -45,7 +45,7 @@ and open the template in the editor.
 }
 
 .usecase-container {
-    max-width: 400px;
+    max-width: 330px;
 }
 
 .usecase-container .head {
@@ -57,11 +57,23 @@ and open the template in the editor.
     background-color: #F80000;
 }
 
-.usecase1 {
-    margin-bottom: 30px;
+.usecase-container .head.active:before {
+    border-left-color: #fff;
+    position: absolute;
+    top: 100px;
+    right: -40px;
+    z-index: 2;
 }
 
-.usecase1, .usecase2 {
+.usecase-container .head.active:after {
+    border-left-color: #fff;
+    position: absolute;
+    top: 100px;
+    right: -40px;
+    z-index: 2;
+}
+
+.usecase1 {
     padding: 20px;
     border-bottom: 1px solid #F80000;
     background-color: white;
@@ -84,18 +96,27 @@ and open the template in the editor.
     cursor: pointer;
 }
 
-.red-text {
+.raquo-right-text {
+    position: absolute;
+    margin-left: 355px;
     color: #F80000;
+    font-size: 40px;
+    margin-top: 70px;
 }
 
 .usecase-detail-container {
-    padding-left: 20px;
+    margin-bottom: 30px;
+    background-color: #fff;
 }
 
 .usecase-detail-item {
-    background-color: #fff;
     padding: 20px;
-    margin-bottom: 30px;
+}
+
+.guided-path-display-image {
+    margin-top: 15px;
+    width: 40px;
+    height: 40px;
 }
 
 .usecase-img-container {
@@ -142,6 +163,7 @@ and open the template in the editor.
     margin-top: 5px;
     font-size: 18px;
     line-height: 28px;
+    background-color: #e3f0f5;
 }
 /*
 .guided-path-container .progressbar-item {
@@ -167,17 +189,21 @@ and open the template in the editor.
 
 .guided-path-container .right-half {
     color: #008bbc;
-    background-color: #e3f0f5;
     padding: 20px;
 }
 
 .guided-path-container i {
     font-size: 24px !important;
+    color: #f80000;
     cursor: pointer;
 }
 
 .guided-path-container .progress-indication {
     font-size: 18px;
+}
+
+.guided-path-container .progressbar-item {
+    min-width: 100px;
 }
 
 .guided-path-detail {
@@ -212,22 +238,34 @@ and open the template in the editor.
         margin-top: 20px;
         padding-left: 0px;
     }
+    .guided-path-container .progress-indication {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .usecase-detail-container {
+        margin-left: 70px;
+    }
+    .guided-path-container .progress-indication {
+        margin-right: 20px;
+    }
 }
 
 @media screen and (max-width: 1280px) {
     .dashboard {
-        padding: 40px 10px 10px 10px;
+        padding: 0px 10px 10px 10px;
     }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1280px) {
     .dashboard {
-        padding: 40px 120px 10px 10px;
+        padding: 0px 120px 10px 10px;
     }
 }
 
 @media screen and (min-width: 1281px) {
     .dashboard {
-        margin: 80px 120px 20px 120px;
+        margin: 0px 120px 20px 120px;
     }
 }

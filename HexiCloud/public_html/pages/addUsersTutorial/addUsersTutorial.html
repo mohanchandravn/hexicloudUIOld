@@ -1,88 +1,89 @@
 <div class="createUsers-page addUsersTut-page oj-flex oj-sm-flex-direction-column oj-sm-align-items-center chooseRoleContainer">
-        <div class="oj-flex-item">
+    <div class="oj-flex-item">
         <div class="addusers-img-container"><!--            <img src="img/add-user-step.png" class="img-responsive">--></div>
-</div>
+    </div>
     <div class="conatiner">
         <div class="oj-flex oj-sm-justify-content-center">
             <div class="oj-flex-item oj-sm-justify-content-center header-border-bottom oj-lg-6 animated fadeIn">
                 <h4 class="oj-hybrid-padding-bottom"> How to add users</h4>
             </div>
             <div class="oj-flex oj-sm-align-items-flex-start oj-sm-align-items-center oj-lg-9 oj-margin" style="z-index:999;">
-             <div class=" oj-flex-item oj-lg-6 oj-sm-12">
-                <div class="oj-hybrid-padding-start oj-hybrid-padding-bottom oj-sm-justify-content-flex-start header-border-bottom oj-margin-lg-end oj-sm-align-items-flex-start">
-                    <h4>Watch the screencast</h4>
+                <div class=" oj-flex-item oj-lg-6 oj-sm-12">
+                    <div class="oj-hybrid-padding-start oj-hybrid-padding-bottom oj-sm-justify-content-flex-start header-border-bottom oj-margin-lg-end oj-sm-align-items-flex-start">
+                        <h4>Watch the screencast</h4>
+                    </div>
+                    <div>
+                        <a href="#" class="grey-button" data-bind="click:getShortVideo">
+                            <i class="material-icons" style="opacity: 1;">play_circle_filled</i>
+                            <span data-bind="text: 'Beginner - 2 mins'"></span> 
+                        </a>
+                        <a href="#" class="grey-button" data-bind="click:getLongVideo">
+                            <i class="material-icons" style="opacity: 1;">play_circle_filled</i>
+                            <span data-bind="text: 'Advanced - 10 mins'"></span> 
+                        </a>
+                        <!--                            <div class="oj-flex-bar-start oj-lg-4 grey-button" data-bind="text: '> Beginner - 2 mins'">
+                                                        
+                                                    </div>
+                                                    <div class="oj-flex-bar-end oj-lg-4 grey-button" data-bind="text: '> Advanced - 10 mins'">
+                                                        
+                                                    </div>-->
+                    </div>
+                    <div>
+                        <video style="width:100%" poster="img/video-cover-playBtn-2x.jpg" controls id="createUsersVid">
+                            <source class="oj-flex"  type="video/mp4" data-bind="attr:{src:videoSrc}">
+                        </video>
+                    </div>
+                    <div class="oj-flex deep-red-button" data-bind="text: 'Continue to Services »', click: goToServices"></div>
                 </div>
-                <div>
-                    <a href="#" class="grey-button">
-                        <i class="material-icons" style="opacity: 1;">play_circle_filled</i>
-                        <span data-bind="text: 'Beginner - 2 mins'"></span> 
-                    </a>
-                    <a href="#" class="grey-button">
-                        <i class="material-icons" style="opacity: 1;">play_circle_filled</i>
-                        <span data-bind="text: 'Advanced - 10 mins'"></span> 
-                    </a>
-                    <!--                            <div class="oj-flex-bar-start oj-lg-4 grey-button" data-bind="text: '> Beginner - 2 mins'">
-                                                    
-                                                </div>
-                                                <div class="oj-flex-bar-end oj-lg-4 grey-button" data-bind="text: '> Advanced - 10 mins'">
-                                                    
-                                                </div>-->
-                </div>
-                <div>
-                    <video style="width:100%" poster="img/video-cover-playBtn-2x.jpg" preload="auto" controls>
-                        <source class="oj-flex" src="assets/sample_video.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="oj-flex deep-red-button" data-bind="text: 'Continue to Services »', click: goToServices"></div>
-            </div>
-        <div class="oj-flex-item oj-lg-5 oj-sm-12" data-bind="css: followStepsContaineCss">
-            <div class="oj-hybrid-padding-start oj-hybrid-padding-bottom oj-sm-justify-content-flex-start header-border-bottom oj-margin-lg-end oj-sm-align-items-flex-start">
-                <h4>Follow the steps</h4>
-            </div>
-            <div id="tutsteps" class="oj-flex oj-sm-flex-direction-column create-user-steps-container">
-                <ol>
-                    <li><span>Go to <strong>‘My Services’</strong></span></li>
-                    <li><span>Click <strong>‘Users’</strong></span></li>
-                    <li><span>Click the <strong>‘Users’</strong> tab</span></li>
-                    <li><span>Click <strong>‘Add’</strong></span></li>
-                    <li><span>Add user details:
-                            <hr>
-                            <ul>
-                                <li><span>First name:</span></li>
-                                <li><span>Last name:</span></li>
-                                <li><span>Email address:</span></li>
-                                <li><span>Username:</span></li>
-                                <li><span>Manager’s email address:</span></li>
-                            </ul>
-                            <hr>
-                        </span></li>
-                    <li><span>Choose the role</span></li>
-                    <hr>
-                    <p>JET Accordion</p>
-                    <hr>
-                    <li><span>Click <strong>‘Add’</strong></span>
-                        <hr>
-                        <ul>
-                            <li><span>Once the user account has been created, Oracle Cloud sends a notification email containing the following sign-in credentials:</span>
+                <div class="oj-flex-item oj-lg-5 oj-sm-12" data-bind="css: followStepsContaineCss">
+                    <div class="oj-hybrid-padding-start oj-hybrid-padding-bottom oj-sm-justify-content-flex-start header-border-bottom oj-margin-lg-end oj-sm-align-items-flex-start">
+                        <h4>Follow the steps</h4>
+                    </div>
+                    <div id="tutsteps" class="oj-flex oj-sm-flex-direction-column create-user-steps-container">
+                        <ol>
+                            <li><span>Go to <strong>‘My Services’</strong></span></li>
+                            <li><span>Click <strong>‘Users’</strong></span></li>
+                            <li><span>Click the <strong>‘Users’</strong> tab</span></li>
+                            <li><span>Click <strong>‘Add’</strong></span></li>
+                            <li><span>Add user details:
+                                    <hr>
+                                    <ul>
+                                        <li><span>First name:</span></li>
+                                        <li><span>Last name:</span></li>
+                                        <li><span>Email address:</span></li>
+                                        <li><span>Username:</span></li>
+                                        <li><span>Manager’s email address:</span></li>
+                                    </ul>
+                                    <hr>
+                                </span></li>
+                            <li><span>Choose the role</span></li>
+
+                            <li><span>Click <strong>‘Add’</strong></span>
+                                <hr>
                                 <ul>
-                                    <li><span>Username</span></li>
-                                    <li><span>A temporary password. Users must change this password the first time they sign in.</span></li>
-                                    <li><span>The identity domain name.</span></li>	
+                                    <li><span>Once the user account has been created, Oracle Cloud sends a notification email containing the following sign-in credentials:</span>
+                                        <ul>
+                                            <li><span>Username</span></li>
+                                            <li><span>A temporary password. Users must change this password the first time they sign in.</span></li>
+                                            <li><span>The identity domain name.</span></li>	
+                                        </ul>
+                                    </li>
+                                    <li><span>Users now have all the necessary sign-in credentials, but need the appropriate URLs. As such, the identity domain administrator or the service administrator must:</span>
+                                        <ul>
+                                            <li><span>Provide users with the ‘My Services’ application URL</span></li>
+                                            <li><span>Provide users with one or more service URLs, depending on the services they’re allowed to access.</span></li>	
+                                        </ul>
+                                    </li>
+                                    <li><span>Identity domain administrators and service administrators can modify existing user accounts and change the roles assigned to each user. Roles control access to applications, resources, and services. If users forget their password, identity domain administrators can reset it.</span></li>
                                 </ul>
                             </li>
-                            <li><span>Users now have all the necessary sign-in credentials, but need the appropriate URLs. As such, the identity domain administrator or the service administrator must:</span>
-                                <ul>
-                                    <li><span>Provide users with the ‘My Services’ application URL</span></li>
-                                    <li><span>Provide users with one or more service URLs, depending on the services they’re allowed to access.</span></li>	
-                                </ul>
-                            </li>
-                            <li><span>Identity domain administrators and service administrators can modify existing user accounts and change the roles assigned to each user. Roles control access to applications, resources, and services. If users forget their password, identity domain administrators can reset it.</span></li>
-                        </ul>
-                    </li>
-                </ol>
+                        </ol>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    
+</div>
+
 
 
