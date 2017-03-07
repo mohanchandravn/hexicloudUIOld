@@ -48,11 +48,13 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
         };
         
         self.changeFilmStripValue = function() {
-            var currentItem = $( "#filmStrip" ).ojFilmStrip( "option", "currentItem" );
-            if (currentItem !== (self.filmStripItems.length - 1)) {
-                $("#filmStrip").ojFilmStrip("option", "currentItem", (currentItem + 1));
-            } else {
-                $("#filmStrip").ojFilmStrip("option", "currentItem", 0);
+            if(viewportSize() !== 'SM') {
+                var currentItem = $( "#filmStrip" ).ojFilmStrip( "option", "currentItem" );
+                if (currentItem !== (self.filmStripItems.length - 1)) {
+                    $("#filmStrip").ojFilmStrip("option", "currentItem", (currentItem + 1));
+                } else {
+                    $("#filmStrip").ojFilmStrip("option", "currentItem", 0);
+                }
             }
         };
 

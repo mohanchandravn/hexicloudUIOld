@@ -8,32 +8,32 @@ and open the template in the editor.
     <div class="oj-sm-12 oj-flex-item">
         <a id="navClose" data-bind="click: toggleLeft"><i class="material-icons">close</i></a>
         <ul class="nav-list">
-            <li>
+            <li id="dashboard" data-bind="click: routeTo">
                 <div class="oj-flex-bar">
                     <div class="oj-flex-bar-start"><i class="material-icons">home</i><span>Dashboard</span></div>
                 </div>
             </li>
-            <li>
+            <li id="service" data-bind="click: routeTo">
                 <div class="oj-flex-bar">
                     <div class="oj-flex-bar-start"><span>Services</span></div>
                 </div>
             </li>
-            <li>
+            <li id="useCases" data-bind="click: capturedEvent">
                 <div class="oj-flex-bar">
                     <div class="oj-flex-bar-start"><span>Use Cases</span></div>
                 </div>
             </li>
-            <li>
+            <li id="learningFlow" data-bind="click: routeTo">
                 <div class="oj-flex-bar">
                     <div class="oj-flex-bar-start"><span>Guided paths</span></div>
                 </div>
             </li>
-            <li>
+            <li id="resources" data-bind="click: capturedEvent">
                 <div class="oj-flex-bar">
                     <div class="oj-flex-bar-start"><span>Resources</span></div>
                 </div>
             </li>
-            <li>
+            <li id="assistance" data-bind="click: capturedEvent">
                 <div class="oj-flex-bar">
                     <div class="oj-flex-bar-start"><span>Assistance</span></div>
                 </div>
@@ -42,21 +42,21 @@ and open the template in the editor.
                 <div class="oj-flex-bar">
                     <div class="oj-flex-bar-start"><span>Contact</span></div>
                     <div class="oj-flex-bar-end"><i class="material-icons">keyboard_arrow_down</i></div>
+                </div>
+                <div class="oj-sm-12 oj-flex-item">
                     <ul id="contactType" class="nav-list oj-sm-hide">
-                        <li class="sub-nav"><a href="#"><i class="material-icons left">email</i> email</a></li>
-                        <li class="sub-nav"><a href="#"><i class="material-icons left">phone</i> Call</a></li>
-                        <li class="sub-nav"><a href="#"><i class="material-icons left">chat</i> Chat</a></li>
+                        <li id="email" class="sub-nav" data-bind="click: capturedEvent"><i class="material-icons left">email</i><span> email</span></li>
+                        <li id="phoneCall" class="sub-nav" data-bind="click: capturedEvent"><i class="material-icons left">phone</i><span> Call</span></li>
+                        <li id="chat" class="sub-nav" data-bind="click: capturedEvent"><i class="material-icons left">chat</i><span> Chat</span></li>
                     </ul>
                 </div>
-            </li>
-<!--            <li><a href="#">Contact <i class="material-icons">keyboard_arrow_down</i></a>
-            </li>-->            
-            <li>
+            </li>           
+            <li id="myProfile" data-bind="click: capturedEvent">
                 <div class="oj-flex-bar">
                     <div class="oj-flex-bar-start"><span>My Profile</span></div>
                 </div>
             </li>            
-            <li>
+            <li id="logout" data-bind="click: capturedEvent">
                 <div class="oj-flex-bar">
                     <div class="oj-flex-bar-start"><span><a style="color: #324b5c;" href="https://129.152.128.105/hexiCloudPortalV6">Logout</a></span></div>
                 </div>

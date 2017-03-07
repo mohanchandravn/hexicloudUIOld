@@ -219,6 +219,16 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                     $("#navigationIconLeft").addClass('oj-sm-hide');
                     return (oj.OffcanvasUtils.open(navigationDrawerLeft));
                 };
+                
+                self.routeTo = function(data, event) {
+                    console.log(event.currentTarget.id);
+//                    router.go(event.currentTarget.id + '/');
+                };
+                
+                self.capturedEvent = function(data, event) {
+                    console.log(event.currentTarget.id);
+                    alert(event.currentTarget.id + ' clicked');
+                };
 
                 $(window).resize(function () {
                     if (oj.ResponsiveUtils.compare(self.screenRange(), oj.ResponsiveUtils.SCREEN_RANGE.LG) < 0) {
