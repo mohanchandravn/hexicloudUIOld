@@ -8,7 +8,7 @@ define(['ojs/ojcore',
         var self = this;
 
         self.handleAttached = function () {
-            slideInAnimate(500, 0);
+//            slideInAnimate(500, 0);
         };
 
         self.videoSrc = ko.observable("assets/newVids/addidamyaccount.mp4");
