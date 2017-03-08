@@ -11,16 +11,17 @@ define(['ojs/ojcore',
 //            slideInAnimate(500, 0);
         };
 
-        self.videoSrc = ko.observable("assets/newVids/addidamyaccount.mp4");
+        self.videoSrc = ko.observable("https://www.youtube.com/embed/33d3w4QZsPI");
 
         self.getShortVideo = function () {
-            self.videoSrc = ko.observable("assets/newVids/addidamyaccount.mp4");
-            $("#createUsersVid")[0].load();
+//            self.videoSrc = ko.observable("assets/newVids/addidamyaccount.mp4");
+            self.videoSrc = ko.observable("https://www.youtube.com/embed/33d3w4QZsPI");
+//            $("#createUsersVid")[0].load();
         };
         self.getLongVideo = function () {
-
-            self.videoSrc("assets/newVids/addusers.mp4");
-            $("#createUsersVid")[0].load();
+//            self.videoSrc("assets/newVids/addusers.mp4");
+            self.videoSrc("https://www.youtube.com/embed/FTzdGfbL4Is");
+//            $("#createUsersVid")[0].load();
         };
 
         var screenRange = viewportSize();

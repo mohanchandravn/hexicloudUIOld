@@ -101,6 +101,7 @@ a {
     min-height: 100%; 
     min-width: 100%
 }
+
 .standard-button {
     width: 200px;
     height: 50px;
@@ -175,11 +176,10 @@ textarea.whitePlaceHolder:-ms-input-placeholder {
     font-style: normal !important;
 }
 
-
-
 .input-color-white {
     color: white;
 }
+
 .error-message-text {
     color: red; 
     font-size: larger;
@@ -201,6 +201,7 @@ body-font {
     font-family: 'Roboto-thin', sans-serif;
     font-weight: normal; 
 }
+
 h1 {
     font-family: 'Roboto-thin', sans-serif;
     font-size: 54px;

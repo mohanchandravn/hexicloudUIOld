@@ -25,7 +25,7 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
         ];
         
         getItemInitialDisplay = function(index) {
-            return index < 1 ? '' : 'none';
+            return index < 3 ? '' : 'none';
         };
         
         self.openUsecaseContainer = function(data, event) {
@@ -35,7 +35,7 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
             $("#head" + id).addClass("active");
             $("#usecaseContainer" + (Number(id) + 1)).removeClass("oj-sm-hide");
         };
-        
+
         self.togglePath = function(data, event) {
             var id = event.currentTarget.id;
             console.log(id);
