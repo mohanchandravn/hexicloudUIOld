@@ -228,7 +228,11 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 
                 self.capturedEvent = function(data, event) {
                     console.log(event.currentTarget.id);
-                    alert(event.currentTarget.id + ' clicked');
+                    console.log(event.currentTarget.id + ' clicked');
+                };
+                
+                self.logout = function(data, event) {
+                    router.go('home/');
                 };
 
                 $(window).resize(function () {

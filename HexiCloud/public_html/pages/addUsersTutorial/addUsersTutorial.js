@@ -11,7 +11,7 @@ define(['ojs/ojcore',
 //            slideInAnimate(500, 0);
         };
 
-        self.videoSrc = ko.observable("assets/newVids/addidamyaccount.mp4");
+        self.videoSrc = ko.observable("https://www.youtube.com/embed/33d3w4QZsPI");
 
         self.getShortVideo = function () {
 //            self.videoSrc = ko.observable("assets/newVids/addidamyaccount.mp4");
@@ -19,7 +19,7 @@ define(['ojs/ojcore',
 //            $("#createUsersVid")[0].load();
         };
         self.getLongVideo = function () {
-            self.videoSrc("assets/newVids/addusers.mp4");
+//            self.videoSrc("assets/newVids/addusers.mp4");
             self.videoSrc("https://www.youtube.com/embed/FTzdGfbL4Is");
 //            $("#createUsersVid")[0].load();
         };

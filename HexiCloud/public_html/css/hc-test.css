@@ -17,6 +17,13 @@ and open the template in the editor.
     color: #000;
 }
 
+.heading-type5 {
+    color: #00758f;
+    font-size: 61px;
+    padding: 0 50px;
+    margin: 8px 0;
+}
+
 .heading-type2 {
     color: #00758f;
     font-size: 40px;
@@ -56,10 +63,19 @@ and open the template in the editor.
 
 /* for small screen devices */
 @media screen and (max-width: 480px) {
+    .heading-type1 {
+        font-size: 32px;
+    }
     .heading-type2 {
         font-size: 24px;
     }
+    .heading-type5 {
+        font-size: 38px;
+    }
     .heading-type3 {
-        font-size: 26px !important;
+        font-size: 26px;
+    }
+    .heading-type4 {
+        font-size: 18px;
     }
 }
