@@ -70,7 +70,11 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
         };
         
         self.selectedTemplate = ko.observable('chat_content');
-         self.viewCallContent = function () {
+//        self.references = {
+//            "selectedValueRef": self.selectedTemplate
+//        };
+
+        self.viewCallContent = function () {
             self.selectedTemplate('phone_content');
         };
 
@@ -81,20 +85,11 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
         self.viewMailContent = function () {
             self.selectedTemplate('email_content');
         };
-
-        self.closeTechSupportLayout = function ()
+        
+         self.closeTechSupportLayout = function ()
         {
             $('#tech_support').hide();
         };
-        
-        self.handleAttached = function () {
-//            slideInAnimate(500, 0);
-            $('#tech_support').hide();
-        };
-//        self.references = {
-//            "selectedValueRef": self.selectedTemplate
-//        };
-
     
   }
     
