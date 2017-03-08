@@ -27,6 +27,7 @@ and open the template in the editor.
 /*        right: -30px !important;*/
         height: calc(100% - 85px);
         overflow-y: auto;
+        z-index: 9998;
     }
     .tech-support-container .phoneContainer {
         width: 100% !important;
