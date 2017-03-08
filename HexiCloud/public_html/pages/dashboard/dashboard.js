@@ -7,7 +7,7 @@
 /**
  * dashboard module
  */
-define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'config/sessionInfo', 'ojs/ojprogressbar'
+define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceConfig', 'config/sessionInfo', 'ojs/ojprogressbar', 'ojs/ojfilmstrip'
 ], function ($, ko, oj, service, sessionInfo) {
     /**
      * The view model for the main content view template
@@ -18,14 +18,22 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'config/sess
         
         console.log('dashboard page');
         
-        self.logout = function(data, event) {
-            console.log('Logging out');
-            sessionInfo.removeFromSession(sessionInfo.isLoggedInUser);
-            sessionInfo.removeFromSession(sessionInfo.loggedInUser);
-            sessionInfo.removeFromSession(sessionInfo.loggedInUserRole);
-            sessionInfo.removeFromSession(sessionInfo.userFirstLastName);
-            sessionInfo.removeFromSession(sessionInfo.userClmRegistryId);
-            router.go('home/');
+        self.usecaseItems = [
+            { title: 'Use Case 1', description: 'Migrate Non Oracle Workloads to the Public Cloud' },
+            { title: 'Use Case 2', description: 'Extended Use Case for added value – Oracle Ravello Cloud Service' },
+            { title: 'Use Case 3', description: 'Migrate Non Oracle Workloads to the Public Cloud' }
+        ];
+        
+        getItemInitialDisplay = function(index) {
+            return index < 1 ? '' : 'none';
+        };
+        
+        self.openUsecaseContainer = function(data, event) {
+            var id = event.currentTarget.id;
+            $(".usecase-detail-container").addClass("oj-sm-hide");
+            $(".head").removeClass("active");
+            $("#head" + id).addClass("active");
+            $("#usecaseContainer" + (Number(id) + 1)).removeClass("oj-sm-hide");
         };
         
         self.togglePath = function(data, event) {
@@ -50,7 +58,7 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'config/serviceConfig', 'config/sess
                 }
             }
         };
-        
+              
         self.handleAttached = function() {
             
         };

@@ -44,6 +44,10 @@ and open the template in the editor.
     margin-top: 20px;
 }
 
+.usecase-filmstrip-container {
+    margin: 20px 0px;
+}
+
 .usecase-container {
     max-width: 330px;
 }
@@ -57,23 +61,20 @@ and open the template in the editor.
     background-color: #F80000;
 }
 
-.usecase-container .head.active:before {
-    border-left-color: #fff;
+/*.usecase-container .head.active:before {
+    content: ' ';
+    border-left-color: red;
     position: absolute;
     top: 100px;
-    right: -40px;
-    z-index: 2;
-}
+    right: 0px;
+    z-index: 9999;
+    height: 0;
+    width: 0;
+    border: 20px solid transparent;
+}*/
 
-.usecase-container .head.active:after {
-    border-left-color: #fff;
-    position: absolute;
-    top: 100px;
-    right: -40px;
-    z-index: 2;
-}
-
-.usecase1 {
+.usecase {
+    min-height: 216px;
     padding: 20px;
     border-bottom: 1px solid #F80000;
     background-color: white;
@@ -87,30 +88,31 @@ and open the template in the editor.
 
 .usecase-title, .usecase-content {
     color: #00758f;
-    font-size: 14px;
+    font-size: 20px;
     font-family: 'Roboto-thin', sans-serif;
 }
 
 .usecase-content {
-    font-size: 28px;
+    font-size: 24px;
     cursor: pointer;
 }
 
-.raquo-right-text {
+/*.raquo-right-text {
     position: absolute;
     margin-left: 355px;
     color: #F80000;
     font-size: 40px;
     margin-top: 70px;
-}
+}*/
 
 .usecase-detail-container {
     margin-bottom: 30px;
-    background-color: #fff;
 }
 
 .usecase-detail-item {
-    padding: 20px;
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 30px;
 }
 
 .guided-path-display-image {
@@ -244,9 +246,6 @@ and open the template in the editor.
 }
 
 @media screen and (min-width: 480px) {
-    .usecase-detail-container {
-        margin-left: 70px;
-    }
     .guided-path-container .progress-indication {
         margin-right: 20px;
     }
@@ -261,6 +260,9 @@ and open the template in the editor.
 @media screen and (min-width: 1024px) and (max-width: 1280px) {
     .dashboard {
         padding: 0px 120px 10px 10px;
+    }
+    .usecase-detail-item {
+        padding: 20px;
     }
 }
 
