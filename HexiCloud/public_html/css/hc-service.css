@@ -127,6 +127,10 @@ and open the template in the editor.
     margin-top: 20px;
 }
 
+.provisioned-services .content.stage {
+    margin-top: 20px;
+}
+
 .provisioned-services .content.stage h1 {
     color: #00758f;
     font-size: 61px;

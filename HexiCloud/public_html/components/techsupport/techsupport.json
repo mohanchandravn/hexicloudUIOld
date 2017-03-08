@@ -1,0 +1,13 @@
+{
+    "properties": {
+        "references": {
+            "description": "selected temaplate Reference Value",
+            "type": "String"
+        },
+        "isPanelVisible": {
+            "description": "visible property binding",
+            "type": "boolean"
+        }
+
+    }
+}

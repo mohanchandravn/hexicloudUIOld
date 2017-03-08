@@ -12,7 +12,7 @@
 /**
  * service module
  */
-define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojmasonrylayout','components/trainnavigation/loader'
+define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogressbar', 'ojs/ojmasonrylayout','components/trainnavigation/loader','components/techsupport/loader'
 ], function (ko, service, $) {
     /**
      * The view model for the main content view template
@@ -46,16 +46,8 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         };
 
         self.selectedTemplate = ko.observable('phone_content');
-        self.viewMailContent = function () {
-            self.selectedTemplate('email_content');
-        };
-
-        self.viewCallContent = function () {
-            self.selectedTemplate('phone_content');
-        };
-
-        self.viewChatContent = function () {
-            self.selectedTemplate('chat_content');
+        self.references = {
+            "selectedValueRef": self.selectedTemplate
         };
 
         self.displayMail = function () {
@@ -73,24 +65,6 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
             $('#tech_support').slideToggle();
         };
 
-        var screenRange = viewportSize();
-        if (screenRange)
-        {
-            if (screenRange)
-            {
-                if (screenRange === 'LG' && screenRange === 'XL') {
-                    self.phoneContainerBtLayoutCss = 'oj-sm-justify-content-center';
-                } else
-                {
-                    self.phoneContainerBtLayoutCss = "";
-                }
-            }
-        }
-
-        self.closeTechSupportLayout = function ()
-        {
-            $('#tech_support').hide();
-        };
         
         self.currentStepValue = ko.observable('stp3');
         self.stepsArray =
