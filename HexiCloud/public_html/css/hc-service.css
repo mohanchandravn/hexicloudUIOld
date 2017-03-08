@@ -124,7 +124,7 @@ and open the template in the editor.
 /*All the styles for provisioned Services goes here*/
 
 .provisioned-services {
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .provisioned-services .content.stage {
@@ -328,7 +328,7 @@ and open the template in the editor.
 
 @media only screen and (max-width: 480px) {
     .provisioned-services {
-        margin-top: 15px;
+        margin-top: 40px;
     }
     .provisioned-services .content.stage h1 {
         font-size: 38px;

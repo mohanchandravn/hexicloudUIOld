@@ -61,7 +61,7 @@ and open the template in the editor.
 .chooseRoleContainer {
 /*        text-align: center;*/
 position: relative;
-margin-top: 40px;
+margin-top: 45px;
 
 }
 .chooseRoleContainer h2{
@@ -90,7 +90,7 @@ margin-top: 40px;
     .chooseRoleContainer {
         /*        text-align: center;*/
         position: relative;
-        margin-top: 20px;
+        margin-top: 45px;
     }
     .chooseRoleContainer h1 {
         font-size: 36px !important;
