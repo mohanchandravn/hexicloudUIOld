@@ -92,11 +92,9 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         sessionInfo.setToSession(sessionInfo.userClmRegistryId, data.registryId);
                         self.loginFailureText("");
                         service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn);
-                        setTimeout(function () {
-                        $('#bgvid').remove();
-                        router.go(self.savedStep() + '/');
-                        }, 500);
-                        slideOutAnimate(1500, 0);
+//                        setTimeout(function () {
+//                        }, 500);
+//                        slideOutAnimate(1500, 0);
                     } else {
                         self.loginFailureText("Invalid Username or Password");
                     }
@@ -113,6 +111,8 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         loggedInUserRole(data.userRole);
                         self.savedStep(data.curStepCode);
                     }
+                    $('#bgvid').remove();
+                    router.go(self.savedStep() + '/');
                 };
 
                 service.authenticate({

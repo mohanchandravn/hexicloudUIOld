@@ -39,20 +39,21 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
         self.togglePath = function(data, event) {
             var id = event.currentTarget.id;
             console.log(id);
+            var parsedId = id.match(/\d+/g);
             for (var idx = 0; idx < 5; idx++) {
-                if (idx === Number(id)) {
+                if (idx === Number(parsedId[0])) {
                     if ( ($("#guidedPathDetail" + idx).hasClass("oj-sm-hide")) ) {
-                        $("#" + idx).text('remove');
+                        $("#icon" + idx).text('remove');
                         $("#guidedPathDetail" + idx).removeClass("oj-sm-hide");
                         //return;
                     } else {
-                        $("#" + idx).text('add');
+                        $("#icon" + idx).text('add');
                         $("#guidedPathDetail" + idx).addClass("oj-sm-hide");
                         //return;
                     }
                 } else {
                     if ( !($("#guidedPathDetail" + idx).hasClass("oj-sm-hide")) ) {
-                        $("#" + idx).text('add');
+                        $("#icon" + idx).text('add');
                         $("#guidedPathDetail" + idx).addClass("oj-sm-hide");
                     }
                 }
