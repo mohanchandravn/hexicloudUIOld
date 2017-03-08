@@ -69,7 +69,7 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
             $('#tech_support').hide();
         };
         
-        self.selectedTemplate = ko.observable('phone_content');
+        self.selectedTemplate = ko.observable('chat_content');
         self.selectedTemplateRef = {
             "selectedValueRef": self.selectedTemplate
         };

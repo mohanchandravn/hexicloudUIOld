@@ -91,7 +91,14 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         userClmRegistryId(data.registryId);
                         sessionInfo.setToSession(sessionInfo.userClmRegistryId, data.registryId);
                         self.loginFailureText("");
-                        service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn);
+//                        service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn);
+                        //Hardcoding for the demo
+                        $('#bgvid').remove();
+                        if (self.userName().toLowerCase() === 'fred' || self.userName().toLowerCase() === 'simon') {
+                            router.go('dashboard/');
+                        } else {
+                            router.go(self.savedStep() + '/');
+                        }
 //                        setTimeout(function () {
 //                        }, 500);
 //                        slideOutAnimate(1500, 0);
