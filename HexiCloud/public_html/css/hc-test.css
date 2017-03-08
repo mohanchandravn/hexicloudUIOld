@@ -1,0 +1,65 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 8, 2017, 5:07:39 PM
+    Author     : nyasarap
+*/
+
+.branding-homepage {
+    color: #f80000 !important;
+}
+
+.heading-type1 {
+    font-size: 80px;
+    color: #000;
+}
+
+.heading-type2 {
+    color: #00758f;
+    font-size: 40px;
+    font-weight: 500;
+    margin: 8px 0;
+    padding: 0 0 2px;
+    font-family: inherit;
+    font-style: normal;
+}
+
+.heading-type3 {
+    font-family: 'Roboto-thin', sans-serif;
+    font-size: 36px;
+    color: #00758f;
+    font-weight: 400;
+    margin: 8px 0;
+    padding: 0 0 2px;
+}
+
+.heading-type4 {
+    font-size: 22px;
+    line-height: 28px;
+    color: #4e5052;
+    margin-bottom: 12px;
+}
+
+/*.heading-type4 {
+    font-size: 22px;
+}*/
+
+.normal-text {
+    font-size: 18px;
+    color: #4e5052;
+    line-height: 28px;
+    margin: 0 0 12px 0;
+}
+
+/* for small screen devices */
+@media screen and (max-width: 480px) {
+    .heading-type2 {
+        font-size: 24px;
+    }
+    .heading-type3 {
+        font-size: 26px !important;
+    }
+}
