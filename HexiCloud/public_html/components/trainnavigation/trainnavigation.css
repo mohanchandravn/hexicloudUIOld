@@ -3,12 +3,26 @@
     Author     : sgunjur
 */
 
+.ox-prompt-train {
+    background-color: rgba(216, 225, 229, 1);
+    position: fixed;
+    width: 100%;
+    top: 80px;
+    z-index: 9997;
+}
+
+.ox-prompt-train .oj-train-wrapper{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 /*.ox-prompt-train .oj-train-connector{
     background-color: #00758f !important;
 }*/
 
 .ox-prompt-train .oj-train-connector-fill{
     background-color: #00758f !important;
+    width:0%;
 }
 
 .ox-prompt-train .oj-train-step-list-item a{

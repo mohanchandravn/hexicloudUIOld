@@ -7,7 +7,7 @@
 /**
  * dashboard module
  */
-define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceConfig', 'config/sessionInfo', 'ojs/ojprogressbar', 'ojs/ojfilmstrip'
+define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceConfig', 'config/sessionInfo', 'ojs/ojprogressbar', 'ojs/ojfilmstrip','components/techsupport/loader'
 ], function ($, ko, oj, service, sessionInfo) {
     /**
      * The view model for the main content view template
@@ -73,18 +73,6 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
         self.selectedTemplateRef = {
             "selectedValueRef": self.selectedTemplate
         };
-        
-        self.viewMailContent = function () {
-            self.selectedTemplate('email_content');
-        };
-
-        self.viewCallContent = function () {
-            self.selectedTemplate('phone_content');
-        };
-
-        self.viewChatContent = function () {
-            self.selectedTemplate('chat_content');
-        };
 
         self.displayMail = function () {
             self.selectedTemplate('email_content');
@@ -100,14 +88,8 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
             self.selectedTemplate('chat_content');
             $('#tech_support').slideToggle();
         };
-
-        
-
-        self.closeTechSupportLayout = function ()
-        {
-            $('#tech_support').hide();
-        };
-    }
+    
+  }
     
     return dashboardContentViewModel;
 });
