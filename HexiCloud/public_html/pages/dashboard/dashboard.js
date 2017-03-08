@@ -70,23 +70,25 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
         };
         
         self.selectedTemplate = ko.observable('chat_content');
-        self.selectedTemplateRef = {
-            "selectedValueRef": self.selectedTemplate
-        };
+//        self.references = {
+//            "selectedValueRef": self.selectedTemplate
+//        };
 
-        self.displayMail = function () {
-            self.selectedTemplate('email_content');
-            $('#tech_support').slideToggle();
-        };
-
-        self.displayCall = function () {
+        self.viewCallContent = function () {
             self.selectedTemplate('phone_content');
-            $('#tech_support').slideToggle();
         };
 
-        self.displayChat = function () {
+        self.viewChatContent = function () {
             self.selectedTemplate('chat_content');
-            $('#tech_support').slideToggle();
+        };
+        
+        self.viewMailContent = function () {
+            self.selectedTemplate('email_content');
+        };
+        
+         self.closeTechSupportLayout = function ()
+        {
+            $('#tech_support').hide();
         };
     
   }
