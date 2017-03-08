@@ -58,9 +58,53 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
                 }
             }
         };
+        
+        self.onClickFeedback = function()
+        {
+            $("#tech_support").slideToggle();
+        };
               
         self.handleAttached = function() {
-            
+            $('#tech_support').hide();
+        };
+        
+        self.selectedTemplate = ko.observable('phone_content');
+        self.selectedTemplateRef = {
+            "selectedValueRef": self.selectedTemplate
+        };
+        
+        self.viewMailContent = function () {
+            self.selectedTemplate('email_content');
+        };
+
+        self.viewCallContent = function () {
+            self.selectedTemplate('phone_content');
+        };
+
+        self.viewChatContent = function () {
+            self.selectedTemplate('chat_content');
+        };
+
+        self.displayMail = function () {
+            self.selectedTemplate('email_content');
+            $('#tech_support').slideToggle();
+        };
+
+        self.displayCall = function () {
+            self.selectedTemplate('phone_content');
+            $('#tech_support').slideToggle();
+        };
+
+        self.displayChat = function () {
+            self.selectedTemplate('chat_content');
+            $('#tech_support').slideToggle();
+        };
+
+        
+
+        self.closeTechSupportLayout = function ()
+        {
+            $('#tech_support').hide();
         };
     }
     
