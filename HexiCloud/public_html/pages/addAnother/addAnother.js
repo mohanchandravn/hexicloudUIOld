@@ -45,7 +45,7 @@ define(['ojs/ojcore',
         };
 
         self.gotoDashboard = function () {
-            setTimeout(function () {
+//            setTimeout(function () {
                 service.updateCurrentStep({
                     "userId": loggedInUser(),
                     "userRole": loggedInUserRole(),
@@ -53,12 +53,12 @@ define(['ojs/ojcore',
                     "preStepCode": getStateId(),
                     "userAction": "Go to Provisioned Services"
                 });
-            }, 500);
-            slideOutAnimate(1500, 0);
+//            }, 500);
+//            slideOutAnimate(1500, 0);
         };
 
         self.handleAttached = function () {
-            slideInAnimate(500, 0);
+//            slideInAnimate(500, 0);
         };
         
         self.currentStepValue = ko.observable('stp2');

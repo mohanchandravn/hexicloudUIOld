@@ -21,7 +21,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         var self = this;
         var router = params.ojRouter.parentRouter;
         self.handleAttached = function () {
-            slideInAnimate(500, 0);
+//            slideInAnimate(500, 0);
             $('#tech_support').hide();
         };
         self.servicesAsExpected = ko.observable(true);
