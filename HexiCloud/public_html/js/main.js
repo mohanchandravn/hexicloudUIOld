@@ -90,8 +90,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                     return "pages/learning/" + path;
                 else
                     return "pages/" + path + "/" + path;
-            }
-            ;
+            };
 
             router.configure({
                 'home': {label: 'Home', value: getPath('home'), isDefault: true},
@@ -116,11 +115,19 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 'createUsers': {label: 'Add Users Tutorial', value: getPath('addUsersTutorial')},
                 'techSupport': {label: 'Techical Support', value: getPath('techSupport')}
             });
-
+                
             function viewModel() {
                 self.router = router;
-                var moduleConfig = $.extend(true, {}, router.moduleConfig, {params: {
-                        'rootData': {}}});
+//                var customAnimation = oj.ModuleAnimations.createAnimation(
+//                        {"effect":"coverStart", "endOpacity":0.5},
+//                        {"effect":"coverEnd", "direction":"end"},
+//                true);
+//                var moduleConfig = $.extend(true, {}, router.moduleConfig, {params: {
+//                        'rootData': {}}});
+                var moduleConfig = $.extend(true, {}, router.moduleConfig,
+                                                {params: { 'rootData': {}}},
+                                                {animation: oj.ModuleAnimations['zoomIn']
+                });
                 self.moduleConfig = moduleConfig;
 
                 self.isDomainDetailsGiven = ko.observable(false);
@@ -144,6 +151,9 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
 
                 self.showHeaderNav = ko.computed(function () {
                     var id = router.currentState().id;
+                    
+                    // scroll the whole window to top if it's scroll position is not on top
+                    $(window).scrollTop(0);
                     if (id === 'dashboard') {
                         return "";
                     } else {
@@ -219,6 +229,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                         return true;
                     }
                     $("#navigationIconLeft").addClass('oj-sm-hide');
+                    window.scrollTo(0, 0);
                     return (oj.OffcanvasUtils.open(navigationDrawerLeft));
                 };
 

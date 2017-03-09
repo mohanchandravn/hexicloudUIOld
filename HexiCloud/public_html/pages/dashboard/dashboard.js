@@ -24,12 +24,17 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
             { title: 'Use Case 3', description: 'Migrate Non Oracle Workloads to the Public Cloud' }
         ];
         
+        self.selectedFilmStripItem = ko.observable(0);
+        
         getItemInitialDisplay = function(index) {
             return index < 3 ? '' : 'none';
         };
         
         self.openUsecaseContainer = function(data, event) {
+            console.log(self.selectedFilmStripItem());
             var id = event.currentTarget.id;
+            self.selectedFilmStripItem(id);
+            console.log(self.selectedFilmStripItem());
             $(".usecase-detail-container").addClass("oj-sm-hide");
             $(".head").removeClass("active");
             $("#head" + id).addClass("active");

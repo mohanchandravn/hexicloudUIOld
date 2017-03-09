@@ -59,9 +59,6 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
 
         self.handleAttached = function () {
 //            slideInAnimate(500, 0);
-            
-            console.log($("#module"));
-            console.log($(".login-page"));
         };
 
         self.login = function () {
