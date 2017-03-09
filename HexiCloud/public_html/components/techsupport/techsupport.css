@@ -251,6 +251,19 @@ width: calc(100% - 30px);
     color: transparent !important;
 }
 
+.tech-support-container .oj-messaging-inline-container .oj-message.oj-message-error {
+     background-color: transparent; 
+     border-color: transparent; 
+}
+.tech-support-container .oj-messaging-inline-container .oj-message {
+     padding: 0px; 
+     border-style: none; 
+     border-width: 0px; 
+}
+.tech-support-container .oj-message-detail {
+    color: red;
+    white-space: normal;
+}
 
 
 
