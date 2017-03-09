@@ -126,7 +126,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
 //                        'rootData': {}}});
                 var moduleConfig = $.extend(true, {}, router.moduleConfig,
                                                 {params: { 'rootData': {}}},
-                                                {animation: oj.ModuleAnimations['zoomIn']
+                                                {animation: oj.ModuleAnimations['pushStart']
                 });
                 self.moduleConfig = moduleConfig;
 
@@ -152,8 +152,6 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 self.showHeaderNav = ko.computed(function () {
                     var id = router.currentState().id;
                     
-                    // scroll the whole window to top if it's scroll position is not on top
-                    $(window).scrollTop(0);
                     if (id === 'dashboard') {
                         return "";
                     } else {

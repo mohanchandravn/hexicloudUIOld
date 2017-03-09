@@ -69,10 +69,6 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
         {
             $("#tech_support").slideToggle();
         };
-              
-        self.handleAttached = function() {
-            $('#tech_support').hide();
-        };
         
         self.selectedTemplate = ko.observable('chat_content');
         self.references = {
@@ -90,8 +86,15 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
         self.viewMailContent = function () {
             self.selectedTemplate('email_content');
         };
-        
-    
+              
+        self.handleAttached = function() {
+            $('#tech_support').hide();
+        };
+
+        self.handleTransitionCompleted = function () {
+            // scroll the whole window to top if it's scroll position is not on top
+            $(window).scrollTop(0);
+        };
   }
     
     return dashboardContentViewModel;

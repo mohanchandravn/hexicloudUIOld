@@ -52,10 +52,6 @@ define(['ojs/ojcore',
             $('.blur-node1, .blur-node2').addClass('animate');
         };
 
-        self.handleAttached = function () {
-//            slideInAnimate(500, 0);
-        };
-
         self.currentStepValue = ko.observable('stp1');
         self.stepsArray =
                 ko.observableArray(
@@ -63,6 +59,15 @@ define(['ojs/ojcore',
                             {label: 'Add Users', id: 'stp2'},
                             {label: 'Services', id: 'stp3'}]);
         self.actionDisabledCss = "disable-train-selection";
+
+        self.handleAttached = function () {
+//            slideInAnimate(500, 0);
+        };
+        
+        self.handleTransitionCompleted = function () {
+            // scroll the whole window to top if it's scroll position is not on top
+            $(window).scrollTop(0);
+        };
     }
 
     return ChooseRoleViewModel;

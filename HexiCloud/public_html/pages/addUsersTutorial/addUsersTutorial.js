@@ -7,10 +7,6 @@ define(['ojs/ojcore',
     function addUsersTutorialViewModel(params) {
         var self = this;
 
-        self.handleAttached = function () {
-//            slideInAnimate(500, 0);
-        };
-
 //        self.videoSrc = ko.observable("https://www.youtube.com/embed/33d3w4QZsPI");
 
 //        self.getShortVideo = function () {
@@ -58,6 +54,11 @@ define(['ojs/ojcore',
                             {label: 'Add Users', id: 'stp2'},
                             {label: 'Services', id: 'stp3'}]);
         self.actionDisabledCss = "disable-train-selection";
+
+        self.handleTransitionCompleted = function () {
+            // scroll the whole window to top if it's scroll position is not on top
+            $(window).scrollTop(0);
+        };
     }
     return addUsersTutorialViewModel;
 });

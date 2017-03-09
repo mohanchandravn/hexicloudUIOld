@@ -49,6 +49,11 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
             });
         };
 
+        self.handleTransitionCompleted = function () {
+            // scroll the whole window to top if it's scroll position is not on top
+            $(window).scrollTop(0);
+        };
+
         self._showComponentValidationErrors = function (trackerObj) {
             trackerObj.showMessages();
             if (trackerObj.focusOnFirstInvalid())

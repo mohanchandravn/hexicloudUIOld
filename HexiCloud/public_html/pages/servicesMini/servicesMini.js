@@ -20,10 +20,6 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
     function serviceContentViewModel(params) {
         var self = this;
         var router = params.ojRouter.parentRouter;
-        self.handleAttached = function () {
-//            slideInAnimate(500, 0);
-            $('#tech_support').hide();
-        };
         self.servicesAsExpected = ko.observable(true);
         self.showSupportPanel = ko.observable(false);
 
@@ -64,7 +60,6 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
             self.selectedTemplate('chat_content');
             $('#tech_support').slideToggle();
         };
-
         
         self.currentStepValue = ko.observable('stp3');
         self.stepsArray =
@@ -73,6 +68,16 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
                             {label: 'Add Users', id: 'stp2'},
                             {label: 'Services', id: 'stp3'}]);
         self.actionDisabledCss = "disable-train-selection";
+        
+        self.handleAttached = function () {
+//            slideInAnimate(500, 0);
+            $('#tech_support').hide();
+        };
+        
+        self.handleTransitionCompleted = function () {
+            // scroll the whole window to top if it's scroll position is not on top
+            $(window).scrollTop(0);
+        };
     }
 
 
