@@ -165,7 +165,15 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                     console.log(range.toUpperCase());
                     return range.toUpperCase();
                 });
-
+                
+                self.isScreenSMorMD = ko.computed(function() {
+                    return (self.viewportSize() === "SM" || self.viewportSize() === "MD");
+                });
+                
+                self.isScreenLGorXL = ko.computed(function() {
+                    return (self.viewportSize() === "LG" || self.viewportSize() === "XL");
+                });
+                
                 self.slideInAnimate = function (duration, delay) {
                     if (self.slideInEffect() && oj.AnimationUtils[self.slideInEffect()]) {
                         var jElem = $('.' + self.getStateId() + '-page');

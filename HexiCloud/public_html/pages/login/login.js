@@ -29,18 +29,6 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
 
         self.savedStep = ko.observable("chooseRole");
 
-        self.returnLgXlClass = ko.computed(function () {
-            var range = viewportSize();
-            return (range === 'LG' || range === 'XL') ? 'margin-left-half' : '';
-
-        });
-
-        self.returnFlexStart = ko.computed(function () {
-            var range = viewportSize();
-            return (range === 'LG' || range === 'XL') ? 'oj-lg-align-items-flex-start' : '';
-
-        });
-
         self.handleBindingsApplied = function () {
 
             $("#iDomain").on('keyup paste cut', function () {
