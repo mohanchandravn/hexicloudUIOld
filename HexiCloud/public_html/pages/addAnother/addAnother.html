@@ -5,17 +5,17 @@
     </div>
 
 </div>
-<div class="addAdditionalUsers-page addAnother-page oj-flex oj-sm-flex-direction-column oj-sm-align-items-center chooseRoleContainer">
-    <div class="oj-flex-item header-border-bottom oj-lg-6 oj-sm-12">
+<div class="addAdditionalUsers-page addAnother-page chooseRoleContainer oj-sm-justify-content-center oj-flex">
+    <div class="oj-flex-item header-border-bottom oj-sm-12 oj-md-10 oj-lg-8 oj-flex-item">
         <span class="heading-type2 text-center oj-flex oj-sm-justify-content-center" data-bind="text: greetingText"></span>
     </div>
-    <div class="oj-flex-item oj-lg-6 oj-sm-12">
+    <div class="oj-flex-item oj-sm-12">
         <span class="heading-type4 oj-margin-lg-top  text-center oj-flex oj-sm-justify-content-center" data-bind="text: roleConfirmationText"></span>
     </div>
-    <div class="oj-flex-item oj-lg-6 oj-sm-12">
+    <div class="oj-flex-item oj-sm-12">
         <span class="normal-text  text-center oj-flex oj-sm-justify-content-center" data-bind="text: headerTitle"></span>
     </div>
-    <div class="oj-flex-item oj-lg-6 oj-sm-12">
+    <div class="oj-flex-item oj-sm-12">
         <span class="normal-text  text-center oj-flex oj-sm-justify-content-center" data-bind="text: skipHelpText"></span>
     </div>
 
@@ -24,13 +24,17 @@
             <p>Aliquam iaculis, nisl a molestie suscipit, diam lectus finibus metus, sed euismod ligula elit sed tortor. Sed ut libero dapibus, maximus est ut, scelerisque dui.</p>
            
         </div>-->
-    <div class="oj-flex-item oj-sm-12 oj-lg-6">
+    <div class="oj-flex-item oj-sm-12">
         <div class="oj-flex oj-sm-justify-content-center">
-            <div data-bind="click: onClickAddUser ,text: addButtonLabel, css: viewportSize() !== 'SM' ? 'oj-margin-lg-end' : ''" class="red-button oj-lg-5 oj-sm-10">
-
+            <div class="oj-flex-item oj-lg-4 oj-sm-12">
+                <div class="oj-flex oj-sm-justify-content-center">
+                    <div data-bind="click: onClickAddUser ,text: addButtonLabel, css: viewportSize() !== 'SM' ? 'oj-margin-lg-end' : ''" class="red-button oj-lg-9 oj-sm-10 oj-flex-item"></div>
+                </div>
             </div>
-            <div data-bind="text: skipButtonLabel, click: gotoDashboard" class="red-button oj-lg-5 oj-sm-10">
-
+            <div class="oj-flex-item oj-lg-4 oj-sm-12">
+                <div class="oj-flex oj-sm-justify-content-center">
+                    <div data-bind="text: skipButtonLabel, click: gotoDashboard" class="red-button oj-lg-9 oj-sm-10 oj-flex-item"></div>
+                </div>
             </div>
 
         </div>
