@@ -50,7 +50,7 @@ and open the template in the editor.
 
                 <navigationbarleft id="navigationDrawerLeft" class="nav-left-pane oj-flex-item"></navigationbarleft>
 
-                <header-content class="fixed-header oj-padding-lg-horizontal"></header-content>
+                <header-content class="fixed-header" data-bind="css: isScreenSMorMD() ? 'oj-padding-horizontal' : 'oj-padding-lg-horizontal' "></header-content>
                 <!-- This is where your main page content will be loaded by module -->
                 <div id="module" class="oj-sm-12 oj-flex-item" data-bind="ojModule: moduleConfig"></div>
             </div>
