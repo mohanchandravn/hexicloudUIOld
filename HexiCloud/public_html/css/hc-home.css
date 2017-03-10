@@ -90,7 +90,7 @@ and open the template in the editor.
 .home-page .welcome-content {
     line-height: 1.1;
 }
-
+/*
 .home-page .welcome-content h2 {
     color: #00758f;
     font-size: 80px;
@@ -103,13 +103,13 @@ and open the template in the editor.
     font-size: 57px;
     font-weight: 500;
     margin-top: 0;
-}
+}*/
 
-.home-page .welcome-content h4 {
+/*.home-page .welcome-content h4 {
     color: #00758f;
     font-size: 40px;
     font-weight: 500;
-}
+}*/
 
 .home-page .welcome-description {
     max-width: 555px;
@@ -120,18 +120,18 @@ and open the template in the editor.
     margin-bottom: 20px;
 }
 
-.home-page .welcome-description p {
+/*.home-page .welcome-description p {
     line-height: 28px;
-}
+}*/
 
-.home-page span.branding-homepage {
+/*.home-page span.branding-homepage {
     color: #f80000 !important;
-}
+}*/
 
-.home-page .welcome-content span {
+/*.home-page .welcome-content span {
     font-size: 80px;
     color: #000;
-}
+}*/
 
 .home-page hr {
     border-top: 1px solid #b1c7d2;
@@ -143,7 +143,7 @@ and open the template in the editor.
         font-size: 36px;
     }
     .home-page .welcome-content span {
-        font-size: 35px;
+        /*font-size: 35px;*/
     }
     .home-page .welcome-content h3 {
         font-size: 24px;

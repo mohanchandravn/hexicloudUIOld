@@ -271,3 +271,24 @@ and open the template in the editor.
         margin: 0px 120px 20px 120px;
     }
 }
+
+.feedback {
+           position: fixed;
+    bottom: 0;
+    right: 20px;
+    background-color: #FC0000;
+    color: #fff;
+}
+
+.feedback a {
+    height: auto;
+    width: 80px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.feedback .material-icons {
+    font-size: 50px !important;
+    padding: 15px;
+    color: #fff;
+}

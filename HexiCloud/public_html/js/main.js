@@ -56,7 +56,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
         function (oj, ko, $, sessionInfo)
         {
             var self = this;
-            
+
             var navigationDrawerLeft;//, navigationDrawerRight;
 
             navigationDrawerLeft = {
@@ -65,15 +65,15 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 "displayMode": "push",
                 "autoDismiss": "none",
                 "modality": "modeless"//,
-        //        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.XL_UP)
+                        //        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.XL_UP)
             };
-            
+
             //oj.Assert.forceDebug();
             //oj.Logger.option('level', oj.Logger.LEVEL_INFO);
             oj.ModuleBinding.defaults.modelPath = './';
             oj.ModuleBinding.defaults.viewPath = 'text!./';
 
-            
+
             // Retrieve the router static instance and configure the states
             var router = oj.Router.rootInstance;
             // Set the router base URL to the href of this page. This is needed when
@@ -84,7 +84,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
             ko.components.register('header-content', {require: 'components/header/header'});
             ko.components.register('navigationbarleft', {require: 'components/navigationbarleft/navigationbarleft'});
             ko.components.register('navigationbarright', {require: 'components/navigationbarright/navigationbarright'});
-            
+
             function getPath(path) {
                 if (path === 'learningFlow')
                     return "pages/learning/" + path;
@@ -112,18 +112,26 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 'csmadmin': {label: 'CSM Admin', value: getPath('csmadmin')},
                 'samplecsv': {label: 'Sample CSV', value: getPath('samplecsv')},
                 'addAdditionalUsers': {label: 'Add Another', value: getPath('addAnother')},
-                 'createUsers': {label: 'Add Users Tutorial', value: getPath('addUsersTutorial')},
-                 'techSupport': {label: 'Techical Support', value: getPath('techSupport')}
+                'createUsers': {label: 'Add Users Tutorial', value: getPath('addUsersTutorial')},
+                'techSupport': {label: 'Techical Support', value: getPath('techSupport')}
             });
-
+                
             function viewModel() {
-                self.router = router;                
-                var moduleConfig = $.extend(true, {}, router.moduleConfig, {params: {
-                        'rootData': {}}});
+                self.router = router;
+//                var customAnimation = oj.ModuleAnimations.createAnimation(
+//                        {"effect":"coverStart", "endOpacity":0.5},
+//                        {"effect":"coverEnd", "direction":"end"},
+//                true);
+//                var moduleConfig = $.extend(true, {}, router.moduleConfig, {params: {
+//                        'rootData': {}}});
+                var moduleConfig = $.extend(true, {}, router.moduleConfig,
+                                                {params: { 'rootData': {}}},
+                                                {animation: oj.ModuleAnimations['pushStart']
+                });
                 self.moduleConfig = moduleConfig;
-                
+
                 self.isDomainDetailsGiven = ko.observable(false);
-                
+
                 //screenrange observable for responsive alignment
                 self.screenRange = oj.ResponsiveKnockoutUtils.createScreenRangeObservable();
                 self.isLoggedInUser = ko.observable(sessionInfo.getFromSession(sessionInfo.isLoggedInUser));
@@ -141,23 +149,24 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                     $('#bgvid').remove();
                 }
 
-                self.showHeaderNav = ko.computed( function() {
+                self.showHeaderNav = ko.computed(function () {
                     var id = router.currentState().id;
+                    
                     if (id === 'dashboard') {
                         return "";
                     } else {
                         return "visibility-hidden";
                     }
                 });
-                
+
                 self.screenRange = oj.ResponsiveKnockoutUtils.createScreenRangeObservable();
-                self.viewportSize = ko.computed( function() {
+                self.viewportSize = ko.computed(function () {
                     var range = self.screenRange();
                     console.log(range.toUpperCase());
                     return range.toUpperCase();
                 });
-                
-                self.slideInAnimate = function(duration, delay) {
+
+                self.slideInAnimate = function (duration, delay) {
                     if (self.slideInEffect() && oj.AnimationUtils[self.slideInEffect()]) {
                         var jElem = $('.' + self.getStateId() + '-page');
                         console.log(jElem);
@@ -166,16 +175,16 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                         // jElem.css('backgroundColor', self.sampleBackground);
 
                         var animateOptions = {'delay': delay ? delay + 'ms' : '',
-                                              'duration': duration + 'ms',
-                                              'timingFunction': 'ease-in-out'};
+                            'duration': duration + 'ms',
+                            'timingFunction': 'ease-in-out'};
                         $.extend(animateOptions, self.effectOptions);
-                        
+
                         // Invoke the animation effect method with options
                         oj.AnimationUtils[self.slideInEffect()](jElem[0], animateOptions);
                     }
                 };
-                
-                self.slideOutAnimate = function(duration, delay) {
+
+                self.slideOutAnimate = function (duration, delay) {
                     if (self.slideOutEffect() && oj.AnimationUtils[self.slideOutEffect()]) {
                         var jElem = $('.' + self.getStateId() + '-page');
                         console.log(jElem);
@@ -184,8 +193,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                         // jElem.css('backgroundColor', self.sampleBackground);
 
                         var animateOptions = {'delay': delay ? delay + 'ms' : '',
-                                              'duration': duration + 'ms',
-                                              'timingFunction': 'ease-in-out'};
+                            'duration': duration + 'ms',
+                            'timingFunction': 'ease-in-out'};
                         $.extend(animateOptions, self.effectOptions);
 
                         // Invoke the animation effect method with options
@@ -202,33 +211,44 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 };
 
                 self.dashboardServices = ko.observableArray([]);
-                
-                self.toggleContactType = function() {
+
+                self.toggleContactType = function () {
                     if ($("#contactType").hasClass("oj-sm-hide")) {
                         $("#contactType").removeClass("oj-sm-hide");
                     } else {
                         $("#contactType").addClass("oj-sm-hide");
                     }
                 };
-                
-                self.toggleLeft = function() {
+
+                self.toggleLeft = function () {
                     if ($("#navigationDrawerLeft").hasClass('oj-offcanvas-open')) {
                         oj.OffcanvasUtils.close(navigationDrawerLeft);
                         $("#navigationIconLeft").removeClass('oj-sm-hide');
                         return true;
                     }
                     $("#navigationIconLeft").addClass('oj-sm-hide');
+                    window.scrollTo(0, 0);
                     return (oj.OffcanvasUtils.open(navigationDrawerLeft));
                 };
-                
-                self.routeTo = function(data, event) {
+
+                self.routeTo = function (data, event) {
                     console.log(event.currentTarget.id);
 //                    router.go(event.currentTarget.id + '/');
                 };
-                
-                self.capturedEvent = function(data, event) {
+
+                self.capturedEvent = function (data, event) {
                     console.log(event.currentTarget.id);
-                    alert(event.currentTarget.id + ' clicked');
+                    console.log(event.currentTarget.id + ' clicked');
+                };
+
+                self.logout = function (data, event) {
+                    sessionInfo.removeFromSession(sessionInfo.isLoggedInUser);
+                    sessionInfo.removeFromSession(sessionInfo.loggedInUser);
+                    sessionInfo.removeFromSession(sessionInfo.loggedInUserRole);
+                    sessionInfo.removeFromSession(sessionInfo.userFirstLastName);
+                    sessionInfo.removeFromSession(sessionInfo.userClmRegistryId);
+                    self.toggleLeft();
+                    router.go('home/');
                 };
 
                 $(window).resize(function () {
@@ -283,7 +303,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
 //                });
                 // setup the Navigation and Ancillary offcanvases for the responsive layout
                 oj.OffcanvasUtils.setupResponsive(navigationDrawerLeft);
-                
+
                 oj.Router.sync().then(function () {
                     ko.applyBindings(viewModel(), document.getElementById('routing-container'));
                 });

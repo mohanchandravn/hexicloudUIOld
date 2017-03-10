@@ -75,7 +75,7 @@ navigationbarleft {
     font-size: 20px;
     color: #324b5c;
     padding: 16px 30px;
-    height: 54px;
+    min-height: 54px;
     box-sizing: border-box;
     cursor: pointer;
 }
@@ -90,7 +90,7 @@ navigationbarleft {
 }
 
 .nav-list li:first-child {
-    margin-top: 10px;
+    /*margin-top: 10px;*/
 }
 
 .nav-list li:first-child span {
@@ -102,7 +102,11 @@ navigationbarleft {
 }
 
 .nav-list li.sub-nav:not(:last-child) {
-    border-bottom: 2px solid #b0c6d1;
+    border-bottom: none;
+}
+
+.nav-list .sub-nav span {
+    margin-left: 10px;
 }
 /*
 .navigation-left .logout span {

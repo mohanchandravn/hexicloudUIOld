@@ -49,6 +49,11 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
             });
         };
 
+        self.handleTransitionCompleted = function () {
+            // scroll the whole window to top if it's scroll position is not on top
+            $(window).scrollTop(0);
+        };
+
         self._showComponentValidationErrors = function (trackerObj) {
             trackerObj.showMessages();
             if (trackerObj.focusOnFirstInvalid())
@@ -91,12 +96,17 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         userClmRegistryId(data.registryId);
                         sessionInfo.setToSession(sessionInfo.userClmRegistryId, data.registryId);
                         self.loginFailureText("");
-                        service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn);
-                        setTimeout(function () {
+//                        service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn);
+                        //Hardcoding for the demo
                         $('#bgvid').remove();
-                        router.go(self.savedStep() + '/');
-                        }, 500);
-                        slideOutAnimate(1500, 0);
+                        if (self.userName().toLowerCase() === 'fred' || self.userName().toLowerCase() === 'simon') {
+                            router.go('dashboard/');
+                        } else {
+                            router.go(self.savedStep() + '/');
+                        }
+//                        setTimeout(function () {
+//                        }, 500);
+//                        slideOutAnimate(1500, 0);
                     } else {
                         self.loginFailureText("Invalid Username or Password");
                     }
@@ -113,6 +123,8 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         loggedInUserRole(data.userRole);
                         self.savedStep(data.curStepCode);
                     }
+                    $('#bgvid').remove();
+                    router.go(self.savedStep() + '/');
                 };
 
                 service.authenticate({

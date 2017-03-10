@@ -124,6 +124,10 @@ and open the template in the editor.
 /*All the styles for provisioned Services goes here*/
 
 .provisioned-services {
+    margin-top: 40px;
+}
+
+.provisioned-services .content.stage {
     margin-top: 20px;
 }
 
@@ -289,9 +293,6 @@ and open the template in the editor.
     z-index: 99999;
 }
 
-.provisioned-services .text-center{
-    text-align: center;
-}
 .provisioned-services .deep-red-button {
     height : 32px;
     min-width: 160px;
@@ -324,7 +325,7 @@ and open the template in the editor.
 
 @media only screen and (max-width: 480px) {
     .provisioned-services {
-        margin-top: 15px;
+        margin-top: 40px;
     }
     .provisioned-services .content.stage h1 {
         font-size: 38px;

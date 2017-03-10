@@ -45,9 +45,22 @@ and open the template in the editor.
                 </div>
                 <div class="oj-sm-12 oj-flex-item">
                     <ul id="contactType" class="nav-list oj-sm-hide">
-                        <li id="email" class="sub-nav" data-bind="click: capturedEvent"><i class="material-icons left">email</i><span> email</span></li>
-                        <li id="phoneCall" class="sub-nav" data-bind="click: capturedEvent"><i class="material-icons left">phone</i><span> Call</span></li>
-                        <li id="chat" class="sub-nav" data-bind="click: capturedEvent"><i class="material-icons left">chat</i><span> Chat</span></li>
+                        <li id="email" class="sub-nav" data-bind="click: capturedEvent">
+                            <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center" >
+                                <div class="oj-flex-item"><i class="material-icons left">email</i></div>
+                                <div class="oj-flex-item"><span>Email</span></div>
+                            </div>
+                        </li>
+                        <li id="phoneCall" class="sub-nav" data-bind="click: capturedEvent">
+                            <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center" >
+                                <div class="oj-flex-item"><i class="material-icons left">phone</i></div>
+                                <div class="oj-flex-item"><span>Call</span></div>
+                            </div>
+                        <li id="chat" class="sub-nav" data-bind="click: capturedEvent"><div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center" >
+                                <div class="oj-flex-item"><i class="material-icons left">chat</i></div>
+                                <div class="oj-flex-item"><span>Chat</span></div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </li>           
@@ -58,58 +71,58 @@ and open the template in the editor.
             </li>            
             <li id="logout" data-bind="click: capturedEvent">
                 <div class="oj-flex-bar">
-                    <div class="oj-flex-bar-start"><span><a style="color: #324b5c;" href="https://129.152.128.105/hexiCloudPortalV6">Logout</a></span></div>
+                    <div class="oj-flex-bar-start"><span><a style="color: #324b5c;" data-bind="click: logout">Logout</a></span></div>
                 </div>
             </li>		
-<!--            <li><a href="#"><i class="material-icons left">home</i> Dashboard</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Use Cases</a></li>
-            <li><a href="#">Guided paths</a></li>
-            <li><a href="#">Resources</a></li>
-            <li><a href="#">Assistance</a></li>
-            <li><a href="#">Contact <i class="material-icons">keyboard_arrow_down</i></a>
-                    <ul class="nav-list oj-sm-hide">
-                        <li class="sub-nav"><a href="#"><i class="material-icons left">email</i> email</a></li>
-                        <li class="sub-nav"><a href="#"><i class="material-icons left">phone</i> Call</a></li>
-                        <li class="sub-nav"><a href="#"><i class="material-icons left">chat</i> Chat</a></li>
-                    </ul>
-            </li>
-            <li><a href="#">My Profile</a></li>
-            <li><a href="#">Logout</a></li>		-->
+            <!--            <li><a href="#"><i class="material-icons left">home</i> Dashboard</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Use Cases</a></li>
+                        <li><a href="#">Guided paths</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Assistance</a></li>
+                        <li><a href="#">Contact <i class="material-icons">keyboard_arrow_down</i></a>
+                                <ul class="nav-list oj-sm-hide">
+                                    <li class="sub-nav"><a href="#"><i class="material-icons left">email</i> email</a></li>
+                                    <li class="sub-nav"><a href="#"><i class="material-icons left">phone</i> Call</a></li>
+                                    <li class="sub-nav"><a href="#"><i class="material-icons left">chat</i> Chat</a></li>
+                                </ul>
+                        </li>
+                        <li><a href="#">My Profile</a></li>
+                        <li><a href="#">Logout</a></li>		-->
         </ul>
     </div>
-<!--    <div class="nav-profile oj-sm-12 oj-flex-item">
-        <div class="oj-sm-justify-content-center oj-flex"><img src="img/login_man_face.png" alt="Login Face" class="loginFace"/>
-            <p class="oj-sm-justify-content-center oj-flex">Jim Smith</p>
-        </div> 
-    </div>
-    <div class="nav-list oj-sm-12 oj-flex-item">
-        <ul>
-            <li id="dashboard" data-bind="click: $parent.routeTo">
-                <div class="item-list-title">
-                    <span data-bind="text: 'DASHBOARD'"></span>
-                </div>
-            </li>
-            <li id="service" data-bind="click: $parent.routeTo">
-                <div class="item-list-title">
-                    <span data-bind="text: 'SERVICE'"></span>
-                </div>
-            </li>
-            <li id="learning" data-bind="click: $parent.routeTo">
-                <div class="item-list-title">
-                    <span data-bind="text: 'LEARNING'"></span>
-                </div>
-            </li>
-            <li id="settings" data-bind="click: $parent.routeTo">
-                <div class="item-list-title">
-                    <span data-bind="text: 'SETTINGS'"></span>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="oj-sm-12 oj-flex-item">
-        <div class="logout oj-sm-justify-content-center oj-flex">
-            <span data-bind="click: $parent.logout, text: 'LOGOUT'">LOGOUT</span>
+    <!--    <div class="nav-profile oj-sm-12 oj-flex-item">
+            <div class="oj-sm-justify-content-center oj-flex"><img src="img/login_man_face.png" alt="Login Face" class="loginFace"/>
+                <p class="oj-sm-justify-content-center oj-flex">Jim Smith</p>
+            </div> 
         </div>
-    </div>-->
+        <div class="nav-list oj-sm-12 oj-flex-item">
+            <ul>
+                <li id="dashboard" data-bind="click: $parent.routeTo">
+                    <div class="item-list-title">
+                        <span data-bind="text: 'DASHBOARD'"></span>
+                    </div>
+                </li>
+                <li id="service" data-bind="click: $parent.routeTo">
+                    <div class="item-list-title">
+                        <span data-bind="text: 'SERVICE'"></span>
+                    </div>
+                </li>
+                <li id="learning" data-bind="click: $parent.routeTo">
+                    <div class="item-list-title">
+                        <span data-bind="text: 'LEARNING'"></span>
+                    </div>
+                </li>
+                <li id="settings" data-bind="click: $parent.routeTo">
+                    <div class="item-list-title">
+                        <span data-bind="text: 'SETTINGS'"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="oj-sm-12 oj-flex-item">
+            <div class="logout oj-sm-justify-content-center oj-flex">
+                <span data-bind="click: $parent.logout, text: 'LOGOUT'">LOGOUT</span>
+            </div>
+        </div>-->
 </div>

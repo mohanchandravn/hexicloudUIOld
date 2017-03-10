@@ -1,7 +1,6 @@
 define(['ojs/ojcore',
         'jquery',
-        'knockout',
-        'ojs/ojinputtext'],function (oj,$,ko) {
+        'knockout'],function (oj,$,ko) {
         
         function TechSupportViewModel() {
             var self = this;
