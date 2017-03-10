@@ -12,7 +12,7 @@ and open the template in the editor.
 </div>
 <div class="servicesMini-page provisioned-services oj-sm-align-items-center oj-padding-horizontal">
     <div class="oj-flex-item">
-        <div class="oj-flex oj-flex-items-pad oj-md-align-items-center oj-sm-flex-direction-column">
+        <div class="oj-flex oj-sm-justify-content-center">
             <div class="oj-flex-item oj-md-8">
                 <div class="content stage">
                     <span class="heading-type2 text-center oj-flex oj-sm-justify-content-center">Your Provisioned Cloud services</span>
@@ -95,24 +95,23 @@ and open the template in the editor.
         </div>    
     </div>
     <div class="oj-flex-item" data-bind="visible: servicesAsExpected">
-        <div class="oj-flex oj-flex-items-pad oj-md-align-items-center oj-sm-flex-direction-column">
-            <div class="oj-flex-item oj-md-8">
+        <div class="oj-sm-justify-content-center oj-flex">
+            <div class="oj-md-8 oj-flex-item">
                 <span class="heading-type2 text-center oj-flex oj-sm-justify-content-center">Please confirm if your cloud services are provisioned correctly</span>
             </div>
-            <div class="oj-flex-item">
-                <div class="oj-flex oj-padding-horizontal text-center">
-                    <div class="oj-flex-item ">
+            <div class="oj-md-12 oj-lg-8 oj-flex-item">
+                <div class="text-center oj-flex">
+                    <div class="oj-sm-12 oj-md-6 oj-flex-item">
                         <a class="deep-red-button" data-bind="click: goToDashboard">Yes</a>
 
                     </div>
-                    <div class="oj-flex-item">
+                    <div class="oj-sm-12 oj-md-6 oj-flex-item">
                         <a class="deep-red-button" data-bind="click: contactSupport">No</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="oj-hybrid-padding"></div>
     <div data-bind="visible: showSupportPanel">
         <div class="oj-flex-item">
             <div class="oj-flex oj-flex-items-pad oj-md-align-items-center oj-sm-flex-direction-column">
