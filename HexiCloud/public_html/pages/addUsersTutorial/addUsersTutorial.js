@@ -2,6 +2,7 @@ define(['ojs/ojcore',
     'jquery',
     'knockout',
     'config/serviceConfig',
+    'ojs/ojaccordion',
     'components/trainnavigation/loader'], function (oj, $, ko, service) {
 
     function addUsersTutorialViewModel(params) {

@@ -50,7 +50,21 @@
                             <li><span>Click <strong>‘Users’</strong></span></li>
                             <li><span>Click the <strong>‘Users’</strong> tab</span></li>
                             <li><span>Click <strong>‘Add’</strong></span></li>
-                            <li><span>Add user details:
+                            <li>
+                                <div data-bind="ojComponent: {component: 'ojAccordion'}">
+                                    <div>
+                                        <span>Add user details</span>
+                                        <ul>
+                                            <li><span>First name:</span></li>
+                                            <li><span>Last name:</span></li>
+                                            <li><span>Email address:</span></li>
+                                            <li><span>Username:</span></li>
+                                            <li><span>Manager’s email address:</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+<!--                            <li><span>Add user details:
                                     <hr>
                                     <ul>
                                         <li><span>First name:</span></li>
@@ -60,8 +74,21 @@
                                         <li><span>Manager’s email address:</span></li>
                                     </ul>
                                     <hr>
-                                </span></li>
-                            <li><span>Choose the role</span></li>
+                                </span></li>-->
+                            <li>
+                                <div data-bind="ojComponent: {component: 'ojAccordion'}">
+                                    <div>
+                                        <span>Choose your role</span>
+                                        <ul>
+                                            <li><span>Identity Domain Administrator</span></li>
+                                            <li><span>Services</span></li>
+                                            <li><span>Entitlement Administrator</span></li>
+                                            <li><span>Bucket Entitlement Administrator</span></li>
+                                            <li><span>Service Instance Administrator</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
 
                             <li><span>Click <strong>‘Add’</strong></span>
                                 <hr>
