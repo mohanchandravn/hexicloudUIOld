@@ -7,8 +7,8 @@
 /**
  * dashboard module
  */
-define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceConfig', 'config/sessionInfo', 'ojs/ojprogressbar', 'ojs/ojfilmstrip','components/techsupport/loader'
-], function ($, ko, oj, service, sessionInfo) {
+define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknockout', 'config/sessionInfo', 'ojs/ojprogressbar', 'ojs/ojfilmstrip','components/techsupport/loader'
+], function ($, ko, service) {
     /**
      * The view model for the main content view template
      */
@@ -25,9 +25,26 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
         ];
         
         self.selectedFilmStripItem = ko.observable(0);
+        self.serviceItems = ko.observableArray([]);
         
         getItemInitialDisplay = function(index) {
             return index < 3 ? '' : 'none';
+        };
+        
+        self.getClass = function(serverType) {
+            if (serverType === 'COMPUTE') {
+                return 'blue';
+            } else if (serverType === 'JCS') {
+                return 'green';
+            } else {
+                return 'purple';
+            }
+        };
+        
+        function populateUI(data, status) {
+            console.log(data);
+            console.log(status);
+            self.serviceItems(data.services);
         };
         
         self.openUsecaseContainer = function(data, event) {
@@ -89,6 +106,7 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
               
         self.handleAttached = function() {
             $('#tech_support').hide();
+            service.getServiceItems().then(populateUI, FailCallBackFn);
         };
 
         self.handleTransitionCompleted = function () {

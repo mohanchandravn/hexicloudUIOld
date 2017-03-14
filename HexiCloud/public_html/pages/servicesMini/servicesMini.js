@@ -22,6 +22,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         var router = params.ojRouter.parentRouter;
         self.servicesAsExpected = ko.observable(true);
         self.showSupportPanel = ko.observable(false);
+        self.serviceItems = ko.observableArray([]);
 
         self.goToDashboard = function () {
             isLoggedInUser(true);
@@ -69,9 +70,26 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
                             {label: 'Services', id: 'stp3'}]);
         self.actionDisabledCss = "disable-train-selection";
         
+        self.getClass = function(serverType) {
+            if (serverType === 'COMPUTE') {
+                return 'blue';
+            } else if (serverType === 'JCS') {
+                return 'green';
+            } else {
+                return 'purple';
+            }
+        };
+        
+        function populateUI(data, status) {
+            console.log(data);
+            console.log(status);
+            self.serviceItems(data.services);
+        };
+        
         self.handleAttached = function () {
 //            slideInAnimate(500, 0);
             $('#tech_support').hide();
+            service.getServiceItems().then(populateUI, FailCallBackFn);
         };
         
         self.handleTransitionCompleted = function () {

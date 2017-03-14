@@ -174,6 +174,25 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
+        
+        self.getServiceItems = function() {
+             var defer = $.Deferred();
+            var serverURL = "pages/servicesMini/servicesMini.json";
+            $.ajax({
+                type: "GET",
+                url: serverURL,
+                contentType: "application/json",
+                success: function (data, status) {
+                    console.log('Successfully retrieved details at: ' + serverURL);
+                    defer.resolve(data, status);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log("Error retrieving service details at: " + serverURL);
+                    defer.reject(xhr);
+                }
+            });
+            return $.when(defer);
+        };
     }
     ;
 
