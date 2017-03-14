@@ -41,6 +41,10 @@ define(['ojs/ojcore',
 
         self.closeTechSupportLayout = function ()
         {
+            self.emailSubject("");
+            self.emailMessage("");
+            self.detailsOfSR("");
+            self.statusOfSR(false);
             $('#tech_support').hide();
         };
 
