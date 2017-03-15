@@ -329,7 +329,3 @@ hr{
 .disable-train-selection {
     pointer-events: none;
 }
-
-.create-user-steps-container .oj-accordion-collapsible > .oj-collapsible-header {
-    background: none;
-}

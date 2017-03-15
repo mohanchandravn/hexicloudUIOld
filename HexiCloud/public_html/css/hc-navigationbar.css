@@ -108,6 +108,10 @@ navigationbarleft {
 .nav-list .sub-nav span {
     margin-left: 10px;
 }
+
+.nav-list .sub-nav .sub-nav-content:hover {
+    color: #ee4f50;
+}
 /*
 .navigation-left .logout span {
     margin-top: 15px;

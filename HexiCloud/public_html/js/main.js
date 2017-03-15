@@ -223,8 +223,10 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 self.toggleContactType = function () {
                     if ($("#contactType").hasClass("oj-sm-hide")) {
                         $("#contactType").removeClass("oj-sm-hide");
+                        $("#contactToggle").text("keyboard_arrow_up");
                     } else {
                         $("#contactType").addClass("oj-sm-hide");
+                        $("#contactToggle").text("keyboard_arrow_down");
                     }
                 };
 
@@ -245,8 +247,10 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 };
 
                 self.capturedEvent = function (data, event) {
-                    console.log(event.currentTarget.id);
-                    console.log(event.currentTarget.id + ' clicked');
+                    self.toggleContactType();
+                    self.toggleLeft();
+//                    self.selectedTemplate(event.currentTarget.id + '_content');
+                    $("#tech_support").slideToggle();
                 };
 
                 self.logout = function (data, event) {
