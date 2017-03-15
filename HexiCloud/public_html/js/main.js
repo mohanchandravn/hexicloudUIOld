@@ -113,7 +113,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 'samplecsv': {label: 'Sample CSV', value: getPath('samplecsv')},
                 'addAdditionalUsers': {label: 'Add Another', value: getPath('addAnother')},
                 'createUsers': {label: 'Add Users Tutorial', value: getPath('addUsersTutorial')},
-                'techSupport': {label: 'Techical Support', value: getPath('techSupport')}
+                'techSupport': {label: 'Techical Support', value: getPath('techSupport')},
+                'useCases': {label: 'Use Cases', value: getPath('useCases')}
             });
                 
             function viewModel() {
@@ -243,7 +244,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
 
                 self.routeTo = function (data, event) {
                     console.log(event.currentTarget.id);
-//                    router.go(event.currentTarget.id + '/');
+                    router.go(event.currentTarget.id + '/');
+                    self.toggleLeft();
                 };
 
                 self.capturedEvent = function (data, event) {

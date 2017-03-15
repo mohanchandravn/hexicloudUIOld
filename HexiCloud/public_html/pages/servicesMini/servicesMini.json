@@ -27,6 +27,33 @@
            "OCPUCount": "1",
            "memoryAmount": "7.5",
            "storageAmount": "185"
+        }, {
+           "platformType": "Paas",
+           "serviceType": "",
+           "serverType": "JCS",
+           "instancesCount": "1",
+           "state": "running",
+           "OCPUCount": "2",
+           "memoryAmount": "15",
+           "storageAmount": "122"
+        }, {
+           "platformType": "Iaas",
+           "serviceType": "",
+           "serverType": "DBCS",
+           "instancesCount": "1",
+           "state": "running",
+           "OCPUCount": "1",
+           "memoryAmount": "7.5",
+           "storageAmount": "185"
+        }, {
+           "platformType": "Iaas",
+           "serviceType": "METERED",
+           "serverType": "Compute",
+           "instancesCount": "3",
+           "state": "running",
+           "OCPUCount": "3",
+           "memoryAmount": "22.5",
+           "storageAmount": "307"
         }
     ]
 }

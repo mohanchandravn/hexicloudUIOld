@@ -174,7 +174,7 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
-        
+                
         self.getServiceItems = function() {
              var defer = $.Deferred();
             var serverURL = "pages/servicesMini/servicesMini.json";

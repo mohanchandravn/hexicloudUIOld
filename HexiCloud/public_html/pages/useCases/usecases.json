@@ -1,0 +1,24 @@
+{
+    "UseCase": {
+        "Name" : "Migrate Non Oracle Workloads to the Public Cloud",
+        "title": "Discover how you can:",
+        "subTitle": "Move your private data center in the cloud and benefit from:",
+        "Benefits":
+                {
+                    "title": "",
+                    "benefitsList": [
+                        {
+                            "text": "Zero CapEx"
+                        },
+                        {
+                            "text": "Predictable OpEx"
+                        },
+                        {
+                            "text": "Full control of your services"
+                        }
+                    ]
+                },
+        "FeaturesLink" : "Public Link from Docs" 
+
+    }
+}
