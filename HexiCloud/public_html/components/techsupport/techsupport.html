@@ -15,6 +15,7 @@
                 <i class="material-icons close-button" style="opacity: 1;">clear</i>
             </a>
         </div>
+         <div class="oj-flex-item" data-bind="ojModule: chatModule, visible: isChatVisible"></div>
         <div class='oj-flex-item' data-bind="template: selectedTemplate">
 
         </div>
@@ -103,7 +104,7 @@
 </script>
 
 <script type="text/html" id='chat_content'>
-    <div class= "oj-flex oj-sm-flex-direction-column chatContainer">
+<!--    <div class= "oj-flex oj-sm-flex-direction-column chatContainer">
         <div class="oj-flex-item">
             <textarea rows="15" id="comment"  placeholder="Simon: Hi Michel! How can I help you?"></textarea>
         </div>
@@ -117,5 +118,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 </script>

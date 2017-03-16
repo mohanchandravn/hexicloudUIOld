@@ -11,7 +11,6 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
      */
     function serviceConfig() {
         var self = this;
-        self.router = router;
         //local
 //        self.portalRestHost = ko.observable("http://127.0.0.1:7101/");
         //GSE JCS

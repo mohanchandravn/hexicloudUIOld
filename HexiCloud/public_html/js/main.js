@@ -52,7 +52,7 @@ requirejs.config({
  */
 
 require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknockout',
-    'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule', 'ojs/ojmoduleanimations', 'ojs/ojanimation', 'ojs/ojoffcanvas'],
+    'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule', 'ojs/ojmoduleanimations', 'ojs/ojanimation', 'ojs/ojoffcanvas','components/techsupport/loader'],
         function (oj, ko, $, sessionInfo)
         {
             var self = this;
@@ -258,6 +258,11 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                     self.toggleLeft();
                     router.go('home/');
                 };
+                
+                self.selectedTemplate = ko.observable('');
+                self.references = {
+                    "selectedValueRef": self.selectedTemplate
+                };
 
                 $(window).resize(function () {
                     if (oj.ResponsiveUtils.compare(self.screenRange(), oj.ResponsiveUtils.SCREEN_RANGE.LG) < 0) {
@@ -265,6 +270,26 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                     }
 //                    self.autoAlignContent();
                 });
+                
+                 $(window).bind("beforeunload", function () {
+                    var chatFrame = document.getElementById('chat_frame');
+                    if (chatFrame)
+                    {
+                        //if chat frame exits remove from dom tree so that on browser refresh, it will not refresh this element. 
+                        //hence exiting session will lost
+                        chatFrame.parentNode.removeChild(chatFrame);
+                    }
+                });
+                
+                 if (performance.navigation.type == 1) {
+                     alert("This page is not reloaded");
+                    var sessionStorage = window.sessionStorage;
+                    sessionStorage.removeItem('isChatOpened');
+                } else {
+                    var sessionStorage = window.sessionStorage;
+                    sessionStorage.removeItem('isChatOpened');
+                    alert("This page is not reloaded");
+                }
 
 //                self.autoAlignContent = function () {
 //                    if (oj.ResponsiveUtils.compare(self.screenRange(), oj.ResponsiveUtils.SCREEN_RANGE.LG) > 0) {
@@ -314,6 +339,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
 
                 oj.Router.sync().then(function () {
                     ko.applyBindings(viewModel(), document.getElementById('routing-container'));
+
                 });
             });
         });

@@ -1,6 +1,6 @@
 define(['ojs/ojcore',
     'jquery',
-    'knockout', 'config/serviceConfig', 'ojs/ojinputtext', 'ojs/ojknockout-validation'], function (oj, $, ko, service) {
+    'knockout', 'config/serviceConfig', 'ojs/ojinputtext', 'ojs/ojknockout-validation','ojs/ojmodule'], function (oj, $, ko, service) {
 
     function techSupportViewModel(context) {
         var self = this;
@@ -10,6 +10,11 @@ define(['ojs/ojcore',
         self.detailsOfSR = ko.observable();
         self.statusOfSR = ko.observable(false);
         self.tracker = ko.observable();
+        self.chatModule = ko.observable({
+            'name': 'pages/modules/empty/empty'
+        });
+        self.isChatVisible = ko.observable(false);
+        self.isChatOpened = ko.observable(false);
 
         self._showComponentValidationErrors = function (trackerObj) {
             trackerObj.showMessages();
@@ -22,21 +27,50 @@ define(['ojs/ojcore',
         context.props.then(function (properties) {
             if (properties.references)
             {
-                self.selectedTemplate = properties.references.selectedValueRef;
+                 if (properties.references.selectedValueRef)
+                {
+                    properties.references.selectedValueRef.subscribe(function (newValue) {
+                        if (newValue) {
+                            if (newValue === 'chat_content')
+                            {
+                                var sessionStorage = window.sessionStorage;
+                                var isChatOpened = sessionStorage.getItem('isChatOpened');
+                                if (isChatOpened)
+                                {
+                                    self.isChatVisible(true);
+                                } else
+                                {
+                                    sessionStorage.setItem('isChatOpened', true);
+                                    self.isChatVisible(true);
+                                    self.chatModule({
+                                        name: "pages/modules/chat/chat"
+                                    });
+                                }
+                            }
+                            else
+                            {
+                                self.isChatVisible(false);
+                            }
+                        }
+                    }, self);
+                    self.selectedTemplate = properties.references.selectedValueRef;
+                }
+                
             }
         });
 
 
         self.viewCallContent = function () {
             self.selectedTemplate('phone_content');
+            self.isChatVisible(false);
         };
-
         self.viewChatContent = function () {
             self.selectedTemplate('chat_content');
         };
 
         self.viewMailContent = function () {
             self.selectedTemplate('email_content');
+            self.isChatVisible(false);
         };
 
         self.closeTechSupportLayout = function ()

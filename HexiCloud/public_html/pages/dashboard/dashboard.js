@@ -88,7 +88,6 @@ define(['jquery', 'knockout', 'ojs/ojcore', 'ojs/ojknockout', 'config/serviceCon
         };
               
         self.handleAttached = function() {
-            $('#tech_support').hide();
         };
 
         self.handleTransitionCompleted = function () {

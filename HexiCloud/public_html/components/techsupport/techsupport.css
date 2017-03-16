@@ -228,6 +228,7 @@ width: calc(100% - 30px);
 }
 .chatContainer{
     width:100%;
+    min-height: 510px;
 }
 
 .chatContainer .square{
