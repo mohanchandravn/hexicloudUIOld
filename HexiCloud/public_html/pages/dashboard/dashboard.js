@@ -21,6 +21,10 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         self.serviceItems = ko.observableArray([]);
         self.allServiceItems = ko.observableArray([]);
         self.selectedServiceItem = ko.observable();
+        self.selectedItemTitle = ko.observable();
+        self.selectedItemSubTitle = ko.observable();
+        self.benefitsTitle = ko.observable();
+        self.selectedItemBenefitsArray = ko.observableArray([]);
         
         self.getClass = function(serverType) {
             if (serverType === 'COMPUTE') {
@@ -55,7 +59,26 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         self.openServiceDetail = function(data, event) {
             console.log(data);
             console.log(event);
-            console.log(data.serverType);
+            var serverType = data.serverType.toLowerCase();
+            console.log(serverType);
+            self.selectedServiceItem(data.serverType);
+            
+            $.ajax({
+                type: 'GET',
+//                contentType: "json",
+                url: 'pages/servicesMini/' + serverType + '-details.json',
+//                dataType: 'application/json',
+                success: function(data, success) {
+                    console.log(data);
+                    self.selectedItemTitle(data.service.title);
+                    self.selectedItemSubTitle(data.service.subTitle);
+                    self.benefitsTitle(data.service.benefits.title);
+                    self.selectedItemBenefitsArray(data.service.benefits.benefitsList);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log("Error retrieving service details at: " + serverType);
+                }
+            });
         };
         
         self.onClickFeedback = function()

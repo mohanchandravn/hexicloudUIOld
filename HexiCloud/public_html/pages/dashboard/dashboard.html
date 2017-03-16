@@ -52,13 +52,30 @@ and open the template in the editor.
             </div>
         </div>
     </div>
-    <div class="oj-flex">
+    <div class="dashboard oj-flex">
         <!-- ko if: selectedServiceItem() !== undefined -->
         <div class="benefits oj-sm-12 oj-lg-4 oj-flex-item">
-            
+            <div class="oj-flex" data-bind="css: isScreenLGorXL() ? 'oj-margin-lg-end' : ''">
+                <span class="heading-type2 oj-sm-12 oj-flex-item" data-bind="text: 'Benefits for ' + selectedServiceItem() + ': '"></span>
+                <span class="oj-margin-lg-vertical oj-sm-12 oj-flex-item">
+                    <span class="heading-type4 color-red" data-bind="text: selectedItemTitle"></span>
+                    <span class="normal-text" data-bind="text: ' - ' + selectedItemSubTitle()"></span>
+                </span>
+                <span class="heading-type4 oj-sm-12 oj-flex-item" data-bind="text: benefitsTitle() + ':'"></span>
+                <ul class="oj-sm-12 oj-flex-item">
+                    <!-- ko foreach: selectedItemBenefitsArray -->
+                    <li>
+                        <div data-bind="text: text"></div>
+                    </li>
+                    <!-- /ko -->
+                </ul>
+            </div>
         </div>
         <div class="key-features oj-sm-12 oj-lg-8 oj-flex-item">
-            
+            <span class="heading-type2 oj-flex" data-bind="text: 'Key features for ' + selectedServiceItem() + ': '"></span>
+            <div class="oj-margin-lg-top oj-flex" style="height: 500px;">
+                <iframe id="pdf" style="width: 100%;" height="500" data-bind="attr : { src: 'https://docs.google.com/gview?url=' + 'http://www.pdf995.com/samples/pdf.pdf' + '&embedded=true' }" frameborder="0"></iframe>
+            </div>
         </div>
         <!-- /ko -->
     </div>

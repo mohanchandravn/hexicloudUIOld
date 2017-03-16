@@ -1,26 +1,26 @@
 {
-    "Service": {
+    "service": {
         "title": "Oracle JCS Cloud Service",
-        "subTitle": "At competitive costs, this platform provides access to the same servers and infrastructure used to deploy and run Oracle’s public clouds, along with SaaS applications and PaaS tools. IT staff can make the most of complete network isolation and exclusively assigned servers to maximize performance.",
-        "Benefits":
+        "subTitle": "A secure, high-performance, high-bandwidth solution, Oracle Network Cloud Service empowers enterprises to freely connect any on-premises data center to Oracle Cloud. It includes site-to-site VPN service and FastConnect offerings to cater for both latency-sensitive and data-heavy applications.",
+        "benefits":
                 {
                     "title": "Business Benefits",
                     "benefitsList": [
                         {
-                            "text": "Speed up innovation and agility by spinning up virtual-machine instances in minutes through an on - demand, self - service portal that’s based on your business demands"
+                            "text": "Safely and securely extend your on-premises network to your dedicated Oracle Compute zone through site-to-site VPN"
                         },
                         {
-                            "text": "Utilize precision performance by using a predefined, isolated environment to run legacy Oracle or third - party workloads"
+                            "text": "Gain high-bandwidth connections between your data center and Oracle Cloud services thanks to FastConnect"
                         },
                         {
-                            "text": "Achieve enterprise-grade security that doesn’t compromise performance or high - availability (HA) capabilities"
+                            "text": "Simplify your processes to create a robust yet easily accessible VPN gateway and connection in just a few steps"
                         },
                         {
-                            "text": "Securely access your IT through a dynamic firewall that safeguards your virtual - machine instance and SSH keys from fraudulent activities"
+                            "text": "Enhance security and performance by using symmetric key encryption"
                         }
                     ]
                 },
-        "FeaturesLink" : "Public Link from Docs" 
+        "featuresLink" : "Public Link from Docs for JCS" 
 
     }
 }

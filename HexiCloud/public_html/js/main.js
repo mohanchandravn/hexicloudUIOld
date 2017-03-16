@@ -63,7 +63,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 "selector": "#navigationDrawerLeft",
                 "edge": "start",
                 "displayMode": "push",
-                "autoDismiss": "none",
+                "autoDismiss": "focusLoss",
                 "modality": "modeless"//,
                         //        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.XL_UP)
             };
@@ -152,12 +152,12 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
 
                 self.showHeaderNav = ko.computed(function () {
                     var id = router.currentState().id;
-                    
-                    if (id === 'dashboard') {
-                        return "";
-                    } else {
-                        return "visibility-hidden";
-                    }
+//                    if (id === 'dashboard' || id === 'useCases') {
+//                        return "";
+//                    } else {
+//                        return "visibility-hidden";
+//                    }
+                    return (id === 'dashboard' || id === 'useCases') ? '' : 'visibility-hidden';
                 });
 
                 self.screenRange = oj.ResponsiveKnockoutUtils.createScreenRangeObservable();
@@ -234,10 +234,10 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 self.toggleLeft = function () {
                     if ($("#navigationDrawerLeft").hasClass('oj-offcanvas-open')) {
                         oj.OffcanvasUtils.close(navigationDrawerLeft);
-                        $("#navigationIconLeft").removeClass('oj-sm-hide');
+//                        $("#navigationIconLeft").removeClass('oj-sm-hide');
                         return true;
                     }
-                    $("#navigationIconLeft").addClass('oj-sm-hide');
+//                    $("#navigationIconLeft").addClass('oj-sm-hide');
                     window.scrollTo(0, 0);
                     return (oj.OffcanvasUtils.open(navigationDrawerLeft));
                 };

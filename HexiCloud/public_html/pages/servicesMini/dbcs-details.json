@@ -1,26 +1,29 @@
 {
-    "Service": {
-        "title": "Oracle Compute Cloud Service",
-        "subTitle": "At competitive costs, this platform provides access to the same servers and infrastructure used to deploy and run Oracle’s public clouds, along with SaaS applications and PaaS tools. IT staff can make the most of complete network isolation and exclusively assigned servers to maximize performance.",
-        "Benefits":
+    "service": {
+        "title": "Oracle DBCS Cloud Service",
+        "subTitle": "With zero capital expenditure, Oracle Storage Cloud delivers easy-to-use storage capacity to IT professionals, allowing them to store and retrieve files and data in Oracle’s secure and highly scalable public cloud whenever and wherever they wish.",
+        "benefits":
                 {
                     "title": "Business Benefits",
                     "benefitsList": [
                         {
-                            "text": "Speed up innovation and agility by spinning up virtual-machine instances in minutes through an on - demand, self - service portal that’s based on your business demands"
+                            "text": "Take advantage of a highly available storage solution that scales with your company growth"
                         },
                         {
-                            "text": "Utilize precision performance by using a predefined, isolated environment to run legacy Oracle or third - party workloads"
+                            "text": "Gain an industry-leading IaaS platform with zero upfront hardware expenditure or investment"
                         },
                         {
-                            "text": "Achieve enterprise-grade security that doesn’t compromise performance or high - availability (HA) capabilities"
+                            "text": "Access data simply and securely, anytime, anywhere, across any device"
                         },
                         {
-                            "text": "Securely access your IT through a dynamic firewall that safeguards your virtual - machine instance and SSH keys from fraudulent activities"
+                            "text": "Regulate who has read and write access to your business-critical documents, thanks to granular access control"
+                        },
+                        {
+                            "text": "Provide efficient archival storage for applications and workloads that require long-term retention"
                         }
                     ]
                 },
-        "FeaturesLink" : "Public Link from Docs" 
+        "featuresLink" : "Public Link from Docs for DBCS" 
 
     }
 }

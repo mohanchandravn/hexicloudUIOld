@@ -1,8 +1,8 @@
 {
-    "Service": {
+    "service": {
         "title": "Oracle Compute Cloud Service",
         "subTitle": "At competitive costs, this platform provides access to the same servers and infrastructure used to deploy and run Oracle’s public clouds, along with SaaS applications and PaaS tools. IT staff can make the most of complete network isolation and exclusively assigned servers to maximize performance.",
-        "Benefits":
+        "benefits":
                 {
                     "title": "Business Benefits",
                     "benefitsList": [
@@ -20,7 +20,6 @@
                         }
                     ]
                 },
-        "FeaturesLink" : "Public Link from Docs" 
-
+        "featuresLink" : "Public Link from Docs"
     }
 }

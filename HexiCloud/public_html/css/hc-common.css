@@ -42,6 +42,10 @@ html, body, .responsive-height {
     visibility: hidden;
 }
 
+.color-red {
+    color: #F80000;
+}
+
 navigationbarleft {
     width: 340px;
     max-width: 340px;
