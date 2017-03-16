@@ -18,12 +18,17 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
         
         console.log('home page');
         self.filmStripItems = [
-            { title: 'Prepare', description: 'for what you need and get your team geared up' },
-            { title: 'Learn', description: 'how it\'s done in our use cases and success stories' },
-            { title: 'Plan', description: 'the services you need for your business' },
-            { title: 'Build', description: 'with real-time support and help' },
-            { title: 'Succeed', description: 'in your journey to the cloud' }
+            { title: 'Get onboard', description: 'There are 3 easy steps to complete the onboarding process and get started with your services' },
+            { title: 'Adoption made easy', description: 'Gain access to a library of How-to guides and Use Cases to simplify your journey to the cloud' },
+            { title: 'We\'re here to help', description: 'A customer success consultant will be on hand to help you implement your services and gain the most value' }
         ];
+//        self.filmStripItems = [
+//            { title: 'Prepare', description: 'for what you need and get your team geared up' },
+//            { title: 'Learn', description: 'how it\'s done in our use cases and success stories' },
+//            { title: 'Plan', description: 'the services you need for your business' },
+//            { title: 'Build', description: 'with real-time support and help' },
+//            { title: 'Succeed', description: 'in your journey to the cloud' }
+//        ];
         self.pagingModel = null;
         
         getItemInitialDisplay = function(index) {
