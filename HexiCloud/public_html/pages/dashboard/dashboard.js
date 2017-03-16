@@ -76,28 +76,15 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         
         self.onClickFeedback = function()
         {
+            if(selectedTemplate() === "")
+            {
+                selectedTemplate('email_content')
+            }
             $("#tech_support").slideToggle();
         };
-        
-        self.selectedTemplate = ko.observable('chat_content');
-        self.references = {
-            "selectedValueRef": self.selectedTemplate
-        };
 
-        self.viewCallContent = function () {
-            self.selectedTemplate('phone_content');
-        };
-
-        self.viewChatContent = function () {
-            self.selectedTemplate('chat_content');
-        };
-        
-        self.viewMailContent = function () {
-            self.selectedTemplate('email_content');
-        };
               
         self.handleAttached = function() {
-            $('#tech_support').hide();
             service.getServiceItems().then(populateUI, FailCallBackFn);
         };
 

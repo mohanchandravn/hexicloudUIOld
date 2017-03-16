@@ -11,14 +11,13 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
      */
     function serviceConfig() {
         var self = this;
-        self.router = router;
         //local
 //        self.portalRestHost = ko.observable("http://127.0.0.1:7101/");
         //GSE JCS
 //        self.portalRestHost = ko.observable("https://140.86.1.93/");
 
         // New GSE JCS
-        
+
         if (location.protocol === 'http:') {
             self.portalRestHost = ko.observable("http://129.152.128.105:8080/");
         } else {
@@ -134,7 +133,7 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
-        
+
         self.authenticate = function (payload) {
             var defer = $.Deferred();
             var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/authenticate/";
@@ -175,8 +174,8 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
-        
-        self.getServiceItems = function() {
+
+        self.getServiceItems = function () {
             var defer = $.Deferred();
             var serverURL = "pages/servicesMini/servicesMini.json";
             $.ajax({
@@ -194,15 +193,15 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
-        
-        self.getServiceDetails = function(serverType) {
+
+        self.getServiceDetails = function (serverType) {
             var defer = $.Deferred();
             var serverURL = "pages/servicesMini/" + serverType + "-details.json";
             $.ajax({
                 type: "GET",
                 contentType: "json",
                 url: serverURL,
-                success: function(data, status) {
+                success: function (data, status) {
                     defer.resolve(data, status)
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
@@ -212,19 +211,36 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
-        
-        self.getUseCaseDetails = function(id) {
+
+        self.getUseCaseDetails = function (id) {
             var defer = $.Deferred();
             var serverURL = "pages/useCases/usecase" + id + ".json";
             $.ajax({
                 type: 'GET',
                 contentType: "json",
                 url: serverURL,
-                success: function(data, status) {
+                success: function (data, status) {
                     defer.resolve(data, status)
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log("Error retrieving service details at: " + id);
+                    defer.reject(xhr);
+                }
+            });
+            return $.when(defer);
+        };
+
+        self.forgotPasswordService = function (userId) {
+            var defer = $.Deferred();
+            var serviceUrl = "http://127.0.0.1:7001/HexiCloudRest/services/rest/forgotPasswordService/" + userId + "/";
+            $.ajax({
+                type: 'GET',
+                url: serviceUrl,
+                success: function (data, status) {
+                    defer.resolve(data, status);
+                },
+                error: function (xhr, ajaxOptions, thrownError)
+                {
                     defer.reject(xhr);
                 }
             });

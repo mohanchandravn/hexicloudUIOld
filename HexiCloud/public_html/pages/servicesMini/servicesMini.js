@@ -42,23 +42,19 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
             self.showSupportPanel(true);
         };
 
-        self.selectedTemplate = ko.observable('phone_content');
-        self.references = {
-            "selectedValueRef": self.selectedTemplate
-        };
 
         self.displayMail = function () {
-            self.selectedTemplate('email_content');
+            selectedTemplate('email_content');
             $('#tech_support').slideToggle();
         };
 
         self.displayCall = function () {
-            self.selectedTemplate('phone_content');
+            selectedTemplate('phone_content');
             $('#tech_support').slideToggle();
         };
 
         self.displayChat = function () {
-            self.selectedTemplate('chat_content');
+            selectedTemplate('chat_content');
             $('#tech_support').slideToggle();
         };
         
@@ -88,7 +84,6 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         
         self.handleAttached = function () {
 //            slideInAnimate(500, 0);
-            $('#tech_support').hide();
             service.getServiceItems().then(populateUI, FailCallBackFn);
         };
         

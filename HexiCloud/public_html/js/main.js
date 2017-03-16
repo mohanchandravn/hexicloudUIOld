@@ -51,7 +51,8 @@ requirejs.config({
  */
 
 require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknockout',
-    'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule', 'ojs/ojmoduleanimations', 'ojs/ojanimation', 'ojs/ojoffcanvas'],
+    'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule', 'ojs/ojmoduleanimations', 'ojs/ojanimation', 'ojs/ojoffcanvas',
+'components/techsupport/loader'],
         function (oj, ko, $, sessionInfo)
         {
             var self = this;
@@ -250,8 +251,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 self.capturedEvent = function (data, event) {
                     self.toggleContactType();
                     self.toggleLeft();
-//                    self.selectedTemplate(event.currentTarget.id + '_content');
-                    $("#tech_support").slideToggle();
+                    selectedTemplate(event.currentTarget.id + '_content');
+                    $("#tech_support").show();
                 };
 
                 self.logout = function (data, event) {
@@ -270,6 +271,12 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                     }
 //                    self.autoAlignContent();
                 });
+                
+                self.selectedTemplate = ko.observable('');
+
+                self.references = {
+                    "selectedValueRef": self.selectedTemplate
+                };
 
 //                self.autoAlignContent = function () {
 //                    if (oj.ResponsiveUtils.compare(self.screenRange(), oj.ResponsiveUtils.SCREEN_RANGE.LG) > 0) {

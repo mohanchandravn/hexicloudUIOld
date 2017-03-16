@@ -14,7 +14,10 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
      */
     function loginContentViewModel(params) {
         var self = this;
-        var router = params.ojRouter.parentRouter;
+        if(params){
+        var router = params.parentRouter;
+        var parentViewModel = params.parent;
+        }
         console.log('login page');
         self.userName = ko.observable();
         self.password = ko.observable();
@@ -167,6 +170,13 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
 //                    slideOutAnimate(1500, 0);
                     router.go('chooseRole/');
                 }
+            }
+        };
+        
+         self.onClickForgotPassword = function (){
+            if(parentViewModel)
+            {
+                parentViewModel.goToForgotPassword();
             }
         };
     }

@@ -3,8 +3,8 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
-<div class="login-page" data-bind="css: isScreenLGorXL() ? 'margin-left-half' : ''">
+<!-- data-bind="css: isScreenLGorXL() ? 'margin-left-half' : ''" -->
+<div class="login-page">
     <div class="oj-flex oj-padding-horizontal" data-bind="css: isScreenSMorMD() ? 'oj-sm-justify-content-center' : 'oj-lg-align-items-flex-start'">
         <div class="oj-sm-only-hide oj-md-10 oj-lg-8 oj-flex-item">
             <div class="welcome-content oj-flex">
@@ -86,7 +86,7 @@ and open the template in the editor.
                     <a class="red-button" data-bind="click: login">Login</a>
                 </div>
                 <div class="oj-flex-item oj-md-7 oj-md-justify-content-flex-end login-form-group">
-                    <a href="#" class="forgotten">Forgotten your password?</a>
+                    <a href="#" class="forgotten" data-bind="click: onClickForgotPassword">Forgotten your password?</a>
                 </div>
             </div>
         </div>

@@ -204,6 +204,7 @@ width: calc(100% - 30px);
 
 .tech-support-container .phoneContainer {
     width: 100%;
+    min-height: 385px;
 }
 
 .tech-support-container .phoneContainer h4{
@@ -228,6 +229,7 @@ width: calc(100% - 30px);
 }
 .chatContainer{
     width:100%;
+    min-height: 385px;
 }
 
 .chatContainer .square{

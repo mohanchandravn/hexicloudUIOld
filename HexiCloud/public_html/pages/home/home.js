@@ -16,6 +16,34 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
         var self = this;
         var router = params.ojRouter.parentRouter;
         
+        self.homeModule = ko.observable({
+            'name': 'pages/home/welcome',
+            "params": {
+                parent: self
+            }
+        });
+        
+        self.goToLogin = function ()
+        {
+            self.homeModule({
+            'name': 'pages/login/login',
+            "params": {
+                parent: self,
+                parentRouter : params.ojRouter.parentRouter
+            }
+        });
+        };
+        
+        self.goToForgotPassword = function ()
+        {
+            self.homeModule({
+            'name': 'pages/login/forgotPassword',
+            "params": {
+                parent: self
+            }
+        });
+        };
+        
         console.log('home page');
         self.filmStripItems = [
             { title: 'Prepare', description: 'for what you need and get your team geared up' },

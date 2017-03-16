@@ -110,3 +110,36 @@ and open the template in the editor.
 }
 
 
+.margin-lr-auto{
+     margin: 0 auto;
+}
+
+.forgotpasswordContainer {
+    margin-top: 50px;
+    height: 100vh;
+        
+}
+.forgotpasswordContainer .headerTextContainer{
+    border-bottom: 1px solid #00758f;
+}
+.forgotpasswordContainer .headerTextContainer span{
+    color: #00758f;
+    font-size: 30px;
+    font-family: 'Roboto-thin', sans-serif;
+}
+
+.forgotpasswordContainer span {
+    color: #00758f;
+    font-size: 20px;
+    font-family: 'Roboto-thin', sans-serif;
+}
+
+
+
+@media print, screen and (max-width: 768px) {
+    .forgotpasswordContainer span {
+        font-size: 15px;
+    }
+}
+
+
