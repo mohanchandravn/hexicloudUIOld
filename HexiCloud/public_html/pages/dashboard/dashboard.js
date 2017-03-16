@@ -63,22 +63,15 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             console.log(serverType);
             self.selectedServiceItem(data.serverType);
             
-            $.ajax({
-                type: 'GET',
-//                contentType: "json",
-                url: 'pages/servicesMini/' + serverType + '-details.json',
-//                dataType: 'application/json',
-                success: function(data, success) {
-                    console.log(data);
-                    self.selectedItemTitle(data.service.title);
-                    self.selectedItemSubTitle(data.service.subTitle);
-                    self.benefitsTitle(data.service.benefits.title);
-                    self.selectedItemBenefitsArray(data.service.benefits.benefitsList);
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    console.log("Error retrieving service details at: " + serverType);
-                }
-            });
+            var successCbFn = function(data, status) {
+                console.log(data);
+                self.selectedItemTitle(data.service.title);
+                self.selectedItemSubTitle(data.service.subTitle);
+                self.benefitsTitle(data.service.benefits.title);
+                self.selectedItemBenefitsArray(data.service.benefits.benefitsList);
+            };
+            
+            service.getServiceDetails(serverType).then(successCbFn, FailCallBackFn);
         };
         
         self.onClickFeedback = function()

@@ -18,53 +18,55 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         
         console.log('useCases page');
         
-        self.usecaseItems = [
+        self.useCaseItems = [
             { title: 'Use Case 1', description: 'Migrate Non Oracle Workloads to the Public Cloud' },
             { title: 'Use Case 2', description: 'Extended Use Case for added value – Oracle Ravello Cloud Service' },
             { title: 'Use Case 3', description: 'Migrate Non Oracle Workloads to the Public Cloud' }
         ];
         
         self.selectedFilmStripItem = ko.observable(0);
+        self.selectedUseCaseItem = ko.observable();
+        self.selectedUseCaseName = ko.observable();
+        self.selectedUseCaseTitle = ko.observable();
+        self.selectedUseCaseSubTitle = ko.observable();
+//        self.benefitsTitle = ko.observable();
+        self.selectedUseCaseBenefitsArray = ko.observableArray([]);
         
         getItemInitialDisplay = function(index) {
             return index < 3 ? '' : 'none';
         };
         
-        self.openUsecaseContainer = function(data, event) {
-            var id = event.currentTarget.id;
-            $(".usecase-detail-container").addClass("oj-sm-hide");
+        self.openUseCaseContainer = function(data, event) {
+            var id;
+            if (event === undefined) {
+                id = 0;
+            } else {
+                id = event.currentTarget.id;
+            }
+            $(".use-case-detail-container").addClass("oj-sm-hide");
             $(".head").removeClass("active");
             $("#head" + id).addClass("active");
-            $("#usecaseContainer" + (Number(id) + 1)).removeClass("oj-sm-hide");
-        };
-
-        self.togglePath = function(data, event) {
-            var id = event.currentTarget.id;
-            console.log(id);
-            var parsedId = id.match(/\d+/g);
-            for (var idx = 0; idx < 5; idx++) {
-                if (idx === Number(parsedId[0])) {
-                    if ( ($("#guidedPathDetail" + idx).hasClass("oj-sm-hide")) ) {
-                        $("#icon" + idx).text('remove');
-                        $("#guidedPathDetail" + idx).removeClass("oj-sm-hide");
-                        //return;
-                    } else {
-                        $("#icon" + idx).text('add');
-                        $("#guidedPathDetail" + idx).addClass("oj-sm-hide");
-                        //return;
-                    }
-                } else {
-                    if ( !($("#guidedPathDetail" + idx).hasClass("oj-sm-hide")) ) {
-                        $("#icon" + idx).text('add');
-                        $("#guidedPathDetail" + idx).addClass("oj-sm-hide");
-                    }
-                }
-            }
+            self.selectedUseCaseItem(id);
+            
+            var successCbFn = function(data, status) {
+                console.log(data);
+                self.selectedUseCaseName(data.useCase.name);
+                self.selectedUseCaseTitle(data.useCase.title);
+                self.selectedUseCaseSubTitle(data.useCase.subTitle);
+//                self.benefitsTitle(data.useCase.benefits.title);
+                self.selectedUseCaseBenefitsArray(data.useCase.benefits.benefitsList);
+            };
+            
+            service.getUseCaseDetails(id).then(successCbFn, FailCallBackFn)
         };
 
         self.handleTransitionCompleted = function () {
             // scroll the whole window to top if it's scroll position is not on top
             $(window).scrollTop(0);
+        };
+        
+        self.handleBindingsApplied = function() {
+            self.openUseCaseContainer();
         };
   }
     

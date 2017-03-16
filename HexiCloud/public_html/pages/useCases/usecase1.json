@@ -1,0 +1,23 @@
+{
+    "useCase": {
+        "name" : "Oracle Ravello Cloud Service",
+        "title": "Discover how you can:",
+        "subTitle": "Overlay to a public cloud without any modifications and rapidly develop and deploy your existing DC applications. This will use case will describe how you can:",
+        "benefits":
+            {
+                "title": "",
+                "benefitsList": [
+                    {
+                        "text": "Setup environments for your applications on public cloud"
+                    },
+                    {
+                        "text": "Spin up environments in optimal locations"
+                    },
+                    {
+                        "text": "Security test applications"
+                    }
+                ]
+            },
+        "featuresLink" : "Public Link from Docs"
+    }
+}

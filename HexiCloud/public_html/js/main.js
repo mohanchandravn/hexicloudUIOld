@@ -43,7 +43,6 @@ requirejs.config({
             }
         });
 
-
 /**
  * A top-level require call executed by the Application.
  * Although 'ojcore' and 'knockout' would be loaded in any case (they are specified as dependencies

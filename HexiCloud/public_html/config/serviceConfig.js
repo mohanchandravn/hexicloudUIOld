@@ -134,6 +134,7 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
+        
         self.authenticate = function (payload) {
             var defer = $.Deferred();
             var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/authenticate/";
@@ -174,9 +175,9 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
-                
+        
         self.getServiceItems = function() {
-             var defer = $.Deferred();
+            var defer = $.Deferred();
             var serverURL = "pages/servicesMini/servicesMini.json";
             $.ajax({
                 type: "GET",
@@ -188,6 +189,42 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log("Error retrieving service details at: " + serverURL);
+                    defer.reject(xhr);
+                }
+            });
+            return $.when(defer);
+        };
+        
+        self.getServiceDetails = function(serverType) {
+            var defer = $.Deferred();
+            var serverURL = "pages/servicesMini/" + serverType + "-details.json";
+            $.ajax({
+                type: "GET",
+                contentType: "json",
+                url: serverURL,
+                success: function(data, status) {
+                    defer.resolve(data, status)
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log("Error retrieving service details at: " + serverType);
+                    defer.reject(xhr);
+                }
+            });
+            return $.when(defer);
+        };
+        
+        self.getUseCaseDetails = function(id) {
+            var defer = $.Deferred();
+            var serverURL = "pages/useCases/usecase" + id + ".json";
+            $.ajax({
+                type: 'GET',
+                contentType: "json",
+                url: serverURL,
+                success: function(data, status) {
+                    defer.resolve(data, status)
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log("Error retrieving service details at: " + id);
                     defer.reject(xhr);
                 }
             });
