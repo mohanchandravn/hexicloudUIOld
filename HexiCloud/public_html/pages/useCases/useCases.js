@@ -18,12 +18,14 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         
         console.log('useCases page');
         
-        self.useCaseItems = [
-            { title: 'Use Case 1', description: 'Migrate Non Oracle Workloads to the Public Cloud' },
-            { title: 'Use Case 2', description: 'Extended Use Case for added value – Oracle Ravello Cloud Service' },
-            { title: 'Use Case 3', description: 'Migrate Non Oracle Workloads to the Public Cloud' }
-        ];
+//        self.useCaseItems = [
+//            { usecaseCode: 'Use Case 1', usecaseDesc: 'Migrate Non Oracle Workloads to the Public Cloud' },
+//            { usecaseCode: 'Use Case 2', usecaseDesc: 'Extended Use Case for added value – Oracle Ravello Cloud Service' },
+//            { usecaseCode: 'Use Case 3', usecaseDesc: 'Migrate Non Oracle Workloads to the Public Cloud' }
+//        ];
         
+        self.useCaseItems = ko.observableArray([]);
+        self.areUseCasesLoaded = ko.observable(false);
         self.selectedFilmStripItem = ko.observable(0);
         self.selectedUseCaseItem = ko.observable();
         self.selectedUseCaseName = ko.observable();
@@ -31,33 +33,52 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         self.selectedUseCaseSubTitle = ko.observable();
 //        self.benefitsTitle = ko.observable();
         self.selectedUseCaseBenefitsArray = ko.observableArray([]);
+        self.pdfSrc = ko.observable();
         
         getItemInitialDisplay = function(index) {
             return index < 3 ? '' : 'none';
         };
         
+        self.updateUseCaseItems = function(data, status) {
+            console.log(data);
+            self.useCaseItems([]);
+            for (var idx = 0; idx < data.length; idx++) {
+                self.useCaseItems.push({fileId: data[idx].fileId,
+                                        id: data[idx].id,
+                                        publicLinkId: data[idx].publicLinkId,
+                                        usecaseCode: data[idx].usecaseCode,
+                                        usecaseDesc: data[idx].usecaseDesc,
+                                        usecaseName: data[idx].usecaseName
+                });
+            }
+            self.areUseCasesLoaded(true);
+            self.openUseCaseContainer();
+        };
+        
         self.openUseCaseContainer = function(data, event) {
-            var id;
+            var id, useCaseCode;
             if (event === undefined) {
-                id = 0;
+                id = self.useCaseItems()[0].id;
+                useCaseCode = self.useCaseItems()[0].usecaseCode;
             } else {
                 id = event.currentTarget.id;
+                useCaseCode = data.usecaseCode;
             }
-            $(".use-case-detail-container").addClass("oj-sm-hide");
             $(".head").removeClass("active");
-            $("#head" + id).addClass("active");
-            self.selectedUseCaseItem(id);
+            $("#useCaseHead" + id).addClass("active");
             
             var successCbFn = function(data, status) {
                 console.log(data);
-                self.selectedUseCaseName(data.useCase.name);
-                self.selectedUseCaseTitle(data.useCase.title);
-                self.selectedUseCaseSubTitle(data.useCase.subTitle);
+                self.selectedUseCaseName(data.UseCase.Name);
+                self.selectedUseCaseTitle(data.UseCase.title);
+                self.selectedUseCaseSubTitle(data.UseCase.subTitle);
 //                self.benefitsTitle(data.useCase.benefits.title);
-                self.selectedUseCaseBenefitsArray(data.useCase.benefits.benefitsList);
+                self.selectedUseCaseBenefitsArray(data.UseCase.Benefits.benefitsList);
+                self.pdfSrc(data.UseCase.FeaturesLink);
+                self.selectedUseCaseItem(id);
             };
             
-            service.getUseCaseDetails(id).then(successCbFn, FailCallBackFn)
+            service.getUseCaseDetails(useCaseCode).then(successCbFn, FailCallBackFn);
         };
 
         self.handleTransitionCompleted = function () {
@@ -66,7 +87,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         };
         
         self.handleBindingsApplied = function() {
-            self.openUseCaseContainer();
+            service.getUseCaseItems().then(self.updateUseCaseItems, FailCallBackFn);
         };
   }
     

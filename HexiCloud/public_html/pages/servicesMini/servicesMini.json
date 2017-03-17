@@ -12,7 +12,7 @@
         }, {
            "platformType": "Paas",
            "serviceType": "",
-           "serverType": "JCS",
+           "serverType": "Storage",
            "instancesCount": "1",
            "state": "running",
            "OCPUCount": "2",
@@ -21,7 +21,7 @@
         }, {
            "platformType": "Iaas",
            "serviceType": "",
-           "serverType": "DBCS",
+           "serverType": "Ravello",
            "instancesCount": "1",
            "state": "running",
            "OCPUCount": "1",
@@ -30,7 +30,7 @@
         }, {
            "platformType": "Paas",
            "serviceType": "",
-           "serverType": "JCS",
+           "serverType": "Container",
            "instancesCount": "1",
            "state": "running",
            "OCPUCount": "2",
@@ -48,7 +48,7 @@
         }, {
            "platformType": "Iaas",
            "serviceType": "METERED",
-           "serverType": "Compute",
+           "serverType": "JCS",
            "instancesCount": "3",
            "state": "running",
            "OCPUCount": "3",

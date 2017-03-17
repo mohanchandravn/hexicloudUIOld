@@ -10,6 +10,7 @@ and open the template in the editor.
             <hr>
             <span class="heading-type4 oj-flex">Explore a tailored selection from our library of use cases and guided learning paths to find out how to make the most of your services</span>
             <div class="oj-margin-lg-top oj-flex">
+                <!-- ko if: areUseCasesLoaded() -->
                 <div class="oj-sm-12 oj-flex-item">
                     <div id="usecaseFilmStrip" class="oj-margin-lg-vertical oj-sm-justify-content-center oj-flex" aria-label="Set of use cases"
                         data-bind="ojComponent: {
@@ -22,24 +23,25 @@ and open the template in the editor.
                         <!-- ko foreach: useCaseItems -->
                         <div class="use-case-container oj-flex-item"
                             data-bind="style: { display: getItemInitialDisplay($index()) }">
-                            <div class="oj-flex" data-bind="attr:{ id: $index }, click: $parent.openUseCaseContainer">
+                            <div class="oj-flex" data-bind="attr:{ id: id }, click: $parent.openUseCaseContainer">
                                 <div class="oj-sm-12 oj-flex-item">
-                                    <div class="head oj-flex" data-bind="attr:{ id: 'head' + $index() }"></div>
+                                    <div class="head oj-flex" data-bind="attr:{ id: 'useCaseHead' + id }"></div>
                                     <div class="use-case-item oj-flex">
                                         <div class="oj-sm-3 oj-flex-item">
                                             <i class="material-icons">lightbulb_outline</i>
                                         </div>
                                         <div class="oj-sm-9 oj-flex-item">
-                                            <span class="use-case-title oj-flex" data-bind="text: title"></span>
-                                            <span class="use-case-content oj-padding-lg-vertical oj-flex" data-bind="text: description"></span>
+                                            <span class="use-case-title oj-flex" data-bind="text: usecaseCode"></span>
+                                            <span class="use-case-content oj-padding-lg-vertical oj-flex" data-bind="text: usecaseDesc"></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- /ko --> 
+                        <!-- /ko -->
                     </div>
                 </div>
+                <!-- /ko -->
                 <div class="oj-sm-12 oj-lg-12 oj-xl-12 oj-flex-item" data-bind="css: isScreenLGorXL() ? 'oj-margin-lg-bottom' : 'oj-margin-lg-top'">
                     <!-- ko if: selectedUseCaseItem() !== undefined -->
                     <div class="oj-flex">
@@ -66,9 +68,9 @@ and open the template in the editor.
                         </div>
                         <div class="oj-sm-12 oj-lg-8 oj-flex-item">
                             <div class="use-case-detail-item oj-flex">
-                                <span class="heading-type3 oj-sm-12 oj-flex-item" data-bind="text: 'Helper document for usecase: '"></span>
+                                <span class="heading-type3 oj-sm-12 oj-flex-item" data-bind="text: 'Document for ' + selectedUseCaseName() + ':'"></span>
                                 <div class="oj-margin-lg-top oj-sm-12 oj-flex-item" style="height: 500px;">
-                                    <iframe id="pdf" style="width: 100%;" height="500" data-bind="attr : { src: 'https://docs.google.com/gview?url=' + 'http://www.pdf995.com/samples/pdf.pdf' + '&embedded=true' }" frameborder="0"></iframe>
+                                    <iframe id="pdf" style="width: 100%;" height="500" data-bind="attr : { src: 'https://docs.google.com/gview?url=' + pdfSrc() + '&embedded=true' }" frameborder="0"></iframe>
                                 </div>
                             </div>
                         </div>
