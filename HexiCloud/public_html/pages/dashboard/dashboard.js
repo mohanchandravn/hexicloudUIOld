@@ -24,6 +24,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         self.selectedItemTitle = ko.observable();
         self.selectedItemSubTitle = ko.observable();
         self.benefitsTitle = ko.observable();
+        self.pdfSrc = ko.observable();
         self.selectedItemBenefitsArray = ko.observableArray([]);
         
         self.getClass = function(serverType) {
@@ -53,7 +54,6 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             console.log('opening all service items..');
             self.serviceItems(self.allServiceItems());
             $(".open-all-services-btn").hide();
-            
         };
         
         self.openServiceDetail = function(data, event) {
@@ -61,14 +61,20 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             console.log(event);
             var serverType = data.serverType.toLowerCase();
             console.log(serverType);
-            self.selectedServiceItem(data.serverType);
             
             var successCbFn = function(data, status) {
                 console.log(data);
-                self.selectedItemTitle(data.service.title);
-                self.selectedItemSubTitle(data.service.subTitle);
-                self.benefitsTitle(data.service.benefits.title);
-                self.selectedItemBenefitsArray(data.service.benefits.benefitsList);
+                self.selectedItemTitle(data.Service.title);
+                self.selectedItemSubTitle(data.Service.subTitle);
+                self.benefitsTitle(data.Service.Benefits.title);
+                self.pdfSrc(data.Service.FeaturesLink);
+                self.selectedItemBenefitsArray(data.Service.Benefits.benefitsList);
+                console.log(self.selectedItemTitle());
+                console.log(self.selectedItemSubTitle());
+                console.log(self.benefitsTitle());
+                console.log(self.pdfSrc());
+                console.log(self.selectedItemBenefitsArray());
+                self.selectedServiceItem(serverType);
             };
             
             service.getServiceDetails(serverType).then(successCbFn, FailCallBackFn);

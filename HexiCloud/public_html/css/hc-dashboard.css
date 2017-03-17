@@ -21,6 +21,17 @@ and open the template in the editor.
    text-align: left; 
 }
 
+.dashboard .benefits ul {
+    padding-left: 20px;
+}
+
+.dashboard .benefits ul li {
+    list-style-type: disc;
+    color: #00758f;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
 @media screen and (max-width: 1280px) {
     .dashboard {
         padding: 0px 10px 10px 10px;

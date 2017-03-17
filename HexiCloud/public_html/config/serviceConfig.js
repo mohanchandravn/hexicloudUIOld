@@ -181,7 +181,7 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             $.ajax({
                 type: "GET",
                 url: serverURL,
-                contentType: "application/json",
+                dataType: "json",
                 success: function (data, status) {
                     console.log('Successfully retrieved details at: ' + serverURL);
                     defer.resolve(data, status);
@@ -196,13 +196,13 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
 
         self.getServiceDetails = function (serverType) {
             var defer = $.Deferred();
-            var serverURL = "pages/servicesMini/" + serverType + "-details.json";
+            var serverURL = "https://129.152.128.105/hexiCloudRest/services/rest/serviceBenefits/" + serverType + "/";
             $.ajax({
                 type: "GET",
-                contentType: "json",
                 url: serverURL,
+                dataType: "json",
                 success: function (data, status) {
-                    defer.resolve(data, status)
+                    defer.resolve(data, status);
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log("Error retrieving service details at: " + serverType);
@@ -212,18 +212,36 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
             return $.when(defer);
         };
 
-        self.getUseCaseDetails = function (id) {
+        self.getUseCaseItems = function () {
             var defer = $.Deferred();
-            var serverURL = "pages/useCases/usecase" + id + ".json";
+            var serverURL = "https://129.152.128.105/hexiCloudRest/services/rest/usecases/";
+            $.ajax({
+                type: "GET",
+                url: serverURL,
+                dataType: "json",
+                success: function (data, status) {
+                    defer.resolve(data, status);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log("Error retrieving service details at: " + serverType);
+                    defer.reject(xhr);
+                }
+            });
+            return $.when(defer);
+        };
+
+        self.getUseCaseDetails = function (usecaseCode) {
+            var defer = $.Deferred();
+            var serverURL = "https://129.152.128.105/hexiCloudRest/services/rest/usecases/" + usecaseCode + "/";
             $.ajax({
                 type: 'GET',
-                contentType: "json",
                 url: serverURL,
+                dataType: "json",
                 success: function (data, status) {
                     defer.resolve(data, status)
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    console.log("Error retrieving service details at: " + id);
+                    console.log("Error retrieving service details for: " + usecaseCode);
                     defer.reject(xhr);
                 }
             });
