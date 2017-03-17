@@ -2,41 +2,30 @@ define(['ojs/ojcore',
     'jquery',
     'knockout',
     'config/serviceConfig',
+    'ojs/ojselectcombobox',
     'components/trainnavigation/loader'], function (oj, $, ko, service) {
 
     function ChooseRoleViewModel(params)
     {
         var self = this;
-        self.headerTitle = "Please confirm your role:";
-        self.buyerTitle = "Buyer »";
-        self.identityDomainAdminTitle = "Identity Domain Admin »";
+        var router = params.ojRouter.parentRouter;
+        
+        self.headerTitle = "There are 3 easy steps to complete the onboarding process and get started with your services:";
         self.welcomeUserMessage = ko.observable("Welcome ");
-        if (loggedInUser())
-        {
+        self.selectedRole = ko.observable();
+        self.allRolesList = ko.observableArray([
+            {value: 'IT Manager', label: 'IT Manager'},
+            {value: 'IT Operations', label: 'IT Operations'},
+            {value: 'Developer', label: 'Developer'},
+            {value: 'Business User', label: 'Business User'}
+        ]);
+        
+        if (loggedInUser()) {
             self.welcomeUserMessage(self.welcomeUserMessage() + userFirstLastName());
         }
-        var router = params.ojRouter.parentRouter;
-        self.buyerSelect = function ()
-        {
-            loggedInUserRole('accountAdmin');
-//            setTimeout(function () {
-            service.updateCurrentStep({
-                "userId": loggedInUser(),
-                "userRole": loggedInUserRole(),
-                "curStepCode": "addAdditionalUsers",
-                "preStepCode": getStateId(),
-                "userAction": "Selected Role as : " + loggedInUserRole()
-            });
-
-            //$.fn.fullpage.moveSlideLeft();
-//            }, 500);
-//            slideOutAnimate(1500, 0);
-            $('.blur-node1, .blur-node2').addClass('animate');
-
-
-        };
-        self.identityDomainAdminSelect = function () {
-            loggedInUserRole('itAdmin');
+        
+        self.roleSelected = function () {
+            loggedInUserRole(self.selectedRole()[0]);
 //            setTimeout(function () {
             service.updateCurrentStep({
                 "userId": loggedInUser(),
