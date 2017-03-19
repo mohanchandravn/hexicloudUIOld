@@ -10,11 +10,15 @@ define(['ojs/ojcore',
         var self = this;
         var router = params.ojRouter.parentRouter;
         
+        // tracker for invalid components
+        self.tracker = ko.observable();
+        
         self.headerTitle = "There are 3 easy steps to complete the onboarding process and get started with your services:";
         self.welcomeUserMessage = ko.observable("Welcome ");
         self.selectedRole = ko.observable();
         self.allRolesList = ko.observableArray([
             {value: 'IT Manager', label: 'IT Manager'},
+            {value: 'DBA', label: 'DBA'},
             {value: 'IT Operations', label: 'IT Operations'},
             {value: 'Developer', label: 'Developer'},
             {value: 'Business User', label: 'Business User'}
@@ -24,9 +28,22 @@ define(['ojs/ojcore',
             self.welcomeUserMessage(self.welcomeUserMessage() + userFirstLastName());
         }
         
+        self._showComponentValidationErrors = function (trackerObj) {
+            trackerObj.showMessages();
+            if (trackerObj.focusOnFirstInvalid()) {
+                return false;
+            }
+            return true;
+        };
+
         self.roleSelected = function () {
+            // Validations
+            var trackerObj = ko.utils.unwrapObservable(self.tracker);
+            if (!this._showComponentValidationErrors(trackerObj)) {
+                return;
+            }
+            
             loggedInUserRole(self.selectedRole()[0]);
-//            setTimeout(function () {
             service.updateCurrentStep({
                 "userId": loggedInUser(),
                 "userRole": loggedInUserRole(),
@@ -34,7 +51,7 @@ define(['ojs/ojcore',
                 "preStepCode": getStateId(),
                 "userAction": "Selected Role as : " + loggedInUserRole()
             });
-
+//            setTimeout(function () {
             //$.fn.fullpage.moveSlideLeft();
 //            }, 500);
 //            slideOutAnimate(1500, 0);

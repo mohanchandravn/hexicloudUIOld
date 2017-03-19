@@ -23,6 +23,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         self.servicesAsExpected = ko.observable(true);
         self.showSupportPanel = ko.observable(false);
         self.serviceItems = ko.observableArray([]);
+        self.allServiceItems = ko.observableArray([]);
 
         self.goToDashboard = function () {
             isLoggedInUser(true);
@@ -79,7 +80,21 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         function populateUI(data, status) {
             console.log(data);
             console.log(status);
-            self.serviceItems(data.services);
+            var array = [];
+//            self.serviceItems(data.services);var array = [];
+            self.allServiceItems(data.services);
+            $.each(data.services, function(idx, serviceItem) {
+                if (idx < 4) {
+                    array.push(serviceItem);
+                }
+            });
+            self.serviceItems(array);
+        };
+        
+        self.openAllServices = function(data, event) {
+            console.log('opening all service items..');
+            self.serviceItems(self.allServiceItems());
+            $(".open-all-services-btn").hide();
         };
         
         self.handleAttached = function () {
