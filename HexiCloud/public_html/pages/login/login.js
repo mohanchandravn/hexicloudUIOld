@@ -85,26 +85,36 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         sessionInfo.setToSession(sessionInfo.isLoggedInUser, true);
                         loggedInUser(data.userId);
                         sessionInfo.setToSession(sessionInfo.loggedInUser, data.userId);
-                        /*
-                        loggedInUserRole(data.userRole);
-                        sessionInfo.setToSession(sessionInfo.loggedInUserRole, data.userRole);
-                        userFirstLastName(data.firstName);
-                        sessionInfo.setToSession(sessionInfo.userFirstLastName, data.firstName);
-                        userClmRegistryId(data.registryId);
-                        sessionInfo.setToSession(sessionInfo.userClmRegistryId, data.registryId);
                         self.loginFailureText("");
-//                        service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn);
-                        //Hardcoding for the demo
-                        $('#bgvid').remove();
-                        if (self.userName().toLowerCase() === 'fred' || self.userName().toLowerCase() === 'simon') {
-                            router.go('dashboard/');
-                        } else {
-                            router.go(self.savedStep() + '/');
-                        }
-//                        setTimeout(function () {
-//                        }, 500);
-//                        slideOutAnimate(1500, 0);
-                        */
+                        
+                        // Get user details
+                        var getUserSuccessCallBackFn = function (data, xhrStatus) {
+                            loggedInUserRole(data.userRole);
+                            sessionInfo.setToSession(sessionInfo.loggedInUserRole, data.userRole);
+                            userFirstLastName(data.firstName);
+                            sessionInfo.setToSession(sessionInfo.userFirstLastName, data.firstName);
+                            userClmRegistryId(data.registryId);
+                            sessionInfo.setToSession(sessionInfo.userClmRegistryId, data.registryId);
+                            self.loginFailureText("");
+                            // service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn);
+                            // Hardcoding for the demo
+                            $('#bgvid').remove();
+                            if (self.userName().toLowerCase() === 'fred' || self.userName().toLowerCase() === 'simon') {
+                                router.go('dashboard/');
+                            } else {
+                                router.go(self.savedStep() + '/');
+                            }
+                            // setTimeout(function () {
+                            // }, 500);
+                            // slideOutAnimate(1500, 0);
+                        };
+                        
+                        var getUserfailCallBackFn = function (xhr) {
+                            console.log(xhr);
+                            self.loginFailureText("Invalid Username or Password");
+                        };
+                        service.getUserDetails(data.userId).then(getUserSuccessCallBackFn, getUserfailCallBackFn);                        
+                        
                     } else {
                         self.loginFailureText("Invalid Username or Password");
                     }
@@ -125,12 +135,13 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                     $('#bgvid').remove();
                     router.go(self.savedStep() + '/');
                 };
-
-                service.authenticate({
+                
+                var payload = {
                     "username": self.userName().toLowerCase(),
                     // "password": btoa(self.password())
                     "password": self.password()
-                }).then(successCallBackFn, failCallBackFn);
+                };
+                service.authenticate(payload).then(successCallBackFn, failCallBackFn);
 
             } else {
                 loggedInUser(self.userName());
