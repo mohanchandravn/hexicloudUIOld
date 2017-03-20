@@ -89,6 +89,12 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         self.handleBindingsApplied = function() {
             service.getUseCaseItems().then(self.updateUseCaseItems, FailCallBackFn);
         };
+        
+        self.onClickFeedback = function()
+        {
+            selectedTemplate('chat_content');
+            $("#tech_support").slideToggle();
+        };
   }
     
     return useCasesContentViewModel;
