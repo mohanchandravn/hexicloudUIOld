@@ -122,23 +122,20 @@ and open the template in the editor.
 .forgotpasswordContainer .headerTextContainer{
     border-bottom: 1px solid #00758f;
 }
-.forgotpasswordContainer .headerTextContainer span{
+.headerTextContainer .headerText{
     color: #00758f;
     font-size: 30px;
     font-family: 'Roboto-thin', sans-serif;
 }
 
-.forgotpasswordContainer span {
+/*.forgotpasswordContainer span {
     color: #00758f;
     font-size: 20px;
     font-family: 'Roboto-thin', sans-serif;
-}
+}*/
 
 .forgotpasswordContainer .invalidUserText {
     color: red;
-    /* margin-top: 10px; */
-    font-size: 20px;
-    font-family: 'Roboto-thin', sans-serif;
 }
 
 

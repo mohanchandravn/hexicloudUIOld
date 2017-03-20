@@ -23,6 +23,11 @@ define(['ojs/ojcore',
             return true;
         };
         
+        self.userNameOptionChange = function (event, data)
+        {
+            $('#invaliduserid').hide();
+        };
+        
         self.onClickGetForgotPwdSubmit = function ()
         {
              $('#invaliduserid').hide();
