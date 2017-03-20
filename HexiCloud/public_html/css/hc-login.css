@@ -134,6 +134,13 @@ and open the template in the editor.
     font-family: 'Roboto-thin', sans-serif;
 }
 
+.forgotpasswordContainer .invalidUserText {
+    color: red;
+    /* margin-top: 10px; */
+    font-size: 20px;
+    font-family: 'Roboto-thin', sans-serif;
+}
+
 
 
 @media print, screen and (max-width: 768px) {

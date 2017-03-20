@@ -250,7 +250,7 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
 
         self.forgotPasswordService = function (userId) {
             var defer = $.Deferred();
-            var serviceUrl = "http://127.0.0.1:7001/HexiCloudRest/services/rest/forgotPasswordService/" + userId + "/";
+            var serviceUrl = "https://129.152.128.105/hexiCloudRest/services/rest/forgotPasswordService/" + userId + "/";
             $.ajax({
                 type: 'GET',
                 url: serviceUrl,
