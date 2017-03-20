@@ -5,20 +5,24 @@
  */
 
 /**
- * login module
+ * Login module
  */
 define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs/ojcore', 'ojs/ojinputtext', 'ojs/ojknockout-validation', 'ojs/ojselectcombobox'
 ], function (ko, $, service, sessionInfo) {
+    
     /**
      * The view model for the main content view template
      */
     function loginContentViewModel(params) {
+        
         var self = this;
-        if(params){
-        var router = params.parentRouter;
-        var parentViewModel = params.parent;
+        
+        if (params){
+            var router = params.parentRouter;
+            var parentViewModel = params.parent;
         }
         console.log('login page');
+        
         self.userName = ko.observable();
         self.password = ko.observable();
         self.iDomain = ko.observable("");
@@ -66,8 +70,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
             var trackerObj = ko.utils.unwrapObservable(self.tracker);
 
             // Step 1
-            if (!this._showComponentValidationErrors(trackerObj))
-            {
+            if (!this._showComponentValidationErrors(trackerObj)) {
                 return;
             }
 
@@ -76,10 +79,13 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                     console.log(data);
                     console.log(status);
                     if (xhrStatus.status == 200) {
+                        sessionInfo.setToSession(sessionInfo.accessToken, data.access_token);
+                        sessionInfo.setToSession(sessionInfo.expiresIn, data.expires_in);
                         isLoggedInUser(true);
                         sessionInfo.setToSession(sessionInfo.isLoggedInUser, true);
                         loggedInUser(data.userId);
                         sessionInfo.setToSession(sessionInfo.loggedInUser, data.userId);
+                        /*
                         loggedInUserRole(data.userRole);
                         sessionInfo.setToSession(sessionInfo.loggedInUserRole, data.userRole);
                         userFirstLastName(data.firstName);
@@ -98,6 +104,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
 //                        setTimeout(function () {
 //                        }, 500);
 //                        slideOutAnimate(1500, 0);
+                        */
                     } else {
                         self.loginFailureText("Invalid Username or Password");
                     }
@@ -107,6 +114,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                     console.log(xhr);
                     self.loginFailureText("Invalid Username or Password");
                 };
+                
                 var getUserStepSuccessCallBackFn = function (data) {
                     console.log(data);
                     if (data) {
@@ -119,8 +127,9 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                 };
 
                 service.authenticate({
-                    "userId": self.userName().toLowerCase(),
-                    "password": btoa(self.password())
+                    "username": self.userName().toLowerCase(),
+                    // "password": btoa(self.password())
+                    "password": self.password()
                 }).then(successCallBackFn, failCallBackFn);
 
             } else {
@@ -134,6 +143,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                 console.log(self.dataToSend);
                 var url = wrapperRestEndPoint() + self.dataToSend;
                 console.log(wrapperRestEndPoint() + self.dataToSend);
+                
                 if (self.userName() != null && self.password() != null && containerName() != null && self.restEndPoint() != null) {
                     isDomainDetailsGiven(true);
                     $.ajax({

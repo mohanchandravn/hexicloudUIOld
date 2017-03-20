@@ -136,12 +136,12 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
 
         self.authenticate = function (payload) {
             var defer = $.Deferred();
-            var serverURL = self.portalRestHost() + "hexiCloudRest/services/rest/authenticate/";
+            var serverURL = self.portalRestHost() + "hexiCloudRestSecured/login";
             $.ajax({
                 type: "POST",
                 url: serverURL,
                 dataType: "json",
-                contentType: "application/json;charset=utf-8",
+                contentType: "application/x-www-form-urlencoded",
                 data: JSON.stringify(payload),
                 success: function (data, textStatus, xhr) {
                     console.log('Successfully posted data at: ' + serverURL);
@@ -155,7 +155,7 @@ define(['knockout', 'jquery', 'ojs/ojrouter'
                 }
             });
             return $.when(defer);
-        };
+        };        
 
         self.getUserClmData = function (registryId) {
             var defer = $.Deferred();
