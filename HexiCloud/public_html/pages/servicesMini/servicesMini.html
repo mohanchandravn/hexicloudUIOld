@@ -25,7 +25,7 @@ and open the template in the editor.
         <img src="img/service-step.png" class="img-responsive">
     </div>-->
     <div class="oj-flex-item">
-        <div class="oj-flex oj-flex-items-pad oj-md-justify-content-center">
+        <div class="oj-flex oj-flex-items-pad">
             <!-- ko foreach: serviceItems -->
             <div class="oj-flex-item oj-md-10 oj-lg-4 oj-xl-3">
                 <div class="service" data-bind="css: $parent.getClass(serverType)">
@@ -51,6 +51,11 @@ and open the template in the editor.
             </div>
             <!-- /ko -->
         </div>    
+    </div>
+    <div class="oj-flex-item">
+        <div class="oj-flex oj-sm-justify-content-flex-end">
+            <a class="deep-red-button open-all-services-btn" data-bind="click: openAllServices">View All »</a>    
+        </div>
     </div>
     <div class="oj-flex-item" data-bind="visible: servicesAsExpected">
         <div class="oj-sm-justify-content-center oj-flex">
@@ -80,13 +85,15 @@ and open the template in the editor.
                     <div class="oj-flex oj-flex-items-pad oj-md-justify-content-center">
                         <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact">
                             <img src="img/call.png" class="img-responsive" data-bind="click: displayCall">
-                            <h4>Call 01234 567890</h4>
-                            <p>Telephone support hours: 9:00am-5:00pm (CET) or <a href="#">request a call back »</a></p>
+                            <h4>Coming Soon</h4>
+                            <!--<h4>Call 01234 567890</h4>-->
+                            <!--<p>Telephone support hours: 9:00am-5:00pm (CET) or <a href="#">request a call back »</a></p>-->
                         </div>
                         <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact" data-bind="click: displayChat">
                             <img src="img/chat.png" class="img-responsive">
-                            <h4>Start Chat &raquo;</h4>
-                            <p>Chat support hours: 9:00am-5:00pm (CET)</p>
+                            <h4>Coming Soon</h4>
+                            <!--<h4>Start Chat &raquo;</h4>-->
+                            <!--<p>Chat support hours: 9:00am-5:00pm (CET)</p>-->
                         </div>
                         <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact" data-bind="click: displayMail">
                             <img src="img/email.png" class="img-responsive">

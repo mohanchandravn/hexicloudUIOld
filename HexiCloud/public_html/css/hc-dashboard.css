@@ -21,6 +21,11 @@ and open the template in the editor.
    text-align: left; 
 }
 
+.dashboard .benefits, .dashboard .key-features {
+    background: white;
+    padding: 10px;
+}
+
 .dashboard .benefits ul {
     padding-left: 20px;
 }

@@ -86,6 +86,13 @@ margin-top: 45px;
     width:80%;
 }
 
+.chooseRoleContainer ul li {
+    list-style-type: disc;
+    color: #00758f;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
 @media only screen and (max-width: 480px){
     .chooseRoleContainer {
         /*        text-align: center;*/

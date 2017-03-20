@@ -19,7 +19,7 @@ and open the template in the editor.
             </div>
         </div>
         <div class="oj-sm-12 oj-flex-item">
-            <div class="oj-flex oj-flex-items-pad oj-md-justify-content-center">
+            <div class="oj-flex oj-flex-items-pad">
                 <!-- ko foreach: serviceItems -->
                 <div class="service-item-threshold-width oj-flex-item oj-md-10 oj-lg-4 oj-xl-3">
                     <div class="service" data-bind="css: $parent.getClass(serverType)">
@@ -48,17 +48,15 @@ and open the template in the editor.
             </div>    
         </div>
         <div class="oj-flex-item">
-            <div class="oj-flex oj-sm-flex-direction-column oj-sm-align-items-flex-end">
-                <div class="oj-flex-item">
-                    <a class="deep-red-button open-all-services-btn" data-bind="click: openAllServices">View All &raquo;</a>
-                </div>
+            <div class="oj-flex oj-sm-justify-content-flex-end">
+                <a class="deep-red-button open-all-services-btn" data-bind="click: openAllServices">View All »</a>    
             </div>
         </div>
     </div>
     <div class="dashboard oj-flex">
         <!-- ko if: selectedServiceItem() !== undefined -->
-        <div class="benefits oj-sm-12 oj-lg-4 oj-flex-item">
-            <div class="oj-flex" data-bind="css: isScreenLGorXL() ? 'oj-margin-lg-end' : ''">
+        <div class="oj-sm-12 oj-lg-4 oj-flex-item">
+            <div class="benefits oj-flex" data-bind="css: isScreenLGorXL() ? 'oj-margin-lg-end' : ''">
                 <span class="heading-type2 oj-sm-12 oj-flex-item" data-bind="text: 'Benefits for ' + selectedServiceItem() + ': '"></span>
                 <span class="oj-margin-lg-vertical oj-sm-12 oj-flex-item">
                     <span class="heading-type4 color-red" data-bind="text: selectedItemTitle"></span>

@@ -23,8 +23,14 @@ define(['ojs/ojcore',
             return true;
         };
         
+        self.userNameOptionChange = function (event, data)
+        {
+            $('#invaliduserid').hide();
+        };
+        
         self.onClickGetForgotPwdSubmit = function ()
         {
+             $('#invaliduserid').hide();
             var trackerObj = ko.utils.unwrapObservable(self.tracker);
 
             // Step 1
@@ -38,12 +44,16 @@ define(['ojs/ojcore',
         
         var handleForgotPwdServiceSuccess = function (data, status)
         {
+            var trackerObj = ko.utils.unwrapObservable(self.tracker);
             if(status === 'success')
+            {
                 self.templateId('forgotPwduccess');
-                else
-                {
-                     self.templateId('forgotPwdFailure');
-                }
+            }
+            else if(status === 'nocontent')
+            {
+               $('#invaliduserid').show();
+                 
+            }
         };
         
         var handleForgotPwdServiceFailure = function (xhr)
@@ -51,6 +61,7 @@ define(['ojs/ojcore',
             
             self.templateId('forgotPwdFailure');
         };
+        
         
         self.onClickBackToLogin = function (){
             if( self.parentVM)
