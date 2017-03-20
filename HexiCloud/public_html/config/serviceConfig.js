@@ -39,7 +39,7 @@ define(['knockout', 'jquery', 'config/sessionInfo', 'ojs/ojrouter'
                     request.setRequestHeader("Authorization", "Bearer " + sessionInfo.getFromSession(sessionInfo.accessToken));
                 },
                 contentType: "application/json",
-                data: payload,
+                data: JSON.stringify(payload),
                 success: function (data) {
                     console.log('Successfully posted data at: ' + serverURL);
                     console.log('Navigating to  : ' + payload.curStepCode);
@@ -135,7 +135,7 @@ define(['knockout', 'jquery', 'config/sessionInfo', 'ojs/ojrouter'
                     request.setRequestHeader("Authorization", "Bearer " + sessionInfo.getFromSession(sessionInfo.accessToken));
                 },
                 contentType: "application/json",
-                data: payload,
+                data: JSON.stringify(payload),
                 success: function (data) {
                     console.log('Successfully posted data at: ' + serverURL);
                     defer.resolve(data, {status: 200});
