@@ -130,6 +130,15 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                                                 {animation: oj.ModuleAnimations['pushStart']
                 });
                 self.moduleConfig = moduleConfig;
+                
+                // Redirect to login page if JWT token is expired
+                var currentTime = (new Date).getTime();
+                var accessTokenSetTime = Number(sessionInfo.getFromSession(sessionInfo.accessTokenSetTime));
+                var accessTokenExpireTime = Number(sessionInfo.getFromSession(sessionInfo.expiresIn)) * 1000; // Convert to milliseconds
+                if ( (currentTime - accessTokenSetTime) >= accessTokenExpireTime && router.stateId() !== 'home' ) {
+                    sessionInfo.removeAllFromSession(); // Clear session attributes
+                    router.go('login');
+                }
 
                 self.isDomainDetailsGiven = ko.observable(false);
 
@@ -249,6 +258,11 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 };
 
                 self.capturedEvent = function (data, event) {
+                    // Clear session attributes on user logout
+                    if (event.currentTarget.id === 'logout') {
+                        sessionInfo.removeAllFromSession();
+                    }
+                    
                     self.toggleContactType();
                     self.toggleLeft();
                     selectedTemplate(event.currentTarget.id + '_content');

@@ -81,6 +81,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                     if (xhrStatus.status == 200) {
                         sessionInfo.setToSession(sessionInfo.accessToken, data.access_token);
                         sessionInfo.setToSession(sessionInfo.expiresIn, data.expires_in);
+                        sessionInfo.setToSession(sessionInfo.accessTokenSetTime, (new Date).getTime());
                         isLoggedInUser(true);
                         sessionInfo.setToSession(sessionInfo.isLoggedInUser, true);
                         loggedInUser(data.userId);

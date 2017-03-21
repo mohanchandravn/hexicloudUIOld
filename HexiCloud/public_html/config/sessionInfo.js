@@ -21,6 +21,7 @@ define(['knockout', 'jquery'
         
         self.accessToken = 'accessToken';
         self.expiresIn = 'expiresIn';
+        self.accessTokenSetTime = 'accessTokenSetTime';
         self.isLoggedInUser = 'isLoggedInUser';
         self.containerName = 'containerName';
         self.loggedInUser = 'loggedInUser';
@@ -47,6 +48,14 @@ define(['knockout', 'jquery'
         self.removeFromSession = function (key) {
             if (typeof (Storage) !== "undefined") {
                 return sessionStorage.removeItem(key)
+            } else {
+                console.log("No session storage available, will not be able to maintain session");
+            }
+        };
+        
+        self.removeAllFromSession = function () {
+            if (typeof (Storage) !== "undefined") {
+                return sessionStorage.clear();
             } else {
                 console.log("No session storage available, will not be able to maintain session");
             }
