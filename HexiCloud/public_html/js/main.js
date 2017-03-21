@@ -137,7 +137,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 var accessTokenExpireTime = Number(sessionInfo.getFromSession(sessionInfo.expiresIn)) * 1000; // Convert to milliseconds
                 if ( (currentTime - accessTokenSetTime) >= accessTokenExpireTime && router.stateId() !== 'home' ) {
                     sessionInfo.removeAllFromSession(); // Clear session attributes
-                    router.go('login');
+                    router.go('home');
                 }
 
                 self.isDomainDetailsGiven = ko.observable(false);
