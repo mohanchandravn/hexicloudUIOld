@@ -70,8 +70,8 @@ margin-top: 45px;
     padding: 0 50px;
     text-align: center;
 }
-.chooseRoleContainer .header-border-bottom {
-    border-bottom: 1px solid #b1c7d2;
+.chooseRoleContainer .header-border-top {
+    border-top: 1px solid #b1c7d2;
 }
 .chooseRoleContainer h1{
     color: #00758f;
@@ -183,21 +183,23 @@ margin-top: 45px;
 }
 
 .grey-button {
-    color: #fff !important;
+    width: 215px;
+    color: #00758f !important;
     font-size: 18px;
     padding: 8px 30px;
     display: inline-block;
     text-align: center;
     /*    height: 40px;*/
+    border: #00758f 1px solid;
     border-radius: 20px;
-    margin: 20px 10px 20px 0;
+    margin: 20px 0px 20px 0px;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-    background: -moz-linear-gradient(top, #7e929f 0%, #b0c7d3 100%);
-    background: -webkit-linear-gradient(top, #7e929f 0%, #b0c7d3 100%);
-    background: linear-gradient(to bottom, #7e929f 0%, #b0c7d3 100%)
+    background: -moz-linear-gradient(top, #FFFFFF 0%, rgba(216, 225, 229, 1) 100%);
+    background: -webkit-linear-gradient(top, #FFFFFF 0%, rgba(216, 225, 229, 1) 100%);
+    background: linear-gradient(to bottom, #FFFFFF 0%, rgba(216, 225, 229, 1) 100%)
 }
 
 .grey-button:hover {
