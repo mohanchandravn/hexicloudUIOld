@@ -5,7 +5,7 @@ and open the template in the editor.
 -->
 
 <div class="home-page oj-flex">
-    <!-- ko if: viewportSize() !== 'SM' -->
+    <!-- ko if: isScreenLGorXL() -->
     <div class="oj-xl-6 oj-flex-item">
         <div class="ring oj-flex">
             <img class="img-responsive" src="img/outer-ring-3.png">
@@ -39,5 +39,5 @@ and open the template in the editor.
         </div>
     </div>
     <!-- /ko -->
-     <div class="oj-sm-12 oj-md-6 oj-xl-6 oj-flex-item" data-bind="ojModule: homeModule">
+     <div class="oj-sm-12 oj-lg-6 oj-flex-item" data-bind="ojModule: homeModule">
 </div>

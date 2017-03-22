@@ -111,10 +111,6 @@ and open the template in the editor.
     font-weight: 500;
 }*/
 
-.home-page .welcome-description {
-    max-width: 555px;
-}
-
 .home-page .welcome-description hr {
     margin-top: 15px;
     margin-bottom: 15px;
@@ -158,8 +154,11 @@ and open the template in the editor.
 @media screen and (min-width: 480px) and (max-width: 1023px) {
 }
 
-/* for large screen devices */
-@media screen and (min-width: 1024px) and (max-width: 1280px) {
+/* for more than large screen devices */
+@media screen and (min-width: 1024px) {
+    .home-page .welcome-description {
+        max-width: 555px;
+    }
 }
 
 /* for extra large screen devices */
