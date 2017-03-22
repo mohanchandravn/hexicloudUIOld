@@ -75,3 +75,21 @@ and open the template in the editor.
     padding: 15px;
     color: #fff;
 }
+
+.view-more-button {
+     background-color: #ee4f50 !important;
+    /* padding: 10px 30px; */
+    display: inline-block;
+    text-align: center;
+    height: 36px;
+    border-radius: 27px;
+    margin-top: 10px !important;
+    background-image: none !important;
+    color: #fff;
+    font-size: 18px;
+    line-height: 2.5rem;
+    cursor: pointer;
+    width: 100%;
+    /* padding: 0px 20px 0px 20px; */
+    z-index: 999;
+}
