@@ -2,13 +2,13 @@
     <div class="oj-flex oj-sm-flex-direction-column navContainer">
         <div class="oj-flex-item">
             <a data-bind="click: viewChatContent">
-                <i id="chatIcon" class="material-icons" style="opacity: 1;">chat</i>
+                <i id="chatIcon" class="material-icons" style="opacity: 1;" data-bind="css: {'tab-selected' : selectedTemplate() === 'chat_content'}">chat</i>
             </a>
             <a data-bind="click: viewCallContent">
-                <i id="callIcon" class="material-icons" style="opacity: 1;">phone</i>
+                <i id="callIcon" class="material-icons" style="opacity: 1;" data-bind="css: {'tab-selected' : selectedTemplate() === 'phone_content'}">phone</i>
             </a>
             <a data-bind="click: viewMailContent">
-                <i id="mailIcon" class="material-icons tab-selected" style="opacity: 1;">mail</i>
+                <i id="mailIcon" class="material-icons" style="opacity: 1;" data-bind="css: {'tab-selected' : selectedTemplate() === 'email_content'}">mail</i>
             </a>
             <a href="#" data-bind="click: closeTechSupportLayout">
                 <i class="material-icons close-button" style="opacity: 1;">clear</i>

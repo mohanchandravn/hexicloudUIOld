@@ -28,23 +28,14 @@ function (oj, $, ko, service) {
         });
 
         self.viewCallContent = function () {
-            $('#callIcon').addClass('tab-selected');
-            $('#chatIcon').removeClass('tab-selected');
-            $('#mailIcon').removeClass('tab-selected');
             self.selectedTemplate('phone_content');
         };
 
         self.viewChatContent = function () {
-            $('#chatIcon').addClass('tab-selected');
-            $('#callIcon').removeClass('tab-selected');
-            $('#mailIcon').removeClass('tab-selected');
             self.selectedTemplate('chat_content');
         };
 
         self.viewMailContent = function () {
-            $('#mailIcon').addClass('tab-selected');
-            $('#callIcon').removeClass('tab-selected');
-            $('#chatIcon').removeClass('tab-selected');
             self.selectedTemplate('email_content');
         };
 
