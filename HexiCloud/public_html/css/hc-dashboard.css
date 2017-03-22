@@ -93,3 +93,8 @@ and open the template in the editor.
     /* padding: 0px 20px 0px 20px; */
     z-index: 999;
 }
+.view-more-button:hover, 
+.view-more-button:focus {
+    text-decoration: none;
+}
+
