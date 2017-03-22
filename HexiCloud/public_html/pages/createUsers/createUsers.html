@@ -13,24 +13,32 @@ and open the template in the editor.
                     <div class="oj-hybrid-padding"> </div>
                     <div class="oj-hybrid-padding"> </div>
                     <div class="oj-flex-items-pad">
-                        <div data-bind="foreach: documentsArray" style="height: 420px; width: 620px; overflow-y: auto; overflow-x: hidden;">
-                            <div data-bind="ojComponent: {component: 'ojAccordion'}">
-                                <div>
+                        <div style="height: 420px; width: 620px; overflow-y: auto; overflow-x: hidden;">
+                            <div id="docsListAccordion" data-bind="ojComponent: {
+                                                                        component: 'ojAccordion',
+                                                                        beforeExpand: getAccessToken}">
+                                <!-- ko foreach: documentsArray -->
+                                <div data-bind="attr: { id: $index }">
                                     <span class="demo-icon-font demo-education-icon-24" data-bind="text: displayLabel"></span>
-                                    <!--<iframe id="pdf" width="600" height="420" data-bind="attr : { src: 'https://docs.google.com/gview?url=' + pdfSrc + '&embedded=true' }" frameborder="0"></iframe>-->
                                     
-                                    <!-- DOCS File view -->
+                                     <!--DOCS File view--> 
                                     <div data-bind="visible: docTypeExtn !== 'mp4'">
-                                        <iframe width="600" height="420" data-bind="attr : { id: docFileId, src: $parent.getDocsViewLink(docTypeExtn, appLinkUrl, refreshToken, accessToken, appLinkId, docFileId) }" frameborder="0"></iframe>
+                                        <iframe width="600" height="420" data-bind="attr : { id: 'iframe' + $index() }" src="" frameborder="0"></iframe>
+                                        <!--<iframe width="600" height="420" data-bind="attr : { id: 'iframe' + $index(), src: $parent.getDocsViewLink(docTypeExtn, $index(), appLinkUrl, refreshToken, accessToken, appLinkId, docFileId) }" frameborder="0"></iframe>-->
                                     </div>
                                     
                                     <div data-bind="visible: docTypeExtn === 'mp4'">
-                                        <video preload="auto" controls data-bind="attr: {id: docFileId}">
-                                            <source data-bind="attr: { src: $parent.getDocsViewLink(docTypeExtn, appLinkUrl, refreshToken, accessToken, appLinkId, docFileId)}">
+                                        <video preload="auto" controls data-bind="attr: {id: 'video' + $index() }">
+                                            <source src="">
                                             Your browser does not support the <code>video</code> element.
                                         </video>
+<!--                                        <video preload="auto" controls data-bind="attr: {id: 'video' + $index()}">
+                                            <source data-bind="attr: { src: $parent.getDocsViewLink(docTypeExtn, $index(), appLinkUrl, refreshToken, accessToken, appLinkId, docFileId)}">
+                                            Your browser does not support the <code>video</code> element.
+                                        </video>-->
                                     </div>
                                 </div>
+                                <!-- /ko -->
                             </div>
                         </div>
                         <div class="oj-padding">
