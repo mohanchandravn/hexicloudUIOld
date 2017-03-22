@@ -47,7 +47,7 @@ and open the template in the editor.
     font-size: 22px;
     line-height: 28px;
     color: #4e5052;
-    margin-bottom: 12px;
+    margin-bottom: 5px;
 }
 
 /*.heading-type4 {
@@ -55,27 +55,27 @@ and open the template in the editor.
 }*/
 
 .normal-text {
-    font-size: 18px;
+    font-size: 14px;
     color: #4e5052;
     line-height: 28px;
-    margin: 0 0 12px 0;
+    margin: 0 0 5px 0;
 }
 
 /* for small screen devices */
 @media screen and (max-width: 480px) {
     .heading-type1 {
-        font-size: 32px;
+        font-size: 28px;
     }
     .heading-type2 {
-        font-size: 24px;
+        font-size: 20px;
     }
     .heading-type5 {
-        font-size: 38px;
+        font-size: 34px;
     }
     .heading-type3 {
-        font-size: 26px;
+        font-size: 22px;
     }
     .heading-type4 {
-        font-size: 18px;
+        font-size: 14px;
     }
 }
