@@ -132,7 +132,6 @@ and open the template in the editor.
     font-size: 30px;
     padding: 20px;
     color: #324b5c;
-    border-bottom: 1px solid #F80000;
     transition: left 0.3s ease-in-out 0s;
     -webkit-transition: left 0.3s ease-in-out 0s;
     -moz-transition: left 0.3s ease-in-out 0s;
@@ -278,6 +277,6 @@ and open the template in the editor.
     white-space: normal;
 }
 
-
-
-
+.tab-selected {
+    border-bottom: 2px solid #F80000;
+}

@@ -75,41 +75,55 @@ and open the template in the editor.
             </div>
         </div>
     </div>
-    <div data-bind="visible: showSupportPanel">
-        <div class="oj-flex-item">
-            <div class="oj-flex oj-flex-items-pad oj-sm-justify-content-center">
-                <div class="oj-flex-item oj-md-8">
-                    <h1 class="text-center">Please contact us to resolve your issue</h1>
-                </div>
-                <div class="oj-flex-item oj-sm-12">
-                    <div class="oj-flex oj-flex-items-pad oj-md-justify-content-center">
-                        <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact">
-                            <img src="img/call.png" class="img-responsive" data-bind="click: displayCall">
-                            <h4>Coming Soon</h4>
-                            <!--<h4>Call 01234 567890</h4>-->
-                            <!--<p>Telephone support hours: 9:00am-5:00pm (CET) or <a href="#">request a call back »</a></p>-->
-                        </div>
-                        <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact" data-bind="click: displayChat">
-                            <img src="img/chat.png" class="img-responsive">
-                            <h4>Coming Soon</h4>
-                            <!--<h4>Start Chat &raquo;</h4>-->
-                            <!--<p>Chat support hours: 9:00am-5:00pm (CET)</p>-->
-                        </div>
-                        <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact" data-bind="click: displayMail">
-                            <img src="img/email.png" class="img-responsive">
-                            <h4>Email &raquo;</h4>
-                            <p>Response guaranteed by the next working day</p>
-                        </div>
-                    </div>    
-                </div>
-                <div class="oj-flex-item">
-                    <div class="oj-flex oj-padding-horizontal text-center">
-                        <div class="oj-flex-item ">
-                            <a class="deep-red-button" data-bind="click: goToDashboard">Continue to Dashboard &raquo;</a>
-                        </div>
+
+    <!-- ko if: showSupportPanel && viewportSize() !== 'SM' -->
+    <div class="oj-flex-item">
+        <div class="oj-flex oj-flex-items-pad oj-sm-justify-content-center">
+            <div class="oj-flex-item oj-md-8">
+                <h1 class="text-center">Please contact us to resolve your issue</h1>
+            </div>
+            <div class="oj-flex-item oj-sm-12">
+                <div class="oj-flex oj-flex-items-pad oj-md-justify-content-center">
+                    <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact">
+                        <img src="img/call.png" class="img-responsive" data-bind="click: displayCall">
+                        <h4>Coming Soon</h4>
+                    </div>
+                    <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact" data-bind="click: displayChat">
+                        <img src="img/chat.png" class="img-responsive">
+                        <h4>Coming Soon</h4>
+                    </div>
+                    <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact" data-bind="click: displayMail">
+                        <img src="img/email.png" class="img-responsive">
+                        <h4>Email &raquo;</h4>
+                        <p>Response guaranteed by the next working day</p>
+                    </div>
+                </div>    
+            </div>
+            <div class="oj-flex-item">
+                <div class="oj-flex oj-padding-horizontal text-center">
+                    <div class="oj-flex-item ">
+                        <a class="deep-red-button" data-bind="click: goToDashboard">Continue to Dashboard &raquo;</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- /ko -->
+        
+    <!-- ko if: showSupportPanel && viewportSize() === 'SM' -->
+        <div class="oj-flex align-content-center support-panel-container">
+            <div class="oj-flex-item">
+                <a data-bind="click: displayChat">
+                    <i id="chatIcon" class="material-icons icon-custom" style="opacity: 1;">chat</i>
+                </a>
+                <a data-bind="click: displayCall">
+                    <i id="callIcon" class="material-icons icon-custom" style="opacity: 1;">phone</i>
+                </a>
+                <a data-bind="click: displayMail">
+                    <i id="mailIcon" class="material-icons icon-custom" style="opacity: 1;">mail</i>
+                </a>
+            </div>
+        </div>
+    <!-- /ko -->
+
 </div>

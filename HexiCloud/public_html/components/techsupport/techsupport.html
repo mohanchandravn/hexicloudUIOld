@@ -1,25 +1,21 @@
 <div id="tech_support" class="tech-support-container oj-xl-3 oj-lg-4 oj-sm-11 oj-md-11" data-bind="visible: $props.isPanelVisible">
-
     <div class="oj-flex oj-sm-flex-direction-column navContainer">
         <div class="oj-flex-item">
-            <a id="chat" data-bind="click: viewChatContent">
-                <i class="material-icons" style="opacity: 1;">chat</i>
+            <a data-bind="click: viewChatContent">
+                <i id="chatIcon" class="material-icons" style="opacity: 1;">chat</i>
             </a>
-            <a id="call" data-bind="click: viewCallContent">
-                <i class="material-icons" style="opacity: 1;">phone</i>
+            <a data-bind="click: viewCallContent">
+                <i id="callIcon" class="material-icons" style="opacity: 1;">phone</i>
             </a>
-            <a id="mail" data-bind="click: viewMailContent">
-                <i class="material-icons" style="opacity: 1;">mail</i>
+            <a data-bind="click: viewMailContent">
+                <i id="mailIcon" class="material-icons tab-selected" style="opacity: 1;">mail</i>
             </a>
             <a href="#" data-bind="click: closeTechSupportLayout">
                 <i class="material-icons close-button" style="opacity: 1;">clear</i>
             </a>
         </div>
-        <div class='oj-flex-item' data-bind="template: selectedTemplate">
-
-        </div>
+        <div class='oj-flex-item' data-bind="template: selectedTemplate"></div>
     </div>
-
 </div>
 
 
