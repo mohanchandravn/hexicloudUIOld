@@ -60,8 +60,9 @@ and open the template in the editor.
 
 .chooseRoleContainer {
 /*        text-align: center;*/
-position: relative;
-margin-top: 45px;
+    position: relative;
+    margin-top: 65px;
+    padding: 10px;
 
 }
 .chooseRoleContainer h2{
@@ -94,11 +95,6 @@ margin-top: 45px;
 }
 
 @media only screen and (max-width: 480px){
-    .chooseRoleContainer {
-        /*        text-align: center;*/
-        position: relative;
-        margin-top: 45px;
-    }
     .chooseRoleContainer h1 {
         font-size: 36px !important;
     } 
