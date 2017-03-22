@@ -350,11 +350,12 @@ and open the template in the editor.
 
 .servicesMini-page .support-panel-container {
     background: linear-gradient(to bottom, rgba(50, 75, 92, 0.24) 0%, rgba(138, 173, 191, 0.24) 100%);
-    margin: 15px 0px 10px 0px;
+    margin: 15px 0px 15px 0px;
 }
 
 .servicesMini-page .icon-custom {
     color: #324b5c;
     font-size: 55px !important;
     padding: 15px 15px 15px 15px;
+    cursor: pointer;
 }

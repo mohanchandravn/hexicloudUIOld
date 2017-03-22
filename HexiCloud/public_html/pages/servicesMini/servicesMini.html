@@ -76,9 +76,10 @@ and open the template in the editor.
         </div>
     </div>
 
-    <!-- ko if: showSupportPanel() && viewportSize() !== 'SM' -->
     <div class="oj-flex-item">
         <div class="oj-flex oj-flex-items-pad oj-sm-justify-content-center">
+            
+            <!-- ko if: showSupportPanel() && viewportSize() !== 'SM' -->
             <div class="oj-flex-item oj-md-8">
                 <h1 class="text-center">Please contact us to resolve your issue</h1>
             </div>
@@ -99,6 +100,25 @@ and open the template in the editor.
                     </div>
                 </div>    
             </div>
+            <!-- /ko -->
+
+             <!-- ko if: showSupportPanel() && viewportSize() === 'SM' -->
+            <div class="oj-flex-item align-content-center support-panel-container">
+                <div class="oj-flex-item">
+                    <a data-bind="click: displayChat">
+                        <i id="chatIcon" class="material-icons icon-custom" style="opacity: 1;">chat</i>
+                    </a>
+                    <a data-bind="click: displayCall">
+                        <i id="callIcon" class="material-icons icon-custom" style="opacity: 1;">phone</i>
+                    </a>
+                    <a data-bind="click: displayMail">
+                        <i id="mailIcon" class="material-icons icon-custom" style="opacity: 1;">mail</i>
+                    </a>
+                </div>
+            </div>
+            <!-- /ko -->
+            
+            <!-- ko if: showSupportPanel() -->
             <div class="oj-flex-item">
                 <div class="oj-flex oj-padding-horizontal text-center">
                     <div class="oj-flex-item ">
@@ -106,24 +126,8 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
+            <!-- /ko -->
         </div>
     </div>
-    <!-- /ko -->
-        
-    <!-- ko if: showSupportPanel() && viewportSize() === 'SM' -->
-    <div class="oj-flex align-content-center support-panel-container">
-        <div class="oj-flex-item">
-            <a data-bind="click: displayChat">
-                <i id="chatIcon" class="material-icons icon-custom" style="opacity: 1;">chat</i>
-            </a>
-            <a data-bind="click: displayCall">
-                <i id="callIcon" class="material-icons icon-custom" style="opacity: 1;">phone</i>
-            </a>
-            <a data-bind="click: displayMail">
-                <i id="mailIcon" class="material-icons icon-custom" style="opacity: 1;">mail</i>
-            </a>
-        </div>
-    </div>
-    <!-- /ko -->
 
 </div>
