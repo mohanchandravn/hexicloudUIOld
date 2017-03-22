@@ -6,16 +6,22 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Hexi Cloud Application</title>
+        <title>HexiCloud Application</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- This is the main css file for the default Alta theme -->
-        <link rel="stylesheet" href="css/libs/oj/v2.2.0/alta/oj-alta.css" type="text/css"/>
+        <!--<link rel="stylesheet" href="css/libs/oj/v2.2.0/alta/oj-alta.css" type="text/css"/>-->
+        <!-- modified @media Queries for HexiCloud project -->
+        <link rel="stylesheet" href="css/libs/oj/v2.2.0/alta/oj-alta-for-hc.css" type="text/css"/>
 
         <!-- This is where you would add any app specific styling -->
+        <link href="css/hc-test.css" rel="stylesheet" type="text/css"/>
+        
         <link href="css/hc-common.css" rel="stylesheet" type="text/css"/>
+        <link href="css/hc-header.css" rel="stylesheet" type="text/css"/>
         <link href="css/hc-dashboard.css" rel="stylesheet" type="text/css"/>
+        <link href="css/hc-usecases.css" rel="stylesheet" type="text/css"/>
         <link href="css/hc-navigationbar.css" rel="stylesheet" type="text/css"/>
         <link href="css/hc-learning.css" rel="stylesheet" type="text/css"/>
         <link href="css/hc-service.css" rel="stylesheet" type="text/css"/>
@@ -23,15 +29,37 @@ and open the template in the editor.
         <link href="css/hc-roleIdentified.css" rel="stylesheet" type="text/css"/>
         <link href="css/hc-chooseRole.css" rel="stylesheet" type="text/css"/>
         <link href="css/hc-csmadmin.css" rel="stylesheet" type="text/css"/>
-        
+          <link href="css/hc-home.css" rel="stylesheet" type="text/css"/>
+        <link href="css/hc-dnx.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
         <!-- RequireJS bootstrap file -->
         <script data-main="js/main" src="js/libs/require/require.js"></script>
-        <script type="text/javascript" src="//sc-ramesh.widget.rightnowdemo.com/euf/rightnow/RightNow.Client.js" ></script>
+        <script type="text/javascript" src="//hexicloud.widget.rightnowdemo.com/euf/rightnow/RightNow.Client.js" ></script>
     </head>
-    <body class="mainBackGroundImage">
-        <div id="routingContainer" class="oj-flex">
-            <!-- This is where your main page content will be loaded by module -->
-            <div id="module" class="oj-sm-12 oj-flex-item" data-bind="ojModule: moduleConfig"></div>
+    <body class="body-font mainBackGroundImage">
+        <!--<header>-->
+        <!--</header>-->
+        <div class="oj-sm-only-hide">
+            <video autoplay muted loop id="bgvid">
+                <source src="assets/bg-video.mp4" type="video/mp4">
+            </video>
         </div>
+        <div class="oj-offcanvas-outer-wrapper">
+            <div id="routingContainer" class="oj-offcanvas-inner-wrapper oj-flex">
+
+                <navigationbarleft id="navigationDrawerLeft" class="nav-left-pane oj-flex-item"></navigationbarleft>
+
+                <header-content class="fixed-header" data-bind="css: isScreenSMorMD() ? 'oj-padding-horizontal' : 'oj-padding-lg-horizontal' "></header-content>
+                <!-- This is where your main page content will be loaded by module -->
+                <div id="module" class="oj-sm-12 oj-flex-item" data-bind="ojModule: moduleConfig"></div>
+                 <tech-support references="{{references}}" is-panel-visible="{{false}}"></tech-support>
+            </div>
+        </div>
+        <!-- Commenting as they do not have the footer in any of the pages -->
+        <!--        <footer class="fixed">
+                    <p>© Oracle 2017 | Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </footer>-->
     </body>
 </html>

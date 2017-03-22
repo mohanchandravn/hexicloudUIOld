@@ -8,6 +8,9 @@ and open the template in the editor.
     Author     : nyasarap
 */
 
+navigationbarleft {
+    background-color: rgba(216, 225, 229, 0.9);
+}
     
 .chat-window {
     position: fixed;
@@ -62,39 +65,54 @@ and open the template in the editor.
     cursor: pointer;
 }
 
-.navigation-left {
-    color: white;
-
-}
-
-.navigation-left .loginFace {
-    width: 120px;
-    height: 120px;
-    margin-top: 5px;
-}
-
-.nav-profile {
-    height: 150px;
-}
-
 .nav-list {
-    margin: 0px 24px;
-}
-
-.nav-list ul {
-    padding: 0px;
+    margin: 0px;
+    padding-left: 0;
+    list-style: none;
 }
 
 .nav-list li {
-    list-style-type: none;
-    padding: 0.925rem;
+    font-size: 20px;
+    color: #324b5c;
+    padding: 16px 30px;
+    min-height: 54px;
+    box-sizing: border-box;
     cursor: pointer;
 }
 
-.nav-list li:not(:last-child) {
-    border-bottom: 1px solid white;
+.nav-list li i {
+    font-size: 28px !important;
 }
 
+.navigation-left a#navClose {
+    float: right;
+    padding: 10px 10px 0px 0px;
+}
+
+.nav-list li:first-child {
+    /*margin-top: 10px;*/
+}
+
+.nav-list li:first-child span {
+    margin-left: 10px;
+}
+
+.nav-list li:not(:last-child) {
+    border-bottom: 2px solid #b0c6d1;
+}
+
+.nav-list li.sub-nav:not(:last-child) {
+    border-bottom: none;
+}
+
+.nav-list .sub-nav span {
+    margin-left: 10px;
+}
+
+.nav-list .sub-nav .sub-nav-content:hover {
+    color: #ee4f50;
+}
+/*
 .navigation-left .logout span {
     margin-top: 15px;
 }
@@ -107,7 +125,7 @@ and open the template in the editor.
     border: 1px solid white;
     margin-top: 250px;
     cursor: pointer;
-}
+}*/
 
 .nav-list-right {
     /* margin: 200px 24px; */

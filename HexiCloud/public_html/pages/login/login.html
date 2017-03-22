@@ -3,69 +3,96 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<!-- data-bind="css: isScreenLGorXL() ? 'margin-left-half' : ''" -->
+<div class="login-page">
+    <div class="oj-flex oj-padding-horizontal" data-bind="css: isScreenSMorMD() ? 'oj-sm-justify-content-center' : 'oj-lg-align-items-flex-start'">
+        <div class="oj-sm-only-hide oj-md-10 oj-lg-8 oj-flex-item">
+            <div class="welcome-content oj-flex">
+                <span class="heading-type2 oj-md-12 oj-flex-item" data-bind="css: isScreenSMorMD() ? 'text-center' : ''">Login to</span>
+            </div>
+            <div class="welcome-content oj-flex">
+                <span class="heading-type2 oj-md-12 oj-flex-item" data-bind="css: isScreenSMorMD() ? 'text-center' : ''">Hexicloud</span>
+            </div>
+            <hr class="login-form-group">
+        </div>
+        <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-flex-item login-form-group" data-bind="visible: loginFailureText() != ''">
 
-<div class="oj-flex oj-sm-align-items-center oj-sm-justify-content-center responsive-height" style="text-align: -webkit-center;">
-    <div class="oj-flex-item">
-        <div class="login-panel oj-flex oj-sm-flex-direction-column oj-sm-align-items-center">
-            <div class="oj-flex-item ">
-                <img src="img/login_man_face.png" alt="icon thumbnail"/>
-            </div>
-            <div class="oj-flex-item">
-                <span style="color: white; font-size:20px;"> Login here:</span>
-            </div>
+            <span data-bind="text: loginFailureText" class="error-message-text"></span> 
 
-            <div class="oj-flex-item" data-bind="visible: loginFailureText() != ''">
-                <div class="oj-flex">
-                    <div class="oj-flex-item">
-                        <span data-bind="text: loginFailureText" class="error-message-text"></span> 
-                    </div>
-                </div>
-            </div>
+        </div>
+        <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-flex-item login-form-group">
+            <input id="username" type="text" class="input-text"
+                   data-bind="ojComponent: {component: 'ojInputText', 
+                                                           placeholder: 'Username', 
+                                                           value: userName,
+                                                           invalidComponentTracker: tracker,
+                                                           required: true,
+                                                           rootAttributes: {style:'max-width:100%'} ,
+                                                           translations: {'required': {
+                                                                         messageDetail: 'Please enter a valid user name'}}
+                                                           }"/>
+        </div>
+        <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-flex-item login-form-group">
 
-            <div class="oj-flex-item">
-                <div class="oj-flex">
-                    <input id="text-input" type="text" class="input-text"
-                           data-bind="ojComponent: {component: 'ojInputText', 
-                                                        placeholder: 'Username', 
-                                                        value: userName,
-                                                        invalidComponentTracker: tracker,
-                                                        required: true, 
-                                                        translations: {'required': {
-                                                                      hint: 'Enter your user name here', 
-                                                                      messageDetail: 'Please enter a valid user name'}}}"/>
+            <input id="password" type="password" class="input-text"
+                   data-bind="ojComponent: {component: 'ojInputPassword', 
+                                                   placeholder: 'Password', 
+                                                   value: password,
+                                                    rootAttributes: {style:'max-width:100%'} ,
+                                               invalidComponentTracker: tracker,
+                                               required: true, 
+                                               translations: {'required': {messageDetail: 'Please enter the password'}}}"/>
+        </div>
+<!--        <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-flex-item login-form-group">
+            <input id="iDomain" type="text" class="input-text"
+                   data-bind="ojComponent: {component: 'ojInputText', 
+                                                   placeholder: 'Identity Domain',
+                                                           rootAttributes: {style:'max-width:100%'} , 
+                                                   value: iDomain}"/>
+        </div>-->
+<!--        <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-flex-item login-form-group">
+            <select id="dataCenter" class="select" data-bind="ojComponent: {component: 'ojSelect',
+                                                                        value: dataCenter,
+                                                                        rootAttributes: {style:'max-width:100%'}}">
+                <option value="" selected="">Select Data Center...</option>
+                <option value="https://myservices.us1.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 1 (us1)</option>
+                <option value="https://myservices.us2.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 2 (us2)</option>
+                <option value="https://myservices.us6.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 6 (us6)</option>
+                <option value="https://myservices.us8.oraclecloud.com/mycloud/faces/dashboard.jspx">US Commercial 8 (us8)</option>
+                <option value="https://myservices.ap1.oraclecloud.com/mycloud/faces/dashboard.jspx">APAC Commercial 1 (ap1)</option>
+                <option value="https://myservices.ap2.oraclecloud.com/mycloud/faces/dashboard.jspx">APAC Commercial 2 (ap2)</option>
+                <option value="https://myservices.ap4.oraclecloud.com/mycloud/faces/dashboard.jspx">APAC Commercial 4 (ap4)</option>
+                <option value="https://myservices.ca2.oraclecloud.com/mycloud/faces/dashboard.jspx">CA Commercial 2 (ca2)</option>
+                <option value="https://myservices.ca3.oraclecloud.com/mycloud/faces/dashboard.jspx">CA Commercial 3 (ca3)</option>
+                <option value="https://myservices.em1.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 1 (em1)</option>
+                <option value="https://myservices.em2.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 2 (em2)</option>
+                <option value="https://myservices.em3.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 3 (em3)</option>
+                <option value="https://myservices.em4.oraclecloud.com/mycloud/faces/dashboard.jspx">EMEA Commercial 4 (em4)</option>
+                <option value="https://myservices.la1.oraclecloud.com/mycloud/faces/dashboard.jspx">LAD Commercial 1 (la1)</option>
+                <option value="https://myservices.us.oraclecloud.com/mycloud/faces/dashboard.jspx">Public Cloud Services - US</option>
+                <option value="https://myservices.emea.oraclecloud.com/mycloud/faces/dashboard.jspx">Public Cloud Services - EMEA</option>
+            </select>
+        </div>-->
+<!--        <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-flex-item login-form-group">
+            <input id="phoneNumber" type="text" class="input-text"
+                   data-bind="ojComponent: {component: 'ojInputText', 
+                                                   placeholder: 'Telephone number(optional)', 
+                                                   value: phoneNumber,
+                                                 rootAttributes: {style:'max-width:100%'}}"/>
+        </div>-->
+        <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-flex-item login-form-group">
+            <div class="oj-sm-only-justify-content-center oj-md-align-items-center oj-flex" data-bind="css: viewportSize() === 'SM' ? 'text-center' : ''">
+                <div class="oj-flex-item oj-lg-4 oj-md-5 oj-sm-10 login-form-group">
+                    <a class="red-button" data-bind="click: login">Login</a>
                 </div>
-            </div>
-            <div class="oj-flex-item">
-                <div class="oj-flex">
-                    <input type="password" id="password"  class="input-text"
-                           data-bind="ojComponent: {component: 'ojInputPassword', 
-                                                        placeholder: 'Password', 
-                                                        value: password, 
-                                                        invalidComponentTracker: tracker,
-                                                        required: true, 
-                                                        translations: {'required': {
-                                                                      hint: 'Enter your password here', 
-                                                                      messageDetail: 'Please enter the password'}}}"/>
-                </div>
-            </div>
-            <div class="oj-flex-item">
-                <div class="oj-flex">
-                    <input type="text" id="iDomain" class="input-text"
-                           data-bind="onchange: test, ojComponent: {component: 'ojInputText', placeholder: 'Identity Domain', value: iDomain}"/>
-                </div>
-            </div>
-            <div class="oj-flex-item" data-bind="visible: isIDomainActive">
-                <div class="oj-flex">
-                    <input type="text" id="restEndPoint"  class="input-text"
-                           data-bind="ojComponent: {component: 'ojInputText', placeholder: 'REST End Point URL', value: restEndPoint}"/>
-                </div>
-            </div>
-            <div class="oj-flex-item">
-                <div class="standard-button oj-sm-justify-content-center oj-flex" data-bind="click: login">
-                    <span data-bind="text: 'LOGIN'">LOGIN</span>
+                <div class="oj-flex-item oj-md-7 oj-md-justify-content-flex-end login-form-group">
+                    <a href="#" class="forgotten" data-bind="click: onClickForgotPassword">Forgotten your password?</a>
                 </div>
             </div>
         </div>
+        <div class="oj-flex-item oj-sm-align-items-center">
+            <p class="login-footer">&copy; Oracle <a class="red" href="#">Legal Notices</a> I <a class="red" href="#">Terms of Use</a> I <a class="red" href="#">Privacy Policy</a></p>  
+        </div>
+
     </div>
 </div>
-

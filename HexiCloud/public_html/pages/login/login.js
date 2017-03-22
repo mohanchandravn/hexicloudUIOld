@@ -5,17 +5,24 @@
  */
 
 /**
- * login module
+ * Login module
  */
-define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs/ojcore', 'ojs/ojinputtext', 'ojs/ojknockout-validation'
+define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs/ojcore', 'ojs/ojinputtext', 'ojs/ojknockout-validation', 'ojs/ojselectcombobox'
 ], function (ko, $, service, sessionInfo) {
+    
     /**
      * The view model for the main content view template
      */
     function loginContentViewModel(params) {
+        
         var self = this;
-        var router = params.ojRouter.parentRouter;
+        
+        if (params){
+            var router = params.parentRouter;
+            var parentViewModel = params.parent;
+        }
         console.log('login page');
+        
         self.userName = ko.observable();
         self.password = ko.observable();
         self.iDomain = ko.observable("");
@@ -24,13 +31,23 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
         self.isIDomainActive = ko.observable(false);
         self.loginFailureText = ko.observable();
 
+        self.dataCenter = ko.observable();
+        self.phoneNumber = ko.observable();
+
+        self.savedStep = ko.observable("chooseRole");
+
         self.handleBindingsApplied = function () {
+
             $("#iDomain").on('keyup paste cut', function () {
                 var iDomain = $(this).val();
                 return self.isIDomainActive(iDomain.length > 0);
             });
         };
 
+        self.handleTransitionCompleted = function () {
+            // scroll the whole window to top if it's scroll position is not on top
+            $(window).scrollTop(0);
+        };
 
         self._showComponentValidationErrors = function (trackerObj) {
             trackerObj.showMessages();
@@ -40,16 +57,20 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
             return true;
         };
 
+        self.handleAttached = function () {
+//            slideInAnimate(500, 0);
+        };
 
         self.login = function () {
+//            router.go('chooseRoleNew/');
+
             console.log('login clicked');
             console.log(loggedInUser());
             console.log(self.restEndPoint());
             var trackerObj = ko.utils.unwrapObservable(self.tracker);
 
             // Step 1
-            if (!this._showComponentValidationErrors(trackerObj))
-            {
+            if (!this._showComponentValidationErrors(trackerObj)) {
                 return;
             }
 
@@ -58,31 +79,70 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                     console.log(data);
                     console.log(status);
                     if (xhrStatus.status == 200) {
+                        sessionInfo.setToSession(sessionInfo.accessToken, data.access_token);
+                        sessionInfo.setToSession(sessionInfo.expiresIn, data.expires_in);
+                        sessionInfo.setToSession(sessionInfo.accessTokenSetTime, (new Date).getTime());
                         isLoggedInUser(true);
                         sessionInfo.setToSession(sessionInfo.isLoggedInUser, true);
                         loggedInUser(data.userId);
                         sessionInfo.setToSession(sessionInfo.loggedInUser, data.userId);
-                        loggedInUserRole(data.userRole);
-                        sessionInfo.setToSession(sessionInfo.loggedInUserRole, data.userRole);
-                        userFirstLastName(data.firstName + ' ' + data.lastName);
-                        sessionInfo.setToSession(sessionInfo.userFirstLastName, data.firstName + ' ' + data.lastName);
-                        userClmRegistryId(data.registryId);
-                        sessionInfo.setToSession(sessionInfo.userClmRegistryId, data.registryId);
                         self.loginFailureText("");
-                        router.go('hello/');
+                        
+                        // Get user details
+                        var getUserSuccessCallBackFn = function (data, xhrStatus) {
+                            loggedInUserRole(data.userRole);
+                            sessionInfo.setToSession(sessionInfo.loggedInUserRole, data.userRole);
+                            userFirstLastName(data.firstName);
+                            sessionInfo.setToSession(sessionInfo.userFirstLastName, data.firstName);
+                            userClmRegistryId(data.registryId);
+                            sessionInfo.setToSession(sessionInfo.userClmRegistryId, data.registryId);
+                            self.loginFailureText("");
+                            // service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn);
+                            // Hardcoding for the demo
+                            $('#bgvid').remove();
+                            if (self.userName().toLowerCase() === 'fred' || self.userName().toLowerCase() === 'simon') {
+                                router.go('dashboard/');
+                            } else {
+                                router.go(self.savedStep() + '/');
+                            }
+                            // setTimeout(function () {
+                            // }, 500);
+                            // slideOutAnimate(1500, 0);
+                        };
+                        
+                        var getUserfailCallBackFn = function (xhr) {
+                            console.log(xhr);
+                            self.loginFailureText("Invalid Username or Password");
+                        };
+                        service.getUserDetails(data.userId).then(getUserSuccessCallBackFn, getUserfailCallBackFn);                        
+                        
                     } else {
-                        self.loginFailureText("Username or password do not match");
+                        self.loginFailureText("Invalid Username or Password");
                     }
                 };
 
                 var failCallBackFn = function (xhr) {
                     console.log(xhr);
-                    self.loginFailureText("Username or password do not match");
+                    self.loginFailureText("Invalid Username or Password");
                 };
-                service.authenticate({
-                    "userId": self.userName(),
-                    "password": btoa(self.password())
-                }).then(successCallBackFn, failCallBackFn);
+                
+                var getUserStepSuccessCallBackFn = function (data) {
+                    console.log(data);
+                    if (data) {
+                        loggedInUser(data.userId);
+                        loggedInUserRole(data.userRole);
+                        self.savedStep(data.curStepCode);
+                    }
+                    $('#bgvid').remove();
+                    router.go(self.savedStep() + '/');
+                };
+                
+                var payload = {
+                    "username": self.userName().toLowerCase(),
+                    // "password": btoa(self.password())
+                    "password": self.password()
+                };
+                service.authenticate(payload).then(successCallBackFn, failCallBackFn);
 
             } else {
                 loggedInUser(self.userName());
@@ -95,6 +155,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                 console.log(self.dataToSend);
                 var url = wrapperRestEndPoint() + self.dataToSend;
                 console.log(wrapperRestEndPoint() + self.dataToSend);
+                
                 if (self.userName() != null && self.password() != null && containerName() != null && self.restEndPoint() != null) {
                     isDomainDetailsGiven(true);
                     $.ajax({
@@ -125,11 +186,20 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                     });
                     isLoggedInUser(true);
                     sessionInfo.setToSession(sessionInfo.isLoggedInUser, true);
-                    router.go('hello/');
+//                    setTimeout(function () {
+                    router.go('chooseRole/');
+//                    }, 500);
+//                    slideOutAnimate(1500, 0);
+                    router.go('chooseRole/');
                 }
             }
-
-
+        };
+        
+         self.onClickForgotPassword = function (){
+            if(parentViewModel)
+            {
+                parentViewModel.goToForgotPassword();
+            }
         };
     }
 

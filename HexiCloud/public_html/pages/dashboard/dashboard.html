@@ -3,106 +3,91 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
-<div class="dashboard-page oj-offcanvas-outer-wrapper">
-    <div class="oj-offcanvas-inner-wrapper oj-flex">
-        <navigationbarleft id="navigationDrawerLeft" class="nav-left-pane oj-flex-item"></navigationbarleft>
-        <div class="dashboard page-content oj-sm-12 oj-md-12 oj-flex-item">
-            <a href="index.html?root=csmadmin">Go to CSM Admin</a>
-            <!-- ko if: !isScreenXL() -->
-            <div class="oj-flex-bar">
-                <button id="start" class="oj-flex-bar-start" 
-                        data-bind="click: toggleLeft,
-                                   ojComponent: {component:'ojButton', 
-                                   label: 'Toggle start offcanvas', 
-                                   chroming: 'half',
-                                   display: 'icons', 
-                                   icons: {start: 'oj-fwk-icon-hamburger oj-fwk-icon'}}">
-                </button>
-                <button id="end" class="oj-lg-hide oj-flex-bar-end"
-                        data-bind="click: toggleRight,
-                                   ojComponent: {component:'ojButton', 
-                                   label: 'Toggle end offcanvas', 
-                                   chroming: 'half',
-                                   display: 'icons', 
-                                   icons: {end: 'oj-fwk-icon-hamburger oj-fwk-icon'}}">
-                </button>
-            </div>
-            <!--/ko-->
-            <div class="dashboard-heading oj-sm-align-items-center oj-flex">
-                <div class="oj-sm-12 oj-md-12 oj-lg-6 oj-flex-item">
-                    <div class="oj-sm-justify-content-center oj-flex">
-                        <span data-bind="text: runningCPUCount() + ' out of ' + totalCPUCount() + ' OCPUs '"></span>
-                        <img src="img/mini-compute-icon.png" alt="icon thumbnail"/>
-                    </div>
-                </div>
-                <div class="oj-sm-12 oj-md-12 oj-lg-6 oj-flex-item">
-                    <div class="oj-sm-justify-content-center oj-flex">
-                        <span data-bind="text: currentUsedMemory() + '% Memory '"></span>
-                        <img src="img/mini-DB-Icon.png" alt="icon thumbnail"/>
-                    </div>
-                </div>
-            </div>
-            <div class="dashboard-services-content oj-flex">
-                <span class="labelled-button-title" data-bind="text: 'My Services Preview'"></span>
-                <span class="labelled-button" data-bind="click: function(data){ router.go('service')},text: 'SEE ALL'"></span>
-                <div class="service-menu oj-sm-12 oj-flex-item">
-                    <div class="oj-flex" data-bind="foreach: servicesArray">
-                        <div class="service-item oj-margin oj-flex-item" data-bind="css: $parent.checkServiceStatus(status)">
-                            <span class="service-heading oj-sm-justify-content-center oj-flex" data-bind="text: serviceType"></span>
-                            <div class="service-details oj-flex">
-                                <img src="img/DashBoard-Comp-icon.png" alt="icon thumbnail"/>
-                                <span class="service-instance-count oj-sm-2 oj-flex-item" data-bind="text: runningInstances"></span>
-                                <div>
-                                    <span class="oj-flex" data-bind="text: 'instance'"></span>
-                                    <span class="oj-flex" data-bind="text: 'running'"></span>
-                                </div>
-                            </div>
-                            <div class="service-usage-details oj-flex">
-                                <div class="oj-sm-12 oj-flex-item">
-                                    <span class="bold" data-bind="text: cpuUsage + usageMetric"></span><span data-bind="text: ' Volume'"></span>
-                                </div>
-                                <div class="oj-sm-12 oj-flex-item">
-                                    <span class="bold" data-bind="text: ramSize + usageMetric"></span><span data-bind="text: ' Memory'"></span>
-                                </div>
-                            </div>
-                            <div class="oj-sm-justify-content-center oj-flex">
-                                <span class="service-learn-more" data-bind="text: 'LEARN MORE'"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="dashboard-services-content oj-flex">
-                <span class="labelled-button-title" data-bind="text: 'My Guided Paths Preview'"></span>
-                <span class="labelled-button" data-bind="click: function(data){ router.go('learning')},text: 'SEE ALL'"></span>
-                <div class="service-menu oj-sm-12 oj-flex-item">
-                    <div class="oj-flex" data-bind="foreach: guidedPathsArray">
-                        <div class="oj-sm-12 oj-flex-item">
-                            <div class="paths-menu oj-sm-align-items-center oj-flex">
-                                <img src="img/DashBoard-DB-icon.png" alt="icon thumbnail"/>
-                                <span class="oj-sm-3 oj-flex-item" data-bind="text: 'Step Description'"></span>
-                                <span class="bold" data-bind="text: 'Guided Path Title'"></span>
-                                <span class="steps-count" data-bind="text: 'Steps ' + stepCount + ' out of ' + totalSteps"></span>
-                                <div class="oj-flex-item oj-margin">
-                                    <div class="oj-flex-bar">
-                                        <div class="oj-sm-flex-direction-column oj-flex-bar-start">
-                                            <label for="progressPercentage">PROGRESS</label>
-                                            <div id="progressPercentage" data-bind="ojComponent:{
-                                                      component: 'ojProgressbar', 
-                                                      value: percentage,
-                                                      rootAttributes: {style: 'width: 200px;'}}">
-                                            </div>
-                                        </div>
-                                        <span class="oj-flex-bar-end oj-padding labelled-button" data-bind="click: function(data){ router.go('learningFlow')}, text: path"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<div class="dashboard-page container">
+    <div class="provisioned-services dashboard oj-flex">
+        <span class="heading-type2 oj-sm-12 oj-flex-item">Welcome to the Dashboard</span>
+        <span class="heading-type4 oj-sm-12 oj-flex-item">The dashboard page provides you with a snapshot of your provisioned services, relevant use cases and your progress within the How-to guides. Further information click within each section to directed to the relevant page.</span>
+        <div class="oj-sm-12 oj-flex-item">
+            <div class="oj-flex">
+                <div class="oj-sm-12 oj-flex-item">
+                    <div class="content stage oj-flex">
+                        <span class="heading-type2 oj-sm-12 oj-flex-item">Your services</span>
+                        <span class="heading-type4 oj-sm-12 oj-flex-item">Please see below for an overview of your provisioned services. To display all your provisioned click ‘View all’</span>
+                        <hr>
                     </div>
                 </div>
             </div>
         </div>
-        <navigationbarright id="navigationDrawerRight" class="nav-right-pane oj-flex-item"></navigationbarright>
+        <div class="oj-sm-12 oj-flex-item">
+            <div class="oj-flex oj-flex-items-pad">
+                <!-- ko foreach: serviceItems -->
+                <div class="service-item-threshold-width oj-flex-item oj-md-10 oj-lg-4 oj-xl-3">
+                    <div class="service" data-bind="css: $parent.getClass(serverType)">
+                        <div class="head">
+                            <div class="laas"><img src="img/laas-icon.png"><span style="color: white;" data-bind="text: platformType"></span></div>
+                            <img src="img/service-icon.png">
+                            <p class="metered" data-bind="text: serviceType === '' ? '&nbsp;' : serviceType"></p>
+                            <h4 data-bind="text: serverType"></h4>
+                        </div>
+                        <div class="body">
+                            <div class="col-60">
+                                <p class="instances"><span data-bind="text: instancesCount"></span></p>
+                                <p class="text-center oj-sm-justify-content-center oj-flex" data-bind="text: 'Instances ' + state"></p>
+                            </div>
+                            <div class="col-40">
+                                <p><span data-bind="text: OCPUCount"></span> OCPU</p>
+                                <p><span data-bind="text: memoryAmount"></span> GB Memory</p>
+                                <p><span data-bind="text: storageAmount"></span> GB Storage</p>
+                                <a data-bind="click: $parent.openServiceDetail">View More</a>
+                            </div>
+                            <img src="img/graph-green.png">
+                        </div>
+                    </div>
+                </div>
+                <!-- /ko -->
+            </div>    
+        </div>
+        <div class="oj-flex-item">
+            <div class="oj-flex oj-sm-justify-content-flex-end">
+                <a class="deep-red-button open-all-services-btn" data-bind="click: openAllServices">View All »</a>    
+            </div>
+        </div>
+    </div>
+    <div class="dashboard oj-flex">
+        <!-- ko if: selectedServiceItem() !== undefined -->
+        <div class="oj-sm-12 oj-lg-4 oj-flex-item">
+            <div class="benefits oj-flex" data-bind="css: isScreenLGorXL() ? 'oj-margin-lg-end' : ''">
+                <span class="heading-type2 oj-sm-12 oj-flex-item" data-bind="text: 'Benefits for ' + selectedServiceItem() + ': '"></span>
+                <span class="oj-margin-lg-vertical oj-sm-12 oj-flex-item">
+                    <span class="heading-type4 color-red" data-bind="text: selectedItemTitle"></span>
+                    <span class="normal-text" data-bind="text: ' - ' + selectedItemSubTitle()"></span>
+                </span>
+                <span class="heading-type4 oj-sm-12 oj-flex-item" data-bind="text: benefitsTitle() + ':'"></span>
+                <ul class="oj-sm-12 oj-flex-item">
+                    <!-- ko foreach: selectedItemBenefitsArray -->
+                    <li>
+                        <div data-bind="text: text"></div>
+                    </li>
+                    <!-- /ko -->
+                </ul>
+            </div>
+        </div>
+        <div class="key-features oj-sm-12 oj-lg-8 oj-flex-item">
+            <span class="heading-type2 oj-flex" data-bind="text: 'Key features for ' + selectedServiceItem() + ': '"></span>
+            <div class="oj-margin-lg-top oj-flex" style="height: 500px;">
+                <iframe id="pdf" style="width: 100%;" height="500" data-bind="attr : { src: 'https://docs.google.com/gview?url=' + pdfSrc() + '&embedded=true' }" frameborder="0"></iframe>
+            </div>
+        </div>
+        <!-- /ko -->
     </div>
 </div>
+<div class="feedback">
+    <a id="feedback_button" data-bind="click: onClickFeedback"><i class="material-icons" style="opacity: 1;">help_outline</i></a>
+	</div>
+
+
+
+
+
+
+

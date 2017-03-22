@@ -1,0 +1,26 @@
+{
+    "service": {
+        "title": "Oracle JCS Cloud Service",
+        "subTitle": "A secure, high-performance, high-bandwidth solution, Oracle Network Cloud Service empowers enterprises to freely connect any on-premises data center to Oracle Cloud. It includes site-to-site VPN service and FastConnect offerings to cater for both latency-sensitive and data-heavy applications.",
+        "benefits":
+                {
+                    "title": "Business Benefits",
+                    "benefitsList": [
+                        {
+                            "text": "Safely and securely extend your on-premises network to your dedicated Oracle Compute zone through site-to-site VPN"
+                        },
+                        {
+                            "text": "Gain high-bandwidth connections between your data center and Oracle Cloud services thanks to FastConnect"
+                        },
+                        {
+                            "text": "Simplify your processes to create a robust yet easily accessible VPN gateway and connection in just a few steps"
+                        },
+                        {
+                            "text": "Enhance security and performance by using symmetric key encryption"
+                        }
+                    ]
+                },
+        "featuresLink" : "Public Link from Docs for JCS" 
+
+    }
+}

@@ -1,61 +1,59 @@
 {
-   "services": [{
-           "productTier5": "COMPUTE",
-            "additionalInfo" : "10 CPU",
-           "runningInstances": "1",
-           "cpuUsage": "34",
-           "memUsage": "20",
-            "sizeClass" : "oj-masonrylayout-tile-1x1",
-            "iaasImage" : "img/mini-compute-icon.png"
+   "services": [
+       {
+           "platformType": "Iaas",
+           "serviceType": "METERED",
+           "serverType": "Compute",
+           "instancesCount": "3",
+           "state": "running",
+           "OCPUCount": "3",
+           "memoryAmount": "22.5",
+           "storageAmount": "307"
         }, {
-           "productTier5": "COMPUTE",
-            "additionalInfo" : "20 CPU",
-           "runningInstances": "1",
-           "cpuUsage": "54",
-           "memUsage": "20",
-            "sizeClass" : "oj-masonrylayout-tile-1x1",
-            "iaasImage" : "img/mini-compute-icon.png"       
+           "platformType": "Paas",
+           "serviceType": "",
+           "serverType": "Storage",
+           "instancesCount": "1",
+           "state": "running",
+           "OCPUCount": "2",
+           "memoryAmount": "15",
+           "storageAmount": "122"
         }, {
-           "productTier5": "STORAGE",
-            "additionalInfo" : "15 TB",
-           "runningInstances": "1",
-           "cpuUsage": "44",
-           "memUsage": "12",
-            "sizeClass" : "oj-masonrylayout-tile-1x1",
-            "iaasImage" : "img/mini-DB-Icon.png"       
+           "platformType": "Iaas",
+           "serviceType": "",
+           "serverType": "Ravello",
+           "instancesCount": "1",
+           "state": "running",
+           "OCPUCount": "1",
+           "memoryAmount": "7.5",
+           "storageAmount": "185"
         }, {
-           "productTier5": "COMPUTE",
-            "additionalInfo" : "30 CPU",
-           "runningInstances": "1",
-           "cpuUsage": "14",
-           "memUsage": "22",
-            "sizeClass" : "oj-masonrylayout-tile-1x1",
-            "iaasImage" : "img/mini-compute-icon.png"          
+           "platformType": "Paas",
+           "serviceType": "",
+           "serverType": "Container",
+           "instancesCount": "1",
+           "state": "running",
+           "OCPUCount": "2",
+           "memoryAmount": "15",
+           "storageAmount": "122"
         }, {
-           "productTier5": "COMPUTE",
-            "additionalInfo" : "40 CPU",
-           "runningInstances": "1",
-           "cpuUsage": "52",
-           "memUsage": "32",
-            "sizeClass" : "oj-masonrylayout-tile-1x1",
-            "iaasImage" : "img/mini-compute-icon.png"           
-    },{
-           "productTier5": "STORAGE",
-            "additionalInfo" : "25 TB",
-           "runningInstances": "1",
-           "cpuUsage": "52",
-           "memUsage": "25",
-            "sizeClass" : "oj-masonrylayout-tile-1x1",
-            "iaasImage" : "img/mini-DB-Icon.png"
-    },
-    {
-           "productTier5": "STORAGE",
-            "additionalInfo" : "35 TB",
-           "runningInstances": "1",
-           "cpuUsage": "52",
-           "memUsage": "25",
-            "sizeClass" : "oj-masonrylayout-tile-1x1",
-            "iaasImage" : "img/mini-DB-Icon.png"
-    }
+           "platformType": "Iaas",
+           "serviceType": "",
+           "serverType": "DBCS",
+           "instancesCount": "1",
+           "state": "running",
+           "OCPUCount": "1",
+           "memoryAmount": "7.5",
+           "storageAmount": "185"
+        }, {
+           "platformType": "Iaas",
+           "serviceType": "METERED",
+           "serverType": "JCS",
+           "instancesCount": "3",
+           "state": "running",
+           "OCPUCount": "3",
+           "memoryAmount": "22.5",
+           "storageAmount": "307"
+        }
     ]
 }

@@ -1,0 +1,17 @@
+{
+    "properties": {
+        "selectedValue": {
+            "description": "selected Value",
+            "type": "String"
+        },
+        "trainSteps": {
+            "description": "selected Value",
+            "type": "String of Array"
+        },
+        "actionDisabled": {
+            "description": "used to disable train selection event",
+            "type": "String"
+        }
+
+    }
+}

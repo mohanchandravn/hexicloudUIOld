@@ -18,7 +18,8 @@ requirejs.config({
                         'text': 'js/libs/require/text',
                         'promise': 'js/libs/es6-promise/es6-promise.min',
                         'hammerjs': 'js/libs/hammer/hammer-2.0.8.min',
-                        'ojdnd': 'js/libs/dnd-polyfill/dnd-polyfill-1.0.0.min'
+                        'ojdnd': 'js/libs/dnd-polyfill/dnd-polyfill-1.0.0.min',
+                        'css': 'js/libs/require-css/css.min'
 //                        'utilities': 'utils/utilities'
                     }
             //endinjector
@@ -42,7 +43,6 @@ requirejs.config({
             }
         });
 
-
 /**
  * A top-level require call executed by the Application.
  * Although 'ojcore' and 'knockout' would be loaded in any case (they are specified as dependencies
@@ -51,17 +51,29 @@ requirejs.config({
  */
 
 require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknockout',
-    'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule'],
+    'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule', 'ojs/ojmoduleanimations', 'ojs/ojanimation', 'ojs/ojoffcanvas',
+'components/techsupport/loader'],
         function (oj, ko, $, sessionInfo)
         {
             var self = this;
-            
+
+            var navigationDrawerLeft;//, navigationDrawerRight;
+
+            navigationDrawerLeft = {
+                "selector": "#navigationDrawerLeft",
+                "edge": "start",
+                "displayMode": "push",
+                "autoDismiss": "focusLoss",
+                "modality": "modeless"//,
+                        //        "query": oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.XL_UP)
+            };
+
             //oj.Assert.forceDebug();
             //oj.Logger.option('level', oj.Logger.LEVEL_INFO);
             oj.ModuleBinding.defaults.modelPath = './';
             oj.ModuleBinding.defaults.viewPath = 'text!./';
 
-            
+
             // Retrieve the router static instance and configure the states
             var router = oj.Router.rootInstance;
             // Set the router base URL to the href of this page. This is needed when
@@ -69,46 +81,67 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
             oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
 
             // Register custom components for reusing the code
+            ko.components.register('header-content', {require: 'components/header/header'});
             ko.components.register('navigationbarleft', {require: 'components/navigationbarleft/navigationbarleft'});
             ko.components.register('navigationbarright', {require: 'components/navigationbarright/navigationbarright'});
-            function getPath(path) {
 
+            function getPath(path) {
                 if (path === 'learningFlow')
                     return "pages/learning/" + path;
                 else
                     return "pages/" + path + "/" + path;
-            }
-            ;
+            };
 
-            router.configure(
-                    {
-                        'home': {label: 'Home', value: getPath('home'), isDefault: true},
-                        'login': {label: 'Login', value: getPath('login')},
-                        'hello': {label: 'Hello', value: getPath('hello')},
-                        'roleIdentified': {label: 'Role Identified', value: getPath('roleIdentified')},
-                        'chooseRole': {label: 'Choose Role', value: getPath('chooseRole')},
-                        'createUsers': {label: 'Create Users', value: getPath('createUsers')},
-                        'addAdditionalUsers': {label: 'Add Additional Users', value: getPath('addAdditionalUsers')},
-                        'learning': {label: 'Learning', value: getPath('learning')},
-                        'dashboard': {label: 'Dashboard', value: getPath('dashboard')},
-                        'service': {label: 'Service', value: getPath('service')},
-                        'settings': {label: 'Settings', value: getPath('settings')},
-                        'learningFlow': {label: 'learningFlow', value: getPath('learningFlow')},
-                        'raiseSR': {label: 'Raise an SR', value: getPath('raiseSR')},
-                        'servicesMini': {label: 'Mini Services', value: getPath('servicesMini')},
-                        'guidedPathsMini': {label: 'Mini Learning', value: getPath('guidedPathsMini')},
-                        'csmadmin': {label: 'CSM Admin', value: getPath('csmadmin')},
-                        'samplecsv': {label: 'Sample CSV', value: getPath('samplecsv')}
-                    });
-
+            router.configure({
+                'home': {label: 'Home', value: getPath('home'), isDefault: true},
+                'login': {label: 'Login', value: getPath('login')},
+//                'hello': {label: 'Hello', value: getPath('hello')},
+                'roleIdentified': {label: 'Role Identified', value: getPath('roleIdentified')},
+//                'chooseRole': {label: 'Choose Role', value: getPath('chooseRole')},
+                'chooseRole': {label: 'Choose Role', value: getPath('chooseRoleNew')},
+//                'createUsers': {label: 'Create Users', value: getPath('createUsers')},
+//                'addAdditionalUsers': {label: 'Add Additional Users', value: getPath('addAdditionalUsers')},
+                'learning': {label: 'Learning', value: getPath('learning')},
+                'dashboard': {label: 'Dashboard', value: getPath('dashboard')},
+                'service': {label: 'Service', value: getPath('service')},
+                'settings': {label: 'Settings', value: getPath('settings')},
+                'learningFlow': {label: 'learningFlow', value: getPath('learningFlow')},
+                'raiseSR': {label: 'Raise an SR', value: getPath('raiseSR')},
+                'servicesMini': {label: 'Mini Services', value: getPath('servicesMini')},
+//                'guidedPathsMini': {label: 'Mini Learning', value: getPath('guidedPathsMini')},
+                'csmadmin': {label: 'CSM Admin', value: getPath('csmadmin')},
+                'samplecsv': {label: 'Sample CSV', value: getPath('samplecsv')},
+                'addAdditionalUsers': {label: 'Add Another', value: getPath('addAnother')},
+                'createUsers': {label: 'Add Users Tutorial', value: getPath('addUsersTutorial')},
+                'techSupport': {label: 'Techical Support', value: getPath('techSupport')},
+                'useCases': {label: 'Use Cases', value: getPath('useCases')}
+            });
+                
             function viewModel() {
                 self.router = router;
-                var moduleConfig = $.extend(true, {}, router.moduleConfig, {params: {
-                        'rootData': {}}});
+//                var customAnimation = oj.ModuleAnimations.createAnimation(
+//                        {"effect":"coverStart", "endOpacity":0.5},
+//                        {"effect":"coverEnd", "direction":"end"},
+//                true);
+//                var moduleConfig = $.extend(true, {}, router.moduleConfig, {params: {
+//                        'rootData': {}}});
+                var moduleConfig = $.extend(true, {}, router.moduleConfig,
+                                                {params: { 'rootData': {}}},
+                                                {animation: oj.ModuleAnimations['pushStart']
+                });
                 self.moduleConfig = moduleConfig;
                 
+                // Redirect to login page if JWT token is expired
+                var currentTime = (new Date).getTime();
+                var accessTokenSetTime = Number(sessionInfo.getFromSession(sessionInfo.accessTokenSetTime));
+                var accessTokenExpireTime = Number(sessionInfo.getFromSession(sessionInfo.expiresIn)) * 1000; // Convert to milliseconds
+                if ( (currentTime - accessTokenSetTime) >= accessTokenExpireTime && router.stateId() !== 'home' ) {
+                    sessionInfo.removeAllFromSession(); // Clear session attributes
+                    router.go('home');
+                }
+
                 self.isDomainDetailsGiven = ko.observable(false);
-                
+
                 //screenrange observable for responsive alignment
                 self.screenRange = oj.ResponsiveKnockoutUtils.createScreenRangeObservable();
                 self.isLoggedInUser = ko.observable(sessionInfo.getFromSession(sessionInfo.isLoggedInUser));
@@ -120,6 +153,73 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 self.userClmRegistryId = ko.observable(sessionInfo.getFromSession(sessionInfo.userClmRegistryId));
                 self.isChatInitialized = ko.observable(false);
 
+                self.slideInEffect = ko.observable('slideIn');
+                self.slideOutEffect = ko.observable('slideOut');
+                if (self.isLoggedInUser()) {
+                    $('#bgvid').remove();
+                }
+
+                self.showHeaderNav = ko.computed(function () {
+                    var id = router.currentState().id;
+//                    if (id === 'dashboard' || id === 'useCases') {
+//                        return "";
+//                    } else {
+//                        return "visibility-hidden";
+//                    }
+                    return (id === 'dashboard' || id === 'useCases') ? '' : 'visibility-hidden';
+                });
+
+                self.screenRange = oj.ResponsiveKnockoutUtils.createScreenRangeObservable();
+                self.viewportSize = ko.computed(function () {
+                    var range = self.screenRange();
+                    console.log(range.toUpperCase());
+                    return range.toUpperCase();
+                });
+                
+                self.isScreenSMorMD = ko.computed(function() {
+                    return (self.viewportSize() === "SM" || self.viewportSize() === "MD");
+                });
+                
+                self.isScreenLGorXL = ko.computed(function() {
+                    return (self.viewportSize() === "LG" || self.viewportSize() === "XL");
+                });
+                
+                self.slideInAnimate = function (duration, delay) {
+                    if (self.slideInEffect() && oj.AnimationUtils[self.slideInEffect()]) {
+                        var jElem = $('.' + self.getStateId() + '-page');
+                        console.log(jElem);
+//                        var jElem = $('#module');
+
+                        // jElem.css('backgroundColor', self.sampleBackground);
+
+                        var animateOptions = {'delay': delay ? delay + 'ms' : '',
+                            'duration': duration + 'ms',
+                            'timingFunction': 'ease-in-out'};
+                        $.extend(animateOptions, self.effectOptions);
+
+                        // Invoke the animation effect method with options
+                        oj.AnimationUtils[self.slideInEffect()](jElem[0], animateOptions);
+                    }
+                };
+
+                self.slideOutAnimate = function (duration, delay) {
+                    if (self.slideOutEffect() && oj.AnimationUtils[self.slideOutEffect()]) {
+                        var jElem = $('.' + self.getStateId() + '-page');
+                        console.log(jElem);
+//                        var jElem = $('#module');
+
+                        // jElem.css('backgroundColor', self.sampleBackground);
+
+                        var animateOptions = {'delay': delay ? delay + 'ms' : '',
+                            'duration': duration + 'ms',
+                            'timingFunction': 'ease-in-out'};
+                        $.extend(animateOptions, self.effectOptions);
+
+                        // Invoke the animation effect method with options
+                        oj.AnimationUtils[self.slideOutEffect()](jElem[0], animateOptions);
+                    }
+                };
+
                 self.getStateId = function () {
                     return router.currentState().id;
                 };
@@ -129,14 +229,68 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 };
 
                 self.dashboardServices = ko.observableArray([]);
-//                document.cookie = "nimbula=eyJpZGVudGl0eSI6ICJ7XCJyZWFsbVwiOiBcImNvbXB1dGUtZW0yLXoxMlwiLCBcInZhbHVlXCI6IFwie1xcXCJjdXN0b21lclxcXCI6IFxcXCJDb21wdXRlLWdzZTAwMDAwNTE0XFxcIiwgXFxcInJlYWxtXFxcIjogXFxcImNvbXB1dGUtZW0yLXoxMlxcXCIsIFxcXCJlbnRpdHlfdHlwZVxcXCI6IFxcXCJ1c2VyXFxcIiwgXFxcInNlc3Npb25fZXhwaXJlc1xcXCI6IDE0ODYwMzQyMzAuMjM1MjA0LCBcXFwiZXhwaXJlc1xcXCI6IDE0ODYwMjU2MzUuNDA5ODIxLCBcXFwidXNlclxcXCI6IFxcXCIvQ29tcHV0ZS1nc2UwMDAwMDUxNC9jbG91ZC5hZG1pblxcXCIsIFxcXCJncm91cHNcXFwiOiBbXFxcIi9Db21wdXRlLWdzZTAwMDAwNTE0L0NvbXB1dGUuQ29tcHV0ZV9Nb25pdG9yXFxcIiwgXFxcIi9Db21wdXRlLWdzZTAwMDAwNTE0L0NvbXB1dGUuQ29tcHV0ZV9PcGVyYXRpb25zXFxcIl19XCIsIFwic2lnbmF0dXJlXCI6IFwiclRyTlNnVytrdnNZMG56MWhlOTRmS2V5Tjg3NDBQRU10NUhPVkdrSDF3Si8veFdkSnBGaytxWUFuc0tDNTBLQy9mSU1jS01kMzBaN201ZXlSL2I1ekZNUHR4VUdqaVExMkMybnFPVEFOSHQrRlQrcW9HQXNzRnFPcXlkaGhyb2hCKzFjbldubzV4K1d5Mi9wOGlibllpRSswNHBsS21HYlpEMmxhVGVCcTJKbGRSVXMwdjgrODlUeWRQd0dpQUZjWXJkUE9GSnljdjNQMm5pcjdqYStRZ1F6ZzlrSTFxRk4rNlJSdXRvQXhtK0d6RFk4MVgrTGFmN0RNL1RLN08xNXpPUERZalBEUkxjUUEyZnRrRURHYUxMVVhxMlA4Zm56N3BzU3pTYUZOWGJnK2x5WkUrUVV6Q3hDd3p1Nk5DU0laOXE0TUFoY21ub3ZMNkhqMDNmMldRPT1cIn0ifQ==";
-//                document.cookie = "atgRecVisitorId=11C9P_gPbvotlemq3jnCeAbaFmWOzRjoIXTBVSyM4iM5YJc7C5B";
+
+                self.toggleContactType = function () {
+                    if ($("#contactType").hasClass("oj-sm-hide")) {
+                        $("#contactType").removeClass("oj-sm-hide");
+                        $("#contactToggle").text("keyboard_arrow_up");
+                    } else {
+                        $("#contactType").addClass("oj-sm-hide");
+                        $("#contactToggle").text("keyboard_arrow_down");
+                    }
+                };
+
+                self.toggleLeft = function () {
+                    if ($("#navigationDrawerLeft").hasClass('oj-offcanvas-open')) {
+                        oj.OffcanvasUtils.close(navigationDrawerLeft);
+//                        $("#navigationIconLeft").removeClass('oj-sm-hide');
+                        return true;
+                    }
+//                    $("#navigationIconLeft").addClass('oj-sm-hide');
+                    window.scrollTo(0, 0);
+                    return (oj.OffcanvasUtils.open(navigationDrawerLeft));
+                };
+
+                self.routeTo = function (data, event) {
+                    console.log(event.currentTarget.id);
+                    router.go(event.currentTarget.id + '/');
+                    self.toggleLeft();
+                };
+
+                self.capturedEvent = function (data, event) {
+                    // Clear session attributes on user logout
+                    if (event.currentTarget.id === 'logout') {
+                        sessionInfo.removeAllFromSession();
+                    }
+                    
+                    self.toggleContactType();
+                    self.toggleLeft();
+                    selectedTemplate(event.currentTarget.id + '_content');
+                    $("#tech_support").show();
+                };
+
+                self.logout = function (data, event) {
+                    sessionInfo.removeFromSession(sessionInfo.isLoggedInUser);
+                    sessionInfo.removeFromSession(sessionInfo.loggedInUser);
+                    sessionInfo.removeFromSession(sessionInfo.loggedInUserRole);
+                    sessionInfo.removeFromSession(sessionInfo.userFirstLastName);
+                    sessionInfo.removeFromSession(sessionInfo.userClmRegistryId);
+                    self.toggleLeft();
+                    router.go('home/');
+                };
+
                 $(window).resize(function () {
                     if (oj.ResponsiveUtils.compare(self.screenRange(), oj.ResponsiveUtils.SCREEN_RANGE.LG) < 0) {
                         self.isChatInitialized(false);
                     }
 //                    self.autoAlignContent();
                 });
+                
+                self.selectedTemplate = ko.observable('');
+
+                self.references = {
+                    "selectedValueRef": self.selectedTemplate
+                };
 
 //                self.autoAlignContent = function () {
 //                    if (oj.ResponsiveUtils.compare(self.screenRange(), oj.ResponsiveUtils.SCREEN_RANGE.LG) > 0) {
@@ -177,8 +331,13 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
             ;
 
 
-            $(document).ready(function ()
-            {
+            $(document).ready(function () {
+//                $("#navigationIconLeft").click(function() {
+//                    self.toggleLeft();
+//                });
+                // setup the Navigation and Ancillary offcanvases for the responsive layout
+                oj.OffcanvasUtils.setupResponsive(navigationDrawerLeft);
+
                 oj.Router.sync().then(function () {
                     ko.applyBindings(viewModel(), document.getElementById('routing-container'));
                 });
