@@ -6,7 +6,7 @@ and open the template in the editor.
 <div class="oj-flex oj-sm-justify-content-center" style="margin-top:20px;">  
     <div class="oj-flex-item">
         <train-navigation selected-value="{{currentStepValue}}" train-steps="{{stepsArray}}" action-disabled="{{actionDisabledCss}}">
-    </train-navigation>
+        </train-navigation>
     </div>
 
 </div>
@@ -21,9 +21,9 @@ and open the template in the editor.
             </div>
         </div>
     </div>
-<!--    <div class="oj-flex-item animated fadeIn oj-margin-lg-vertical">
-        <img src="img/service-step.png" class="img-responsive">
-    </div>-->
+    <!--    <div class="oj-flex-item animated fadeIn oj-margin-lg-vertical">
+            <img src="img/service-step.png" class="img-responsive">
+        </div>-->
     <div class="oj-flex-item">
         <div class="oj-flex oj-flex-items-pad">
             <!-- ko foreach: serviceItems -->
@@ -37,21 +37,21 @@ and open the template in the editor.
                     </div>
                     <div class="body">
                         <div class="col-80">
-                       <!-- ko foreach: details -->
-                        
-                       <p class="text-center"><span class="uom-color" data-bind="text: quantity"></span>&nbsp;<span data-bind="text: uom"></span></p>
-                        
-                        <!-- /ko -->
+                            <!-- ko foreach: details -->
+
+                            <p class="text-center"><span class="uom-color" data-bind="text: quantity"></span>&nbsp;<span data-bind="text: uom"></span></p>
+
+                            <!-- /ko -->
                         </div>
-<!--                        <div class="col-60">
-                            <p class="instances"><span data-bind="text: instancesCount"></span></p>
-                            <p data-bind="text: 'Instances ' + state"></p>
-                        </div>
-                        <div class="col-40">
-                            <p><span data-bind="text: OCPUCount"></span> OCPU</p>
-                                                    <p><span data-bind="text: memoryAmount"></span> GB Memory</p>
-                            <p><span data-bind="text: storageAmount"></span> GB Storage</p>
-                        </div>-->
+                        <!--                        <div class="col-60">
+                                                    <p class="instances"><span data-bind="text: instancesCount"></span></p>
+                                                    <p data-bind="text: 'Instances ' + state"></p>
+                                                </div>
+                                                <div class="col-40">
+                                                    <p><span data-bind="text: OCPUCount"></span> OCPU</p>
+                                                                            <p><span data-bind="text: memoryAmount"></span> GB Memory</p>
+                                                    <p><span data-bind="text: storageAmount"></span> GB Storage</p>
+                                                </div>-->
                         <!--<img src="img/graph-green.png">-->
                     </div>
                 </div>
@@ -85,13 +85,13 @@ and open the template in the editor.
 
     <div class="oj-flex-item">
         <div class="oj-flex oj-flex-items-pad oj-sm-justify-content-center">
-            
+
             <!-- ko if: showSupportPanel() -->
             <div class="oj-flex-item oj-md-8">
                 <h1 class="text-center">Please contact us to resolve your issue</h1>
             </div>
             <!-- /ko -->
-            
+
             <!-- ko if: showSupportPanel() && viewportSize() !== 'SM' -->
             <div class="oj-flex-item oj-sm-12">
                 <div class="oj-flex oj-flex-items-pad oj-md-justify-content-center">
@@ -112,7 +112,7 @@ and open the template in the editor.
             </div>
             <!-- /ko -->
 
-             <!-- ko if: showSupportPanel() && viewportSize() === 'SM' -->
+            <!-- ko if: showSupportPanel() && viewportSize() === 'SM' -->
             <div class="oj-flex-item align-content-center support-panel-container">
                 <div class="oj-flex-item">
                     <a data-bind="click: displayChat">
@@ -124,10 +124,15 @@ and open the template in the editor.
                     <a data-bind="click: displayMail">
                         <i id="mailIcon" class="material-icons icon-custom" style="opacity: 1;">mail</i>
                     </a>
+                </div> 
+                <div class="oj-flex-item support-panel-label-container">
+                    <span class="panel-label">Chat</span>
+                    <span class="panel-label">Phone</span>
+                    <span class="panel-label">Email</span>
                 </div>
             </div>
             <!-- /ko -->
-            
+
             <!-- ko if: showSupportPanel() -->
             <div class="oj-flex-item">
                 <div class="oj-flex oj-padding-horizontal text-center">
