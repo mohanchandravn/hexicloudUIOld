@@ -351,10 +351,19 @@ and open the template in the editor.
     margin: 5px 0px 15px 0px;
 }
 
+.servicesMini-page .support-panel-label-container {
+    margin-bottom: 15px;
+}
+
+.servicesMini-page .panel-label {
+    padding: 0px 25px 0px 25px;
+    color: #324b5c;
+}
+
 .servicesMini-page .icon-custom {
     color: #324b5c;
     font-size: 55px !important;
-    padding: 15px 15px 15px 15px;
+    padding: 15px 15px 5px 15px;
     cursor: pointer;
 }
 
