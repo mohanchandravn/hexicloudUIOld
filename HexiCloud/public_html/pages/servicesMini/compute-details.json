@@ -1,0 +1,25 @@
+{
+    "service": {
+        "title": "Oracle Compute Cloud Service",
+        "subTitle": "At competitive costs, this platform provides access to the same servers and infrastructure used to deploy and run Oracle’s public clouds, along with SaaS applications and PaaS tools. IT staff can make the most of complete network isolation and exclusively assigned servers to maximize performance.",
+        "benefits":
+                {
+                    "title": "Business Benefits",
+                    "benefitsList": [
+                        {
+                            "text": "Speed up innovation and agility by spinning up virtual-machine instances in minutes through an on - demand, self - service portal that’s based on your business demands"
+                        },
+                        {
+                            "text": "Utilize precision performance by using a predefined, isolated environment to run legacy Oracle or third - party workloads"
+                        },
+                        {
+                            "text": "Achieve enterprise-grade security that doesn’t compromise performance or high - availability (HA) capabilities"
+                        },
+                        {
+                            "text": "Securely access your IT through a dynamic firewall that safeguards your virtual - machine instance and SSH keys from fraudulent activities"
+                        }
+                    ]
+                },
+        "featuresLink" : "Public Link from Docs"
+    }
+}

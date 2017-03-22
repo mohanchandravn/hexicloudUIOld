@@ -9,149 +9,69 @@ and open the template in the editor.
 */
 
 .dashboard {
-    background-color: white;
-    /*max-width: 1240px;*/
-        /*max-width: 77%;*/
-    /*padding: 40px 30px 50px 100px;*/
-}
-
-@media screen and (max-width: 1280px) {
-    .dashboard {
-        padding: 40px 10px 10px 10px;
-    }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1280px) {
-    .dashboard {
-        padding: 40px 120px 10px 10px;
-    }
-}
-
-@media screen and (min-width: 1281px) {
-    .dashboard {
-        max-width: calc(100% - 250px);
-        padding: 40px 120px 50px 100px;
-    }
-}
-
-.dashboard-heading {
-    min-height: 100px;
-    font-size: 32px;
-    color: #E5DDCD;
-    background-color: #253741;
-}
-
-.dashboard-heading img {
-    width: 44px;
-    height: 44px;
-    margin-top: 2px;
-    margin-left: 10px;
-}
-
-.dashboard-services-content {
-    padding-top: 20px
-}
-
-.service-menu {
-    margin-top: 10px;
-}
-
-.labelled-button-title {
-    font-weight: 500;
-}
-
-.dashboard .labelled-button {
-    width: 120px;
-    font-size: 11px;
-    border: 1px solid #848E94;
-    text-align: center;
-    margin-left: 30px;
-    cursor: pointer;
-}
-
-.dashboard .service-usage-details {
-    /*margin-top: 20px;*/
-    margin-left: 10px;
-}
-
-.dashboard .service-learn-more {
-    width: 120px;
-    font-size: 11px;
-    border: 1px solid #848E94;
-    text-align: center;
-    margin: 10px 20px;
-    cursor: pointer;
-}
-
-.service-item {
-    max-width: 180px;
-    box-sizing: border-box;
-    border: 1px solid #405058;
-}
-
-.service-heading {
-    border-bottom: 1px solid #405058;
-    font-size: 10px;
-    font-weight: 500;
-}
-
-.service-item img {
-    width: 44px;
-    height: 44px;
-}
-
-.service-details {
-    height: 60px;
-    font-size: 16px;
-    font-weight: 500;
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-.service-instance-count {
-    font-size: 28px;
-    font-weight: normal;
-    margin-left: 10px;
-    margin-right: 10px;
+    /*min-height: calc(100vh - 80px);*/
 }
 
 .bold {
     font-weight: bold;
 }
 
-.paths-menu {
-    margin: 10px 0px;
-    min-height: 70px;
-    border: 1px solid #405058;
+.provisioned-services.dashboard .content.stage h1,
+.provisioned-services.dashboard .content.stage p{
+   text-align: left; 
 }
 
-
-.paths-menu img {
-    width: 44px;
-    height: 44px;
-    margin: 0px 10px;
+.dashboard .benefits, .dashboard .key-features {
+    background: white;
+    padding: 10px;
 }
 
-.paths-menu .steps-count {
-    margin: 0px 30px;
+.dashboard .benefits ul {
+    padding-left: 20px;
 }
 
-.padding4px {
-    padding: 4px;
+.dashboard .benefits ul li {
+    list-style-type: disc;
+    color: #00758f;
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
-.dashboard .oj-progressbar-value {
-    background-color: #253741;
+@media screen and (max-width: 1280px) {
+    .dashboard {
+        padding: 0px 10px 10px 10px;
+    }
 }
 
-.paths-mini-menu {
-    margin: 10px 0px;
-    height: 70px;
-    border: 1px solid #ffffff;
-    color:#ffffff;
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    .dashboard {
+        padding: 0px 120px 10px 10px;
+    }
 }
-.paths-mini-menu img {
-    width: 44px;
-    height: 44px;
-    margin: 0px 10px;
+
+@media screen and (min-width: 1281px) {
+    .dashboard {
+        margin: 0px 120px 20px 120px;
+    }
+}
+
+.feedback {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    background-color: #FC0000;
+    color: #fff;
+}
+
+.feedback a {
+    height: auto;
+    width: 80px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.feedback .material-icons {
+    font-size: 50px !important;
+    padding: 15px;
+    color: #fff;
 }

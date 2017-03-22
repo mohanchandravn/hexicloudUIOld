@@ -1,0 +1,29 @@
+{
+    "service": {
+        "title": "Oracle DBCS Cloud Service",
+        "subTitle": "With zero capital expenditure, Oracle Storage Cloud delivers easy-to-use storage capacity to IT professionals, allowing them to store and retrieve files and data in Oracle’s secure and highly scalable public cloud whenever and wherever they wish.",
+        "benefits":
+                {
+                    "title": "Business Benefits",
+                    "benefitsList": [
+                        {
+                            "text": "Take advantage of a highly available storage solution that scales with your company growth"
+                        },
+                        {
+                            "text": "Gain an industry-leading IaaS platform with zero upfront hardware expenditure or investment"
+                        },
+                        {
+                            "text": "Access data simply and securely, anytime, anywhere, across any device"
+                        },
+                        {
+                            "text": "Regulate who has read and write access to your business-critical documents, thanks to granular access control"
+                        },
+                        {
+                            "text": "Provide efficient archival storage for applications and workloads that require long-term retention"
+                        }
+                    ]
+                },
+        "featuresLink" : "Public Link from Docs for DBCS" 
+
+    }
+}

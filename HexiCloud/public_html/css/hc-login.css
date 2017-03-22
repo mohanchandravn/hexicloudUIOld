@@ -7,19 +7,143 @@ and open the template in the editor.
     Created on : Jan 16, 2017, 1:32:55 PM
     Author     : nyasarap
 */
-/*.login-panel-position-div {
-    padding-left: 32%;
-    padding-right: 25%;
-    position: relative;
-    top: 45%;
-    transform: translateY(-35%);
-}*/
-
-/*.login-background-panel {*/
-.login-panel {
-    background: rgba(255, 255, 255, .3);
-    width: 550px;
-    min-height: 600px;
-    /*border: none !important;*/
-    padding: 30px 0px;
+.login-page {
+    margin-top: 30px;
 }
+
+.login-page .welcome-content {
+    line-height: 1.1;
+}
+
+.login-page .welcome-content h2 {
+    color: #00758f;
+    font-size: 80px;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.login-page .welcome-content h4 {
+    color: #00758f;
+    font-size: 40px;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.login-page hr {
+    border-top: 1px solid #b1c7d2;
+}
+
+.login-page .login-form-group {
+    margin-bottom: 11px;
+}
+
+.login-page .input-text {
+    height: 3.5rem !important;
+    padding-left: 5%;
+}
+.login-page #oj-select-choice-dataCenter {
+    height: 3.5rem !important;
+    padding-left: 5%;
+}
+
+.login-page .forgotten {
+    display: inline-block;
+    /*margin-top: 43px;*/
+    /*float: right;*/
+    font-size: 15px; 
+}
+
+.login-page .login-box {
+    width: 540px;
+}
+
+.login-page .login-footer {
+    font-size: 15px;
+    text-align: center; 
+}
+
+.login-page .oj-messaging-inline-container .oj-message.oj-message-error {
+     background-color: transparent; 
+     border-color: transparent; 
+}
+.login-page .oj-messaging-inline-container .oj-message {
+     padding: 0px; 
+     border-style: none; 
+     border-width: 0px; 
+}
+.login-page .oj-message-detail {
+    color: red;
+    white-space: normal;
+}
+
+.margin-left-half {
+    margin-left: 50%;
+}
+
+/* Large Devices, Wide Screens */
+/* Medium Devices, Desktops */
+/* Small Devices, Tablets */
+/* Extra Small Devices, Phones */
+
+@media print, screen and (min-width: 481px) {
+    .login-page .forgotten {
+        float: right;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .login-page {
+        margin-top: 45px;
+    }
+    .login-page  .welcome-content h2 {
+        font-size: 50px;
+    }
+    .login-page .input-text {
+        padding-left: 10%;
+    }
+    .login-page #oj-select-choice-dataCenter {
+        padding-left: 10%;
+    }
+    .login-page .red-button {
+        padding: 0px !important;
+    }
+}
+
+
+.margin-lr-auto{
+     margin: 0 auto;
+}
+
+.forgotpasswordContainer {
+    margin-top: 50px;
+    height: 100vh;
+        
+}
+.forgotpasswordContainer .headerTextContainer{
+    border-bottom: 1px solid #00758f;
+}
+.headerTextContainer .headerText{
+    color: #00758f;
+    font-size: 30px;
+    font-family: 'Roboto-thin', sans-serif;
+}
+
+.forgotpasswordContainer .forgotpasswordinfotext {
+    color: #00758f;
+    font-size: 20px;
+    font-family: 'Roboto-thin', sans-serif;
+}
+
+.forgotpasswordContainer .invalidUserText {
+    color: red;
+}
+
+
+
+@media print, screen and (max-width: 768px) {
+    .forgotpasswordContainer span {
+        font-size: 15px;
+    }
+}
+
+
