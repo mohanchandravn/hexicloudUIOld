@@ -7,6 +7,20 @@ and open the template in the editor.
     <div class="provisioned-services dashboard oj-flex">
         <span class="heading-type2 oj-sm-12 oj-flex-item">Welcome to the Dashboard</span>
         <span class="heading-type4 oj-sm-12 oj-flex-item">The dashboard page provides you with a snapshot of your provisioned services, relevant use cases and your progress within the How-to guides. Further information click within each section to directed to the relevant page.</span>
+        <!-- ko if: noServices() -->
+        <div class="oj-sm-12 oj-flex-item">
+            <div class="oj-flex">
+                <div class="oj-sm-12 oj-flex-item">
+                    <div class="content stage oj-flex">
+                        <span class="heading-type4 oj-sm-12 oj-flex-item">We cannot find any services associated with your account, please contact CSC to resolve the issue.</span>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /ko -->
+    <!-- ko ifnot: noServices() -->
+        
         <div class="oj-sm-12 oj-flex-item">
             <div class="oj-flex">
                 <div class="oj-sm-12 oj-flex-item">
@@ -61,7 +75,9 @@ and open the template in the editor.
                 <a class="deep-red-button open-all-services-btn" data-bind="click: openAllServices">View All »</a>    
             </div>
         </div>
+     <!-- /ko -->
     </div>
+    
     <div class="dashboard oj-flex">
         <!-- ko if: selectedServiceItem() !== undefined -->
         <div class="oj-sm-12 oj-lg-4 oj-flex-item">

@@ -26,6 +26,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         self.benefitsTitle = ko.observable();
         self.pdfSrc = ko.observable();
         self.selectedItemBenefitsArray = ko.observableArray([]);
+          self.noServices = ko.observable(false);
         
         self.getClass = function(serverType) {
             if (serverType === 'COMPUTE') {
@@ -56,18 +57,23 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             }
         };
         
-         function populateUI(data, status) {
+        function populateUI(data, status) {
             console.log(data);
             console.log(status);
             var array = [];
 //            self.serviceItems(data.services);var array = [];
             self.allServiceItems(data);
-            $.each(data, function(idx, serviceItem) {
-                if (idx < 4) {
-                    array.push(serviceItem);
-                }
-            });
-            self.serviceItems(array);
+            if (self.allServiceItems()) {
+                $.each(data, function(idx, serviceItem) {
+                    if (idx < 4) {
+                        array.push(serviceItem);
+                    }
+                });
+                self.serviceItems(array); 
+            } else {
+                self.noServices(true);
+            }
+           
         };
         
         self.openAllServices = function(data, event) {
