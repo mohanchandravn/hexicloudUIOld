@@ -201,9 +201,9 @@ define(['knockout', 'jquery', 'config/sessionInfo', 'ojs/ojrouter'
             return $.when(defer);
         };
 
-        self.getUserClmData = function (registryId) {
+        self.getUserClmData = function (userId) {
             var defer = $.Deferred();
-            var serverURL = self.portalRestHost() + "hexiCloudRestSecured/services/rest/getClmData/" + registryId;
+            var serverURL = self.portalRestHost() + "hexiCloudRestSecured/services/rest/getClmData/" + userId + "/";
             $.ajax({
                 type: "GET",
                 url: serverURL,

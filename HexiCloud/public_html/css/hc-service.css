@@ -229,7 +229,8 @@ and open the template in the editor.
 
 .provisioned-services .service .body {
     background-color: #fff;
-    padding: 20px 0 60px 0;
+/*    padding: 20px 0 60px 0;*/
+    padding: 20px 0 20px 0;
 }
 
 .provisioned-services .service .body .col-60 {
@@ -355,4 +356,21 @@ and open the template in the editor.
     font-size: 55px !important;
     padding: 15px 15px 15px 15px;
     cursor: pointer;
+}
+
+.provisioned-services .service .head .img-dimen {
+   width : 65px;
+   height: 55px;
+}
+
+.provisioned-services .service .body .col-80 {
+    display: inline-block;
+    width: 80%;
+    padding: 0 20px;
+    /*border-right: 1px solid #bbcfda;*/
+}
+
+.provisioned-services .service .body .uom-color {
+    color: #56638a;
+    font-weight: bolder;
 }

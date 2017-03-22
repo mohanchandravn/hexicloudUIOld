@@ -37,12 +37,32 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             }
         };
         
-        function populateUI(data, status) {
+        self.getIcon = function(serverType) {
+            if (serverType.toLowerCase().indexOf("compute") >= 0) {
+                return 'img/compute_w_72.png';
+            } else if (serverType.toLowerCase().indexOf("storage") >= 0) {
+                return 'img/storage_w_72.png';
+            } else if (serverType.toLowerCase().indexOf("network") >= 0) {
+                return 'img/network_w_72.png';
+            } else if (serverType.toLowerCase().indexOf("container") >= 0) {
+                return 'img/Container_w_72.png';
+            } else if (serverType.toLowerCase().indexOf("ravello") >= 0) {
+                 return 'img/Ravello_w_72.png';
+            } else if (serverType.toLowerCase().indexOf("cloud machine") >= 0) {
+                return 'img/CloudMachine_w_72.png';
+            } 
+            else {
+               return 'img/compute_w_72.png';
+            }
+        };
+        
+         function populateUI(data, status) {
             console.log(data);
             console.log(status);
             var array = [];
-            self.allServiceItems(data.services);
-            $.each(data.services, function(idx, serviceItem) {
+//            self.serviceItems(data.services);var array = [];
+            self.allServiceItems(data);
+            $.each(data, function(idx, serviceItem) {
                 if (idx < 4) {
                     array.push(serviceItem);
                 }
@@ -91,7 +111,8 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
 
               
         self.handleAttached = function() {
-            service.getServiceItems().then(populateUI, FailCallBackFn);
+//            service.getServiceItems().then(populateUI, FailCallBackFn);
+            service.getUserClmData(loggedInUser()).then(populateUI, FailCallBackFn);
         };
 
         self.handleTransitionCompleted = function () {

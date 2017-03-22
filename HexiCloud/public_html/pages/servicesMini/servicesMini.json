@@ -1,59 +1,82 @@
-{
-   "services": [
-       {
-           "platformType": "Iaas",
-           "serviceType": "METERED",
-           "serverType": "Compute",
-           "instancesCount": "3",
-           "state": "running",
-           "OCPUCount": "3",
-           "memoryAmount": "22.5",
-           "storageAmount": "307"
-        }, {
-           "platformType": "Paas",
-           "serviceType": "",
-           "serverType": "Storage",
-           "instancesCount": "1",
-           "state": "running",
-           "OCPUCount": "2",
-           "memoryAmount": "15",
-           "storageAmount": "122"
-        }, {
-           "platformType": "Iaas",
-           "serviceType": "",
-           "serverType": "Ravello",
-           "instancesCount": "1",
-           "state": "running",
-           "OCPUCount": "1",
-           "memoryAmount": "7.5",
-           "storageAmount": "185"
-        }, {
-           "platformType": "Paas",
-           "serviceType": "",
-           "serverType": "Container",
-           "instancesCount": "1",
-           "state": "running",
-           "OCPUCount": "2",
-           "memoryAmount": "15",
-           "storageAmount": "122"
-        }, {
-           "platformType": "Iaas",
-           "serviceType": "",
-           "serverType": "DBCS",
-           "instancesCount": "1",
-           "state": "running",
-           "OCPUCount": "1",
-           "memoryAmount": "7.5",
-           "storageAmount": "185"
-        }, {
-           "platformType": "Iaas",
-           "serviceType": "METERED",
-           "serverType": "JCS",
-           "instancesCount": "3",
-           "state": "running",
-           "OCPUCount": "3",
-           "memoryAmount": "22.5",
-           "storageAmount": "307"
-        }
+[
+  {
+    "displayOrder": 1,
+    "platform": "IaaS",
+    "service": "Compute",
+    "serviceType": "METERED",
+    "details": [
+      {
+        "quantity": 15,
+        "uom": "OCPU/Hour"
+      },
+      {
+        "quantity": 500,
+        "uom": "GB/Month"
+      }
     ]
-}
+  },
+  {
+    "displayOrder": 2,
+    "platform": "IaaS",
+    "service": "Compute",
+    "serviceType": "NON METERED",
+    "details": [
+      {
+        "quantity": 2,
+        "uom": "TB"
+      },
+      {
+        "quantity": 10,
+        "uom": "OCPU"
+      }
+    ]
+  },
+  {
+    "displayOrder": 3,
+    "platform": "IaaS",
+    "service": "Storage",
+    "serviceType": "METERED",
+    "details": [
+      {
+        "quantity": 750,
+        "uom": "GB/Month"
+      }
+    ]
+  },
+  {
+    "displayOrder": 4,
+    "platform": "IaaS",
+    "service": "Storage",
+    "serviceType": "NON METERED",
+    "details": [
+      {
+        "quantity": 12,
+        "uom": "TB"
+      }
+    ]
+  },
+  {
+    "displayOrder": 6,
+    "platform": "IaaS",
+    "service": "Network",
+    "serviceType": "NON METERED",
+    "details": [
+      {
+        "quantity": 1,
+        "uom": "VPN"
+      }
+    ]
+  },
+  {
+    "displayOrder": 8,
+    "platform": "IaaS",
+    "service": "Container",
+    "serviceType": "NON METERED",
+    "details": [
+      {
+        "quantity": 10,
+        "uom": "OCPU"
+      }
+    ]
+  }
+]
