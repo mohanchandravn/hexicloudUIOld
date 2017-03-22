@@ -22,25 +22,34 @@ and open the template in the editor.
             <div class="oj-flex oj-flex-items-pad">
                 <!-- ko foreach: serviceItems -->
                 <div class="service-item-threshold-width oj-flex-item oj-md-10 oj-lg-4 oj-xl-3">
-                    <div class="service" data-bind="css: $parent.getClass(serverType)">
+                    <div class="service" data-bind="css: $parent.getClass(service)">
                         <div class="head">
-                            <div class="laas"><img src="img/laas-icon.png"><span style="color: white;" data-bind="text: platformType"></span></div>
-                            <img src="img/service-icon.png">
+                            <div class="laas"><img src="img/laas-icon.png"><span style="color: white;" data-bind="text: platform"></span></div>
+                            <img data-bind="attr:{src:$parent.getIcon(service)}" class="img-dimen" alt="Image">
                             <p class="metered" data-bind="text: serviceType === '' ? '&nbsp;' : serviceType"></p>
-                            <h4 data-bind="text: serverType"></h4>
+                            <h4 data-bind="text: service"></h4>
                         </div>
                         <div class="body">
-                            <div class="col-60">
-                                <p class="instances"><span data-bind="text: instancesCount"></span></p>
-                                <p class="text-center oj-sm-justify-content-center oj-flex" data-bind="text: 'Instances ' + state"></p>
+                            <div class="col-80">
+                                <!-- ko foreach: details -->
+                                <p class="text-center"><span class="uom-color" data-bind="text: quantity"></span>&nbsp;<span data-bind="text: uom"></span></p>
+                                <!-- /ko -->
+                                <div class="oj-sm-align-self-center">
+                                    <a class="view-more-button oj-sm-6" data-bind="click: $parent.openServiceDetail">View More</a>
+                                    <!--                                 <a data-bind="click: $parent.openServiceDetail">View More</a>-->
+                                </div>
                             </div>
-                            <div class="col-40">
-                                <p><span data-bind="text: OCPUCount"></span> OCPU</p>
-                                <p><span data-bind="text: memoryAmount"></span> GB Memory</p>
-                                <p><span data-bind="text: storageAmount"></span> GB Storage</p>
-                                <a data-bind="click: $parent.openServiceDetail">View More</a>
-                            </div>
-                            <img src="img/graph-green.png">
+                            <!--                            <div class="col-60">
+                                                            <p class="instances"><span data-bind="text: instancesCount"></span></p>
+                                                            <p class="text-center oj-sm-justify-content-center oj-flex" data-bind="text: 'Instances ' + state"></p>
+                                                        </div>
+                                                        <div class="col-40">
+                                                            <p><span data-bind="text: OCPUCount"></span> OCPU</p>
+                                                            <p><span data-bind="text: memoryAmount"></span> GB Memory</p>
+                                                            <p><span data-bind="text: storageAmount"></span> GB Storage</p>
+                                                            <a data-bind="click: $parent.openServiceDetail">View More</a>
+                                                        </div>-->
+                            <!--<img src="img/graph-green.png">-->
                         </div>
                     </div>
                 </div>
@@ -83,7 +92,7 @@ and open the template in the editor.
 </div>
 <div class="feedback">
     <a id="feedback_button" data-bind="click: onClickFeedback"><i class="material-icons" style="opacity: 1;">help_outline</i></a>
-	</div>
+</div>
 
 
 

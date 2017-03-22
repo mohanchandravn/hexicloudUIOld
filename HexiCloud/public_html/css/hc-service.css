@@ -229,7 +229,8 @@ and open the template in the editor.
 
 .provisioned-services .service .body {
     background-color: #fff;
-    padding: 20px 0 60px 0;
+/*    padding: 20px 0 60px 0;*/
+    padding: 20px 0 20px 0;
 }
 
 .provisioned-services .service .body .col-60 {
@@ -347,11 +348,29 @@ and open the template in the editor.
 
 .servicesMini-page .support-panel-container {
     background: linear-gradient(to bottom, rgba(50, 75, 92, 0.24) 0%, rgba(138, 173, 191, 0.24) 100%);
-    margin: 15px 0px 10px 0px;
+    margin: 5px 0px 15px 0px;
 }
 
 .servicesMini-page .icon-custom {
     color: #324b5c;
     font-size: 55px !important;
     padding: 15px 15px 15px 15px;
+    cursor: pointer;
+}
+
+.provisioned-services .service .head .img-dimen {
+   width : 65px;
+   height: 55px;
+}
+
+.provisioned-services .service .body .col-80 {
+    display: inline-block;
+    width: 80%;
+    padding: 0 20px;
+    /*border-right: 1px solid #bbcfda;*/
+}
+
+.provisioned-services .service .body .uom-color {
+    color: #56638a;
+    font-weight: bolder;
 }

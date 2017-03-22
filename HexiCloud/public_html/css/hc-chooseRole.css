@@ -188,7 +188,7 @@ and open the template in the editor.
     /*    height: 40px;*/
     border: #00758f 1px solid;
     border-radius: 20px;
-    margin: 20px 0px 20px 0px;
+    margin: 20px 10px 20px 0px;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
@@ -325,6 +325,7 @@ hr{
     margin-bottom: 18px;
     text-align: center;
 }
+
 .addAnother-page p.lg {
     font-size: 22px;
     line-height: 32px;
@@ -333,4 +334,9 @@ hr{
 
 .disable-train-selection {
     pointer-events: none;
+}
+
+.video-link-container-lg {
+    display: block;
+    margin-left: 45px;
 }

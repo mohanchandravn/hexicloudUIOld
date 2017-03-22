@@ -73,7 +73,27 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
             } else if (serverType === 'JCS') {
                 return 'green';
             } else {
-                return 'purple';
+                //Changing it to blue as all the IAAS will be blue
+                return 'blue';
+            }
+        };
+        
+        self.getIcon = function(serverType) {
+            if (serverType.toLowerCase().indexOf("compute") >= 0) {
+                return 'img/compute_w_72.png';
+            } else if (serverType.toLowerCase().indexOf("storage") >= 0) {
+                return 'img/storage_w_72.png';
+            } else if (serverType.toLowerCase().indexOf("network") >= 0) {
+                return 'img/network_w_72.png';
+            } else if (serverType.toLowerCase().indexOf("container") >= 0) {
+                return 'img/Container_w_72.png';
+            } else if (serverType.toLowerCase().indexOf("ravello") >= 0) {
+                 return 'img/Ravello_w_72.png';
+            } else if (serverType.toLowerCase().indexOf("cloud machine") >= 0) {
+                return 'img/CloudMachine_w_72.png';
+            } 
+            else {
+               return 'img/compute_w_72.png';
             }
         };
         
@@ -82,8 +102,8 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
             console.log(status);
             var array = [];
 //            self.serviceItems(data.services);var array = [];
-            self.allServiceItems(data.services);
-            $.each(data.services, function(idx, serviceItem) {
+            self.allServiceItems(data);
+            $.each(data, function(idx, serviceItem) {
                 if (idx < 4) {
                     array.push(serviceItem);
                 }
@@ -99,7 +119,8 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         
         self.handleAttached = function () {
 //            slideInAnimate(500, 0);
-            service.getServiceItems().then(populateUI, FailCallBackFn);
+//            service.getServiceItems().then(populateUI, FailCallBackFn);
+              service.getUserClmData(loggedInUser()).then(populateUI, FailCallBackFn);
         };
         
         self.handleTransitionCompleted = function () {
