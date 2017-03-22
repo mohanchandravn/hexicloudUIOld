@@ -32,9 +32,12 @@ and open the template in the editor.
                         <div class="body">
                             <div class="col-80">
                                 <!-- ko foreach: details -->
-                                    <p class="text-center"><span class="uom-color" data-bind="text: quantity"></span>&nbsp;<span data-bind="text: uom"></span></p>
+                                <p class="text-center"><span class="uom-color" data-bind="text: quantity"></span>&nbsp;<span data-bind="text: uom"></span></p>
                                 <!-- /ko -->
-                                 <a data-bind="click: $parent.openServiceDetail">View More</a>
+                                <div class="oj-sm-align-self-center">
+                                    <a class="view-more-button oj-sm-6" data-bind="click: $parent.openServiceDetail">View More</a>
+                                    <!--                                 <a data-bind="click: $parent.openServiceDetail">View More</a>-->
+                                </div>
                             </div>
                             <!--                            <div class="col-60">
                                                             <p class="instances"><span data-bind="text: instancesCount"></span></p>
