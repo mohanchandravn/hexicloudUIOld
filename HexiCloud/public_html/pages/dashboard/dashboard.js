@@ -79,7 +79,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         self.openServiceDetail = function(data, event) {
             console.log(data);
             console.log(event);
-            var serverType = data.serverType.toLowerCase();
+            var serverType = data.service.toLowerCase();
             console.log(serverType);
             
             var successCbFn = function(data, status) {
