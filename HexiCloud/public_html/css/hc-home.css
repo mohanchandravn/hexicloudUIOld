@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 .home-page {
-    margin-top: 10px;
+    padding: 10px;
 }
 
 .home-page .ring img {
@@ -116,8 +116,8 @@ and open the template in the editor.
 }
 
 .home-page .welcome-description hr {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 /*.home-page .welcome-description p {
