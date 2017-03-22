@@ -356,7 +356,8 @@ and open the template in the editor.
 }
 
 .servicesMini-page .panel-label {
-    padding: 0px 25px 0px 25px
+    padding: 0px 25px 0px 25px;
+    color: #324b5c;
 }
 
 .servicesMini-page .icon-custom {
