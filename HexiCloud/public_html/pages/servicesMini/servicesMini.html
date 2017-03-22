@@ -79,10 +79,13 @@ and open the template in the editor.
     <div class="oj-flex-item">
         <div class="oj-flex oj-flex-items-pad oj-sm-justify-content-center">
             
-            <!-- ko if: showSupportPanel() && viewportSize() !== 'SM' -->
+            <!-- ko if: showSupportPanel() -->
             <div class="oj-flex-item oj-md-8">
                 <h1 class="text-center">Please contact us to resolve your issue</h1>
             </div>
+            <!-- /ko -->
+            
+            <!-- ko if: showSupportPanel() && viewportSize() !== 'SM' -->
             <div class="oj-flex-item oj-sm-12">
                 <div class="oj-flex oj-flex-items-pad oj-md-justify-content-center">
                     <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact">
