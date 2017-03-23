@@ -24,6 +24,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         self.showSupportPanel = ko.observable(false);
         self.serviceItems = ko.observableArray([]);
         self.allServiceItems = ko.observableArray([]);
+        self.noServices = ko.observable(false);
 
         self.goToDashboard = function () {
             isLoggedInUser(true);
@@ -103,12 +104,19 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
             var array = [];
 //            self.serviceItems(data.services);var array = [];
             self.allServiceItems(data);
-            $.each(data, function(idx, serviceItem) {
-                if (idx < 4) {
-                    array.push(serviceItem);
-                }
-            });
-            self.serviceItems(array);
+            if (self.allServiceItems()) {
+                $.each(data, function(idx, serviceItem) {
+                    if (idx < 4) {
+                        array.push(serviceItem);
+                    }
+                });
+                self.serviceItems(array); 
+            } else {
+                self.showSupportPanel(true);
+                self.servicesAsExpected(false);
+                self.noServices(true);
+            }
+           
         };
         
         self.openAllServices = function(data, event) {

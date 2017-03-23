@@ -267,7 +267,7 @@ hr{
     padding: 9px 30px;
     display: inline-block;
     text-align: center;
-    height: 54px;
+    /*height: 54px;*/
     border-radius: 27px;
     margin: 20px;
     opacity: 0.65;
