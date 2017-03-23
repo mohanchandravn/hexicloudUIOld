@@ -15,9 +15,9 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
     function dashboardContentViewModel(params) {
         var self = this;
         var router = params.ojRouter.parentRouter;
-        
+
         console.log('dashboard page');
-        
+
         self.serviceItems = ko.observableArray([]);
         self.allServiceItems = ko.observableArray([]);
         self.selectedServiceItem = ko.observable();
@@ -27,9 +27,10 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         self.pdfSrc = ko.observable();
         self.detailsContentMaxHeight = ko.observable(0);
         self.selectedItemBenefitsArray = ko.observableArray([]);
-          self.noServices = ko.observable(false);
-        
-        self.getClass = function(serverType) {
+        self.noServices = ko.observable(false);
+        self.hsaServiceBenefits = ko.observable(false);
+
+        self.getClass = function (serverType) {
             if (serverType === 'COMPUTE') {
                 return 'blue';
             } else if (serverType === 'JCS') {
@@ -38,8 +39,8 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
                 return 'purple';
             }
         };
-        
-        self.getIcon = function(serverType) {
+
+        self.getIcon = function (serverType) {
             if (serverType.toLowerCase().indexOf("compute") >= 0) {
                 return 'img/compute_w_72.png';
             } else if (serverType.toLowerCase().indexOf("storage") >= 0) {
@@ -49,15 +50,14 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             } else if (serverType.toLowerCase().indexOf("container") >= 0) {
                 return 'img/Container_w_72.png';
             } else if (serverType.toLowerCase().indexOf("ravello") >= 0) {
-                 return 'img/Ravello_w_72.png';
+                return 'img/Ravello_w_72.png';
             } else if (serverType.toLowerCase().indexOf("cloud machine") >= 0) {
                 return 'img/CloudMachine_w_72.png';
-            } 
-            else {
-               return 'img/compute_w_72.png';
+            } else {
+                return 'img/compute_w_72.png';
             }
         };
-        
+
         function populateUI(data, status) {
             console.log(data);
             console.log(status);
@@ -66,7 +66,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
 //            self.serviceItems(data.services);var array = [];
             self.allServiceItems(data);
             if (self.allServiceItems()) {
-                $.each(data, function(idx, serviceItem) {
+                $.each(data, function (idx, serviceItem) {
                     if (length < serviceItem.details.length) {
                         length = serviceItem.details.length;
                     }
@@ -79,55 +79,69 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             } else {
                 self.noServices(true);
             }
-        };
-        
-        self.openAllServices = function(data, event) {
+        }
+        ;
+
+        self.openAllServices = function (data, event) {
             console.log('opening all service items..');
             self.serviceItems(self.allServiceItems());
             $(".open-all-services-btn").hide();
         };
-        
-        self.openServiceDetail = function(data, event) {
+
+        self.openServiceDetail = function (data, event) {
             console.log(data);
             console.log(event);
             var serverType = data.service.toLowerCase();
             console.log(serverType);
-            
-            var successCbFn = function(data, status) {
+
+            var successCbFn = function (data, status) {
                 console.log(data);
-                self.selectedItemTitle(data.Service.title);
-                self.selectedItemSubTitle(data.Service.subTitle);
-                self.benefitsTitle(data.Service.Benefits.title);
-                self.pdfSrc(data.Service.FeaturesLink);
-                self.selectedItemBenefitsArray(data.Service.Benefits.benefitsList);
-                console.log(self.selectedItemTitle());
-                console.log(self.selectedItemSubTitle());
-                console.log(self.benefitsTitle());
-                console.log(self.pdfSrc());
-                console.log(self.selectedItemBenefitsArray());
                 self.selectedServiceItem(serverType);
-                
+                if (status !== 'nocontent') {
+                    self.hsaServiceBenefits(true);
+                    self.selectedItemTitle(data.Service.title);
+                    self.selectedItemSubTitle(data.Service.subTitle);
+                    self.benefitsTitle(data.Service.Benefits.title);
+                    self.pdfSrc(data.Service.FeaturesLink);
+                    self.selectedItemBenefitsArray(data.Service.Benefits.benefitsList);
+                    console.log(self.selectedItemTitle());
+                    console.log(self.selectedItemSubTitle());
+                    console.log(self.benefitsTitle());
+                    console.log(self.pdfSrc());
+                    console.log(self.selectedItemBenefitsArray());
+                    
+                    
+                } else {
+                    self.selectedItemTitle('Coming Soon');
+                    self.selectedItemSubTitle('');
+                    self.benefitsTitle('');
+                    self.pdfSrc('');
+                    self.hsaServiceBenefits(false);
+                    self.selectedItemBenefitsArray([]);
+                }
+
+
                 $('html, body').animate({
-                scrollTop: $($('#serviceBenfits')).offset().top
-            }, 500);
+                    scrollTop: $($('#serviceBenfits')).offset().top
+                }, 500);
             };
-            
+
             service.getServiceDetails(serverType).then(successCbFn, FailCallBackFn);
-            
-             
+
+
         };
-        
-        self.onClickFeedback = function()
+
+        self.onClickFeedback = function ()
         {
-            if(selectedTemplate() === "")
+            if (selectedTemplate() === "")
             {
                 selectedTemplate('email_content')
             }
             $("#tech_support").slideToggle();
         };
 
-              
-        self.handleAttached = function() {
+
+        self.handleAttached = function () {
 //            service.getServiceItems().then(populateUI, FailCallBackFn);
             service.getUserClmData(loggedInUser()).then(populateUI, FailCallBackFn);
         };
@@ -136,7 +150,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             // scroll the whole window to top if it's scroll position is not on top
             $(window).scrollTop(0);
         };
-  }
-    
+    }
+
     return dashboardContentViewModel;
 });
