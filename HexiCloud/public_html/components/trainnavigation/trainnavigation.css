@@ -22,6 +22,11 @@
     background-color: #00758f !important;
 }*/
 
+.oj-train-button.oj-default {
+    border-color: #FFFFFF;
+    background-color: #FFFFFF;
+}
+
 .ox-prompt-train .oj-train-connector-fill{
     background-color: #f80000 !important;
     /*background-color: #00758f !important;*/
