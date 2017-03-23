@@ -37,10 +37,19 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
         self.savedStep = ko.observable("chooseRole");
 
         self.handleBindingsApplied = function () {
-
             $("#iDomain").on('keyup paste cut', function () {
                 var iDomain = $(this).val();
                 return self.isIDomainActive(iDomain.length > 0);
+            });
+            $("#username").keypress(function (e) {
+                if (e.keyCode === 13 && self.userName() !== undefined) {
+                    $("#password").focus();
+                }
+            });
+            $("#password").keypress(function (e) {
+                if (e.keyCode === 13) {
+                    self.login();
+                }
             });
         };
 

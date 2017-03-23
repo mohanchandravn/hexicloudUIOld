@@ -43,7 +43,7 @@ and open the template in the editor.
                             <p class="metered" data-bind="text: serviceType === '' ? '&nbsp;' : serviceType"></p>
                             <h4 data-bind="text: service"></h4>
                         </div>
-                        <div class="body">
+                        <div class="body" data-bind="css: 'row-count-' + $parent.detailsContentMaxHeight()">
                             <div class="col-80">
                                 <!-- ko foreach: details -->
                                 <p class="text-center"><span class="uom-color" data-bind="text: quantity"></span>&nbsp;<span data-bind="text: uom"></span></p>

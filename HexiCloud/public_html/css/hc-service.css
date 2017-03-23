@@ -87,8 +87,6 @@ and open the template in the editor.
     background-color: #253741;
 }
 
-
-
 .mini-services-scroll-container {
     /*height: 400px;*/
     overflow: auto;
@@ -233,6 +231,26 @@ and open the template in the editor.
     padding: 20px 0 20px 0;
 }
 
+.provisioned-services .service .row-count-1 {
+    min-height: 119px;
+    box-sizing: border-box;
+}
+
+.provisioned-services .service .row-count-2 {
+    min-height: 152px;
+    box-sizing: border-box;
+}
+
+.provisioned-services .service .row-count-3 {
+    min-height: 185px;
+    box-sizing: border-box;
+}
+
+.provisioned-services .service .row-count-4 {
+    min-height: 218px;
+    box-sizing: border-box;
+}
+
 .provisioned-services .service .body .col-60 {
     display: inline-block;
     width: 40%;
@@ -343,6 +361,24 @@ and open the template in the editor.
         border-radius: 21px;
         margin: 14px auto;
         min-width: 200px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .servicesMini-page {
+        padding: 0px 10px 10px 10px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    .servicesMini-page {
+        padding: 0px 120px 10px 10px;
+    }
+}
+
+@media screen and (min-width: 1281px) {
+    .servicesMini-page {
+        padding: 0px 120px 20px 120px;
     }
 }
 

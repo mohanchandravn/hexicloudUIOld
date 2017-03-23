@@ -65,12 +65,14 @@ and open the template in the editor.
     padding: 10px;
 
 }
+
 .chooseRoleContainer h2{
     color: #00758f;
     font-size: 36px;
     padding: 0 50px;
     text-align: center;
 }
+
 .chooseRoleContainer .header-border-top {
     border-top: 1px solid #b1c7d2;
 }
@@ -92,6 +94,20 @@ and open the template in the editor.
     color: #00758f;
     font-size: 18px;
     margin-bottom: 20px;
+}
+
+.chooseRole-page .oj-messaging-inline-container .oj-message.oj-message-error {
+     background-color: transparent; 
+     border-color: transparent; 
+}
+.chooseRole-page .oj-messaging-inline-container .oj-message {
+     padding: 0px; 
+     border-style: none; 
+     border-width: 0px; 
+}
+.chooseRole-page .oj-message-detail {
+    color: red;
+    white-space: normal;
 }
 
 @media only screen and (max-width: 480px){

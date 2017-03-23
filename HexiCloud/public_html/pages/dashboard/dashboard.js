@@ -25,6 +25,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         self.selectedItemSubTitle = ko.observable();
         self.benefitsTitle = ko.observable();
         self.pdfSrc = ko.observable();
+        self.detailsContentMaxHeight = ko.observable(0);
         self.selectedItemBenefitsArray = ko.observableArray([]);
           self.noServices = ko.observable(false);
         
@@ -61,19 +62,23 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             console.log(data);
             console.log(status);
             var array = [];
+            var length = 0;
 //            self.serviceItems(data.services);var array = [];
             self.allServiceItems(data);
             if (self.allServiceItems()) {
                 $.each(data, function(idx, serviceItem) {
+                    if (length < serviceItem.details.length) {
+                        length = serviceItem.details.length;
+                    }
                     if (idx < 4) {
                         array.push(serviceItem);
                     }
                 });
-                self.serviceItems(array); 
+                self.detailsContentMaxHeight(length);
+                self.serviceItems(array);
             } else {
                 self.noServices(true);
             }
-           
         };
         
         self.openAllServices = function(data, event) {

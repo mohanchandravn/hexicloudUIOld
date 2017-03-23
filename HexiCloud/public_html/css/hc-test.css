@@ -50,9 +50,10 @@ and open the template in the editor.
     margin-bottom: 5px;
 }
 
-/*.heading-type4 {
-    font-size: 22px;
-}*/
+.label-text {
+    font-size: 18px;
+    color: #4e5052;
+}
 
 .normal-text {
     font-size: 14px;

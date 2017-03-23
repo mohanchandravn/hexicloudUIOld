@@ -21,8 +21,8 @@
             <p>Aliquam iaculis, nisl a molestie suscipit, diam lectus finibus metus, sed euismod ligula elit sed tortor. Sed ut libero dapibus, maximus est ut, scelerisque dui.</p>
            
         </div>-->
-    <div class="oj-flex-item oj-sm-12">
-        <div class="oj-flex oj-sm-justify-content-center">
+    <div class="oj-flex-item oj-sm-12" data-bind="css: viewportSize() !== 'SM' ? 'oj-margin-lg-top' : ''">
+        <div class="oj-margin-lg-top oj-flex oj-sm-justify-content-center">
             <div class="oj-flex-item oj-lg-4 oj-sm-12">
                 <div class="oj-flex oj-sm-justify-content-center">
                     <div data-bind="click: onClickAddUser ,text: addButtonLabel, css: viewportSize() !== 'SM' ? 'oj-margin-lg-end' : ''" class="red-button oj-lg-9 oj-sm-10 oj-flex-item"></div>

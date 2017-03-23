@@ -51,7 +51,7 @@ and open the template in the editor.
 
 @media screen and (min-width: 1281px) {
     .dashboard {
-        margin: 0px 120px 20px 120px;
+        padding: 0px 120px 20px 120px;
     }
 }
 

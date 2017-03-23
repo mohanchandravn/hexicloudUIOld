@@ -22,7 +22,7 @@
     </div>
     <div class="oj-margin oj-sm-12 oj-md-10 oj-lg-8 oj-flex-item">
         <div class="oj-sm-justify-content-center oj-flex">
-            <label for="chooseRole" class="normal-text">Please choose your role:</label>
+            <label for="chooseRole" class="label-text">Please choose your role:</label>
             <select id="chooseRole" class="chooseRoleCombobox"
                                 data-bind="css: viewportSize() !== 'SM' ? 'oj-margin-start' : '',
                                            ojComponent: {
@@ -32,7 +32,9 @@
                                             placeholder: 'Please choose the role..',
                                             required: true,
                                             invalidComponentTracker: tracker,
-                                            rootAttributes: {style:'max-width:20em'}}">
+                                            rootAttributes: {style:'max-width:20em; height: 60px;'},
+                                            translations: {'required': {
+                                                                         messageDetail: 'Please select the role'}}}">
             </select>
         </div>
         <div class="oj-sm-justify-content-flex-end oj-flex">
