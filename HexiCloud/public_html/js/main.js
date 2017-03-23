@@ -50,10 +50,10 @@ requirejs.config({
  * objects in the callback
  */
 
-require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknockout',
+require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/errorHandler', 'ojs/ojknockout',
     'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule', 'ojs/ojmoduleanimations', 'ojs/ojanimation', 'ojs/ojoffcanvas',
 'components/techsupport/loader'],
-        function (oj, ko, $, sessionInfo)
+        function (oj, ko, $, sessionInfo, errorHandler)
         {
             var self = this;
 
@@ -227,6 +227,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
 
                 self.FailCallBackFn = function (xhr) {
                     console.log(xhr);
+                    errorHandler.showAppError("ERROR_GENERIC", xhr);
                 };
 
                 self.dashboardServices = ko.observableArray([]);
