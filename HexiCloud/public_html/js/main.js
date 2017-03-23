@@ -114,7 +114,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 'addAdditionalUsers': {label: 'Add Another', value: getPath('addAnother')},
                 'createUsers': {label: 'Add Users Tutorial', value: getPath('addUsersTutorial')},
                 'techSupport': {label: 'Techical Support', value: getPath('techSupport')},
-                'useCases': {label: 'Use Cases', value: getPath('useCases')}
+                'useCases': {label: 'Use Cases', value: getPath('useCases')},
+                'error': {label: 'Error', value: getPath('error')}
             });
                 
             function viewModel() {

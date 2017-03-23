@@ -1,0 +1,51 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 22, 2017, 6:33:08 PM
+    Author     : nithin
+*/
+
+.error-msg-container {
+    background-color: #FFFFFF;
+    font-size: 0.9rem;
+    text-align: left;
+    padding-top: 20px;
+    height: 1000px;
+    width: 100%;
+    text-align: center;
+}
+
+.error-msg-icon {
+    background-image: url(../img/alert.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: 40px;
+    -moz-background-size: 40px;
+    -o-background-size: 40px;
+    background-size: 40px;
+    width: 45px;
+    height: 45px;
+    display: block;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.error-msg-heading {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.error-msg {
+    padding: 20px 0px 30px 0px;
+}
+
+.error-msg-main-text {
+    font-size: 16px;
+}
+
+.btn-go-to-home {
+    width: 250px;  
+}
