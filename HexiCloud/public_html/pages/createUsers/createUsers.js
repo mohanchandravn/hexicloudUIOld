@@ -7,8 +7,8 @@
 /**
  * login module
  */
-define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojaccordion', 'ojs/ojcollapsible'
-], function (ko, service, $) {
+define(['knockout', 'config/serviceConfig', 'jquery', 'js/util/errorHandler', 'ojs/ojcore', 'ojs/ojaccordion', 'ojs/ojcollapsible'
+], function (ko, service, $, errorHandler) {
     /**
      * The view model for the main content view template
      */
@@ -132,6 +132,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojaccor
         
         var getFileDetailsFailFn = function(xhr) {
             console.log(xhr);
+            errorHandler.showAppError("ERROR_GENERIC", xhr);
         };
         
         self.goToServices = function(data, event) {

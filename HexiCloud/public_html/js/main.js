@@ -50,10 +50,10 @@ requirejs.config({
  * objects in the callback
  */
 
-require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknockout',
+require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/errorHandler', 'ojs/ojknockout',
     'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule', 'ojs/ojmoduleanimations', 'ojs/ojanimation', 'ojs/ojoffcanvas',
 'components/techsupport/loader'],
-        function (oj, ko, $, sessionInfo)
+        function (oj, ko, $, sessionInfo, errorHandler)
         {
             var self = this;
 
@@ -114,7 +114,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
                 'addAdditionalUsers': {label: 'Add Another', value: getPath('addAnother')},
                 'createUsers': {label: 'Add Users Tutorial', value: getPath('addUsersTutorial')},
                 'techSupport': {label: 'Techical Support', value: getPath('techSupport')},
-                'useCases': {label: 'Use Cases', value: getPath('useCases')}
+                'useCases': {label: 'Use Cases', value: getPath('useCases')},
+                'error': {label: 'Error', value: getPath('error')}
             });
                 
             function viewModel() {
@@ -155,9 +156,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
 
                 self.slideInEffect = ko.observable('slideIn');
                 self.slideOutEffect = ko.observable('slideOut');
-                if (self.isLoggedInUser()) {
-                    $('#bgvid').remove();
-                }
+
 
                 self.showHeaderNav = ko.computed(function () {
                     var id = router.currentState().id;
@@ -226,6 +225,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknocko
 
                 self.FailCallBackFn = function (xhr) {
                     console.log(xhr);
+                    errorHandler.showAppError("ERROR_GENERIC", xhr);
                 };
 
                 self.dashboardServices = ko.observableArray([]);

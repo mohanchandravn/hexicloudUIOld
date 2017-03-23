@@ -108,7 +108,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                             self.loginFailureText("");
                             // service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn);
                             // Hardcoding for the demo
-                            $('#bgvid').remove();
+                            
                             if (self.userName().toLowerCase() === 'fred' || self.userName().toLowerCase() === 'simon') {
                                 router.go('dashboard/');
                             } else {
@@ -142,7 +142,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         loggedInUserRole(data.userRole);
                         self.savedStep(data.curStepCode);
                     }
-                    $('#bgvid').remove();
+                    
                     router.go(self.savedStep() + '/');
                 };
                 

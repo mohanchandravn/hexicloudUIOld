@@ -7,8 +7,8 @@
 /**
  * login module
  */
-define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojinputtext'
-], function (ko, service, $) {
+define(['knockout', 'config/serviceConfig', 'js/util/errorHandler', 'jquery', 'ojs/ojcore', 'ojs/ojinputtext'
+], function (ko, service, $, errorHandler) {
     /**
      * The view model for the main content view template
      */
@@ -45,6 +45,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojinput
         
         var failCallBackFn = function(xhr) {
             console.log(xhr);
+            errorHandler.showAppError("ERROR_GENERIC", xhr);
         };
             
         self.submitSR = function() {

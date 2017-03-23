@@ -47,7 +47,7 @@ div i {
 }
 
 
-video#bgvid {
+/*video#bgvid {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -60,9 +60,9 @@ video#bgvid {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    /*background: url(bg.jpg) no-repeat;*/
+    background: url(bg.jpg) no-repeat;
     background-size: cover;
-}
+}*/
 
 /*.home span.lg {
     font-size: 22px;
