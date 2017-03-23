@@ -283,7 +283,7 @@ p.lg {
 
 .mainBackGroundImage {
     margin:0 auto;
-    background-image:url('../img/bg-image.jpg');
+    background-image:url('../img/desktop-background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -292,7 +292,7 @@ p.lg {
 }
 @media only screen and (min-width: 1280px) {
     .mainBackGroundImage {
-        background-image:url('../img/bg-image-xs.jpg');
+        background-image:url('../img/desktop-background.jpg');
         /*background-color: #335C62 !important;*/
     }
 }

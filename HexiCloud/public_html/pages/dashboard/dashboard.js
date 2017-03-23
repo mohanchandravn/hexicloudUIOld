@@ -101,9 +101,15 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
                 console.log(self.pdfSrc());
                 console.log(self.selectedItemBenefitsArray());
                 self.selectedServiceItem(serverType);
+                
+                $('html, body').animate({
+                scrollTop: $($('#serviceBenfits')).offset().top
+            }, 500);
             };
             
             service.getServiceDetails(serverType).then(successCbFn, FailCallBackFn);
+            
+             
         };
         
         self.onClickFeedback = function()
