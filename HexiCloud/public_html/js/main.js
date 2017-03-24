@@ -167,6 +167,18 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
 //                    }
                     return (id === 'dashboard' || id === 'useCases') ? '' : 'visibility-hidden';
                 });
+                
+                self.showPreloader = function() {
+                    $("#preloader").removeClass("oj-sm-hide");
+                    $("#routingContainer").css("pointer-events", "none");
+                    $("#routingContainer").css("opacity", "0.5");
+                };
+                
+                self.hidePreloader = function() {
+                    $("#preloader").addClass("oj-sm-hide");
+                    $("#routingContainer").css("pointer-events", "");
+                    $("#routingContainer").css("opacity", "");
+                };
 
                 self.screenRange = oj.ResponsiveKnockoutUtils.createScreenRangeObservable();
                 self.viewportSize = ko.computed(function () {
