@@ -8,22 +8,22 @@ and open the template in the editor.
     <div class="oj-sm-12 oj-flex-item">
         <!--<a id="navClose" data-bind="click: toggleLeft"><i class="material-icons">close</i></a>-->
         <ul class="nav-list">
-            <li id="dashboard" data-bind="click: routeTo">
+            <li id="dashboard" data-bind="click: routeToDashboard, css: isDashboardSelected() === true?currentSelectedCss: ''">
                 <div class="oj-flex-bar">
                     <div class="oj-flex-bar-start"><i class="material-icons">home</i><span>Dashboard</span></div>
                 </div>
             </li>
-            <li id="useCases" data-bind="click: routeTo">
+            <li id="useCases" data-bind="click: routeToUsecase,css: isUseCaseSelected() === true ? currentSelectedCss: ''">
                 <div class="oj-flex-bar">
                     <div class="oj-flex-bar-start"><span>Use Cases</span></div>
                 </div>
             </li>
-            <li id="resources">
+            <li id="resources" data-bind="click: routeToResources,css: isResourceSelected() === true ? currentSelectedCss: ''">
                 <div class="oj-flex-bar">
                     <div class="oj-flex-bar-start"><span>Resources</span></div>
                 </div>
             </li>
-            <li>
+            <li data-bind="css: isContactSelected() === true ? currentSelectedCss: ''">
                 <div class="oj-flex-bar" data-bind="click: toggleContactType">
                     <div class="oj-flex-bar-start"><span>Contact</span></div>
                     <div class="oj-flex-bar-end"><i id="contactToggle" class="material-icons">keyboard_arrow_down</i></div>
@@ -50,9 +50,9 @@ and open the template in the editor.
                     </ul>
                 </div>
             </li>
-            <li id="logout" data-bind="click: capturedEvent">
+            <li id="logout">
                 <div class="oj-flex-bar">
-                    <div class="oj-flex-bar-start"><span><a style="color: #324b5c;" data-bind="click: logout">Logout</a></span></div>
+                    <div class="oj-flex-bar-start"><span><a data-bind="click: logout">Logout</a></span></div>
                 </div>
             </li>
         </ul>
