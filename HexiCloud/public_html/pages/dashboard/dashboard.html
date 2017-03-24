@@ -43,27 +43,17 @@ and open the template in the editor.
                             <p class="metered" data-bind="text: serviceType === '' ? '&nbsp;' : serviceType"></p>
                             <h4 data-bind="text: service"></h4>
                         </div>
-                        <div class="body" data-bind="css: 'row-count-' + $parent.detailsContentMaxHeight()">
-                            <div class="col-80">
+                        <div class="body oj-flex" data-bind="css: 'row-count-' + $parent.detailsContentMaxHeight()">
+                            <div class="oj-sm-12 oj-flex-item">
                                 <!-- ko foreach: details -->
                                 <p class="text-center"><span class="uom-color" data-bind="text: quantity"></span>&nbsp;<span data-bind="text: uom"></span></p>
                                 <!-- /ko -->
+                            </div>
+                            <div class="oj-sm-align-self-flex-end oj-sm-12 oj-flex-item">
                                 <div class="oj-sm-justify-content-center oj-flex">
-                                    <a class="view-more-button oj-sm-6" data-bind="click: $parent.openServiceDetail">View More</a>
-                                    <!--                                 <a data-bind="click: $parent.openServiceDetail">View More</a>-->
+                                    <a class="view-more-button oj-sm-6 oj-flex-item" data-bind="click: $parent.openServiceDetail">View More</a>
                                 </div>
                             </div>
-                            <!--                            <div class="col-60">
-                                                            <p class="instances"><span data-bind="text: instancesCount"></span></p>
-                                                            <p class="text-center oj-sm-justify-content-center oj-flex" data-bind="text: 'Instances ' + state"></p>
-                                                        </div>
-                                                        <div class="col-40">
-                                                            <p><span data-bind="text: OCPUCount"></span> OCPU</p>
-                                                            <p><span data-bind="text: memoryAmount"></span> GB Memory</p>
-                                                            <p><span data-bind="text: storageAmount"></span> GB Storage</p>
-                                                            <a data-bind="click: $parent.openServiceDetail">View More</a>
-                                                        </div>-->
-                            <!--<img src="img/graph-green.png">-->
                         </div>
                     </div>
                 </div>

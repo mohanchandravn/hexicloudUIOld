@@ -19,8 +19,23 @@ and open the template in the editor.
                 </div>
             </li>
             <li id="resources">
-                <div class="oj-flex-bar">
+                <div class="oj-flex-bar" data-bind="click: toggleResourcesType">
                     <div class="oj-flex-bar-start"><span>Resources</span></div>
+                    <div class="oj-flex-bar-end"><i id="resourcesToggle" class="material-icons">keyboard_arrow_down</i></div>
+                </div>
+                <div class="oj-sm-12 oj-flex-item">
+                    <ul id="resourcesType" class="nav-list oj-sm-hide">
+                        <li class="sub-nav">
+                            <div class="sub-nav-content oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center" >
+                                <div class="oj-flex-item"><span>Get Started</span></div>
+                            </div>
+                        </li>
+                        <li class="sub-nav">
+                            <div class="sub-nav-content oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center" >
+                                <div class="oj-flex-item"><span>FAQ's</span></div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </li>
             <li>
@@ -41,6 +56,7 @@ and open the template in the editor.
                                 <div class="oj-flex-item"><i class="material-icons left">phone</i></div>
                                 <div class="oj-flex-item"><span>Call</span></div>
                             </div>
+                        </li>
                         <li id="chat" class="sub-nav" data-bind="click: capturedEvent">
                             <div class="sub-nav-content oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center" >
                                 <div class="oj-flex-item"><i class="material-icons left">chat</i></div>

@@ -253,6 +253,16 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                     }
                 };
 
+                self.toggleResourcesType = function () {
+                    if ($("#resourcesType").hasClass("oj-sm-hide")) {
+                        $("#resourcesType").removeClass("oj-sm-hide");
+                        $("#resourcesToggle").text("keyboard_arrow_up");
+                    } else {
+                        $("#resourcesType").addClass("oj-sm-hide");
+                        $("#resourcesToggle").text("keyboard_arrow_down");
+                    }
+                };
+
                 self.toggleLeft = function () {
                     if ($("#navigationDrawerLeft").hasClass('oj-offcanvas-open')) {
                         oj.OffcanvasUtils.close(navigationDrawerLeft);
