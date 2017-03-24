@@ -122,20 +122,18 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
                 }
 
                 hidePreloader();
+                
+                // scroll the benefits conteiner to top including header
                 $('html, body').animate({
-                    scrollTop: $($('#serviceBenfits')).offset().top
+                    scrollTop: $('#serviceBenfits').offset().top - 80
                 }, 500);
             };
 
             service.getServiceDetails(serverType).then(successCbFn, FailCallBackFn);
-
-
         };
 
-        self.onClickFeedback = function ()
-        {
-            if (selectedTemplate() === "")
-            {
+        self.onClickFeedback = function () {
+            if (selectedTemplate() === "") {
                 selectedTemplate('email_content')
             }
             $("#tech_support").slideToggle();
