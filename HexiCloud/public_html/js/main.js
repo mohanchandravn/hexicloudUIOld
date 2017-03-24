@@ -236,6 +236,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                 };
 
                 self.FailCallBackFn = function (xhr) {
+                    hidePreloader();
                     console.log(xhr);
                     errorHandler.showAppError("ERROR_GENERIC", xhr);
                 };

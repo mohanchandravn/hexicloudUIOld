@@ -89,6 +89,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         };
 
         self.openServiceDetail = function (data, event) {
+            showPreloader();
             console.log(data);
             console.log(event);
             var serverType = data.service.toLowerCase();
@@ -120,7 +121,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
                     self.selectedItemBenefitsArray([]);
                 }
 
-
+                hidePreloader();
                 $('html, body').animate({
                     scrollTop: $($('#serviceBenfits')).offset().top
                 }, 500);
