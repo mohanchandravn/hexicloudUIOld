@@ -109,11 +109,11 @@ and open the template in the editor.
             <!-- ko if: showSupportPanel() && viewportSize() !== 'SM' -->
             <div class="oj-flex-item oj-sm-12">
                 <div class="oj-flex oj-flex-items-pad oj-md-justify-content-center">
-                    <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact">
+                    <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact opacity-half">
                         <img src="img/call.png" class="img-responsive" data-bind="click: displayCall">
                         <h4>Coming Soon</h4>
                     </div>
-                    <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact" data-bind="click: displayChat">
+                    <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact opacity-half" data-bind="click: displayChat">
                         <img src="img/chat.png" class="img-responsive">
                         <h4>Coming Soon</h4>
                     </div>
@@ -129,10 +129,10 @@ and open the template in the editor.
             <!-- ko if: showSupportPanel() && viewportSize() === 'SM' -->
             <div class="oj-flex-item align-content-center support-panel-container">
                 <div class="oj-flex-item">
-                    <a data-bind="click: displayChat">
+                    <a class="opacity-half" data-bind="click: displayChat">
                         <i id="chatIcon" class="material-icons icon-custom" style="opacity: 1;">chat</i>
                     </a>
-                    <a data-bind="click: displayCall">
+                    <a class="opacity-half" data-bind="click: displayCall">
                         <i id="callIcon" class="material-icons icon-custom" style="opacity: 1;">phone</i>
                     </a>
                     <a data-bind="click: displayMail">
@@ -140,8 +140,8 @@ and open the template in the editor.
                     </a>
                 </div> 
                 <div class="oj-flex-item support-panel-label-container">
-                    <span class="panel-label" data-bind="click: displayChat">Chat</span>
-                    <span class="panel-label" data-bind="click: displayCall">Phone</span>
+                    <span class="panel-label opacity-half" data-bind="click: displayChat">Chat</span>
+                    <span class="panel-label opacity-half" data-bind="click: displayCall">Phone</span>
                     <span class="panel-label" data-bind="click: displayMail">Email</span>
                 </div>
             </div>

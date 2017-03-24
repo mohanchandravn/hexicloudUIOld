@@ -28,6 +28,10 @@ define(['ojs/ojcore',
             self.welcomeUserMessage(self.welcomeUserMessage() + userFirstLastName());
         }
         
+        function init() {
+            hidePreloader();
+        }
+        
         self._showComponentValidationErrors = function (trackerObj) {
             trackerObj.showMessages();
             if (trackerObj.focusOnFirstInvalid()) {
@@ -35,7 +39,7 @@ define(['ojs/ojcore',
             }
             return true;
         };
-
+        
         self.roleSelected = function () {
             // Validations
             var trackerObj = ko.utils.unwrapObservable(self.tracker);
@@ -74,6 +78,8 @@ define(['ojs/ojcore',
             // scroll the whole window to top if it's scroll position is not on top
             $(window).scrollTop(0);
         };
+        
+        init();
     }
 
     return ChooseRoleViewModel;

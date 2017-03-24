@@ -79,8 +79,8 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             } else {
                 self.noServices(true);
             }
-        }
-        ;
+            hidePreloader();
+        };
 
         self.openAllServices = function (data, event) {
             console.log('opening all service items..');
@@ -89,6 +89,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         };
 
         self.openServiceDetail = function (data, event) {
+            showPreloader();
             console.log(data);
             console.log(event);
             var serverType = data.service.toLowerCase();
@@ -120,21 +121,19 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
                     self.selectedItemBenefitsArray([]);
                 }
 
-
+                hidePreloader();
+                
+                // scroll the benefits conteiner to top including header
                 $('html, body').animate({
-                    scrollTop: $($('#serviceBenfits')).offset().top
+                    scrollTop: $('#serviceBenfits').offset().top - 80
                 }, 500);
             };
 
             service.getServiceDetails(serverType).then(successCbFn, FailCallBackFn);
-
-
         };
 
-        self.onClickFeedback = function ()
-        {
-            if (selectedTemplate() === "")
-            {
+        self.onClickFeedback = function () {
+            if (selectedTemplate() === "") {
                 selectedTemplate('email_content')
             }
             $("#tech_support").slideToggle();
@@ -142,6 +141,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
 
 
         self.handleAttached = function () {
+            
 //            service.getServiceItems().then(populateUI, FailCallBackFn);
             service.getUserClmData(loggedInUser()).then(populateUI, FailCallBackFn);
         };

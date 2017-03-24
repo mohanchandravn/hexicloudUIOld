@@ -71,8 +71,8 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
         };
 
         self.login = function () {
-//            router.go('chooseRoleNew/');
-
+            showPreloader();
+            // router.go('chooseRoleNew/');
             console.log('login clicked');
             console.log(loggedInUser());
             console.log(self.restEndPoint());
@@ -80,6 +80,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
 
             // Step 1
             if (!this._showComponentValidationErrors(trackerObj)) {
+                hidePreloader();
                 return;
             }
 
@@ -120,8 +121,8 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         };
                         
                         var getUserfailCallBackFn = function (xhr) {
-                            console.log(xhr);
-                            self.loginFailureText("Invalid Username or Password");
+                            console.log(xhr);                            
+                            hidePreloader();
                         };
                         service.getUserDetails(data.userId).then(getUserSuccessCallBackFn, getUserfailCallBackFn);                        
                         
@@ -133,6 +134,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                 var failCallBackFn = function (xhr) {
                     console.log(xhr);
                     self.loginFailureText("Invalid Username or Password");
+                    hidePreloader();
                 };
                 
                 var getUserStepSuccessCallBackFn = function (data) {
