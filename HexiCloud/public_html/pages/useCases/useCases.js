@@ -55,7 +55,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             self.openUseCaseContainer();
         };
         
-        self.openUseCaseContainer = function(data, event) {
+        self.openUseCaseContainer = function(data, event) {           
             var id, useCaseCode;
             if (event === undefined) {
                 id = self.useCaseItems()[0].id;
@@ -76,6 +76,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
                 self.selectedUseCaseBenefitsArray(data.UseCase.Benefits.benefitsList);
                 self.pdfSrc(data.UseCase.FeaturesLink);
                 self.selectedUseCaseItem(id);
+                hidePreloader();
             };
             
             service.getUseCaseDetails(useCaseCode).then(successCbFn, FailCallBackFn);
@@ -87,6 +88,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         };
         
         self.handleBindingsApplied = function() {
+            showPreloader();
             service.getUseCaseItems().then(self.updateUseCaseItems, FailCallBackFn);
         };
         

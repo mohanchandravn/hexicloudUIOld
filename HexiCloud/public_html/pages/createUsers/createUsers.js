@@ -56,6 +56,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'js/util/errorhandler', 'o
             } else {
                 console.log('Content not available for the selected step');
             }
+            hidePreloader();
         };
         
         
@@ -131,11 +132,13 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'js/util/errorhandler', 'o
         };
         
         var getFileDetailsFailFn = function(xhr) {
+            hidePreloader();
             console.log(xhr);
             errorHandler.showAppError("ERROR_GENERIC", xhr);
         };
         
         self.goToServices = function(data, event) {
+            showPreloader();
             isLoggedInUser(true);
             service.updateCurrentStep({
                 "userId": loggedInUser(),
@@ -157,6 +160,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'js/util/errorhandler', 'o
 //        };
         
         self.handleAttached = function() {
+            showPreloader();
             service.getFileDetails(getStateId()).then(getFileDetailsSuccessFn, getFileDetailsFailFn);
         };
     }

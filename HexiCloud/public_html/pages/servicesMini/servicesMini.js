@@ -28,6 +28,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         self.detailsContentMaxHeight = ko.observable(0);
 
         self.goToDashboard = function () {
+            showPreloader();
             isLoggedInUser(true);
 //            setTimeout(function () {
                 service.updateCurrentStep({
@@ -120,6 +121,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
             } else {
                 self.noServices(true);
             }
+            hidePreloader();
         };
         
         self.openAllServices = function(data, event) {
@@ -129,9 +131,10 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         };
         
         self.handleAttached = function () {
-//            slideInAnimate(500, 0);
-//            service.getServiceItems().then(populateUI, FailCallBackFn);
-              service.getUserClmData(loggedInUser()).then(populateUI, FailCallBackFn);
+            showPreloader();
+            // slideInAnimate(500, 0);
+            // service.getServiceItems().then(populateUI, FailCallBackFn);
+            service.getUserClmData(loggedInUser()).then(populateUI, FailCallBackFn);
         };
         
         self.handleTransitionCompleted = function () {

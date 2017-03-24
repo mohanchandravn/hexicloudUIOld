@@ -141,7 +141,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
 
 
         self.handleAttached = function () {
-            
+            showPreloader();
 //            service.getServiceItems().then(populateUI, FailCallBackFn);
             service.getUserClmData(loggedInUser()).then(populateUI, FailCallBackFn);
         };

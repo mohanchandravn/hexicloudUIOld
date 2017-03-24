@@ -36,19 +36,23 @@ define(['knockout', 'config/serviceConfig', 'js/util/errorhandler', 'jquery', 'o
             });
         };
         
-        var successCallBackFn = function(data, status) {
+        var successCallBackFn = function(data, status) {            
             console.log(data);
             console.log(status);
             self.detailsOfSR(data);
             self.statusOfSR(true);
+            hidePreloader();
         };
         
         var failCallBackFn = function(xhr) {
+            hidePreloader();
             console.log(xhr);
             errorHandler.showAppError("ERROR_GENERIC", xhr);
         };
             
         self.submitSR = function() {
+            showPreloader();
+            
             isLoggedInUser(true);
             if (self.isValid()) {
                 service.submitSR({

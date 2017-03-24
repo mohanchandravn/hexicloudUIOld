@@ -30,14 +30,17 @@ define(['ojs/ojcore',
         
         self.onClickGetForgotPwdSubmit = function ()
         {
-             $('#invaliduserid').hide();
+            showPreloader();
+            
+            $('#invaliduserid').hide();
             var trackerObj = ko.utils.unwrapObservable(self.tracker);
 
             // Step 1
-            if (!this._showComponentValidationErrors(trackerObj))
-            {
+            if (!this._showComponentValidationErrors(trackerObj)) {
+                hidePreloader();
                 return;
             }
+            
             serviceConfig.forgotPasswordService(self.userName()).then(handleForgotPwdServiceSuccess, handleForgotPwdServiceFailure);
             
         };
@@ -54,12 +57,13 @@ define(['ojs/ojcore',
                $('#invaliduserid').show();
                  
             }
+            hidePreloader();
         };
         
         var handleForgotPwdServiceFailure = function (xhr)
-        {
-            
+        {            
             self.templateId('forgotPwdFailure');
+            hidePreloader();
         };
         
         
