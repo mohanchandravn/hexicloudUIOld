@@ -50,7 +50,7 @@ requirejs.config({
  * objects in the callback
  */
 
-require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/errorHandler', 'ojs/ojknockout',
+require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/errorhandler', 'ojs/ojknockout',
     'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule', 'ojs/ojmoduleanimations', 'ojs/ojanimation', 'ojs/ojoffcanvas',
 'components/techsupport/loader'],
         function (oj, ko, $, sessionInfo, errorHandler)
