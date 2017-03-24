@@ -61,6 +61,10 @@ navigationbarright {
     opacity: 0.5;
 }
 
+.opacity-half {
+    opacity: 0.5;
+}
+
 .service-item-threshold-width {
     min-width: 280px;
 }
