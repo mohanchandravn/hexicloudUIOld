@@ -50,9 +50,9 @@ requirejs.config({
  * objects in the callback
  */
 
-require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/errorHandler', 'ojs/ojknockout',
+require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/errorhandler', 'ojs/ojknockout',
     'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule', 'ojs/ojmoduleanimations', 'ojs/ojanimation', 'ojs/ojoffcanvas',
-'components/techsupport/loader'],
+    'components/techsupport/loader'],
         function (oj, ko, $, sessionInfo, errorHandler)
         {
             var self = this;
@@ -90,7 +90,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                     return "pages/learning/" + path;
                 else
                     return "pages/" + path + "/" + path;
-            };
+            }
+            ;
 
             router.configure({
                 'home': {label: 'Home', value: getPath('home'), isDefault: true},
@@ -117,7 +118,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                 'useCases': {label: 'Use Cases', value: getPath('useCases')},
                 'error': {label: 'Error', value: getPath('error')}
             });
-                
+
             function viewModel() {
                 self.router = router;
 //                var customAnimation = oj.ModuleAnimations.createAnimation(
@@ -127,16 +128,16 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
 //                var moduleConfig = $.extend(true, {}, router.moduleConfig, {params: {
 //                        'rootData': {}}});
                 var moduleConfig = $.extend(true, {}, router.moduleConfig,
-                                                {params: { 'rootData': {}}},
-                                                {animation: oj.ModuleAnimations['pushStart']
-                });
+                        {params: {'rootData': {}}},
+                        {animation: oj.ModuleAnimations['pushStart']
+                        });
                 self.moduleConfig = moduleConfig;
-                
+
                 // Redirect to login page if JWT token is expired
                 var currentTime = (new Date).getTime();
                 var accessTokenSetTime = Number(sessionInfo.getFromSession(sessionInfo.accessTokenSetTime));
                 var accessTokenExpireTime = Number(sessionInfo.getFromSession(sessionInfo.expiresIn)) * 1000; // Convert to milliseconds
-                if ( (currentTime - accessTokenSetTime) >= accessTokenExpireTime && router.stateId() !== 'home' ) {
+                if ((currentTime - accessTokenSetTime) >= accessTokenExpireTime && router.stateId() !== 'home') {
                     sessionInfo.removeAllFromSession(); // Clear session attributes
                     router.go('home');
                 }
@@ -153,6 +154,11 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                 self.userFirstLastName = ko.observable(sessionInfo.getFromSession(sessionInfo.userFirstLastName));
                 self.userClmRegistryId = ko.observable(sessionInfo.getFromSession(sessionInfo.userClmRegistryId));
                 self.isChatInitialized = ko.observable(false);
+                self.isDashboardSelected = ko.observable(true);
+                self.isUseCaseSelected = ko.observable(false);
+                self.isResourceSelected = ko.observable(false);
+                self.isContactSelected = ko.observable(false);
+                self.currentSelectedCss = "selectedList";
 
                 self.slideInEffect = ko.observable('slideIn');
                 self.slideOutEffect = ko.observable('slideOut');
@@ -186,15 +192,15 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                     console.log(range.toUpperCase());
                     return range.toUpperCase();
                 });
-                
-                self.isScreenSMorMD = ko.computed(function() {
+
+                self.isScreenSMorMD = ko.computed(function () {
                     return (self.viewportSize() === "SM" || self.viewportSize() === "MD");
                 });
-                
-                self.isScreenLGorXL = ko.computed(function() {
+
+                self.isScreenLGorXL = ko.computed(function () {
                     return (self.viewportSize() === "LG" || self.viewportSize() === "XL");
                 });
-                
+
                 self.slideInAnimate = function (duration, delay) {
                     if (self.slideInEffect() && oj.AnimationUtils[self.slideInEffect()]) {
                         var jElem = $('.' + self.getStateId() + '-page');
@@ -244,6 +250,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                 self.dashboardServices = ko.observableArray([]);
 
                 self.toggleContactType = function () {
+                    self.clearSelectedList();
+                    self.isContactSelected(true);
                     if ($("#contactType").hasClass("oj-sm-hide")) {
                         $("#contactType").removeClass("oj-sm-hide");
                         $("#contactToggle").text("keyboard_arrow_up");
@@ -273,19 +281,50 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                     window.scrollTo(0, 0);
                     return (oj.OffcanvasUtils.open(navigationDrawerLeft));
                 };
+                
+                self.routeToDashboard = function (data, event)
+                {
+                    routeTo(data,event);
+                    self.isDashboardSelected(true);
+                };
+                
+                self.routeToUsecase = function (data, event)
+                {
+                    routeTo(data,event);
+                    self.isUseCaseSelected(true);
+                };
+                
+                self.routeToResources = function (data, event)
+                {
+                    //routeTo(data,event);
+                    self.clearSelectedList();
+                    self.isResourceSelected(true);
+                };
+                
 
-                self.routeTo = function (data, event) {
+
+                var routeTo = function (data, event) {
                     console.log(event.currentTarget.id);
+                    self.clearSelectedList();
                     router.go(event.currentTarget.id + '/');
                     self.toggleLeft();
                 };
+
+                self.clearSelectedList = function ()
+                {
+                    self.isDashboardSelected(false);
+                    self.isUseCaseSelected(false);
+                    self.isResourceSelected(false);
+                    self.isContactSelected(false);
+                };
+                
 
                 self.capturedEvent = function (data, event) {
                     // Clear session attributes on user logout
                     if (event.currentTarget.id === 'logout') {
                         sessionInfo.removeAllFromSession();
                     }
-                    
+
                     self.toggleContactType();
                     self.toggleLeft();
                     selectedTemplate(event.currentTarget.id + '_content');
@@ -299,6 +338,11 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                     sessionInfo.removeFromSession(sessionInfo.userFirstLastName);
                     sessionInfo.removeFromSession(sessionInfo.userClmRegistryId);
                     self.toggleLeft();
+                    $("#tech_support").hide();
+                    self.isDashboardSelected(true);
+                    self.isUseCaseSelected(false);
+                    self.isResourceSelected(false);
+                    self.isContactSelected(false);
                     router.go('home/');
                 };
 
@@ -308,7 +352,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                     }
 //                    self.autoAlignContent();
                 });
-                
+
                 self.selectedTemplate = ko.observable('');
 
                 self.references = {

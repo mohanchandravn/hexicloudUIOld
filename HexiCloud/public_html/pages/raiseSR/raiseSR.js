@@ -7,7 +7,7 @@
 /**
  * login module
  */
-define(['knockout', 'config/serviceConfig', 'js/util/errorHandler', 'jquery', 'ojs/ojcore', 'ojs/ojinputtext'
+define(['knockout', 'config/serviceConfig', 'js/util/errorhandler', 'jquery', 'ojs/ojcore', 'ojs/ojinputtext'
 ], function (ko, service, $, errorHandler) {
     /**
      * The view model for the main content view template

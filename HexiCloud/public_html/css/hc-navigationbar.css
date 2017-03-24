@@ -9,7 +9,8 @@ and open the template in the editor.
 */
 
 navigationbarleft {
-    background-color: rgba(216, 225, 229, 0.9);
+/*    background-color: rgba(216, 225, 229, 0.9);*/
+    background-color: rgb(255,255,255);
 }
     
 .chat-window {
@@ -79,6 +80,47 @@ navigationbarleft {
     box-sizing: border-box;
     cursor: pointer;
 }
+
+.nav-list li:visited{
+    background-color: #dc0404;
+}
+
+.nav-list li:hover{
+    background-color: #f80000;
+}
+
+.nav-list li:active{
+    background-color: #dc0404;
+}
+
+.nav-list .selectedList{
+    background-color: #dc0404;
+    color: rgb(255,255,255);
+}
+
+
+
+
+.nav-list li:active span{
+    color: rgb(255,255,255);
+}
+
+.nav-list li:hover span{
+    color: rgb(255,255,255);
+}
+
+.nav-list li a {
+    color: #324b5c;
+}
+
+.nav-list li:active a{
+    color: rgb(255,255,255);
+}
+
+.nav-list li:hover a{
+    color: rgb(255,255,255);
+}
+
 
 .nav-list li i {
     font-size: 28px !important;
