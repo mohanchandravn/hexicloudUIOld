@@ -79,8 +79,8 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             } else {
                 self.noServices(true);
             }
-        }
-        ;
+            hidePreloader();
+        };
 
         self.openAllServices = function (data, event) {
             console.log('opening all service items..');
@@ -142,6 +142,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
 
 
         self.handleAttached = function () {
+            
 //            service.getServiceItems().then(populateUI, FailCallBackFn);
             service.getUserClmData(loggedInUser()).then(populateUI, FailCallBackFn);
         };
