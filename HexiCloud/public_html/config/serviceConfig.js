@@ -180,27 +180,6 @@ define(['knockout', 'jquery', 'config/sessionInfo', 'ojs/ojrouter'
             return $.when(defer);
         };
 
-        self.getUserDetails = function (userId) {
-            var defer = $.Deferred();
-            var serverURL = self.portalRestHost() + "hexiCloudRestSecured/services/rest/getUserDetails/" + userId + "/";
-            $.ajax({
-                type: "GET",
-                url: serverURL,
-                beforeSend: function(request) {
-                    request.setRequestHeader("Authorization", "Bearer " + sessionInfo.getFromSession(sessionInfo.accessToken));
-                },
-                success: function (data, textStatus, xhr) {
-                    console.log('Successfully posted data at: ' + serverURL);
-                    defer.resolve(data, {status: xhr.status});
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    console.log("Error posting data to the service : " + serverURL);
-                    defer.reject(xhr);
-                }
-            });
-            return $.when(defer);
-        };
-
         self.getUserClmData = function (userId) {
             var defer = $.Deferred();
             var serverURL = self.portalRestHost() + "hexiCloudRestSecured/services/rest/getClmData/" + userId + "/";

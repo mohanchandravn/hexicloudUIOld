@@ -96,35 +96,24 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         sessionInfo.setToSession(sessionInfo.isLoggedInUser, true);
                         loggedInUser(data.userId);
                         sessionInfo.setToSession(sessionInfo.loggedInUser, data.userId);
+                        loggedInUserRole(data.userRole);
+                        sessionInfo.setToSession(sessionInfo.loggedInUserRole, data.userRole);
+                        userFirstLastName(data.firstName);
+                        sessionInfo.setToSession(sessionInfo.userFirstLastName, data.firstName);
+                        userClmRegistryId(data.registryId);
+                        sessionInfo.setToSession(sessionInfo.userClmRegistryId, data.registryId);
                         self.loginFailureText("");
-                        
-                        // Get user details
-                        var getUserSuccessCallBackFn = function (data, xhrStatus) {
-                            loggedInUserRole(data.userRole);
-                            sessionInfo.setToSession(sessionInfo.loggedInUserRole, data.userRole);
-                            userFirstLastName(data.firstName);
-                            sessionInfo.setToSession(sessionInfo.userFirstLastName, data.firstName);
-                            userClmRegistryId(data.registryId);
-                            sessionInfo.setToSession(sessionInfo.userClmRegistryId, data.registryId);
-                            self.loginFailureText("");
-                            // service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn);
-                            // Hardcoding for the demo
+                        // service.getUserStep(loggedInUser()).then(getUserStepSuccessCallBackFn);
+                        // Hardcoding for the demo
                             
-                            if (self.userName().toLowerCase() === 'fred' || self.userName().toLowerCase() === 'simon') {
-                                router.go('dashboard/');
-                            } else {
-                                router.go(self.savedStep() + '/');
-                            }
-                            // setTimeout(function () {
-                            // }, 500);
-                            // slideOutAnimate(1500, 0);
-                        };
-                        
-                        var getUserfailCallBackFn = function (xhr) {
-                            console.log(xhr);                            
-                            hidePreloader();
-                        };
-                        service.getUserDetails(data.userId).then(getUserSuccessCallBackFn, getUserfailCallBackFn);                        
+                        if (self.userName().toLowerCase() === 'fred' || self.userName().toLowerCase() === 'simon') {
+                            router.go('dashboard/');
+                        } else {
+                            router.go(self.savedStep() + '/');
+                        }
+                        // setTimeout(function () {
+                        // }, 500);
+                        // slideOutAnimate(1500, 0);
                         
                     } else {
                         self.loginFailureText("Invalid Username or Password");
