@@ -21,6 +21,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknockou
 
         self.errorHeading = 'Something went wrong';
         self.errorMsg = ko.observable('');
+        self.goToHomePageHeading = 'Would you like to go back to the home page?';
         self.goToHomePage = 'Go to home page';
         
         function init() {
@@ -29,12 +30,15 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'ojs/ojknockou
         
         function initializeErrorMessages() {
             var status = parentRouter.errorData.status;
-            if (status === 401) {
+            if (status === 400) {
+                self.errorMsg('Sorry it appears that the page you are looking for is no longer available.');
+            } else if (status === 401) {
                 self.errorMsg('Unauthorized. The user does not have the necessary credentials.');
             } else if (status === 403) {
                 self.errorMsg('The request was a valid request, but the server is refusing to respond to it. The user might be logged in but does not have the necessary permissions for the resource.');
             } else if (status === 404) {
-                self.errorMsg('The requested resource could not be found but may be available in the future. Subsequent requests by the client are permissible.');
+                self.errorMsg('Sorry it appears that the page you are looking for is no longer available.');
+                // self.errorMsg('The requested resource could not be found but may be available in the future. Subsequent requests by the client are permissible.');
             } else if (status === 500) {
                 self.errorMsg('Internal Server Error.');
             } else if (status === 502) {

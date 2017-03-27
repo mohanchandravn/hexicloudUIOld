@@ -39,6 +39,7 @@ and open the template in the editor.
 }
 
 .error-msg {
+    font-weight: bold;
     padding: 20px 0px 30px 0px;
 }
 
@@ -48,4 +49,9 @@ and open the template in the editor.
 
 .btn-go-to-home {
     width: 250px;  
+}
+
+.go-to-home-heading {
+    margin-top: 5px;
+    margin-bottom: 15px;
 }

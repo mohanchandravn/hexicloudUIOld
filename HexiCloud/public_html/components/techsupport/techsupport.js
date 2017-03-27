@@ -1,7 +1,7 @@
 
-define(['ojs/ojcore', 'jquery', 'knockout', 'config/serviceConfig', 'ojs/ojinputtext', 'ojs/ojknockout-validation'], 
+define(['ojs/ojcore', 'jquery', 'knockout', 'config/serviceConfig', 'js/util/errorhandler', 'ojs/ojinputtext', 'ojs/ojknockout-validation'], 
 
-function (oj, $, ko, service) {
+function (oj, $, ko, service, errorHandler) {
 
     function techSupportViewModel(context) {
         
@@ -58,15 +58,20 @@ function (oj, $, ko, service) {
             console.log(status);
             self.detailsOfSR(data);
             self.statusOfSR(true);
+            hidePreloader();
         };
 
         var failCallBackFn = function (xhr) {
+            hidePreloader();
             console.log(xhr);
+            errorHandler.showAppError("ERROR_GENERIC", xhr);
         };
         
         self.sendEmail = function () {
+            showPreloader();
             var trackerObj = ko.utils.unwrapObservable(self.tracker);
             if (!this._showComponentValidationErrors(trackerObj)) {
+                hidePreloader();
                 return;
             }
             service.submitSR({
