@@ -256,9 +256,10 @@ p.lg {
     line-height: 3.5rem;
     cursor: pointer;
     width:100%;
-    padding: 0px 20px 0px 20px;
+    /* padding: 0px 20px 0px 20px; */
     z-index: 999;
 }
+
 .red-button:hover {
     color: #fff;
     text-decoration: none; 

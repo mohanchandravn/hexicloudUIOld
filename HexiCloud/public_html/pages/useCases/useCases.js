@@ -55,7 +55,8 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             self.openUseCaseContainer();
         };
         
-        self.openUseCaseContainer = function(data, event) {           
+        self.openUseCaseContainer = function(data, event) {    
+            showPreloader();
             var id, useCaseCode;
             if (event === undefined) {
                 id = self.useCaseItems()[0].id;
