@@ -26,6 +26,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         self.allServiceItems = ko.observableArray([]);
         self.noServices = ko.observable(false);
         self.detailsContentMaxHeight = ko.observable(0);
+        self.showViewAllButton = ko.observable(false);
 
         self.goToDashboard = function () {
             showPreloader();
@@ -115,6 +116,9 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
                     if (idx < 4) {
                         array.push(serviceItem);
                     }
+                    if (idx > 4) {
+                        self.showViewAllButton(true);
+                    }
                 });
                 self.detailsContentMaxHeight(length);
                 self.serviceItems(array);
@@ -127,7 +131,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         self.openAllServices = function(data, event) {
             console.log('opening all service items..');
             self.serviceItems(self.allServiceItems());
-            $(".open-all-services-btn").hide();
+            self.showViewAllButton(false);
         };
         
         self.handleAttached = function () {
