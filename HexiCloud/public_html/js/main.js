@@ -299,6 +299,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                     //routeTo(data,event);
                     self.clearSelectedList();
                     self.isResourceSelected(true);
+                    self.toggleResourcesType();
                 };
                 
 

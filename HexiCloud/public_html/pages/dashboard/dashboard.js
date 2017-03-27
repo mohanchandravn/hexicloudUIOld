@@ -29,6 +29,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         self.selectedItemBenefitsArray = ko.observableArray([]);
         self.noServices = ko.observable(false);
         self.hsaServiceBenefits = ko.observable(false);
+        self.showViewAllButton = ko.observable(false);
 
         self.getClass = function (serverType) {
             if (serverType === 'COMPUTE') {
@@ -73,6 +74,9 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
                     if (idx < 4) {
                         array.push(serviceItem);
                     }
+                    if (idx > 4) {
+                        self.showViewAllButton(true);
+                    }
                 });
                 self.detailsContentMaxHeight(length);
                 self.serviceItems(array);
@@ -85,7 +89,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         self.openAllServices = function (data, event) {
             console.log('opening all service items..');
             self.serviceItems(self.allServiceItems());
-            $(".open-all-services-btn").hide();
+             self.showViewAllButton(false);
         };
 
         self.openServiceDetail = function (data, event) {
