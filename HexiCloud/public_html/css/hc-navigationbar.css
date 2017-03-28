@@ -75,10 +75,19 @@ navigationbarleft {
 .nav-list li {
     font-size: 20px;
     color: #324b5c;
-    padding: 16px 30px;
+    /* padding: 16px 30px; */
     min-height: 54px;
     box-sizing: border-box;
     cursor: pointer;
+}
+
+.nav-list li .list-header {
+    padding: 16px 30px;
+}
+
+.nav-list li .list-detail {
+    background: #FFFFFF;
+    color: #333333;
 }
 
 .nav-list li:visited{
@@ -106,7 +115,7 @@ navigationbarleft {
 }
 
 .nav-list li:hover span{
-    color: rgb(255,255,255);
+    /* color: rgb(255,255,255); */
 }
 
 .nav-list li a {
@@ -153,6 +162,11 @@ navigationbarleft {
 
 .nav-list .sub-nav .sub-nav-content:hover {
     color: #ee4f50;
+}
+
+.nav-list .sub-nav {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 /*
 .navigation-left .logout span {
