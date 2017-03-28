@@ -146,7 +146,7 @@ and open the template in the editor.
 
 .provisioned-services .service {
     position: relative;
-    overflow: auto;
+    /*overflow: auto;*/
     background-color: #fff;
     margin: 50px 0;
 }
@@ -208,7 +208,7 @@ and open the template in the editor.
 
 .provisioned-services .service .head .metered {
     font-size: 14px;
-    margin: 20px 0 -5px 0;
+    margin: 30px 0 -5px 0;
     padding: 0;
 }
 
@@ -221,6 +221,7 @@ and open the template in the editor.
 
 .provisioned-services .service .head h4 {
     color: #fff;
+    font-size: 36px;
     margin: 0;
     padding: 0;
 }
@@ -372,6 +373,13 @@ and open the template in the editor.
 @media screen and (min-width: 1024px) and (max-width: 1280px) {
     .servicesMini-page {
         padding: 0px 120px 10px 10px;
+    }
+    .provisioned-services .service .head .img-dimen {
+       width : 55px !important;
+       height: 45px !important;
+    }
+    .provisioned-services .service .head .metered {
+        font-size: 12px;
     }
 }
 

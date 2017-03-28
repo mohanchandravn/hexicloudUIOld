@@ -65,10 +65,6 @@ navigationbarright {
     opacity: 0.5;
 }
 
-.service-item-threshold-width {
-    min-width: 280px;
-}
-
 .service-status-ready {
     border-bottom: 4px solid #FDAF64 !important;
 }
