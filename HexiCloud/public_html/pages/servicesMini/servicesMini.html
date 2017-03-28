@@ -81,15 +81,15 @@ and open the template in the editor.
     <div class="oj-flex-item" data-bind="visible: servicesAsExpected">
         <div class="oj-sm-justify-content-center oj-flex">
             <div class="oj-md-8 oj-flex-item">
-                <span class="heading-type2 text-center oj-flex oj-sm-justify-content-center">Please confirm if your cloud services are provisioned correctly</span>
+                <span class="heading-type2 text-center oj-flex oj-sm-justify-content-center">Please confirm if there is anything missing?</span>
             </div>
             <div class="oj-md-12 oj-lg-8 oj-flex-item">
                 <div class="text-center oj-sm-justify-content-center text-center oj-flex">
                     <div class="oj-sm-12 oj-md-5 oj-xl-4 oj-flex-item">
-                        <a class="deep-red-button" data-bind="click: goToDashboard">Yes</a>
+                        <a class="deep-red-button" data-bind="click: contactSupport">Yes</a>
                     </div>
                     <div class="oj-sm-12 oj-md-5 oj-xl-4 oj-flex-item">
-                        <a class="deep-red-button" data-bind="click: contactSupport">No</a>
+                        <a class="deep-red-button" data-bind="click: goToDashboard">No</a>
                     </div>
                 </div>
             </div>
@@ -113,10 +113,10 @@ and open the template in the editor.
                         <img src="img/call.png" class="img-responsive" data-bind="click: displayCall">
                         <h4>Coming Soon</h4>
                     </div>
-                    <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact opacity-half" data-bind="click: displayChat">
+<!--                    <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact opacity-half" data-bind="click: displayChat">
                         <img src="img/chat.png" class="img-responsive">
                         <h4>Coming Soon</h4>
-                    </div>
+                    </div>-->
                     <div class="oj-flex-item oj-md-4 oj-lg-4 oj-xl-3 contact" data-bind="click: displayMail">
                         <img src="img/email.png" class="img-responsive">
                         <h4>Email &raquo;</h4>
@@ -129,19 +129,21 @@ and open the template in the editor.
             <!-- ko if: showSupportPanel() && viewportSize() === 'SM' -->
             <div class="oj-flex-item align-content-center support-panel-container">
                 <div class="oj-flex-item">
-                    <a class="opacity-half" data-bind="click: displayChat">
+<!--                    <a class="opacity-half" data-bind="click: displayChat">
                         <i id="chatIcon" class="material-icons icon-custom" style="opacity: 1;">chat</i>
-                    </a>
+                    </a>-->
                     <a class="opacity-half" data-bind="click: displayCall">
                         <i id="callIcon" class="material-icons icon-custom" style="opacity: 1;">phone</i>
                     </a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <a data-bind="click: displayMail">
                         <i id="mailIcon" class="material-icons icon-custom" style="opacity: 1;">mail</i>
                     </a>
                 </div> 
                 <div class="oj-flex-item support-panel-label-container">
-                    <span class="panel-label opacity-half" data-bind="click: displayChat">Chat</span>
+                    <!--<span class="panel-label opacity-half" data-bind="click: displayChat">Chat</span>-->
                     <span class="panel-label opacity-half" data-bind="click: displayCall">Phone</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <span class="panel-label" data-bind="click: displayMail">Email</span>
                 </div>
             </div>

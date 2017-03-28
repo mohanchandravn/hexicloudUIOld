@@ -91,7 +91,7 @@ and open the template in the editor.
 
 .chooseRoleContainer ul li {
     list-style-type: disc;
-    color: #00758f;
+    /*color: #00758f;*/
     font-size: 18px;
     margin-bottom: 20px;
 }

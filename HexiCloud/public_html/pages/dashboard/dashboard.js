@@ -32,13 +32,14 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         self.showViewAllButton = ko.observable(false);
 
         self.getClass = function (serverType) {
-            if (serverType === 'COMPUTE') {
-                return 'blue';
-            } else if (serverType === 'JCS') {
-                return 'green';
-            } else {
-                return 'purple';
-            }
+//            if (serverType === 'COMPUTE') {
+//                return 'blue';
+//            } else if (serverType === 'JCS') {
+//                return 'green';
+//            } else {
+//                return 'purple';
+//            }
+            return 'purple';
         };
 
         self.getIcon = function (serverType) {

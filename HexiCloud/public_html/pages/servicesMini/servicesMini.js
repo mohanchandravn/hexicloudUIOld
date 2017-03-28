@@ -72,14 +72,15 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         self.actionDisabledCss = "disable-train-selection";
         
         self.getClass = function(serverType) {
-            if (serverType === 'COMPUTE') {
-                return 'blue';
-            } else if (serverType === 'JCS') {
-                return 'green';
-            } else {
-                //Changing it to blue as all the IAAS will be blue
-                return 'blue';
-            }
+//            if (serverType === 'COMPUTE') {
+//                return 'blue';
+//            } else if (serverType === 'JCS') {
+//                return 'green';
+//            } else {
+//                //Changing it to blue as all the IAAS will be blue
+//                return 'blue';
+//            }
+            return 'purple';
         };
         
         self.getIcon = function(serverType) {
