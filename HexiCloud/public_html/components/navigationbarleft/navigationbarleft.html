@@ -9,21 +9,21 @@ and open the template in the editor.
         <!--<a id="navClose" data-bind="click: toggleLeft"><i class="material-icons">close</i></a>-->
         <ul class="nav-list">
             <li id="dashboard" data-bind="click: routeToDashboard, css: isDashboardSelected() === true?currentSelectedCss: ''">
-                <div class="oj-flex-bar">
+                <div class="list-header oj-flex-bar">
                     <div class="oj-flex-bar-start"><i class="material-icons">home</i><span>Dashboard</span></div>
                 </div>
             </li>
             <li id="useCases" data-bind="click: routeToUsecase,css: isUseCaseSelected() === true ? currentSelectedCss: ''">
-                <div class="oj-flex-bar">
+                <div class="list-header oj-flex-bar">
                     <div class="oj-flex-bar-start"><span>Use Cases</span></div>
                 </div>
             </li>
             <li id="resources" data-bind="click: routeToResources,css: isResourceSelected() === true ? currentSelectedCss: ''">
-                <div class="oj-flex-bar">
+                <div class="list-header oj-flex-bar">
                     <div class="oj-flex-bar-start"><span>Resources</span></div>
                     <div class="oj-flex-bar-end"><i id="resourcesToggle" class="material-icons">keyboard_arrow_down</i></div>
                 </div>
-                <div class="oj-sm-12 oj-flex-item">
+                <div class="list-detail oj-sm-12 oj-flex-item">
                     <ul id="resourcesType" class="nav-list oj-sm-hide">
                         <li class="sub-nav">
                             <div class="sub-nav-content oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center" >
@@ -39,11 +39,11 @@ and open the template in the editor.
                 </div>
             </li>
             <li data-bind="css: isContactSelected() === true ? currentSelectedCss: ''">
-                <div class="oj-flex-bar" data-bind="click: toggleContactType">
+                <div class="list-header oj-flex-bar" data-bind="click: toggleContactType">
                     <div class="oj-flex-bar-start"><span>Contact</span></div>
                     <div class="oj-flex-bar-end"><i id="contactToggle" class="material-icons">keyboard_arrow_down</i></div>
                 </div>
-                <div class="oj-sm-12 oj-flex-item">
+                <div class="list-detail oj-sm-12 oj-flex-item">
                     <ul id="contactType" class="nav-list oj-sm-hide">
                         <li id="email" class="sub-nav" data-bind="click: capturedEvent">
                             <div class="sub-nav-content oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center" >
@@ -68,7 +68,7 @@ and open the template in the editor.
             </li>
             <li id="logout">
                 <div class="oj-flex-bar">
-                    <div class="oj-flex-bar-start"><span><a data-bind="click: logout">Logout</a></span></div>
+                    <div class="list-header oj-flex-bar-start"><span><a data-bind="click: logout">Logout</a></span></div>
                 </div>
             </li>
         </ul>
