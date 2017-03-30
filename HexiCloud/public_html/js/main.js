@@ -151,6 +151,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                 self.containerName = ko.observable(sessionInfo.getFromSession(sessionInfo.containerName));
                 self.loggedInUser = ko.observable(sessionInfo.getFromSession(sessionInfo.loggedInUser));
                 self.loggedInUserRole = ko.observable(sessionInfo.getFromSession(sessionInfo.loggedInUserRole));
+                self.phoneNumber = ko.observable(sessionInfo.getFromSession(sessionInfo.phoneNumber));
                 self.userFirstLastName = ko.observable(sessionInfo.getFromSession(sessionInfo.userFirstLastName));
                 self.userClmRegistryId = ko.observable(sessionInfo.getFromSession(sessionInfo.userClmRegistryId));
                 self.isChatInitialized = ko.observable(false);

@@ -27,6 +27,7 @@ define(['knockout', 'jquery'
         self.loggedInUser = 'loggedInUser';
         self.loggedInUserRole = 'loggedInUserRole';
         self.userFirstLastName = 'userFirstLastName';
+        self.phoneNumber = 'phoneNumber';
         self.userClmRegistryId = 'userClmRegistryId';
 
         self.getFromSession = function (key) {

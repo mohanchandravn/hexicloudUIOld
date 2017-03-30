@@ -79,11 +79,90 @@
 </script>
 
 <script type="text/html" id='phone_content'>
-    <div class= "oj-flex phoneContainer">
+    <div class= "phoneContainer oj-padding oj-flex">
         <!-- need to remove once phone functionality comes in picture -->
         <div class="oj-flex-item">
-            <div>
-                <span data-bind="text: 'COMING SOON'" style="position: absolute;top: 50%;bottom: 50%;left: 25%;color: #00758f;font-size: 30px;font-family: 'Roboto-thin', sans-serif;font-weight: 100;"></span>
+            <div class="oj-sm-justify-content-center oj-flex">
+                <span class="heading-type3 oj-sm-12 oj-flex-item" data-bind="text: 'Request a callback'"></span>
+                <!-- ko if: !isCallBackInitiated() -->
+                <div class="oj-margin-lg-top oj-flex">
+                    <!-- ko if: !changingNumber() -->
+                    <div class="oj-sm-12 oj-flex-item">
+                        <!-- ko if: phoneNumberAdded() -->
+                        <div class="oj-sm-12 oj-flex-item">
+                            <div class="oj-sm-justify-content-center oj-flex">
+                                <span class="label-text text-center" data-bind="text: 'Your Number: ' + phoneNumber()"></span>
+                                <span class="label-text text-center oj-margin-top" data-bind="text: 'Is the above phone number correct?'"></span>
+                                <span id="correctNumber" class="red-button oj-margin-end oj-sm-5 oj-flex-item" data-bind="click: changeNumber">Yes</span>
+                                <span id="wrongNumber" class="red-button oj-sm-5 oj-flex-item" data-bind="click: changeNumber">No</span>
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                        <!-- ko if: !phoneNumberAdded() -->
+                        <div class="oj-sm-12 oj-flex-item">
+                            <div class="oj-flex">
+                                <!--<span class="label-text" data-bind="text: 'Give your number: '"></span>-->
+                                <input type="text" class="heading-type4" data-bind="ojComponent: {
+                                                                component: 'ojInputText',
+                                                                value: addedPhoneNumber,
+                                                                placeholder: 'Enter your number',
+                                                                rootAttributes: {style: 'max-width:100%'}}" />
+                                <textarea rows="13"
+                                    style="resize: both;"
+                                    data-bind="ojComponent: {component: 'ojTextArea', 
+                                                        value: phoneMessage, placeholder: 'Please add a message',
+                                                        invalidComponentTracker: tracker,
+                                                        required: true,
+                                                        rootAttributes: {style:'max-width:100%'} ,
+                                                        translations: {'required': {
+                                                                      messageDetail: 'Please brief us the problem'}}
+                                                        }">
+                                </textarea>
+                                <span class="red-button oj-sm-5 oj-flex-item">Request a call</span>
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                    </div>
+                    <!-- /ko -->
+                </div>
+                <div class="oj-flex">
+                    <!-- ko if: changingNumber() -->
+                    <div class="oj-sm-12 oj-flex-item">
+                        <div class="oj-flex">
+                            <!-- ko if: !confirmedPhoneNumber() -->
+                            <!--<span class="label-text" data-bind="text: 'Give your number: '"></span>-->
+                            <input type="text" class="heading-type4" data-bind="ojComponent: {
+                                                            component: 'ojInputText',
+                                                            value: addedPhoneNumber,
+                                                            placeholder: 'Enter your number',
+                                                            rootAttributes: {style: 'max-width:100%'}}" />
+                            <!-- /ko -->
+                            <!-- ko if: confirmedPhoneNumber() -->
+                            <span class="label-text" data-bind="text: 'Your number: ' + phoneNumber()"></span>
+                            <!-- /ko -->
+                            <textarea rows="13"
+                                    style="resize: both;"
+                                    data-bind="ojComponent: {component: 'ojTextArea', 
+                                                        value: phoneMessage, placeholder: 'Please add a message',
+                                                        invalidComponentTracker: tracker,
+                                                        required: true,
+                                                        rootAttributes: {style:'max-width:100%'} ,
+                                                        translations: {'required': {
+                                                                      messageDetail: 'Please brief us the problem'}}
+                                                        }">
+                            </textarea>
+                                <span class="red-button oj-sm-12 oj-flex-item" data-bind="click: requestCallBack">Request a call</span>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <!-- ko if: isCallBackInitiated() -->
+                <div class="oj-margin-lg-vertical oj-flex">
+                    <span class="label-text text-center oj-margin-lg-bottom oj-sm-12 oj-flex-item" data-bind="text: 'Thanks for requesting a call back'"></span>
+                    <span class="label-text text-center oj-sm-12 oj-flex-item" data-bind="text: 'We\'ll get in touch with you shortly.'"></span>
+                </div>
+                <!-- /ko -->
             </div>
             <!--  need to remove once phone functionality comes in picture-->
 <!--  need to add once phone functionality comes in picture-->
@@ -110,7 +189,7 @@
     <div class= "oj-flex oj-sm-flex-direction-column chatContainer">
 <!-- need to remove once chat functionality comes in picture -->
         <div class="oj-flex-item">
-            <div>
+            <divz>
                 <span data-bind="text: 'COMING SOON'" style="position: absolute;top: 50%;bottom: 50%;left: 25%;color: #00758f;font-size: 30px;font-family: 'Roboto-thin', sans-serif;font-weight: 100;"></span>
             </div>
             <!--  need to remove once chat functionality comes in picture-->

@@ -299,6 +299,32 @@ define(['knockout', 'jquery', 'config/sessionInfo', 'ojs/ojrouter'
             });
             return $.when(defer);
         };
+
+        self.requestCallBack = function (payload) {
+            var defer = $.Deferred();
+            var serverURL = self.portalRestHost() + "hexiCloudRestSecured/services/rest/requestCallback/";
+            $.ajax({
+                type: "POST",
+                url: serverURL,
+                dataType: "json",
+                beforeSend: function(request) {
+                    request.setRequestHeader("Authorization", "Bearer " + sessionInfo.getFromSession(sessionInfo.accessToken));
+                },
+                contentType: "application/json",
+                data: payload,
+                success: function (data, textStatus, xhr) {
+                    console.log('Successfully posted data at: ' + serverURL);
+                    console.log('textStatus : ' + textStatus);
+                    console.log('Response status code : ' + xhr.status);
+                    defer.resolve(data, {status: xhr.status});
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log("Error posting data to the service : " + serverURL);
+                    defer.reject(xhr);
+                }
+            });
+            return $.when(defer);
+        };
     };
 
     return new serviceConfig();

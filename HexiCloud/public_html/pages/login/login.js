@@ -32,7 +32,6 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
         self.loginFailureText = ko.observable();
 
         self.dataCenter = ko.observable();
-        self.phoneNumber = ko.observable();
 
         self.savedStep = ko.observable("chooseRole");
 
@@ -98,6 +97,8 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                         sessionInfo.setToSession(sessionInfo.loggedInUser, data.userId);
                         loggedInUserRole(data.userRole);
                         sessionInfo.setToSession(sessionInfo.loggedInUserRole, data.userRole);
+                        phoneNumber(data.phone);
+                        sessionInfo.setToSession(sessionInfo.phoneNumber, data.phone);
                         userFirstLastName(data.firstName);
                         sessionInfo.setToSession(sessionInfo.userFirstLastName, data.firstName);
                         userClmRegistryId(data.registryId);
