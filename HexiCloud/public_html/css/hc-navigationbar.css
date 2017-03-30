@@ -94,8 +94,8 @@ navigationbarleft {
     background-color: #dc0404;
 }
 
-.nav-list li:hover{
-    background-color: #f80000;
+.nav-list li:hover{ 
+    background-color: #dc0404;
 }
 
 .nav-list li:active{
@@ -145,7 +145,7 @@ navigationbarleft {
 }
 
 .nav-list li:first-child span {
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 .nav-list li:not(:last-child) {
@@ -157,7 +157,7 @@ navigationbarleft {
 }
 
 .nav-list .sub-nav span {
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 .nav-list .sub-nav .sub-nav-content:hover {
@@ -167,6 +167,8 @@ navigationbarleft {
 .nav-list .sub-nav {
     padding-top: 15px;
     padding-bottom: 15px;
+    border-top: 1px #FFFFFF solid;
+    padding-left: 130px;
 }
 /*
 .navigation-left .logout span {
@@ -197,4 +199,8 @@ navigationbarleft {
     padding: 10px;
     cursor: pointer;
     margin-bottom: 20px;
+}
+
+.sub-nav-title {
+    color: #324b5c;
 }
