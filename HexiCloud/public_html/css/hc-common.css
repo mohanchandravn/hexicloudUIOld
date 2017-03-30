@@ -374,3 +374,7 @@ login-page video::-webkit-media-controls-start-playback-button {
 .blue-link {
     color: #00758f;
 }
+
+.margin-left-10px {
+    margin-left: 10px;
+}
