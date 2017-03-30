@@ -7,8 +7,8 @@
 /**
  * dashboard module
  */
-define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknockout', 'config/sessionInfo', 'ojs/ojprogressbar', 'ojs/ojfilmstrip', 'components/techsupport/loader'
-], function ($, ko, service) {
+define(['jquery', 'knockout', 'config/serviceConfig', 'config/sessionInfo', 'ojs/ojcore', 'ojs/ojknockout',  'ojs/ojprogressbar', 'ojs/ojfilmstrip', 'components/techsupport/loader'
+], function ($, ko, service, sessionInfo) {
     /**
      * The view model for the main content view template
      */
@@ -84,6 +84,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             } else {
                 self.noServices(true);
             }
+            
             hidePreloader();
         };
 
@@ -147,7 +148,10 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
 
         self.handleAttached = function () {
             showPreloader();
-//            service.getServiceItems().then(populateUI, FailCallBackFn);
+            
+            sessionInfo.setToSession(sessionInfo.isOnboardingComplete, true);
+            
+            // service.getServiceItems().then(populateUI, FailCallBackFn);
             service.getUserClmData(loggedInUser()).then(populateUI, FailCallBackFn);
         };
 

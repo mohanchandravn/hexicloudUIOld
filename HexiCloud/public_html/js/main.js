@@ -141,6 +141,13 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                     sessionInfo.removeAllFromSession(); // Clear session attributes
                     router.go('home');
                 }
+                
+                self.checkIfOnboardingComplete = function() {
+                    if (sessionInfo.getFromSession(sessionInfo.isOnboardingComplete)) {
+                        router.go('dashboard');
+                    }
+                }
+                self.checkIfOnboardingComplete();
 
                 self.isDomainDetailsGiven = ko.observable(false);
 

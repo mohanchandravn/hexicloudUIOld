@@ -28,6 +28,7 @@ define(['knockout', 'jquery'
         self.loggedInUserRole = 'loggedInUserRole';
         self.userFirstLastName = 'userFirstLastName';
         self.userClmRegistryId = 'userClmRegistryId';
+        self.isOnboardingComplete = 'isOnboardingComplete';
 
         self.getFromSession = function (key) {
             if (typeof (Storage) !== "undefined") {

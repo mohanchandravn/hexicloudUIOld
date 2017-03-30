@@ -17,7 +17,8 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
     /**
      * The view model for the main content view template
      */
-    function serviceContentViewModel(params) {
+    function serviceContentViewModel(params) {        
+               
         var self = this;
         var router = params.ojRouter.parentRouter;
         self.servicesAsExpected = ko.observable(true);
@@ -137,6 +138,7 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         
         self.handleAttached = function () {
             showPreloader();
+            checkIfOnboardingComplete();
             // slideInAnimate(500, 0);
             // service.getServiceItems().then(populateUI, FailCallBackFn);
             service.getUserClmData(loggedInUser()).then(populateUI, FailCallBackFn);
