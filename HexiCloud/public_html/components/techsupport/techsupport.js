@@ -34,8 +34,6 @@ function (oj, $, ko, service, errorHandler, sessionInfo) {
         });
         
         self.phoneNumberAdded = function() {
-            console.log(sessionInfo.getFromSession('loggedInUser'));
-            console.log(sessionInfo.getFromSession('phoneNumber'));
             if (sessionInfo.getFromSession('phoneNumber') !== 'null' && sessionInfo.getFromSession('phoneNumber') !== 'undefined') {
                 self.phoneNumber(sessionInfo.getFromSession('phoneNumber'));
                 self.changingNumber(false);
