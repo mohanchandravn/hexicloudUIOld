@@ -48,34 +48,17 @@ and open the template in the editor.
                         <p class="metered" data-bind="text: serviceType === '' ? '&nbsp;' : serviceType"></p>
                         <h4 data-bind="text: service"></h4>
                     </div>
-                    <div class="body" data-bind="css: 'row-count-' + $parent.detailsContentMaxHeight()">
-                        <div class="col-80">
+                    <div class="body oj-flex" data-bind="css: 'row-count-' + $parent.detailsContentMaxHeight()">
+                        <div class="oj-sm-12 oj-flex-item">
                             <!-- ko foreach: details -->
-
                             <p class="text-center"><span class="uom-color" data-bind="text: quantity"></span>&nbsp;<span data-bind="text: uom"></span></p>
-
                             <!-- /ko -->
                         </div>
-                        <!--                        <div class="col-60">
-                                                    <p class="instances"><span data-bind="text: instancesCount"></span></p>
-                                                    <p data-bind="text: 'Instances ' + state"></p>
-                                                </div>
-                                                <div class="col-40">
-                                                    <p><span data-bind="text: OCPUCount"></span> OCPU</p>
-                                                                            <p><span data-bind="text: memoryAmount"></span> GB Memory</p>
-                                                    <p><span data-bind="text: storageAmount"></span> GB Storage</p>
-                                                </div>-->
-                        <!--<img src="img/graph-green.png">-->
                     </div>
                 </div>
             </div>
             <!-- /ko -->
         </div>    
-    </div>
-    <div class="oj-flex-item" data-bind="visible: showViewAllButton">
-        <div class="oj-flex oj-sm-justify-content-flex-end">
-            <a class="deep-red-button open-all-services-btn" data-bind="click: openAllServices">View All »</a>    
-        </div>
     </div>
     <!-- /ko -->
     <div class="oj-flex-item" data-bind="visible: servicesAsExpected">
@@ -86,10 +69,10 @@ and open the template in the editor.
             <div class="oj-md-12 oj-lg-8 oj-flex-item">
                 <div class="text-center oj-sm-justify-content-center text-center oj-flex">
                     <div class="oj-sm-12 oj-md-5 oj-xl-4 oj-flex-item">
-                        <a class="deep-red-button" data-bind="click: contactSupport">Yes</a>
+                        <a class="deep-red-button" data-bind="click: contactSupport">Yes, Is Missing</a>
                     </div>
                     <div class="oj-sm-12 oj-md-5 oj-xl-4 oj-flex-item">
-                        <a class="deep-red-button" data-bind="click: goToDashboard">No</a>
+                        <a class="deep-red-button" data-bind="click: goToDashboard">No, Continue to Dashboard</a>
                     </div>
                 </div>
             </div>

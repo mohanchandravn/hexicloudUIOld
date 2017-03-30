@@ -10,8 +10,8 @@ and open the template in the editor.
 @media screen and (max-width: 320px)
 {
     .deep-red-button {
-    font-size: 20px !important;
-    padding: 16px 26px !important;
+        font-size: 20px !important;
+        padding: 16px 26px !important;
     }
 }
 
@@ -303,6 +303,11 @@ hr{
     text-decoration: none;
 }
 
+.deep-red-button:active {
+    color: #fff;
+    text-decoration: none;
+    border-radius: 27px;
+}
 .fadeIn {
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;

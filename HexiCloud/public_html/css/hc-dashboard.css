@@ -95,7 +95,12 @@ and open the template in the editor.
 
 }
 .view-more-button:hover, 
-.view-more-button:focus {
+.view-more-button:focus,
+.view-more-button:active{
     text-decoration: none;
 }
 
+.view-more-button:active {
+    color: #fff;
+    border-radius: 27px;
+}

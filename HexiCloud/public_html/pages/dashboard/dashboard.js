@@ -19,6 +19,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         console.log('dashboard page');
 
         self.serviceItems = ko.observableArray([]);
+        self.minimalServiceItems = ko.observableArray([]);
         self.allServiceItems = ko.observableArray([]);
         self.selectedServiceItem = ko.observable();
         self.selectedItemTitle = ko.observable();
@@ -29,7 +30,9 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
         self.selectedItemBenefitsArray = ko.observableArray([]);
         self.noServices = ko.observable(false);
         self.hsaServiceBenefits = ko.observable(false);
+        self.showControlsButton = ko.observable(false);
         self.showViewAllButton = ko.observable(false);
+        self.showViewLessButton = ko.observable(false);
 
         self.getClass = function (serverType) {
 //            if (serverType === 'COMPUTE') {
@@ -65,7 +68,6 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             console.log(status);
             var array = [];
             var length = 0;
-//            self.serviceItems(data.services);var array = [];
             self.allServiceItems(data);
             if (self.allServiceItems()) {
                 $.each(data, function (idx, serviceItem) {
@@ -76,21 +78,31 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
                         array.push(serviceItem);
                     }
                     if (idx > 4) {
+                        self.showControlsButton(true);
                         self.showViewAllButton(true);
                     }
                 });
                 self.detailsContentMaxHeight(length);
+                self.minimalServiceItems(array);
                 self.serviceItems(array);
             } else {
                 self.noServices(true);
             }
             hidePreloader();
         };
-
-        self.openAllServices = function (data, event) {
+        
+        self.openMinimalServices = function(data, event) {
+            console.log('opening all service items..');
+            self.serviceItems(self.minimalServiceItems());
+            self.showViewLessButton(false);
+            self.showViewAllButton(true);
+        };
+        
+        self.openAllServices = function(data, event) {
             console.log('opening all service items..');
             self.serviceItems(self.allServiceItems());
-             self.showViewAllButton(false);
+            self.showViewAllButton(false);
+            self.showViewLessButton(true);
         };
 
         self.openServiceDetail = function (data, event) {

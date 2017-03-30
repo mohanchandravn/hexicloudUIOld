@@ -23,7 +23,6 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         self.servicesAsExpected = ko.observable(true);
         self.showSupportPanel = ko.observable(false);
         self.serviceItems = ko.observableArray([]);
-        self.allServiceItems = ko.observableArray([]);
         self.noServices = ko.observable(false);
         self.detailsContentMaxHeight = ko.observable(0);
         self.showViewAllButton = ko.observable(false);
@@ -64,11 +63,11 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         };
         
         self.currentStepValue = ko.observable('stp3');
-        self.stepsArray =
-                ko.observableArray(
-                        [{label: 'Choose Role', id: 'stp1'},
-                            {label: 'Add Users', id: 'stp2'},
-                            {label: 'Services', id: 'stp3'}]);
+        self.stepsArray =ko.observableArray([
+            {label: 'Choose Role', id: 'stp1'},
+            {label: 'Add Users', id: 'stp2'},
+            {label: 'Services', id: 'stp3'}
+        ]);
         self.actionDisabledCss = "disable-train-selection";
         
         self.getClass = function(serverType) {
@@ -105,34 +104,19 @@ define(['knockout', 'config/serviceConfig', 'jquery', 'ojs/ojcore', 'ojs/ojprogr
         function populateUI(data, status) {
             console.log(data);
             console.log(status);
-            var array = [];
             var length = 0;
-//            self.serviceItems(data.services);var array = [];
-            self.allServiceItems(data);
-            if (self.allServiceItems()) {
+            if (data) {
                 $.each(data, function(idx, serviceItem) {
                     if (length < serviceItem.details.length) {
                         length = serviceItem.details.length;
                     }
-                    if (idx < 4) {
-                        array.push(serviceItem);
-                    }
-                    if (idx > 4) {
-                        self.showViewAllButton(true);
-                    }
                 });
                 self.detailsContentMaxHeight(length);
-                self.serviceItems(array);
+                self.serviceItems(data);
             } else {
                 self.noServices(true);
             }
             hidePreloader();
-        };
-        
-        self.openAllServices = function(data, event) {
-            console.log('opening all service items..');
-            self.serviceItems(self.allServiceItems());
-            self.showViewAllButton(false);
         };
         
         self.handleAttached = function () {
