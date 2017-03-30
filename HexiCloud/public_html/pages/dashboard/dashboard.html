@@ -60,9 +60,12 @@ and open the template in the editor.
                 <!-- /ko -->
             </div>    
         </div>
-        <div class="oj-flex-item"  data-bind="visible: showViewAllButton">
-            <div class="oj-flex oj-sm-justify-content-flex-end">
+        <div class="oj-flex-item" data-bind="visible: showControlsButton">
+            <div class="oj-flex oj-sm-justify-content-flex-end" data-bind="visible: showViewAllButton">
                 <a class="deep-red-button open-all-services-btn" data-bind="click: openAllServices">View All »</a>    
+            </div>
+            <div class="oj-flex oj-sm-justify-content-flex-end" data-bind="visible: showViewLessButton">
+                <a class="deep-red-button open-all-services-btn" data-bind="click: openMinimalServices">Show less »</a>    
             </div>
         </div>
         <!-- /ko -->
