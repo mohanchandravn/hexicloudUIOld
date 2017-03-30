@@ -17,11 +17,11 @@ define(['ojs/ojcore',
         self.welcomeUserMessage = ko.observable("Welcome ");
         self.selectedRole = ko.observable();
         self.allRolesList = ko.observableArray([
-            {value: 'IT Manager', label: 'IT Manager'},
+            {value: 'IT Production Manager', label: 'IT Production Manager'},
             {value: 'DBA', label: 'DBA'},
             {value: 'IT Operations', label: 'IT Operations'},
             {value: 'Developer', label: 'Developer'},
-            {value: 'Business User', label: 'Business User'}
+            {value: 'Other', label: 'Other'}
         ]);
         
         if (loggedInUser()) {
