@@ -73,7 +73,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
         };
         
         self.isLoggedinTrue = function() {
-            clearInterval(self.interval());
 //            setTimeout(function(){
                 router.go('login/');
 //            }, 500);
@@ -96,6 +95,10 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
             self.interval = ko.observable(setInterval(function() {
                 self.changeFilmStripValue();
             }, 3000));
+        };
+        
+        self.handleDetached = function() {
+            clearInterval(self.interval());
         };
     }
     

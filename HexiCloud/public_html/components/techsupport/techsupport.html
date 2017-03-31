@@ -91,7 +91,7 @@
                         <!-- ko if: phoneNumberAdded() -->
                         <div class="oj-sm-12 oj-flex-item">
                             <div class="oj-sm-justify-content-center oj-flex">
-                                <span class="label-text text-center" data-bind="text: 'Your Number: ' + phoneNumber()"></span>
+                                <span class="label-text text-center" data-bind="text: 'Your number: ' + phoneNumber()"></span>
                                 <span class="label-text text-center oj-margin-top" data-bind="text: 'Is the above phone number correct?'"></span>
                                 <span id="correctNumber" class="red-button oj-margin-end oj-sm-5 oj-flex-item" data-bind="click: changeNumber">Yes</span>
                                 <span id="wrongNumber" class="red-button oj-sm-5 oj-flex-item" data-bind="click: changeNumber">No</span>
@@ -105,15 +105,18 @@
                                 <input type="text" class="heading-type4" data-bind="ojComponent: {
                                                                 component: 'ojInputText',
                                                                 value: addedPhoneNumber,
-                                                                placeholder: 'Enter your number',
-                                                                rootAttributes: {style: 'max-width:100%'}}" />
-                                <textarea rows="13"
-                                    style="resize: both;"
+                                                                invalidComponentTracker: tracker,
+                                                                required: true,
+                                                                placeholder: 'Enter your phone number',
+                                                                rootAttributes: {style: 'max-width:100%'},
+                                                                translations: {'required': {
+                                                                              messageDetail: 'Please enter your phone number'}}}" />
+                                <textarea rows="10"
                                     data-bind="ojComponent: {component: 'ojTextArea', 
                                                         value: phoneMessage, placeholder: 'Please add a message',
                                                         invalidComponentTracker: tracker,
                                                         required: true,
-                                                        rootAttributes: {style:'max-width:100%'} ,
+                                                        rootAttributes: {style:'max-width:100%'},
                                                         translations: {'required': {
                                                                       messageDetail: 'Please brief us the problem'}}
                                                         }">
@@ -134,19 +137,22 @@
                             <input type="text" class="heading-type4" data-bind="ojComponent: {
                                                             component: 'ojInputText',
                                                             value: addedPhoneNumber,
-                                                            placeholder: 'Enter your number',
-                                                            rootAttributes: {style: 'max-width:100%'}}" />
+                                                            invalidComponentTracker: tracker,
+                                                            required: true,
+                                                            placeholder: 'Enter your phone number',
+                                                            rootAttributes: {style: 'max-width:100%'}},
+                                                            translations: {'required': {
+                                                                          messageDetail: 'Please enter your phone number'}}" />
                             <!-- /ko -->
                             <!-- ko if: confirmedPhoneNumber() -->
                             <span class="label-text" data-bind="text: 'Your number: ' + phoneNumber()"></span>
                             <!-- /ko -->
-                            <textarea rows="13"
-                                    style="resize: both;"
+                            <textarea rows="10"
                                     data-bind="ojComponent: {component: 'ojTextArea', 
                                                         value: phoneMessage, placeholder: 'Please add a message',
                                                         invalidComponentTracker: tracker,
                                                         required: true,
-                                                        rootAttributes: {style:'max-width:100%'} ,
+                                                        rootAttributes: {style:'max-width:100%'},
                                                         translations: {'required': {
                                                                       messageDetail: 'Please brief us the problem'}}
                                                         }">
