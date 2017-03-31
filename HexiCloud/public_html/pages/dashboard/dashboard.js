@@ -152,7 +152,7 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'config/sessionInfo', 'ojs
 
         self.onClickFeedback = function () {
             if (selectedTemplate() === "") {
-                selectedTemplate('email_content')
+                selectedTemplate('email_content');
             }
             $("#tech_support").slideToggle();
         };

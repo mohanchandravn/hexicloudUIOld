@@ -33,8 +33,20 @@ function (oj, $, ko, service, errorHandler, sessionInfo) {
             }
         });
         
+        self.viewCallContent = function () {
+            self.selectedTemplate('phone_content');
+        };
+
+        self.viewChatContent = function () {
+            self.selectedTemplate('chat_content');
+        };
+
+        self.viewMailContent = function () {
+            self.selectedTemplate('email_content');
+        };
+        
         self.phoneNumberAdded = function() {
-            if (sessionInfo.getFromSession('phoneNumber') !== 'null' && sessionInfo.getFromSession('phoneNumber') !== 'undefined') {
+            if (sessionInfo.getFromSession('phoneNumber') !== 'null') {
                 self.phoneNumber(sessionInfo.getFromSession('phoneNumber'));
                 self.changingNumber(false);
                 return true;
@@ -71,42 +83,47 @@ function (oj, $, ko, service, errorHandler, sessionInfo) {
             
             showPreloader();
             
-            if (self.changingNumber() || !self.phoneNumberAdded()) {
-                var trackerObj = ko.utils.unwrapObservable(self.tracker);
-                if (!this._showComponentValidationErrors(trackerObj)) {
-                    hidePreloader();
-                    return;
-                }
-                sessionInfo.setToSession(sessionInfo.phoneNumber, self.addedPhoneNumber());
+            var trackerObj = ko.utils.unwrapObservable(self.tracker);
+            if (!this._showComponentValidationErrors(trackerObj)) {
+                hidePreloader();
+                return;
             }
             
+            if (!self.confirmedPhoneNumber() || !self.phoneNumberAdded()) {
+                sessionInfo.setToSession(sessionInfo.phoneNumber, self.addedPhoneNumber());
+            }            
+//            if () {
+//                sessionInfo.setToSession(sessionInfo.phoneNumber, self.addedPhoneNumber());
+//            }
+            
+            var phone = sessionInfo.getFromSession('phoneNumber');
             var payload = {
                 "userId" : sessionInfo.getFromSession('loggedInUser'),
-                "phone" : sessionInfo.getFromSession('phoneNumber'),
+                "phone" : phone === 'undefined' ? null : phone,
                 "message" : self.phoneMessage()
             };
-            debugger;
             service.requestCallBack(JSON.stringify(payload)).then(requestCallbackSuccessCbFn, requestCallbackFailCbFn);
         };
 
-        self.viewCallContent = function () {
-            self.selectedTemplate('phone_content');
+        self.resetAndClosePhone = function () {
+//            self.phoneNumber("");
+            self.addedPhoneNumber("");
+            self.phoneMessage("");
+            self.changingNumber(false);
+            self.isCallBackInitiated(false);
+            console.log(self.phoneNumber());
+            console.log(self.phoneMessage());
+            console.log(self.changingNumber());
+            console.log(self.isCallBackInitiated());
         };
-
-        self.viewChatContent = function () {
-            self.selectedTemplate('chat_content');
-        };
-
-        self.viewMailContent = function () {
-            self.selectedTemplate('email_content');
-        };
-
+        
         self.closeTechSupportLayout = function () {
             self.emailSubject("");
             self.emailMessage("");
             self.detailsOfSR("");
             self.statusOfSR(false);
             self.changingNumber(false);
+            self.resetAndClosePhone();
             $('#tech_support').hide();
         };
 

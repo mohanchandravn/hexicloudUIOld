@@ -349,6 +349,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                     self.isResourceSelected(false);
                     self.isContactSelected(false);
                     router.go('home/');
+                    location.reload();
                 };
 
                 $(window).resize(function () {

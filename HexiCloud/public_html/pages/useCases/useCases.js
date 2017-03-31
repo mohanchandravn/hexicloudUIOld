@@ -93,9 +93,10 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'ojs/ojcore', 'ojs/ojknock
             service.getUseCaseItems().then(self.updateUseCaseItems, FailCallBackFn);
         };
         
-        self.onClickFeedback = function()
-        {
-            selectedTemplate('chat_content');
+        self.onClickFeedback = function() {
+            if (selectedTemplate() === "") {
+                selectedTemplate('email_content');
+            }
             $("#tech_support").slideToggle();
         };
   }
