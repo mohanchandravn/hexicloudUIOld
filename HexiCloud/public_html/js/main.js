@@ -146,7 +146,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                     if (sessionInfo.getFromSession(sessionInfo.isOnboardingComplete)) {
                         router.go('dashboard');
                     }
-                }
+                };
                 self.checkIfOnboardingComplete();
 
                 self.isDomainDetailsGiven = ko.observable(false);
@@ -341,11 +341,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                 };
 
                 self.logout = function (data, event) {
-                    sessionInfo.removeFromSession(sessionInfo.isLoggedInUser);
-                    sessionInfo.removeFromSession(sessionInfo.loggedInUser);
-                    sessionInfo.removeFromSession(sessionInfo.loggedInUserRole);
-                    sessionInfo.removeFromSession(sessionInfo.userFirstLastName);
-                    sessionInfo.removeFromSession(sessionInfo.userClmRegistryId);
+                    sessionInfo.removeAllFromSession();
                     self.toggleLeft();
                     $("#tech_support").hide();
                     self.isDashboardSelected(true);
