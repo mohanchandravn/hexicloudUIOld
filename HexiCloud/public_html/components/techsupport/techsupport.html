@@ -99,7 +99,32 @@
                         <!-- ko if: !phoneNumberAdded() -->
                         <div class="oj-sm-12 oj-flex-item">
                             <div class="oj-flex">
-                                <input type="text" class="heading-type4 oj-sm-12 oj-flex-item" data-bind="ojComponent: {
+                                <div class="oj-sm-12 oj-flex-item">
+                                    <label for="phone">Coutry Code - Phone</label>
+                                    <input id="phone" maxlength="4" data-bind="ojComponent: { 
+                                                                        component: 'ojInputText',
+                                                                        value: countryCode,
+                                                                        required: true,
+                                                                        rootAttributes: {style:'width:35px'},
+                                                                        validators: [
+                                                                            { type: 'regExp', 
+                                                                              options: { pattern: phonePattern,
+                                                                                         messageDetail: 'Please enter a valid country code.' }
+                                                                            }],
+                                                                        invalidComponentTracker: tracker}">
+                                    <span> - </span>
+                                    <input id="phone2" maxlength="16" data-bind="ojComponent: {
+                                                                          component: 'ojInputText',
+                                                                          value: addedPhoneNumber,
+                                                                          required: true,
+                                                                          validators: [
+                                                                                { type: 'regExp',
+                                                                                  options: { pattern: phonePattern,
+                                                                                             messageDetail: 'Please enter a valid phone number.' }
+                                                                                }],
+                                                                          invalidComponentTracker: tracker }">
+                                </div>
+<!--                                <input type="text" class="heading-type4 oj-sm-12 oj-flex-item" data-bind="ojComponent: {
                                                                 component: 'ojInputText',
                                                                 value: addedPhoneNumber,
                                                                 invalidComponentTracker: tracker,
@@ -109,7 +134,7 @@
                                                                     messageSummary: 'Value \'{value}\' Invalid',
                                                                     messageDetail: 'You must enter a 10 digit phone number.'}}],
                                                                 placeholder: 'Enter your phone number',
-                                                                rootAttributes: {style: 'max-width:100%'}}" />
+                                                                rootAttributes: {style: 'max-width:100%'}}" />-->
                                 <textarea rows="10" class="oj-sm-12 oj-flex-item"
                                     data-bind="ojComponent: {component: 'ojTextArea', 
                                                         value: phoneMessage, placeholder: 'Please add a message',
@@ -132,7 +157,35 @@
                     <div class="oj-sm-12 oj-flex-item">
                         <div class="oj-flex">
                             <!-- ko if: !confirmedPhoneNumber() -->
-                            <input type="text" class="heading-type4 oj-sm-12 oj-flex-item" data-bind="ojComponent: {
+                                <div class="oj-flex-item">
+                                    <label for="phone">Coutry Code - Phone</label>
+                                <!--</div>-->
+                                <!--<div class="oj-sm-12 oj-flex-item">-->
+                                    <input id="phone" maxlength="4" data-bind="ojComponent: { 
+                                                                        component: 'ojInputText',
+                                                                        value: countryCode,
+                                                                        required: true,
+                                                                        rootAttributes: {style:'width:35px'},
+                                                                        validators: [
+                                                                            { type: 'regExp', 
+                                                                              options: { pattern: phonePattern,
+                                                                                         messageDetail: 'Please enter a valid country code.' }
+                                                                            }],
+                                                                        invalidComponentTracker: tracker}">
+                                    <span> - </span>
+                                    <input id="phone" maxlength="16" data-bind="ojComponent: {
+                                                                          component: 'ojInputText',
+                                                                          value: addedPhoneNumber,
+                                                                          required: true,
+                                                                        rootAttributes: {style:'min-width:35px'},
+                                                                          validators: [
+                                                                                { type: 'regExp',
+                                                                                  options: { pattern: phonePattern,
+                                                                                             messageDetail: 'Please enter a valid phone number.' }
+                                                                                }],
+                                                                          invalidComponentTracker: tracker }">
+                                </div>
+<!--                            <input type="text" class="heading-type4 oj-sm-12 oj-flex-item" data-bind="ojComponent: {
                                                             component: 'ojInputText',
                                                             value: addedPhoneNumber,
                                                             invalidComponentTracker: tracker,
@@ -141,14 +194,15 @@
                                                                 pattern: '\\d{10}',
                                                                 messageDetail: 'You must enter a 10 digit phone number.'}}],
                                                             placeholder: 'Enter your phone number',
-                                                            rootAttributes: {style: 'max-width:100%'}}" />
+                                                            rootAttributes: {style: 'max-width:100%'}}" />-->
                             <!-- /ko -->
                             <!-- ko if: confirmedPhoneNumber() -->
                             <span class="label-text" data-bind="text: 'Your number: ' + phoneNumber()"></span>
                             <!-- /ko -->
                             <textarea rows="10" class="oj-sm-12 oj-flex-item"
                                     data-bind="ojComponent: {component: 'ojTextArea', 
-                                                        value: phoneMessage, placeholder: 'Please add a message',
+                                                        value: phoneMessage,
+                                                        placeholder: 'Please add a message',
                                                         invalidComponentTracker: tracker,
                                                         required: true,
                                                         rootAttributes: {style:'max-width:100%'},

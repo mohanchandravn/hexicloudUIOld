@@ -1,7 +1,7 @@
 
-define(['ojs/ojcore', 'jquery', 'knockout', 'config/serviceConfig', 'js/util/errorhandler', 'config/sessionInfo', 'ojs/ojinputtext', 'ojs/ojknockout-validation'], 
+define(['ojs/ojcore', 'jquery', 'knockout', 'config/serviceConfig', 'js/util/errorhandler', 'config/sessionInfo', 'js/util/commonhelper', 'ojs/ojinputtext', 'ojs/ojknockout-validation'], 
 
-function (oj, $, ko, service, errorHandler, sessionInfo) {
+function (oj, $, ko, service, errorHandler, sessionInfo, commonHelper) {
 
     function techSupportViewModel(context) {
         
@@ -9,6 +9,7 @@ function (oj, $, ko, service, errorHandler, sessionInfo) {
         
         self.selectedTemplate = ko.observable('phone_content');
         self.isCallBackInitiated = ko.observable(false);
+        self.countryCode = ko.observable();
         self.phoneNumber = ko.observable();
         self.addedPhoneNumber = ko.observable();
         self.confirmedPhoneNumber = ko.observable();
@@ -18,7 +19,8 @@ function (oj, $, ko, service, errorHandler, sessionInfo) {
         self.emailMessage = ko.observable();
         self.detailsOfSR = ko.observable();
         self.statusOfSR = ko.observable(false);
-        self.tracker = ko.observable();       
+        self.tracker = ko.observable();
+        self.phonePattern = commonHelper.phoneRegExpPattern;
 
         self._showComponentValidationErrors = function (trackerObj) {
             trackerObj.showMessages();
@@ -60,8 +62,10 @@ function (oj, $, ko, service, errorHandler, sessionInfo) {
             var id = event.currentTarget.id;
             if (id === "correctNumber") {
                 self.confirmedPhoneNumber(true);
+                self.countryCode('');
             } else {
                 self.confirmedPhoneNumber(false);
+                self.countryCode('');
             }
             self.changingNumber(true);
         };
@@ -90,7 +94,7 @@ function (oj, $, ko, service, errorHandler, sessionInfo) {
             }
             
             if (!self.confirmedPhoneNumber() || !self.phoneNumberAdded()) {
-                sessionInfo.setToSession(sessionInfo.phoneNumber, self.addedPhoneNumber());
+                sessionInfo.setToSession(sessionInfo.phoneNumber, self.countryCode() + '-' + self.addedPhoneNumber());
             }            
 //            if () {
 //                sessionInfo.setToSession(sessionInfo.phoneNumber, self.addedPhoneNumber());
