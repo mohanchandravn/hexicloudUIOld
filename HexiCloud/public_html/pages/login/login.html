@@ -81,11 +81,11 @@ and open the template in the editor.
                                                  rootAttributes: {style:'max-width:100%'}}"/>
         </div>-->
         <div class="oj-sm-10 oj-md-10 oj-lg-8 oj-xl-8 oj-flex-item login-form-group">
-            <div class="align-content-center oj-flex" data-bind="css: viewportSize() === 'SM' ? 'text-center' : ''">
-                <div class="oj-flex-item oj-sm-8 oj-md-5 oj-lg-8 oj-xl-8 login-form-group">
-                    <a class="red-button" data-bind="click: login">Login</a>
+            <div class="oj-sm-justify-content-center oj-sm-flex-direction-column oj-flex" data-bind="css: viewportSize() === 'SM' ? 'text-center' : ''">
+                <div class="oj-flex-item login-form-group">
+                    <a class="login-button red-button" data-bind="click: login">Login</a>
                 </div>
-                <div class="oj-flex-item oj-sm-8 oj-md-5 oj-lg-8 oj-xl-8 oj-md-justify-content-flex-end login-form-group">
+                <div class="oj-flex-item oj-md-justify-content-flex-end login-form-group">
                     <a href="#" class="forgotten" data-bind="click: onClickForgotPassword">Forgotten your password?</a>
                 </div>
             </div>
