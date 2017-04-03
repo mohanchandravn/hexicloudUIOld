@@ -160,12 +160,20 @@ and open the template in the editor.
     border: none;
     padding: 15px;
     background-color: #eaeef0;
-    /*    width: 90%;*/
     width: calc(100% - 30px);
     margin-top: 20px;
     height: 20px;
     font-size: 14px;
     line-height: 1.428571429;
+}
+
+.tech-support-container .navContainer .phone-container {
+    margin-top: 20px;
+}
+
+.tech-support-container .navContainer .phone-input {
+    width: 100%;
+    margin-top: 0px;
 }
 
 .tech-support-container .navContainer textArea{
