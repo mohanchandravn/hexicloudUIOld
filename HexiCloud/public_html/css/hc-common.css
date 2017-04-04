@@ -248,7 +248,8 @@ p.lg {
     margin-top: 10px !important;
     background-image: none !important;
     color: #fff;
-    font-size: 24px;
+    font-size: 18px;
+    font-weight: lighter;
     line-height: 3.5rem;
     cursor: pointer;
     width:100%;

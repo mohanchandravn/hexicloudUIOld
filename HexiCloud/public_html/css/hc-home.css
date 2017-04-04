@@ -55,15 +55,15 @@ and open the template in the editor.
 }
     
 .home-page .ring .filmStrip-title {
-    font-weight: bold;
+    font-weight: lighter;
     color: #f80000;
-    font-size: 26px;
+    font-size: 23px;
 }
 
 .home-page .ring .filmStrip-description {
-    font-weight: normal;
+    font-weight: lighter;
     color: #333;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .home-page .ring .oj-filmstrip {

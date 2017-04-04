@@ -192,24 +192,19 @@ and open the template in the editor.
 
 .provisioned-services .service .head img {
     float: left;
-    margin-top: 25px;
-    margin-right: 10px;
-    vertical-align: middle;
-    border: 0;
-}
-
-.provisioned-services .service .head img {
-    float: left;
-    margin-top: 25px;
-    margin-right: 10px;
     vertical-align: middle;
     border: 0;
 }
 
 .provisioned-services .service .head .metered {
-    font-size: 14px;
+    font-size: 12px;
     margin: 30px 0 -5px 0;
     padding: 0;
+}
+
+.provisioned-services .service .head .serviceName {
+    font-size: 21px;
+    font-weight: lighter;
 }
 
 .provisioned-services .service .head p {
@@ -242,7 +237,7 @@ and open the template in the editor.
 }
 
 .provisioned-services .service .row-count-3 {
-    min-height: 185px;
+    min-height: 80px;
     box-sizing: border-box;
 }
 
@@ -341,6 +336,11 @@ and open the template in the editor.
     font-size: 14px;
 }
 
+.serviceDetails{
+    float:left;
+    margin:10px;
+}
+
 @media only screen and (max-width: 480px) {
     .provisioned-services .content.stage h1 {
         font-size: 38px;
@@ -374,8 +374,8 @@ and open the template in the editor.
         padding: 0px 120px 10px 10px;
     }
     .provisioned-services .service .head .img-dimen {
-       width : 55px !important;
-       height: 45px !important;
+       width : 30px !important;
+       height: 30px !important;
     }
     .provisioned-services .service .head .metered {
         font-size: 12px;
@@ -410,8 +410,8 @@ and open the template in the editor.
 }
 
 .provisioned-services .service .head .img-dimen {
-   width : 65px;
-   height: 55px;
+   width : 30px;
+   height: 30px;
 }
 
 .provisioned-services .service .body .col-80 {
@@ -423,5 +423,5 @@ and open the template in the editor.
 
 .provisioned-services .service .body .uom-color {
     color: #56638a;
-    font-weight: bolder;
+    font-weight: lighter;
 }
