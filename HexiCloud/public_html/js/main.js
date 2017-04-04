@@ -176,7 +176,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                 self.showHeaderNav = ko.computed(function () {
                     var id = router.currentState().id;
                     var pages = ["dashboard", "useCases", "faqs"];
-                    return (pages.indexOf(id) > 0) ? '' : 'visibility-hidden';
+                    return (pages.indexOf(id) > -1) ? '' : 'visibility-hidden';
                 });
                 
                 self.showPreloader = function() {
