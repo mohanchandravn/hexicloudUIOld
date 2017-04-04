@@ -17,14 +17,18 @@
                         <span class="heading-type3 text-center oj-sm-12 oj-flex-item">Watch the screencast to add users</span>
                     </div>
                     <div class="oj-flex align-content-center header-border-top" data-bind="css: {'video-link-container-lg' : isScreenLGorXL()}">
-                        <a href="https://www.youtube.com/embed/VgeH6cKHXKo?rel=0" class="grey-button margin-bottom-5px" target="addUserVidFrame">
+                        <a id="myAccount" class="grey-button margin-bottom-5px" target="addUserVidFrame"
+                           data-bind="click: setSelectedTypeById">
                             <i class="material-icons" style="opacity: 1;">play_circle_filled</i>
                             <span data-bind="text: 'Get Started - 3 mins'"></span>
                         </a>
-                        <a href="https://www.youtube.com/embed/8m7HF9xB0qc?rel=0" class="grey-button" target="addUserVidFrame">
+                        <!--<span data-bind="text: getStartedVideoDesc"></span>-->
+                        <a id="myServices" class="grey-button" target="addUserVidFrame"
+                           data-bind="click: setSelectedTypeById">
                             <i class="material-icons" style="opacity: 1;">play_circle_filled</i>
                             <span data-bind="text: 'Advanced - 14 mins'"></span> 
                         </a>
+                        <!--<span data-bind="text: advancedVideoDesc"></span>-->
                         <!--                            <div class="oj-flex-bar-start oj-lg-4 grey-button" data-bind="text: '> Beginner - 2 mins'">
                                                         
                                                     </div>
@@ -32,8 +36,12 @@
                                                         
                                                     </div>-->
                     </div>
+                    <div class="oj-sm-only-hide oj-padding-bottom oj-flex">
+                        <span class="label-text color-blue" data-bind="text: getSelectedServiceHeader"></span>
+                    </div>
                     <div class="oj-flex">
-                        <iframe style="width: 100%; height: 255px;" name="addUserVidFrame" src="https://www.youtube.com/embed/VgeH6cKHXKo?rel=0" id="addUsersVid" allowfullscreen></iframe>
+                        <iframe style="width: 100%; height: 255px;" name="addUserVidFrame" id="addUsersVid" allowfullscreen
+                                data-bind="attr: { src: getSelectedServiceVideoLink}"></iframe>
 <!--                        <video style="width:100%" poster="img/video-cover-playBtn-2x.jpg" controls id="createUsersVid">
                             <source class="oj-flex"  type="video/mp4" data-bind="attr:{src:videoSrc}">
                         </video>-->
@@ -42,7 +50,7 @@
                 </div>
                 <div class="oj-flex-item oj-lg-5 oj-sm-12" data-bind="css: isScreenLGorXL() ? 'oj-margin-lg-start' : ''">
                     <div class="oj-hybrid-padding-start oj-hybrid-padding-bottom header-border-bottom oj-margin-lg-end oj-flex">
-                        <span class="heading-type3 text-center oj-sm-12 oj-flex-item" data-bind="text: viewportSize() === 'SM' ? 'Follow the steps to add users' : 'Follow the steps'"></span>
+                        <span class="heading-type4 color-blue text-center oj-sm-12 oj-flex-item" data-bind="text: 'Follow the steps to add Users through MyServices'"></span>
                     </div>
                     <div id="tutsteps" class="oj-flex create-user-steps-container">
                         <ol>

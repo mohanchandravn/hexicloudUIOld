@@ -7,7 +7,11 @@ define(['ojs/ojcore',
 
     function addUsersTutorialViewModel(params) {
         var self = this;
+        self.getSelectedServiceHeader = ko.observable("How to add Identity Domain Administrator through MyAccount");
+        self.getSelectedServiceVideoLink = ko.observable("https://www.youtube.com/embed/VgeH6cKHXKo?rel=0");
 
+//        self.getStartedVideoDesc = ko.observable('How to Add an Identity Domain administrator with My Account');
+//        self.advancedVideoDesc = ko.observable('How to Add other users with My Services');
 //        self.videoSrc = ko.observable("https://www.youtube.com/embed/33d3w4QZsPI");
 
 //        self.getShortVideo = function () {
@@ -20,7 +24,17 @@ define(['ojs/ojcore',
 //            self.videoSrc("https://www.youtube.com/embed/FTzdGfbL4Is");
 ////            $("#createUsersVid")[0].load();
 //        };
-
+        
+        self.setSelectedTypeById = function(data, event) {
+            if (event.currentTarget.id === "myAccount") {
+                self.getSelectedServiceHeader("How to add Identity Domain Administrator through MyAccount");
+                self.getSelectedServiceVideoLink("https://www.youtube.com/embed/VgeH6cKHXKo?rel=0");
+            } else if (event.currentTarget.id === "myServices") {
+                self.getSelectedServiceHeader("How to add Users through MyServices");
+                self.getSelectedServiceVideoLink("https://www.youtube.com/embed/8m7HF9xB0qc?rel=0");
+            }
+        };
+        
         self.goToServices = function () {
 //            setTimeout(function () {
             service.updateCurrentStep({

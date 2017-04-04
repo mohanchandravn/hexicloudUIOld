@@ -116,6 +116,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                 'createUsers': {label: 'Add Users Tutorial', value: getPath('addUsersTutorial')},
                 'techSupport': {label: 'Techical Support', value: getPath('techSupport')},
                 'useCases': {label: 'Use Cases', value: getPath('useCases')},
+                'faqs': {label: 'FAQ\'s', value: getPath('faqs')},
                 'error': {label: 'Error', value: getPath('error')}
             });
 
@@ -174,12 +175,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
 
                 self.showHeaderNav = ko.computed(function () {
                     var id = router.currentState().id;
-//                    if (id === 'dashboard' || id === 'useCases') {
-//                        return "";
-//                    } else {
-//                        return "visibility-hidden";
-//                    }
-                    return (id === 'dashboard' || id === 'useCases') ? '' : 'visibility-hidden';
+                    var pages = ["dashboard", "useCases", "faqs"];
+                    return (pages.indexOf(id) > 0) ? '' : 'visibility-hidden';
                 });
                 
                 self.showPreloader = function() {
@@ -290,28 +287,29 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                     return (oj.OffcanvasUtils.open(navigationDrawerLeft));
                 };
                 
-                self.routeToDashboard = function (data, event)
-                {
+                self.routeToDashboard = function (data, event) {
                     routeTo(data,event);
                     self.isDashboardSelected(true);
                 };
                 
-                self.routeToUsecase = function (data, event)
-                {
+                self.routeToUsecase = function (data, event) {
                     routeTo(data,event);
                     self.isUseCaseSelected(true);
                 };
                 
-                self.routeToResources = function (data, event)
-                {
+                self.routeToResources = function (data, event) {
                     //routeTo(data,event);
                     self.clearSelectedList();
                     self.isResourceSelected(true);
                     self.toggleResourcesType();
+                };                
+                
+                self.routeToFAQs = function (data, event) {
+                    //routeTo(data,event);
+                    self.clearSelectedList();
+                    routeTo(data,event);
                 };
                 
-
-
                 var routeTo = function (data, event) {
                     console.log(event.currentTarget.id);
                     self.clearSelectedList();
@@ -319,8 +317,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                     self.toggleLeft();
                 };
 
-                self.clearSelectedList = function ()
-                {
+                self.clearSelectedList = function () {
                     self.isDashboardSelected(false);
                     self.isUseCaseSelected(false);
                     self.isResourceSelected(false);

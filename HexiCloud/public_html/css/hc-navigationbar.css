@@ -166,7 +166,11 @@ navigationbarleft {
 }
 
 .nav-list .sub-nav .sub-nav-content:hover {
-    color: #ee4f50;
+    color: #FFFFFF;
+}
+
+.nav-list .sub-nav .sub-nav-title:hover {
+    color: #FFFFFF;
 }
 
 .nav-list .sub-nav {
