@@ -337,7 +337,7 @@ and open the template in the editor.
 }
 
 .serviceDetails{
-    float:left;
+    /*float:left;*/
     margin:10px;
 }
 
