@@ -16,23 +16,22 @@ define(['knockout', 'config/serviceConfig'
         var self = this;
         var router = params.ojRouter.parentRouter;
         
-        self.pdfSrc = ko.observable("");
+        self.pdfSrc = ko.observable();
         
         var successCbFn = function(data, status) {
             console.log(data);
-            if (status !== 'nocontent') {
-                self.pdfSrc(data.Service.FeaturesLink);
-            } else {
-                alert('Please add pdf link to DB');
-            }
+            self.pdfSrc(data.UseCase.FeaturesLink);
+            hidePreloader();
         };
         
         var failCbFn = function(xhr) {
             console.log(xhr);
+            hidePreloader();
         };
         
         self.handleAttached = function() {
-            service.getServiceDetails('faqs').then(successCbFn, failCbFn);
+            showPreloader();
+            service.getUseCaseDetails("faq").then(successCbFn, failCbFn);
         };
     }
     

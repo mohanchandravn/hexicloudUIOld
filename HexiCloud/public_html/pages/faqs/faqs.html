@@ -7,7 +7,12 @@ and open the template in the editor.
 <div class="faqs-page oj-flex">
     <div class="oj-sm-12 oj-flex-item">
         <div class="oj-padding oj-flex">
-            <iframe id="pdf" style="width: 100%;" height="500" data-bind="attr : { src: 'https://docs.google.com/gview?url=' + pdfSrc() + '&embedded=true' }" frameborder="0"></iframe>
+            <!-- ko if: pdfSrc() !== undefined -->
+            <iframe id="pdf" style="width: 100%;" data-bind="attr : { 
+                height: $(window).innerHeight() > 500 ? $(window).innerHeight() - 100 : $(window).innerWidth() - 100,
+                src: 'https://docs.google.com/gview?url=' + pdfSrc() + '&embedded=true' }" frameborder="0">
+            </iframe>
+            <!-- /ko -->
         </div>
     </div>
 </div>

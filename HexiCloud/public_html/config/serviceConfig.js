@@ -255,7 +255,7 @@ define(['knockout', 'jquery', 'config/sessionInfo', 'ojs/ojrouter'
                     defer.resolve(data, status);
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    console.log("Error retrieving service details at: " + serverType);
+                    console.log("Error retrieving service details at: " + serverURL);
                     defer.reject(xhr);
                 }
             });
@@ -292,8 +292,7 @@ define(['knockout', 'jquery', 'config/sessionInfo', 'ojs/ojrouter'
                 success: function (data, status) {
                     defer.resolve(data, status);
                 },
-                error: function (xhr, ajaxOptions, thrownError)
-                {
+                error: function (xhr, ajaxOptions, thrownError) {
                     defer.reject(xhr);
                 }
             });
