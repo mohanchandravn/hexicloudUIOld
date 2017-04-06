@@ -16,10 +16,12 @@ define(['knockout', 'config/serviceConfig'
         var self = this;
         var router = params.ojRouter.parentRouter;
         
+        self.header = ko.observable();
         self.pdfSrc = ko.observable();
         
         var successCbFn = function(data, status) {
             console.log(data);
+            self.header(data.UseCase.title);
             self.pdfSrc(data.UseCase.FeaturesLink);
             hidePreloader();
         };
@@ -27,6 +29,13 @@ define(['knockout', 'config/serviceConfig'
         var failCbFn = function(xhr) {
             console.log(xhr);
             hidePreloader();
+        };
+
+        self.onClickFeedback = function () {
+            if (selectedTemplate() === "") {
+                selectedTemplate('email_content');
+            }
+            $("#tech_support").slideToggle();
         };
         
         self.handleAttached = function() {
