@@ -53,7 +53,8 @@ define(['ojs/ojcore',
                 "userRole": loggedInUserRole(),
                 "curStepCode": "addAdditionalUsers",
                 "preStepCode": getStateId(),
-                "userAction": "Selected Role as : " + loggedInUserRole()
+                "userAction": "Selected Role as : " + loggedInUserRole(),
+                  "updateRole" : true
             });
 //            setTimeout(function () {
             //$.fn.fullpage.moveSlideLeft();
