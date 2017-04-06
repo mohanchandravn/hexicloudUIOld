@@ -423,5 +423,10 @@ and open the template in the editor.
 
 .provisioned-services .service .body .uom-color {
     color: #56638a;
+    font-size: 22px;
     font-weight: lighter;
+}
+
+.provisioned-services .service .body .short-desc {
+    font-size: 16px;
 }

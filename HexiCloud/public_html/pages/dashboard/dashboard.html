@@ -46,11 +46,10 @@ and open the template in the editor.
                         <div class="body oj-flex" data-bind="css: 'row-count-' + $parent.detailsContentMaxHeight()">
                             <div class="oj-sm-12 oj-flex-item">
                                 <!-- ko foreach: details -->
-<!--                                <p class="serviceDetails text-center"><span class="uom-color" data-bind="text: quantity"></span>&nbsp;<span style="font-weight:bolder" data-bind="text: uom"></span></p>-->
-                                <p class="serviceDetails text-center oj-sm-justify-content-center oj-flex">
+                                <p class="serviceDetails text-center oj-sm-justify-content-center oj-sm-align-items-center oj-flex">
                                     <span class="uom-color" data-bind="text: quantity"></span>&nbsp;<span color="font-weight:bolder" data-bind="text: uom"></span>
-                                    <!-- ko if: tier9ShortDesc !== null -->
-                                    &nbsp;<span data-bind="text: '(' + tier9ShortDesc + ')', attr: { title: tier9LongDesc }"></span>
+                                    <!-- ko if: tier9ShortDesc !== null && tier9ShortDesc !== "" -->
+                                    &nbsp;<span class="short-desc" data-bind="text: '(' + tier9ShortDesc + ')', attr: { title: tier9LongDesc }"></span>
                                     <!-- /ko -->
                                 </p>
                                 <!-- /ko -->
