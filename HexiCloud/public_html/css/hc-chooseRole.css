@@ -195,11 +195,11 @@ and open the template in the editor.
 }
 
 .grey-button {
-    /*width: 220px;*/
+    min-width: 241px;
     color: #00758f !important;
     font-size: 18px;
     font-weight: bold;
-    padding: 7px 8px;
+    padding: 7px 15px 7px 8px;
     display: inline-block;
     text-align: center;
     height: 40px;

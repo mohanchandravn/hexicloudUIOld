@@ -95,7 +95,7 @@ function (oj, $, ko, service, errorHandler, sessionInfo, commonHelper) {
             
             if (!self.confirmedPhoneNumber() || !self.phoneNumberAdded()) {
                 sessionInfo.setToSession(sessionInfo.phoneNumber, self.countryCode() + '-' + self.addedPhoneNumber());
-            }            
+            }
 
             var phone = sessionInfo.getFromSession('phoneNumber');
             var payload = {
