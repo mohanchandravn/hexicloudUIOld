@@ -12,23 +12,27 @@
     <!--<div class="container">-->
         <div class="oj-sm-12 oj-flex-item">
             <div class="oj-margin oj-sm-justify-content-center oj-flex" style="z-index:999;">
-                <div class="oj-sm-12 oj-lg-5 oj-flex-item">
+                <div class="oj-sm-12 oj-lg-6 oj-flex-item">
                     <div class="oj-hybrid-padding-start oj-hybrid-padding-bottom oj-margin-lg-end oj-flex">
                         <span class="heading-type3 text-center oj-sm-12 oj-flex-item">Watch the screencast to add users</span>
                     </div>
-                    <div class="oj-flex align-content-center header-border-top" data-bind="css: {'video-link-container-lg' : isScreenLGorXL()}">
-                        <a id="myAccount" class="grey-button margin-bottom-5px" target="addUserVidFrame"
-                           data-bind="click: setSelectedTypeById">
-                            <i class="material-icons" style="opacity: 1;">play_circle_filled</i>
-                            <span data-bind="text: 'Get Started - 3 mins'"></span>
-                        </a>
-                        <!--<span data-bind="text: getStartedVideoDesc"></span>-->
-                        <a id="myServices" class="grey-button" target="addUserVidFrame"
-                           data-bind="click: setSelectedTypeById">
-                            <i class="material-icons" style="opacity: 1;">play_circle_filled</i>
-                            <span data-bind="text: 'Advanced - 14 mins'"></span> 
-                        </a>
+                    <div class="header-border-top oj-sm-justify-content-center oj-flex">
+                        <div class="text-center oj-sm-12 oj-lg-6 oj-flex-item">
+                            <a id="myAccount" class="grey-button margin-bottom-5px" target="addUserVidFrame"
+                               data-bind="click: setSelectedTypeById">
+                                <i class="material-icons" style="opacity: 1;">play_circle_filled</i>
+                                <span data-bind="text: 'Get Started - 3 mins'"></span>
+                            </a>
+                            <!--<span data-bind="text: getStartedVideoDesc"></span>-->
+                        </div>
+                        <div class="text-center oj-sm-12 oj-lg-6 oj-flex-item">
+                            <a id="myServices" class="grey-button" target="addUserVidFrame"
+                               data-bind="click: setSelectedTypeById">
+                                <i class="material-icons" style="opacity: 1;">play_circle_filled</i>
+                                <span data-bind="text: 'Advanced - 14 mins'"></span> 
+                            </a>
                         <!--<span data-bind="text: advancedVideoDesc"></span>-->
+                        </div>
                         <!--                            <div class="oj-flex-bar-start oj-lg-4 grey-button" data-bind="text: '> Beginner - 2 mins'">
                                                         
                                                     </div>
@@ -124,6 +128,3 @@
         </div>
     <!--</div>-->
 </div>
-
-
-
