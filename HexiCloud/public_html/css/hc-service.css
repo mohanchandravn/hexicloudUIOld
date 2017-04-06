@@ -337,7 +337,6 @@ and open the template in the editor.
 }
 
 .serviceDetails{
-    /*float:left;*/
     margin:10px;
 }
 
@@ -418,15 +417,19 @@ and open the template in the editor.
     display: inline-block;
     width: 80%;
     padding: 0 20px;
-    /*border-right: 1px solid #bbcfda;*/
 }
 
-.provisioned-services .service .body .uom-color {
-    color: #56638a;
-    font-size: 22px;
-    font-weight: lighter;
+.provisioned-services .service .body .uom-quantity {
+    font-size: 26px;
+    height: 26px;
+}
+
+.provisioned-services .service .body .uom-measurement {
+    font-size: 18px;
+    height: 19px;
 }
 
 .provisioned-services .service .body .short-desc {
     font-size: 16px;
+    height: 19px;
 }
