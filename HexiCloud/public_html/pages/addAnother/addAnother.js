@@ -9,7 +9,7 @@ define(['ojs/ojcore',
         self.greetingText = ko.observable("Thanks, " + userFirstLastName());
         self.headerTitle = ko.observable("To add more users, select ‘Add users now’ for a step-by-step guide.");
         self.addButtonLabel = ko.observable("Add users now »");
-        self.skipHelpText = ko.observable("To skip this step, select ‘skip’ and begin checking your provisioned cloud services now.");
+        self.skipHelpText = ko.observable("To skip this step, select ‘Skip’ and begin checking your provisioned cloud services now.");
         self.skipButtonLabel = "Skip this step »";
         var router = params.ojRouter.parentRouter;
 

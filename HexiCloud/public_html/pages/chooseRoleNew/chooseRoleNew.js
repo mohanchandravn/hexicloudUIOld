@@ -14,7 +14,7 @@ define(['ojs/ojcore',
         self.tracker = ko.observable();
         
         self.headerTitle = "There are 3 easy steps to complete the onboarding process and get started with your services:";
-        self.welcomeUserMessage = ko.observable("Welcome ");
+        self.welcomeUserMessage = ko.observable("Welcome, ");
         self.selectedRole = ko.observable();
         self.allRolesList = ko.observableArray([
             {value: 'IT Production Manager', label: 'IT Production Manager'},

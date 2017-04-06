@@ -94,7 +94,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojfilmstrip',
 //            slideInAnimate(500, 0);
             self.interval = ko.observable(setInterval(function() {
                 self.changeFilmStripValue();
-            }, 3000));
+            }, 8000));
         };
         
         self.handleDetached = function() {

@@ -110,12 +110,13 @@ define(['jquery', 'knockout', 'config/serviceConfig', 'config/sessionInfo', 'ojs
             showPreloader();
             console.log(data);
             console.log(event);
+            var serviceClicked = data.service;
             var serverType = data.service.toLowerCase();
             console.log(serverType);
 
             var successCbFn = function (data, status) {
                 console.log(data);
-                self.selectedServiceItem(serverType);
+                self.selectedServiceItem(serviceClicked);
                 if (status !== 'nocontent') {
                     self.hsaServiceBenefits(true);
                     self.selectedItemTitle(data.Service.title);
