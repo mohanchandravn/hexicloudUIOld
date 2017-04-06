@@ -40,6 +40,7 @@ define(['knockout', 'jquery', 'config/serviceConfig', 'config/sessionInfo', 'ojs
                 var iDomain = $(this).val();
                 return self.isIDomainActive(iDomain.length > 0);
             });
+            $("#username").focus();
             $("#username").keypress(function (e) {
                 if (e.keyCode === 13 && self.userName() !== undefined) {
                     $("#password").focus();
