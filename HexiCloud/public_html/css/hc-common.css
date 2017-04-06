@@ -353,7 +353,7 @@ login-page video::-webkit-media-controls-start-playback-button {
 
 .preloader-container {
     position: fixed;
-    left: 42%;
+    left: calc(50% - 36px);
     height: 100%;
     width: 100%;
 }

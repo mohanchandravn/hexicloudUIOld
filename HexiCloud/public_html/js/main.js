@@ -345,8 +345,8 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'config/sessionInfo', 'js/util/erro
                     self.isUseCaseSelected(false);
                     self.isResourceSelected(false);
                     self.isContactSelected(false);
-                    router.go('home/');
                     location.reload();
+                    router.go('home/');
                 };
 
                 $(window).resize(function () {

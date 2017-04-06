@@ -96,10 +96,7 @@ function (oj, $, ko, service, errorHandler, sessionInfo, commonHelper) {
             if (!self.confirmedPhoneNumber() || !self.phoneNumberAdded()) {
                 sessionInfo.setToSession(sessionInfo.phoneNumber, self.countryCode() + '-' + self.addedPhoneNumber());
             }            
-//            if () {
-//                sessionInfo.setToSession(sessionInfo.phoneNumber, self.addedPhoneNumber());
-//            }
-            
+
             var phone = sessionInfo.getFromSession('phoneNumber');
             var payload = {
                 "userId" : sessionInfo.getFromSession('loggedInUser'),
@@ -110,15 +107,10 @@ function (oj, $, ko, service, errorHandler, sessionInfo, commonHelper) {
         };
 
         self.resetAndClosePhone = function () {
-//            self.phoneNumber("");
             self.addedPhoneNumber("");
             self.phoneMessage("");
             self.changingNumber(false);
             self.isCallBackInitiated(false);
-            console.log(self.phoneNumber());
-            console.log(self.phoneMessage());
-            console.log(self.changingNumber());
-            console.log(self.isCallBackInitiated());
         };
         
         self.closeTechSupportLayout = function () {
@@ -129,12 +121,6 @@ function (oj, $, ko, service, errorHandler, sessionInfo, commonHelper) {
             self.changingNumber(false);
             self.resetAndClosePhone();
             $('#tech_support').hide();
-        };
-
-        self.handleAttached = function () {
-            // slideInAnimate(500, 0);
-            $('#tech_support').hide();
-            $('#chat').addClass('tab-selected');
         };
 
         var successCallBackFn = function (data, status) {
