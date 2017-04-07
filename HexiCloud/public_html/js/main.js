@@ -11,7 +11,7 @@ requirejs.config({
                         'knockout': 'js/libs/knockout/knockout-3.4.0',
                         'jquery': 'js/libs/jquery/jquery-3.1.0.min',
                         'jqueryui-amd': 'js/libs/jquery/jqueryui-amd-1.12.0.min',
-                        'ojs': 'js/libs/oj/v2.2.0/debug',
+                        'ojs': 'js/libs/oj/v2.2.0/min',
                         'ojL10n': 'js/libs/oj/v2.2.0/ojL10n',
                         'ojtranslations': 'js/libs/oj/v2.2.0/resources',
                         'signals': 'js/libs/js-signals/signals.min',
